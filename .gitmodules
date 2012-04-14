@@ -10,3 +10,6 @@
 [submodule "bundle/play2vim"]
 	path = bundle/play2vim
 	url = https://github.com/gre/play2vim.git
+[submodule "bundle/vim-sbt"]
+	path = bundle/vim-sbt
+	url = https://github.com/derekwyatt/vim-sbt.git
