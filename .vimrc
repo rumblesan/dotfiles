@@ -28,3 +28,11 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 
+function! Jslint()
+    let command='jslint '.@%
+    new
+    silent execute "read !".command
+endfunction
+
+command Jslint call Jslint()
+
