@@ -13,9 +13,9 @@
 [submodule "bundle/vim-sbt"]
 	path = bundle/vim-sbt
 	url = https://github.com/derekwyatt/vim-sbt.git
-[submodule "bundle/vim-js-beautify"]
-	path = bundle/vim-js-beautify
-	url = https://github.com/bigfish/vim-js-beautify.git
 [submodule "bundle/vim-git"]
 	path = bundle/vim-git
 	url = https://github.com/tpope/vim-git.git
+[submodule "bundle/vim-js-tools"]
+	path = bundle/vim-js-tools
+	url = https://notesandvolts@github.com/notesandvolts/vim-js-tools.git
