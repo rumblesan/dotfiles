@@ -19,3 +19,6 @@
 [submodule "bundle/vim-js-tools"]
 	path = bundle/vim-js-tools
 	url = git@github.com:notesandvolts/vim-js-tools.git
+[submodule "bundle/pyflakes"]
+	path = bundle/pyflakes
+	url = https://github.com/kevinw/pyflakes-vim.git

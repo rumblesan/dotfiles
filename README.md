@@ -17,4 +17,7 @@ to set this up, do the following
     cd .vim
     git submodule init
     git submodule update
+    cd bundle/pyflakes
+    git submodule init
+    git submodule update
 
