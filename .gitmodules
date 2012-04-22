@@ -18,7 +18,7 @@
 	url = https://github.com/tpope/vim-git.git
 [submodule "bundle/vim-js-tools"]
 	path = bundle/vim-js-tools
-	url = git@github.com:notesandvolts/vim-js-tools.git
+	url = git@github.com:rumblesan/vim-js-tools.git
 [submodule "bundle/pyflakes"]
 	path = bundle/pyflakes
 	url = https://github.com/kevinw/pyflakes-vim.git
