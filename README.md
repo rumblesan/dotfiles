@@ -12,7 +12,7 @@ to set this up, do the following
 
     cd ~
     git clone git://github.com/notesandvolts/vim-settings.git
-    mv vim-settings .vim
+    ln -s vim-settings/ .vim
     ln -s .vim/.vimrc .vimrc
     cd .vim
     git submodule init
