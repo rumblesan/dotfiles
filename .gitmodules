@@ -22,3 +22,6 @@
 [submodule "bundle/pyflakes"]
 	path = bundle/pyflakes
 	url = https://github.com/kevinw/pyflakes-vim.git
+[submodule "bundle/vim-processing"]
+	path = bundle/vim-processing
+	url = git@github.com:rumblesan/vim-processing.git
