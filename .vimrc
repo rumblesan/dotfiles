@@ -23,6 +23,9 @@ set noswapfile
 set autoindent
 set smartindent
 
+"stop files folding when they're opened
+set foldlevelstart=99
+
 "actual formatting options
 set expandtab
 set tabstop=4
