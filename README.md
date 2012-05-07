@@ -5,19 +5,15 @@ This is a repo to keep all my vim plugins and settings. This is meant to be used
 
 Plugins are added as submodules.
 .vimrc is meant to be symlinked from ~/.vim/.vimrc
+.gvimrc is the same
 
 ## Setup
 
 to set this up, do the following
 
     cd ~
-    git clone git://github.com/notesandvolts/vim-settings.git
+    git clone --recursive git://github.com/notesandvolts/vim-settings.git
     ln -s vim-settings/ .vim
     ln -s .vim/.vimrc .vimrc
-    cd .vim
-    git submodule init
-    git submodule update
-    cd bundle/pyflakes
-    git submodule init
-    git submodule update
+    ln -s .vim/.gvimrc .gvimrc
 
