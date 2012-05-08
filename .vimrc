@@ -7,7 +7,7 @@ set number
 set ruler
 colorscheme evening
 
-set visualbell       "use visual instead of audible bell
+set noerrorbells t_vb=
 
 "turns off the swap file stuff
 set nobackup
