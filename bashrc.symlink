@@ -56,8 +56,12 @@ export SVN_EDITOR="mvim -f"
 # LS AND DIRCOLORS
 # ----------------------------------------------------------------------
 
-# we always pass these to ls(1)
-LS_COMMON="-hBG"
+# If this is OSX and we have coreutils installed
+# `brew install coreutils`
+if $(gls &>/dev/null)
+then
+    alias ls="gls -h --color"
+fi
 
 # if the dircolors utility is available, set that up to
 dircolors="$(type -P gdircolors dircolors | head -1)"
@@ -69,12 +73,4 @@ test -n "$dircolors" && {
     eval `$dircolors --sh $COLORS`
 }
 unset dircolors
-
-# setup the main ls alias if we've established common args
-test -n "$LS_COMMON" &&
-alias ls="command ls $LS_COMMON"
-
-# these use the ls aliases above
-alias ll="ls -l"
-alias l.="ls -d .*"
 
