@@ -1,0 +1,80 @@
+
+# don't put duplicate lines in the history. See bash(1) for more options
+# ... or force ignoredups and ignorespace
+HISTCONTROL=ignoredups:ignorespace
+
+# ----------------------------------------------------------------------
+# PATH
+# ----------------------------------------------------------------------
+
+export PATH=/usr/local/bin:$PATH:/usr/local/share/python
+
+# put ~/bin on PATH if you have it
+test -d "$HOME/bin" &&
+PATH="$HOME/bin:$PATH"
+
+
+
+# ----------------------------------------------------------------------
+# PROMPT
+# ----------------------------------------------------------------------
+
+export PS1="\u@\h:\W# "
+
+
+# ----------------------------------------------------------------------
+# PAGER / EDITOR
+# ----------------------------------------------------------------------
+
+# See what we have to work with ...
+HAVE_VIM=$(command -v vim)
+HAVE_GVIM=$(command -v gvim)
+
+# EDITOR
+test -n "$HAVE_VIM" &&
+EDITOR=vim ||
+EDITOR=vi
+export EDITOR
+
+# PAGER
+if test -n "$(command -v less)" ; then
+    PAGER="less -FirSwX"
+    MANPAGER="less -FiRswX"
+else
+    PAGER=more
+    MANPAGER="$PAGER"
+fi
+export PAGER MANPAGER
+
+# Ack
+ACK_PAGER="$PAGER"
+ACK_PAGER_COLOR="$PAGER"
+
+export SVN_EDITOR="mvim -f"
+
+# ----------------------------------------------------------------------
+# LS AND DIRCOLORS
+# ----------------------------------------------------------------------
+
+# we always pass these to ls(1)
+LS_COMMON="-hBG"
+
+# if the dircolors utility is available, set that up to
+dircolors="$(type -P gdircolors dircolors | head -1)"
+test -n "$dircolors" && {
+    COLORS=/etc/DIR_COLORS
+    test -e "/etc/DIR_COLORS.$TERM"   && COLORS="/etc/DIR_COLORS.$TERM"
+    test -e "$HOME/.dircolors"        && COLORS="$HOME/.dircolors"
+    test ! -e "$COLORS"               && COLORS=
+    eval `$dircolors --sh $COLORS`
+}
+unset dircolors
+
+# setup the main ls alias if we've established common args
+test -n "$LS_COMMON" &&
+alias ls="command ls $LS_COMMON"
+
+# these use the ls aliases above
+alias ll="ls -l"
+alias l.="ls -d .*"
+

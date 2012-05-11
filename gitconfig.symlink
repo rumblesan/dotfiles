@@ -1,0 +1,5 @@
+[user]
+	name = Guy John
+	email = guy@rumblesan.com
+[core]
+	editor = mvim -f
