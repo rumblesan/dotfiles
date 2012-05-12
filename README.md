@@ -14,6 +14,6 @@ to set this up, do the following
     cd ~
     git clone --recursive git://github.com/notesandvolts/vim-settings.git
     ln -s vim-settings/ .vim
-    ln -s .vim/.vimrc .vimrc
-    ln -s .vim/.gvimrc .gvimrc
+    ln -s .vim/vimrc.symlink .vimrc
+    ln -s .vim/gvimrc.symlink .gvimrc
 
