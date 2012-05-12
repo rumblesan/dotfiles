@@ -11,8 +11,15 @@
 : ${LOGNAME=$(id -un)}
 : ${UNAME=$(uname)}
 
-# don't put duplicate lines in the history. See bash(1) for more options
-# ... or force ignoredups and ignorespace
+
+# ----------------------------------------------------------------------
+# ENVIRONMENT CONFIGURATION
+# ----------------------------------------------------------------------
+
+# ignore python bytecode
+FIGNORE=".pyc"
+
+# history stuff
 HISTCONTROL=ignoredups:ignorespace
 
 # ----------------------------------------------------------------------
@@ -61,8 +68,6 @@ else
 fi
 export PAGER MANPAGER
 
-export SVN_EDITOR="mvim -f"
-
 # ----------------------------------------------------------------------
 # LS AND DIRCOLORS
 # ----------------------------------------------------------------------
@@ -77,6 +82,8 @@ if [ "$UNAME" = Darwin ]; then
     else
 # Otherwise use the -G switch for colour
         alias ls="ls -hG"
+        export CLICOLOR='Yes'
+        export LSCOLORS='exgxfxfxcxdxdxhbadbxbx'
     fi
 
 else
@@ -98,4 +105,14 @@ unset dircolors
 
 # Turn on colors for grep as well
 alias grep="grep --color"
+
+
+# ----------------------------------------------------------------------
+# MISC
+# ----------------------------------------------------------------------
+
+# Used for machine specific settings
+if [ -f "$HOME/.localrc" ]; then
+    source "$HOME/.localrc"
+fi
 
