@@ -1,3 +1,15 @@
+# Guy John <http://rumblesan.com>
+# guy@rumblesan.com
+#
+# Thanks to
+# Ryan Tomayko <http://tomayko.com/about>
+# Zach Holman <http://zachholman.com/about>
+# probably others as well
+
+# the basics
+: ${HOME=~}
+: ${LOGNAME=$(id -un)}
+: ${UNAME=$(uname)}
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
@@ -49,24 +61,29 @@ else
 fi
 export PAGER MANPAGER
 
-# Ack
-ACK_PAGER="$PAGER"
-ACK_PAGER_COLOR="$PAGER"
-
 export SVN_EDITOR="mvim -f"
 
 # ----------------------------------------------------------------------
 # LS AND DIRCOLORS
 # ----------------------------------------------------------------------
 
-# If this is OSX and we have coreutils installed
+if [ "$UNAME" = Darwin ]; then
+
+# If this is OSX
+    if $(gls &>/dev/null); then
+# If coreutils is installed use GNU ls with --color switch
 # `brew install coreutils`
-if $(gls &>/dev/null)
-then
-    alias ls="gls -h --color"
+        alias ls="gls -h --color"
+    else
+# Otherwise use the -G switch for colour
+        alias ls="ls -hG"
+    fi
+
 else
-    alias ls="ls -hG"
+# If this is Linux, use normal ls and --color switch
+    alias ls="ls -h --color"
 fi
+
 
 # if the dircolors utility is available, set that up to
 dircolors="$(type -P gdircolors dircolors | head -1)"
@@ -79,5 +96,6 @@ test -n "$dircolors" && {
 }
 unset dircolors
 
+# Turn on colors for grep as well
 alias grep="grep --color"
 
