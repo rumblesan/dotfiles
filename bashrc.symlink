@@ -64,6 +64,8 @@ export SVN_EDITOR="mvim -f"
 if $(gls &>/dev/null)
 then
     alias ls="gls -h --color"
+else
+    alias ls="ls -hG"
 fi
 
 # if the dircolors utility is available, set that up to
@@ -76,4 +78,6 @@ test -n "$dircolors" && {
     eval `$dircolors --sh $COLORS`
 }
 unset dircolors
+
+alias grep="grep --color"
 
