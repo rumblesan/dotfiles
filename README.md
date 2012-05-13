@@ -1,19 +1,13 @@
-Vim Plugins and Settings
+Dotfiles
 ========================
 
-This is a repo to keep all my vim plugins and settings. This is meant to be used as the .vim folder
+This repo contains all of my important dotfiles so far
 
-Plugins are added as submodules.
-.vimrc is meant to be symlinked from ~/vim-settings/.vimrc
-.gvimrc is the same
+Any files with the .symlink extension will be automatically symlinked into my home directory by the install script.
+Vim plugins are added as submodules in the vim.symlink/bundle folder with Pathogen handling the details of loading them then.
 
 ## Setup
 
-to set this up, do the following
-
-    cd ~
-    git clone --recursive git://github.com/notesandvolts/vim-settings.git
-    ln -s vim-settings/vim.symlink .vim
-    ln -s vim-settings/vimrc.symlink .vimrc
-    ln -s vim-settings/gvimrc.symlink .gvimrc
+    Clone this repo to wherever you want to keep it
+    Run install.py
 
