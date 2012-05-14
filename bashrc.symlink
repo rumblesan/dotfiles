@@ -23,6 +23,7 @@ FIGNORE=".pyc"
 
 # history stuff
 HISTCONTROL=ignoredups:ignorespace
+alias h=history
 
 # ----------------------------------------------------------------------
 # PATH
