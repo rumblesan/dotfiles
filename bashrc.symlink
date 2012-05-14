@@ -29,7 +29,9 @@ alias h=history
 # PATH
 # ----------------------------------------------------------------------
 
-export PATH=/usr/local/bin:$PATH
+DOTFILES=$HOME/.dotfiles
+
+export PATH=/usr/local/bin:$DOTFILES/bin:$PATH
 
 #this is here for pip on OSX
 export PATH=$PATH:/usr/local/share/python
