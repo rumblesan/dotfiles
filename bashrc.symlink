@@ -29,7 +29,7 @@ alias h=history
 # PATH
 # ----------------------------------------------------------------------
 
-DOTFILES=$HOME/.dotfiles
+export DOTFILES=$HOME/.dotfiles
 
 export PATH=/usr/local/bin:$DOTFILES/bin:$PATH
 
