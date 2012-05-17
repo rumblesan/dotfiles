@@ -31,15 +31,13 @@ alias h=history
 
 export DOTFILES=$HOME/.dotfiles
 
-export PATH=/usr/local/bin:$DOTFILES/bin:$PATH
-
-#this is here for pip on OSX
-export PATH=$PATH:/usr/local/share/python
+PATH=/usr/local/bin:$DOTFILES/bin:$PATH
 
 # put ~/bin on PATH if you have it
 test -d "$HOME/bin" &&
 PATH="$HOME/bin:$PATH"
 
+export PATH
 
 
 # ----------------------------------------------------------------------
