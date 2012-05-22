@@ -2,9 +2,10 @@
 
 from glob import glob
 import os
-from sys import argv
+from sys import exit
 
 import re
+from ConfigParser import SafeConfigParser
 from argparse import ArgumentParser
 
 regexp = re.compile(r"@%\{(.+?)}%@")
@@ -14,12 +15,24 @@ def parseArgs():
     parser.add_argument('command', metavar='command', default='install',
                         choices=['install', 'uninstall'],
                         help='command to run')
+    parser.add_argument('-k', action='store', nargs=1, dest='keys',
+                        metavar='keys', help='keys file to use for templating')
 
-    return parser.parse_args()
+    args =  parser.parse_args()
+    keys = {}
 
-def main(argv):
+    if args.keys:
+        keyParser = SafeConfigParser()
+        keyParser.read(args.keys)
+        keyList = keyParser.items('keys')
+        for k, v in keyList:
+            keys[k] = v
 
-    args = parseArgs()
+    return (args, keys)
+
+def main():
+
+    args, keys = parseArgs()
 
     home = os.getenv("HOME")
     files = glob('*.symlink')
@@ -31,6 +44,26 @@ def main(argv):
         if args.command == "install":
             linkFile(filename, link)
 
+def template(template, keys):
+
+    outName = os.path.splitext(os.path.split(inFile)[-1])[0]
+    outFile = os.path.join('compiled', outName)
+
+    rf = open(template)
+    of = open(outFile, 'w')
+
+    for line in rf:
+        matches = regexp.search(line)
+        if matches:
+            matches = list(matches.groups())
+            for match in matches:
+                replacement = keys[match]
+                of.write(regexp.sub(replacement, line))
+        else:
+            of.write(line)
+
+    rf.close()
+    of.close()
 
 def removeFile(link):
     home = os.getenv("HOME")
@@ -53,5 +86,5 @@ def linkFile(filename, target):
     os.chdir(dotfilesDir)
 
 if __name__ == "__main__":
-    main(argv)
+    main()
 
