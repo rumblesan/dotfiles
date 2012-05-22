@@ -4,10 +4,23 @@ from glob import glob
 import os
 from sys import argv
 
+import re
+from argparse import ArgumentParser
+
+regexp = re.compile(r"@%\{(.+?)}%@")
+
+def parseArgs():
+    parser = ArgumentParser(description='Setup dotfiles')
+    parser.add_argument('command', metavar='command', default='install',
+                        choices=['install', 'uninstall'],
+                        help='command to run')
+
+    return parser.parse_args()
 
 def main(argv):
-    if len(argv) < 2:
-        argv.append("install")
+
+    args = parseArgs()
+
     home = os.getenv("HOME")
     files = glob('*.symlink')
     for filename in files:
@@ -15,8 +28,9 @@ def main(argv):
         linkPath = os.path.join(home, link)
         if os.path.lexists(linkPath):
             removeFile(link)
-        if argv[1] == "install":
+        if args.command == "install":
             linkFile(filename, link)
+
 
 def removeFile(link):
     home = os.getenv("HOME")
