@@ -1,10 +1,8 @@
 #!/usr/bin/env python
 
-from glob import glob
 import os
-from sys import exit
-
 import re
+from glob import glob
 from ConfigParser import SafeConfigParser
 from argparse import ArgumentParser
 
@@ -34,22 +32,36 @@ def main():
 
     args, keys = parseArgs()
 
-    home = os.getenv("HOME")
-    files = glob('*.symlink')
+    dotfileDir = os.path.join(os.getenv("HOME"), '.dotfiles')
+    compiledDir = os.path.join(dotfileDir, 'compiled')
+    os.chdir(dotfileDir)
+
+    if args.command == "install":
+        cleanup(compiledDir)
+        findTemplates(compiledDir, keys)
+
+    findSymlinks(args, dotfileDir)
+    findSymlinks(args, compiledDir)
+
+    if args.command == "uninstall":
+        cleanup(compiledDir)
+
+def cleanup(directory):
+    files = glob('%s/*' % directory)
     for filename in files:
-        link = ".%s" % filename.split(".")[0]
-        linkPath = os.path.join(home, link)
-        if os.path.lexists(linkPath):
-            removeFile(link)
-        if args.command == "install":
-            linkFile(filename, link)
+        os.unlink(filename)
 
-def template(template, keys):
+def findTemplates(outputDir, keys):
+    files = glob('*.tmplt')
+    for filename in files:
+        template(filename, outputDir, keys)
 
-    outName = os.path.splitext(os.path.split(inFile)[-1])[0]
-    outFile = os.path.join('compiled', outName)
+def template(filename, outputDir, keys):
 
-    rf = open(template)
+    outName = os.path.splitext(os.path.split(filename)[-1])[0]
+    outFile = os.path.join(outputDir, outName)
+
+    rf = open(filename)
     of = open(outFile, 'w')
 
     for line in rf:
@@ -57,7 +69,10 @@ def template(template, keys):
         if matches:
             matches = list(matches.groups())
             for match in matches:
-                replacement = keys[match]
+                if match in keys:
+                    replacement = keys[match]
+                else:
+                    replacement = raw_input('Value for key %s:  ' % match)
                 of.write(regexp.sub(replacement, line))
         else:
             of.write(line)
@@ -65,9 +80,19 @@ def template(template, keys):
     rf.close()
     of.close()
 
+def findSymlinks(args, folder):
+    files = glob('%s/*.symlink' % folder)
+    for filename in files:
+        link = ".%s" % os.path.splitext(os.path.split(filename)[-1])[0]
+        print(filename, link)
+        linkPath = os.path.join(os.getenv("HOME"), link)
+        if os.path.lexists(linkPath):
+            removeFile(link)
+        if args.command == "install":
+            linkFile(filename, link)
+
 def removeFile(link):
-    home = os.getenv("HOME")
-    target = os.path.join(home, link)
+    target = os.path.join(os.getenv("HOME"), link)
     print("removing %s" % target)
     if os.path.islink(target):
         os.unlink(target)
@@ -79,8 +104,7 @@ def removeFile(link):
 def linkFile(filename, target):
     dotfilesDir  = os.getcwd()
     filename = os.path.join(dotfilesDir, filename)
-    home = os.getenv("HOME")
-    os.chdir(home)
+    os.chdir(os.getenv("HOME"))
     print("symlinking %s -> %s" % (filename, target))
     os.symlink(filename, target)
     os.chdir(dotfilesDir)
