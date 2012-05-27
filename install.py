@@ -33,7 +33,7 @@ def main():
 
     if args.command == "install":
         cleanup(compiledDir)
-        findTemplates(compiledDir, args)
+        findTemplates(dotfileDir, compiledDir, args)
 
     findSymlinks(args, dotfileDir)
     findSymlinks(args, compiledDir)
@@ -46,8 +46,8 @@ def cleanup(directory):
     for filename in files:
         os.unlink(filename)
 
-def findTemplates(outputDir, args):
-    files = glob('*.tmplt')
+def findTemplates(searchFolder, outputDir, args):
+    files = glob('%s/*.tmplt' % searchFolder)
 
     keys = {}
     if args.keys:
