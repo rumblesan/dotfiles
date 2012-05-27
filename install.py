@@ -16,21 +16,11 @@ def parseArgs():
     parser.add_argument('-k', action='store', nargs=1, dest='keys',
                         metavar='keys', help='keys file to use for templating')
 
-    args =  parser.parse_args()
-    keys = {}
-
-    if args.keys:
-        keyParser = SafeConfigParser()
-        keyParser.read(args.keys)
-        keyList = keyParser.items('keys')
-        for k, v in keyList:
-            keys[k] = v
-
-    return (args, keys)
+    return parser.parse_args()
 
 def main():
 
-    args, keys = parseArgs()
+    args = parseArgs()
 
     dotfileDir = os.path.join(os.getenv("HOME"), '.dotfiles')
     compiledDir = os.path.join(dotfileDir, 'compiled')
@@ -38,7 +28,7 @@ def main():
 
     if args.command == "install":
         cleanup(compiledDir)
-        findTemplates(compiledDir, keys)
+        findTemplates(compiledDir, args)
 
     findSymlinks(args, dotfileDir)
     findSymlinks(args, compiledDir)
@@ -51,8 +41,17 @@ def cleanup(directory):
     for filename in files:
         os.unlink(filename)
 
-def findTemplates(outputDir, keys):
+def findTemplates(outputDir, args):
     files = glob('*.tmplt')
+
+    keys = {}
+    if args.keys:
+        keyParser = SafeConfigParser()
+        keyParser.read(args.keys)
+        keyList = keyParser.items('keys')
+        for k, v in keyList:
+            keys[k] = v
+
     for filename in files:
         template(filename, outputDir, keys)
 
