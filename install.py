@@ -87,31 +87,22 @@ def template(filename, outputDir, keys):
 def findSymlinks(args, folder):
     files = glob('%s/*.symlink' % folder)
     for filename in files:
-        link = ".%s" % os.path.splitext(os.path.split(filename)[-1])[0]
-        print(filename, link)
-        linkPath = os.path.join(os.getenv("HOME"), link)
+        linkName = ".%s" % os.path.splitext(os.path.split(filename)[-1])[0]
+        linkPath = os.path.join(os.getenv("HOME"), linkName)
         if os.path.lexists(linkPath):
-            removeFile(link)
+            print("removing %s" % linkPath)
+            removeFile(linkPath)
         if args.command == "install":
-            linkFile(filename, link)
+            print("symlinking %s -> %s" % (filename, linkPath))
+            os.symlink(filename, linkPath)
 
-def removeFile(link):
-    target = os.path.join(os.getenv("HOME"), link)
-    print("removing %s" % target)
-    if os.path.islink(target):
-        os.unlink(target)
-    elif os.path.isdir(target):
-        os.rmdir(target)
+def removeFile(linkPath):
+    if os.path.islink(linkPath):
+        os.unlink(linkPath)
+    elif os.path.isdir(linkPath):
+        os.rmdir(linkPath)
     else:
-        os.unlink(target)
-
-def linkFile(filename, target):
-    dotfilesDir  = os.getcwd()
-    filename = os.path.join(dotfilesDir, filename)
-    os.chdir(os.getenv("HOME"))
-    print("symlinking %s -> %s" % (filename, target))
-    os.symlink(filename, target)
-    os.chdir(dotfilesDir)
+        os.unlink(linkPath)
 
 if __name__ == "__main__":
     main()
