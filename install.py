@@ -5,6 +5,7 @@ import re
 from glob import glob
 from ConfigParser import SafeConfigParser
 from argparse import ArgumentParser
+from sys import exit
 
 regexp = re.compile(r"@%\{(.+?)}%@")
 
@@ -23,6 +24,10 @@ def main():
     args = parseArgs()
 
     dotfileDir = os.path.join(os.getenv("HOME"), '.dotfiles')
+    if dotfileDir != os.getcwd():
+        print("This script must be run from %s" % dotfileDir)
+        exit(1)
+
     compiledDir = os.path.join(dotfileDir, 'compiled')
     os.chdir(dotfileDir)
 
