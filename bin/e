@@ -2,9 +2,10 @@
 #
 # Quick shortcut to an editor.
 
-if test "$1" == ""
+if [ -z "$1" ]
 then
   exec $EDITOR
 else
   exec $EDITOR "$1"
 fi
+
