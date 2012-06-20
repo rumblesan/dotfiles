@@ -25,3 +25,9 @@
 [submodule "vim.symlink/bundle/pyflakes-vim"]
 	path = vim.symlink/bundle/pyflakes-vim
 	url = https://github.com/kevinw/pyflakes-vim.git
+[submodule "vim.symlink/bundle/vim-octopress"]
+	path = vim.symlink/bundle/vim-octopress
+	url = https://github.com/tangledhelix/vim-octopress.git
+[submodule "vim.symlink/bundle/vim-liquid"]
+	path = vim.symlink/bundle/vim-liquid
+	url = https://github.com/tpope/vim-liquid.git
