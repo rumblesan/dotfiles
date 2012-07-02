@@ -124,6 +124,8 @@ if [ -f "$HOME/.localrc" ]; then
     source "$HOME/.localrc"
 fi
 
+alias tubemap='open http://www.tfl.gov.uk/assets/downloads/standard-tube-map.pdf'
+
 # ----------------------------------------------------------------------
 # RUBY
 # ----------------------------------------------------------------------
