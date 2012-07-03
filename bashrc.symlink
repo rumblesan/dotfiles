@@ -13,7 +13,6 @@
 : ${LOGNAME=$(id -un)}
 : ${UNAME=$(uname)}
 
-
 # ----------------------------------------------------------------------
 # ENVIRONMENT CONFIGURATION
 # ----------------------------------------------------------------------
@@ -39,7 +38,6 @@ PATH="$HOME/bin:$PATH"
 
 export PATH
 
-
 # ----------------------------------------------------------------------
 # PROMPT
 # ----------------------------------------------------------------------
@@ -56,12 +54,8 @@ export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}\007"'
 # PAGER / EDITOR
 # ----------------------------------------------------------------------
 
-# See what we have to work with ...
-HAVE_VIM=$(command -v vim)
-HAVE_GVIM=$(command -v gvim)
-
 # EDITOR
-test -n "$HAVE_VIM" &&
+test -n "$(command -v vim)" &&
 EDITOR=vim ||
 EDITOR=vi
 export EDITOR
@@ -80,25 +74,8 @@ export PAGER MANPAGER
 # LS AND DIRCOLORS
 # ----------------------------------------------------------------------
 
-if [ "$UNAME" = Darwin ]; then
-
-# If this is OSX
-    if $(gls &>/dev/null); then
-# If coreutils is installed use GNU ls with --color switch
-# `brew install coreutils`
-        alias ls="gls -h --color"
-    else
-# Otherwise use the -G switch for colour
-        alias ls="ls -hG"
-        export CLICOLOR='Yes'
-        export LSCOLORS='exgxfxfxcxdxdxhbadbxbx'
-    fi
-
-else
-# If this is Linux, use normal ls and --color switch
-    alias ls="ls -h --color"
-fi
-
+# By default, use normal ls and --color switch
+alias ls="ls -h --color"
 
 # if the dircolors utility is available, set that up to
 dircolors="$(type -P gdircolors dircolors | head -1)"
@@ -114,7 +91,6 @@ unset dircolors
 # Turn on colors for grep as well
 alias grep="grep --color"
 
-
 # ----------------------------------------------------------------------
 # MISC
 # ----------------------------------------------------------------------
@@ -124,12 +100,20 @@ if [ -f "$HOME/.localrc" ]; then
     source "$HOME/.localrc"
 fi
 
-alias tubemap='open http://www.tfl.gov.uk/assets/downloads/standard-tube-map.pdf'
-
 # ----------------------------------------------------------------------
 # RUBY
 # ----------------------------------------------------------------------
 
 # use rbenv
 eval "$(rbenv init -)"
+
+# ----------------------------------------------------------------------
+# OSX
+# ----------------------------------------------------------------------
+
+# If this is OSX then source the bash.osx file
+
+if [ "$UNAME" = Darwin ]; then
+    source "$DOTFILES/bashrc.osx"
+fi
 

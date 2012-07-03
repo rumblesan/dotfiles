@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# Guy John <http://rumblesan.com>
+# guy@rumblesan.com
+#
+# This is for any osx specific bash settings
+
+
+# ----------------------------------------------------------------------
+# ENVIRONMENT CONFIGURATION
+# ----------------------------------------------------------------------
+
+# ignore OSX folder setting files
+FIGNORE="$FIGNORE:DS_Store"
+
+# ----------------------------------------------------------------------
+# PATH
+# ----------------------------------------------------------------------
+
+# Add osx scripts to path
+PATH=$DOTFILES/bin.osx:$PATH
+
+# ----------------------------------------------------------------------
+# LS AND DIRCOLORS
+# ----------------------------------------------------------------------
+
+if $(gls &>/dev/null); then
+# If coreutils is installed use GNU ls with --color switch
+# `brew install coreutils`
+    alias ls="gls -h --color"
+else
+# Otherwise use the -G switch for colour
+    alias ls="ls -hG"
+    export CLICOLOR='Yes'
+    export LSCOLORS='exgxfxfxcxdxdxhbadbxbx'
+fi
+
+# ----------------------------------------------------------------------
+# MISC
+# ----------------------------------------------------------------------
+
+alias tubemap='open http://www.tfl.gov.uk/assets/downloads/standard-tube-map.pdf'
+
