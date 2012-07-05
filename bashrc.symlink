@@ -104,8 +104,10 @@ fi
 # RUBY
 # ----------------------------------------------------------------------
 
-# use rbenv
-eval "$(rbenv init -)"
+# Setup rbenv if it's on this machine
+if test -n "$(command -v rbenv)" ; then
+    eval "$(rbenv init -)"
+fi
 
 # ----------------------------------------------------------------------
 # OSX
