@@ -42,7 +42,16 @@ export PATH
 # PROMPT
 # ----------------------------------------------------------------------
 
-export PS1="\u@\h:\W# "
+if [ `hostname -s` = "Solaris" ]; then
+    # Home laptop is blue
+    export PS1='[\u@\[\033[00;34m\]\h\[\033[00m\]:\W]\# '
+elif [ `hostname -s` = "patchwerk" ]; then
+    # VPS is red
+    export PS1='[\u@\[\033[00;31m\]\h\[\033[00m\]:\W]\# '
+else
+    # Work mac is green
+    export PS1='[\u@\[\033[00;32m\]\h\[\033[00m\]:\W]\# '
+fi;
 
 # ----------------------------------------------------------------------
 # WINDOW
