@@ -1,0 +1,73 @@
+#!/bin/bash
+
+if [[ $1 && ${1} ]] ; then
+    CLASSNAME=$1
+else
+    echo "Need to specify classname"
+    exit 1
+fi
+
+FILEEXT=".py"
+
+MODULENAME=`echo $CLASSNAME | tr '[A-Z]' '[a-z]'`
+FILENAME=${MODULENAME}${FILEEXT}
+
+TESTSDIR="tests"
+TESTNAME="test${MODULENAME}"
+TESTFILE="${TESTSDIR}/${TESTNAME}${FILEEXT}"
+TESTCLASS="Test${CLASSNAME}"
+
+main ()
+{
+cat <<EOF > "$FILENAME"
+#!/usr/bin/env python
+
+class ${CLASSNAME}(object):
+
+    def __init__(self):
+        pass
+
+
+if __name__ == '__main__':
+    import unittest
+    from ${TESTSDIR}.${TESTNAME} import ${TESTCLASS}
+    unittest.main()
+
+EOF
+}
+
+tests ()
+{
+cat <<EOF > "${TESTFILE}"
+#!/usr/bin/env python
+
+import unittest
+from ${MODULENAME} import ${CLASSNAME}
+
+class ${TESTCLASS}(unittest.TestCase):
+
+    def setUp(self):
+        self.${MODULENAME} = ${CLASSNAME}()
+
+    def tearDown(self):
+        del self.${MODULENAME}
+
+    def test_creation(self):
+        self.assertIsInstance(self.${MODULENAME}, ${CLASSNAME})
+
+EOF
+
+touch "${TESTSDIR}/__init__.py";
+}
+
+main
+
+if [[ ! -d "tests" ]] ; then
+    mkdir "tests"
+fi
+
+tests
+
+chmod +x "$FILENAME"
+exec $EDITOR "$FILENAME"
+
