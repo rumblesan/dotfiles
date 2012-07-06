@@ -33,9 +33,9 @@ export DOTFILES=$HOME/.dotfiles
 PATH=/usr/local/bin:$DOTFILES/bin:$PATH
 
 # put ~/bin on PATH if you have it
-test -d "$HOME/bin" &&
-PATH="$HOME/bin:$PATH"
-
+if [ -d "$HOME/bin" ]; then
+    PATH="$HOME/bin:$PATH"
+fi
 export PATH
 
 # ----------------------------------------------------------------------
@@ -44,14 +44,15 @@ export PATH
 
 if [ `hostname -s` = "Solaris" ]; then
     # Home laptop is blue
-    export PS1='[\u@\[\033[00;34m\]\h\[\033[00m\]:\W]\# '
+    PS1='[\u@\[\033[00;34m\]\h\[\033[00m\]:\W]\# '
 elif [ `hostname -s` = "patchwerk" ]; then
     # VPS is red
-    export PS1='[\u@\[\033[00;31m\]\h\[\033[00m\]:\W]\# '
+    PS1='[\u@\[\033[00;31m\]\h\[\033[00m\]:\W]\# '
 else
     # Work mac is green
-    export PS1='[\u@\[\033[00;32m\]\h\[\033[00m\]:\W]\# '
+    PS1='[\u@\[\033[00;32m\]\h\[\033[00m\]:\W]\# '
 fi;
+export PS1
 
 # ----------------------------------------------------------------------
 # WINDOW
@@ -64,13 +65,15 @@ export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}\007"'
 # ----------------------------------------------------------------------
 
 # EDITOR
-test -n "$(command -v vim)" &&
-EDITOR=vim ||
-EDITOR=vi
+if [ -n "$(command -v vim)" ]; then
+    EDITOR=vim
+else
+    EDITOR=vi
+fi
 export EDITOR
 
 # PAGER
-if test -n "$(command -v less)" ; then
+if [ -n "$(command -v less)" ]; then
     PAGER="less -FirSwX"
     MANPAGER="less -FiRswX"
 else
@@ -114,7 +117,7 @@ fi
 # ----------------------------------------------------------------------
 
 # Setup rbenv if it's on this machine
-if test -n "$(command -v rbenv)" ; then
+if [ -n "$(command -v rbenv)" ]; then
     eval "$(rbenv init -)"
 fi
 
