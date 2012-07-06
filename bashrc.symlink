@@ -44,13 +44,13 @@ export PATH
 
 if [ `hostname -s` = "Solaris" ]; then
     # Home laptop is blue
-    PS1='[\u@\[\033[00;34m\]\h\[\033[00m\]:\W]\# '
+    PS1='[\u@\[\033[00;34m\]\h\[\033[00m\]:\W]\$ '
 elif [ `hostname -s` = "patchwerk" ]; then
     # VPS is red
-    PS1='[\u@\[\033[00;31m\]\h\[\033[00m\]:\W]\# '
+    PS1='[\u@\[\033[00;31m\]\h\[\033[00m\]:\W]\$ '
 else
     # Work mac is green
-    PS1='[\u@\[\033[00;32m\]\h\[\033[00m\]:\W]\# '
+    PS1='[\u@\[\033[00;32m\]\h\[\033[00m\]:\W]\$ '
 fi;
 export PS1
 
