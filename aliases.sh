@@ -18,4 +18,7 @@ alias la="ls -ha --color"
 alias ll="ls -hl --color"
 alias lal="ls -hal --color"
 
+# Allows me to sudo aliases correctly on linux
+alias sudo="sudo "
+
 alias dotfiles="cd ${DOTFILES}"
