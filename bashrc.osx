@@ -5,7 +5,6 @@
 #
 # This is for any osx specific bash settings
 
-
 # ----------------------------------------------------------------------
 # ENVIRONMENT CONFIGURATION
 # ----------------------------------------------------------------------
@@ -21,23 +20,9 @@ FIGNORE="$FIGNORE:DS_Store"
 PATH=$DOTFILES/bin.osx:$PATH
 
 # ----------------------------------------------------------------------
-# LS AND DIRCOLORS
+# ALIASES
 # ----------------------------------------------------------------------
 
-if $(gls &>/dev/null); then
-# If coreutils is installed use GNU ls with --color switch
-# `brew install coreutils`
-    alias ls="gls -h --color"
-else
-# Otherwise use the -G switch for colour
-    alias ls="ls -hG"
-    export CLICOLOR='Yes'
-    export LSCOLORS='exgxfxfxcxdxdxhbadbxbx'
-fi
-
-# ----------------------------------------------------------------------
-# MISC
-# ----------------------------------------------------------------------
-
-alias tubemap='open http://www.tfl.gov.uk/assets/downloads/standard-tube-map.pdf'
+# Source the OSX specific aliases
+source "$DOTFILES/aliases.osx"
 

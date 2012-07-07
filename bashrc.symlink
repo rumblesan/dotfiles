@@ -6,6 +6,7 @@
 # Thanks to
 # Ryan Tomayko <http://tomayko.com/about>
 # Zach Holman <http://zachholman.com/about>
+# Mathias Bynens <http://mathiasbynens.be/>
 # probably others as well
 
 # the basics
@@ -83,11 +84,8 @@ fi
 export PAGER MANPAGER
 
 # ----------------------------------------------------------------------
-# LS AND DIRCOLORS
+# DIRCOLORS
 # ----------------------------------------------------------------------
-
-# By default, use normal ls and --color switch
-alias ls="ls -h --color"
 
 # if the dircolors utility is available, set that up to
 dircolors="$(type -P gdircolors dircolors | head -1)"
@@ -100,18 +98,6 @@ test -n "$dircolors" && {
 }
 unset dircolors
 
-# Turn on colors for grep as well
-alias grep="grep --color"
-
-# ----------------------------------------------------------------------
-# MISC
-# ----------------------------------------------------------------------
-
-# Used for machine specific settings
-if [ -f "$HOME/.localrc" ]; then
-    source "$HOME/.localrc"
-fi
-
 # ----------------------------------------------------------------------
 # RUBY
 # ----------------------------------------------------------------------
@@ -122,12 +108,29 @@ if [ -n "$(command -v rbenv)" ]; then
 fi
 
 # ----------------------------------------------------------------------
+# ALIASES
+# ----------------------------------------------------------------------
+
+# This needs to be sourced before the OSX file
+
+# Source the aliases file
+source "$DOTFILES/aliases.sh"
+
+# ----------------------------------------------------------------------
 # OSX
 # ----------------------------------------------------------------------
 
 # If this is OSX then source the bash.osx file
-
 if [ "$UNAME" = Darwin ]; then
     source "$DOTFILES/bashrc.osx"
+fi
+
+# ----------------------------------------------------------------------
+# MISC
+# ----------------------------------------------------------------------
+
+# Used for machine specific settings
+if [ -f "$HOME/.localrc" ]; then
+    source "$HOME/.localrc"
 fi
 
