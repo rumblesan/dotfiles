@@ -22,5 +22,5 @@ alias lal="ls -hal --color"
 alias sudo="sudo "
 
 alias dotfiles="cd ${DOTFILES}"
-alias projects="${HOME}/repositories"
+alias projects="cd ${HOME}/repositories"
 
