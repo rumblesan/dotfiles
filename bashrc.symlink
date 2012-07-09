@@ -99,6 +99,18 @@ test -n "$dircolors" && {
 unset dircolors
 
 # ----------------------------------------------------------------------
+# COMPLETIONS
+# ----------------------------------------------------------------------
+
+set completions-ignore-case On
+
+# Source all the files in dotfiles/completions
+for c in "${DOTFILES}/completions/*"
+do
+    source $c
+done
+
+# ----------------------------------------------------------------------
 # RUBY
 # ----------------------------------------------------------------------
 
