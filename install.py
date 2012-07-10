@@ -10,8 +10,8 @@ regexp = re.compile(r"@%\{(.+?)}%@")
 
 def parseArgs():
     parser = ArgumentParser(description='Setup dotfiles')
-    parser.add_argument('command', metavar='command', default='install',
-                        choices=['install', 'uninstall'],
+    parser.add_argument('-c', '--command', metavar='COMMAND',
+                        default='install', choices=['install', 'uninstall'],
                         help='command to run')
 
     return parser.parse_args()
