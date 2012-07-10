@@ -46,7 +46,7 @@ export PATH
 if [ `hostname -s` = "Solaris" ]; then
     # Home laptop is blue
     PS1='[\u@\[\033[00;34m\]\h\[\033[00m\]:\W]\$ '
-elif [ `hostname -s` = "patchwerk" ]; then
+elif [ `hostname -s` = "horsehead" ]; then
     # VPS is red
     PS1='[\u@\[\033[00;31m\]\h\[\033[00m\]:\W]\$ '
 else
