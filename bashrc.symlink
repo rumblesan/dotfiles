@@ -31,7 +31,7 @@ alias h=history
 
 export DOTFILES=$HOME/.dotfiles
 
-PATH=/usr/local/bin:$DOTFILES/bin:$PATH
+PATH=/usr/local/bin:$DOTFILES/bin:$DOTFILES/notes.txt:$PATH
 
 # put ~/bin on PATH if you have it
 if [ -d "$HOME/bin" ]; then

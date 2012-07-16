@@ -31,3 +31,6 @@
 [submodule "vim.symlink/bundle/vim-liquid"]
 	path = vim.symlink/bundle/vim-liquid
 	url = https://github.com/tpope/vim-liquid.git
+[submodule "notes.txt"]
+	path = notes.txt
+	url = git@github.com:rumblesan/notes.txt.git

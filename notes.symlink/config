@@ -1,0 +1,4 @@
+#! /bin/bash
+
+NOTES_DIR="${HOME}/notes"
+
