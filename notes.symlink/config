@@ -1,4 +1,5 @@
 #! /bin/bash
 
-NOTES_DIR="${HOME}/notes"
+# Should not have trailing /
+NOTES_DIR="${HOME}/Google Drive/notes"
 
