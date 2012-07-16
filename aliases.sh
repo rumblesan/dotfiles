@@ -33,3 +33,13 @@ function t() {
     todo.sh $*
   fi
 }
+
+function n() { 
+  if [ $# -eq 0 ]; then
+    notes.sh ls
+  else
+    notes.sh $*
+  fi
+}
+
+
