@@ -18,6 +18,8 @@ alias la="ls -ha --color"
 alias ll="ls -hl --color"
 alias lal="ls -hal --color"
 
+# Makes it easy to grep the ps output
+alias psgrep="ps -A | grep"
 # Allows me to sudo aliases correctly on linux
 alias sudo="sudo "
 
