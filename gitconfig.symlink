@@ -1,3 +1,25 @@
 [user]
 	name = Guy John
 	email = guy@rumblesan.com
+
+[color]
+    ui = true
+    branch = auto
+    diff = auto
+    status = auto
+
+[color "branch"]
+    current = blue reverse
+    local = blue
+    remote = green
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
