@@ -20,8 +20,6 @@ alias lal="ls -hal --color"
 
 # Makes it easy to grep the ps output
 alias psgrep="ps -A | grep"
-# Allows me to sudo aliases correctly on linux
-alias sudo="sudo "
 
 # cd straight to some useful directories
 alias dotfiles="cd ${DOTFILES}"
