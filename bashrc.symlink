@@ -19,24 +19,9 @@
 # ----------------------------------------------------------------------
 
 # Don't load bashrc if this isn't an interactive shell
-if [ -z "$PS1" ]; then
+if [ -z '$PS1' ]; then
    return
 fi
-
-# ----------------------------------------------------------------------
-# ENVIRONMENT CONFIGURATION
-# ----------------------------------------------------------------------
-
-# ----------------------------------------------------------------------
-# ENVIRONMENT CONFIGURATION
-# ----------------------------------------------------------------------
-
-# ignore python bytecode
-export FIGNORE=".pyc"
-
-# history stuff
-export HISTCONTROL=ignoredups:ignorespace
-alias h=history
 
 # ----------------------------------------------------------------------
 # PATH
@@ -53,18 +38,36 @@ fi
 export PATH
 
 # ----------------------------------------------------------------------
+# IMPORT CLI COLOURS
+# ----------------------------------------------------------------------
+
+# A bunch of CLI colours defined using tputs
+source $DOTFILES/cli_colours.sh
+
+# ----------------------------------------------------------------------
+# ENVIRONMENT CONFIGURATION
+# ----------------------------------------------------------------------
+
+# ignore python bytecode
+export FIGNORE=".pyc"
+
+# history stuff
+export HISTCONTROL=ignoredups:ignorespace
+alias h=history
+
+# ----------------------------------------------------------------------
 # PROMPT
 # ----------------------------------------------------------------------
 
 if [ `hostname -s` = "Solaris" ]; then
     # Home laptop is blue
-    PS1='[\u@\[\033[00;34m\]\h\[\033[00m\]:\W]\$ '
+    PS1='[\u@${BLUE}\h${NORMAL}:\W]\$ '
 elif [ `hostname -s` = "horsehead" ]; then
     # VPS is red
-    PS1='[\u@\[\033[00;31m\]\h\[\033[00m\]:\W]\$ '
+    PS1='[\u@${RED}\h${NORMAL}:\W]\$ '
 else
     # Work mac is green
-    PS1='[\u@\[\033[00;32m\]\h\[\033[00m\]:\W]\$ '
+    PS1='[\u@${GREEN}\h${NORMAL}:\W]\$ '
 fi;
 export PS1
 
