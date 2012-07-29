@@ -15,7 +15,7 @@ set nowritebackup
 set noswapfile
 
 set autoindent
-set smartindent
+set cindent
 
 "stop files folding when they're opened
 set foldlevelstart=99
