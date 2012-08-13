@@ -17,6 +17,9 @@ done
 # Open a London Tubemap
 alias tubemap='open http://www.tfl.gov.uk/assets/downloads/standard-tube-map.pdf'
 
+# Fix your grammar!
+alias man_grammar='open http://www.bristol.ac.uk/arts/exercises/grammar/grammar_tutorial/index.htm'
+
 if $(gls &>/dev/null); then
 # If coreutils is installed use GNU ls with --color switch
 # `brew install coreutils`
