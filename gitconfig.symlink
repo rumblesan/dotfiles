@@ -2,6 +2,10 @@
 	name = Guy John
 	email = guy@rumblesan.com
 
+[github]
+	user = rumblesan
+	password = !security 2>&1 >/dev/null find-generic-password -gs github.password | ruby -e 'print $1 if STDIN.gets =~ /^password: \\\"(.*)\\\"$/'
+
 [color]
     ui = true
     branch = auto
@@ -23,3 +27,4 @@
     added = yellow
     changed = green
     untracked = cyan
+
