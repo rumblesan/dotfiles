@@ -1,0 +1,25 @@
+#!/bin/bash
+
+case $1 in
+    scala)
+        # The scala API docs
+        exec open http://www.scala-lang.org/api/current/index.html
+        ;;
+    play)
+        # Play framework docs
+        # Need to keep updated with most recent version number :(
+        exec open http://www.playframework.org/documentation/api/2.0.3/scala/index.html
+        ;;
+    grammar)
+        # Fix your grammar
+        exec open http://www.bristol.ac.uk/arts/exercises/grammar/grammar_tutorial/index.htm
+        ;;
+    tube)
+        # A London Tubemap
+        exec open http://www.tfl.gov.uk/assets/downloads/standard-tube-map.pdf
+        ;;
+    *)
+        echo "Whatcho talking bout Willis!"
+        ;;
+esac
+
