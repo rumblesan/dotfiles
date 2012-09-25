@@ -18,6 +18,10 @@ case $1 in
         # A London Tubemap
         exec open http://www.tfl.gov.uk/assets/downloads/standard-tube-map.pdf
         ;;
+    squeryl)
+        # The squeryl API docs
+        exec open http://squeryl.org/api/index.html
+        ;;
     *)
         echo "Whatcho talking bout Willis!"
         ;;
