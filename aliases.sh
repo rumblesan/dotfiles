@@ -23,7 +23,7 @@ alias psgrep="ps -A | grep -v grep | grep"
 
 # cd straight to some useful directories
 alias dotfiles="cd ${DOTFILES}"
-alias projects="cd ${HOME}/repositories"
+alias repos="cd ${HOME}/repositories"
 
 # todo.sh: https://github.com/ginatrapani/todo.txt-cli
 function t() { 
