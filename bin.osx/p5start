@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# This creates a basic Processing script
+
+FILENAME=$1
+
+case $FILENAME in
+    *.pde)
+        ;;
+    *)
+        FILENAME="${FILENAME}.pde"
+        ;;
+esac
+
+echo "Creating Processing script ${FILENAME}"
+
+cat <<EOF > "$FILENAME"
+
+void setup () {
+  size(1000, 1000);
+  frameRate(30);
+}
+
+
+void draw() {
+  background(255);
+}
+
+EOF
+
+exec $EDITOR "$FILENAME"
+
