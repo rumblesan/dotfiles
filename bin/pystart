@@ -1,6 +1,20 @@
 #!/bin/bash
 
-cat <<EOF > "$@"
+# This creates a basic python starting script
+
+FILENAME=$1
+
+case $FILENAME in
+    *.py)
+        ;;
+    *)
+        FILENAME="${FILENAME}.py"
+        ;;
+esac
+
+echo "Creating python script ${FILENAME}"
+
+cat <<EOF > "$FILENAME"
 #!/usr/bin/env python
 
 def main():
@@ -12,6 +26,6 @@ if __name__ == '__main__':
 
 EOF
 
-chmod +x "$@"
-exec $EDITOR "$@"
+chmod +x "$FILENAME"
+exec $EDITOR "$FILENAME"
 
