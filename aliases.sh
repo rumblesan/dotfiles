@@ -42,4 +42,12 @@ function n() {
   fi
 }
 
+function c8() { 
+  if [ $# -eq 0 ]; then
+    com8.sh ls
+  else
+    com8.sh $*
+  fi
+}
+
 

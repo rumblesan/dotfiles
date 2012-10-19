@@ -34,3 +34,6 @@
 [submodule "notes.txt"]
 	path = notes.txt
 	url = git@github.com:rumblesan/notes.txt.git
+[submodule "comiter8"]
+	path = comiter8
+	url = git@github.com:rumblesan/comiter8.git

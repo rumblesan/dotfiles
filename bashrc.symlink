@@ -29,7 +29,7 @@ fi
 
 export DOTFILES=$HOME/.dotfiles
 
-PATH=/usr/local/bin:$DOTFILES/bin:$DOTFILES/notes.txt:$PATH
+PATH=/usr/local/bin:$DOTFILES/bin:$DOTFILES/notes.txt:$DOTFILES/comiter8:$PATH
 
 # put ~/bin on PATH if you have it
 if [ -d "$HOME/bin" ]; then
