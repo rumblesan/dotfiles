@@ -19,6 +19,9 @@ FIGNORE="$FIGNORE:DS_Store"
 # Add osx scripts to path
 PATH=$DOTFILES/bin.osx:$PATH
 
+# Add npm bin dir to path
+PATH=$PATH:/usr/local/share/npm/bin
+
 # ----------------------------------------------------------------------
 # ALIASES
 # ----------------------------------------------------------------------
