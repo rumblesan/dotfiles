@@ -22,6 +22,9 @@ PATH=$DOTFILES/bin.osx:$PATH
 # Add npm bin dir to path
 PATH=$PATH:/usr/local/share/npm/bin
 
+# Add npm bin dir to path
+PATH=$PATH:/usr/local/share/python
+
 # ----------------------------------------------------------------------
 # ALIASES
 # ----------------------------------------------------------------------
