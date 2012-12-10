@@ -8,7 +8,7 @@ case $1 in
     play)
         # Play framework docs
         # Need to keep updated with most recent version number :(
-        exec open http://www.playframework.org/documentation/api/2.0.3/scala/index.html
+        exec open http://www.playframework.org/documentation/api/2.0.4/scala/index.html
         ;;
     grammar)
         # Fix your grammar
