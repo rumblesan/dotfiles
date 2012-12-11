@@ -32,7 +32,7 @@
 	autocrlf = input
 
 [alias]
-    amend = git commit --amend
+    amend = commit --amend
     unstage = reset HEAD --
     st = status -sb
     ci = commit
