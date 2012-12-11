@@ -37,6 +37,7 @@
     st = status -sb
     ci = commit
     br = branch -av
+    brd = branch -d
     co = checkout
     df = diff
     lg = log -p
