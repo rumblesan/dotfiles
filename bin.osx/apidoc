@@ -22,6 +22,10 @@ case $1 in
         # The squeryl API docs
         exec open http://squeryl.org/api/index.html
         ;;
+    ruby)
+        # The Ruby API docs
+        exec open http://ruby-doc.org/core-1.9.3/
+        ;;
     *)
         echo "Whatcho talking bout Willis!"
         ;;
