@@ -25,3 +25,6 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 
+"syntastic plugin options
+let g:syntastic_python_checker = 'pyflakes'
+
