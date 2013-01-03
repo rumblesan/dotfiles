@@ -34,3 +34,6 @@
 [submodule "commiter8"]
 	path = commiter8
 	url = git@github.com:rumblesan/commiter8.git
+[submodule "vim.symlink/bundle/syntastic"]
+	path = vim.symlink/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
