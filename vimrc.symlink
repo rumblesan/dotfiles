@@ -5,7 +5,9 @@ filetype plugin indent on
 
 set number
 set ruler
-colorscheme evening
+
+"colorscheme settings
+colorscheme solarized
 
 set noerrorbells t_vb=
 
