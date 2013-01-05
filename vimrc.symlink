@@ -7,6 +7,7 @@ set number
 set ruler
 
 "colorscheme settings
+set background=dark
 colorscheme solarized
 
 set noerrorbells t_vb=
