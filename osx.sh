@@ -12,6 +12,10 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # General UI/UX                                                               #
 ###############################################################################
 
+# Turn off UI sounds and volume feedback blips
+defaults write "com.apple.systemsound" "com.apple.sound.uiaudio.enabled" -int 0
+defaults write -g "com.apple.sound.beep.feedback" -int 0
+
 # Menu bar: disable transparency
 defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
 
@@ -300,5 +304,13 @@ find ~/Library/Application\ Support/Dock -name "*.db" -maxdepth 1 -delete
 #defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
 # Add a spacer to the right side of the Dock (where the Trash is)
 #defaults write com.apple.dock persistent-others -array-add '{tile-data={}; tile-type="spacer-tile";}'
+
+###############################################################################
+# Kill affected applications                                                  #
+###############################################################################
+
+for app in "Dashboard" "Dock" "Finder" "SystemUIServer"; do
+    killall "$app" > /dev/null 2>&1
+done
 
 echo "Done. Note that some of these changes require a logout/restart to take effect."
