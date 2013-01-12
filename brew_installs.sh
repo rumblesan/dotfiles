@@ -3,7 +3,6 @@
 programs='bash-completion
 colordiff
 coreutils
-ghc
 git
 giter8
 haskell-platform
@@ -20,7 +19,6 @@ ruby-build
 sbt
 scala
 sdl
-subversion
 todo-txt
 wget'
 
