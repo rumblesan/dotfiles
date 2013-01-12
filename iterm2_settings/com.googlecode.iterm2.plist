@@ -315,13 +315,13 @@
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
 	<key>NSWindow Frame Preferences</key>
-	<string>1509 696 924 485 0 0 2560 1418 </string>
+	<string>930 592 924 485 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1280 1042 1280 376 0 0 2560 1418 </string>
+	<string>1280 1039 984 376 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>268 330 585 376 0 0 1440 878 </string>
+	<string>1008 648 949 586 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>310 972 585 376 0 0 2560 1418 </string>
+	<string>1015 537 1145 712 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
 	<string>670 538 809 544 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
@@ -1054,7 +1054,7 @@
 			<key>Vertical Spacing</key>
 			<real>1</real>
 			<key>Visual Bell</key>
-			<true/>
+			<false/>
 			<key>Window Type</key>
 			<integer>0</integer>
 			<key>Working Directory</key>
@@ -1127,7 +1127,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2013-01-11T19:19:00Z</date>
+	<date>2013-01-12T14:13:13Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
