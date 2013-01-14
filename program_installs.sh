@@ -28,6 +28,8 @@ hdevtools'
 PIPS='flake8
 fabric'
 
+JSCRIPTS='jslint'
+
 install_brews()
 {
     brew update
@@ -51,6 +53,13 @@ install_pips()
     done
 }
 
+install_jscripts()
+{
+    for i in $JSCRIPTS; do
+        npm install $i
+    done
+}
+
 install()
 {
     action=$( printf "%s\n" "$1" | tr 'A-Z' 'a-z' )
@@ -60,6 +69,7 @@ install()
         install_brews
         install_cabals
         install_pips
+        install_jscripts
         ;;
     * )
         echo "Need to tell me to install all of this"
