@@ -60,6 +60,12 @@ install_jscripts()
     done
 }
 
+install_ruby()
+{
+    rbenv install 1.9.3-p362
+    rbenv rehash
+}
+
 install()
 {
     action=$( printf "%s\n" "$1" | tr 'A-Z' 'a-z' )
@@ -70,6 +76,7 @@ install()
         install_cabals
         install_pips
         install_jscripts
+        install_ruby
         ;;
     * )
         echo "Need to tell me to install all of this"
