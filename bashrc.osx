@@ -22,11 +22,14 @@ PATH=$DOTFILES/bin.osx:$PATH
 # Add npm bin dir to path
 PATH=$PATH:/usr/local/share/npm/bin
 
-# Add npm bin dir to path
+# Add pip bin dir to path
 PATH=$PATH:/usr/local/share/python
 
 # Add cabal bin dir to path
 PATH=$PATH:~/.cabal/bin
+
+# Add ruby gem bin dir to path
+PATH=$PATH:/usr/local/Cellar/ruby/1.9.3-p362/bin
 
 # ----------------------------------------------------------------------
 # ALIASES
