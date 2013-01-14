@@ -25,7 +25,8 @@ wget'
 CABALS='cabal-install
 hdevtools'
 
-PIPS='flake8'
+PIPS='flake8
+fabric'
 
 install_brews()
 {
