@@ -1,6 +1,6 @@
 #! /bin/bash
 
-programs='bash-completion
+BREWS='bash-completion
 colordiff
 coreutils
 git
@@ -22,30 +22,43 @@ sdl
 todo-txt
 wget'
 
-setup()
+CABALS='cabal-install
+hdevtools'
+
+PIPS='flake8'
+
+install_brews()
 {
-    for i in $programs; do
+    brew update
+    for i in $BREWS; do
         brew install $i
     done
 }
 
-display()
+install_cabals()
 {
-    for i in $programs; do
-        brew list $i
+    cabal update
+    for i in $CABALS; do
+        cabal install $i
     done
 }
 
-runaction()
+install_pips()
+{
+    for i in $PIPS; do
+        pip install $i
+    done
+}
+
+install()
 {
     action=$( printf "%s\n" "$1" | tr 'A-Z' 'a-z' )
 
     case $action in
     "install" )
-        setup
-        ;;
-    "show" )
-        display
+        install_brews
+        install_cabals
+        install_pips
         ;;
     * )
         echo "Need to tell me to install all of this"
@@ -53,5 +66,5 @@ runaction()
     esac
 }
 
-runaction $1
+install $1
 
