@@ -56,7 +56,7 @@ install_pips()
 install_jscripts()
 {
     for i in $JSCRIPTS; do
-        npm install $i
+        npm install -g $i
     done
 }
 
