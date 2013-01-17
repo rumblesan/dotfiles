@@ -1,0 +1,22 @@
+#! /bin/bash
+
+if [ "$GIT_PROFILE" == "office" ]; then
+    echo "Set your work email for this repo?"
+    echo "y/n?"
+    read response
+    if [ "$response" == "y" ]; then
+        if [ -z $GIT_WORK_EMAIL ]; then
+            echo "Enter your work email"
+            read EMAIL
+        else
+            echo "Setting email ${GIT_WORK_EMAIL}"
+            EMAIL=$GIT_WORK_EMAIL
+        fi
+        ARGS="$@ -c user.email=${GIT_WORK_EMAIL}"
+    else
+        ARGS="$@"
+    fi
+fi
+
+exec git clone ${ARGS}
+
