@@ -28,7 +28,8 @@ hdevtools'
 PIPS='flake8
 fabric'
 
-JSCRIPTS='jslint'
+JSCRIPTS='jslint
+grunt'
 
 install_brews()
 {
