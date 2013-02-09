@@ -38,3 +38,13 @@ PATH=$PATH:/usr/local/Cellar/ruby/1.9.3-p362/bin
 # Source the OSX specific aliases
 source "$DOTFILES/aliases.osx"
 
+
+# ----------------------------------------------------------------------
+# BASH COMPLETION
+# ----------------------------------------------------------------------
+
+# Add the files for the installed bash_completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
+
