@@ -49,6 +49,7 @@ install_cabals()
 
 install_pips()
 {
+    pip install --upgrade pip
     for i in $PIPS; do
         pip install $i
     done
