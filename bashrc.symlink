@@ -55,9 +55,6 @@ export FIGNORE=".pyc"
 export HISTCONTROL=ignoredups:ignorespace
 alias h=history
 
-# set java home
-export JAVA_HOME=/usr
-
 # ----------------------------------------------------------------------
 # PROMPT
 # ----------------------------------------------------------------------
