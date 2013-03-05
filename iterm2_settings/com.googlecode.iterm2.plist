@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AdjustWindowForFontSizeChange</key>
+	<true/>
+	<key>AllowClipboardAccess</key>
+	<false/>
 	<key>AnimateDimming</key>
 	<false/>
 	<key>AppleAntiAliasingThreshold</key>
@@ -297,6 +301,8 @@
 	<string></string>
 	<key>NSRepeatCountBinding</key>
 	<string></string>
+	<key>NSScrollAnimationEnabled</key>
+	<false/>
 	<key>NSTableView Columns KeyBingingTable</key>
 	<array>
 		<data>
@@ -317,13 +323,13 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>930 592 924 485 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1280 1039 984 376 0 0 2560 1418 </string>
+	<string>0 255 585 376 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>1008 648 949 586 0 0 2560 1418 </string>
+	<string>863 477 585 376 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>1015 537 1145 712 0 0 2560 1418 </string>
+	<string>0 711 1280 707 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>670 538 809 544 0 0 2560 1418 </string>
+	<string>1280 4 1280 707 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
 	<string>1102 413 585 376 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
@@ -1127,7 +1133,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2013-01-12T14:13:13Z</date>
+	<date>2013-03-05T15:57:20Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -1179,6 +1185,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>1.0.0.20120203</string>
+	<string>1.0.0.20130302</string>
 </dict>
 </plist>
