@@ -19,7 +19,7 @@ alias ll="ls -hl --color"
 alias lal="ls -hal --color"
 
 # Makes it easy to grep the ps output
-alias psgrep="ps -A | grep -v grep | grep"
+alias psgrep="ps aux | grep -v grep | grep"
 
 # cd straight to some useful directories
 alias dotfiles="cd ${DOTFILES}"
