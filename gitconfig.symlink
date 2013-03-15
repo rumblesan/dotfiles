@@ -51,3 +51,5 @@
     cl = clone --recursive
     workcl = !git clone --recursive -c user.email=`git config --get work.email`
     worksubmodule = !git submodule foreach git workemail
+[push]
+	default = simple
