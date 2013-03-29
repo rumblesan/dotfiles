@@ -34,6 +34,7 @@
 [core]
 	autocrlf = input
 	whitespace = trailing-space,space-before-tab
+	excludesfile = ~/.gitignore
 
 [alias]
     amend = commit --amend
