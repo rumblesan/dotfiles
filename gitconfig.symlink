@@ -33,6 +33,7 @@
 
 [core]
 	autocrlf = input
+	whitespace = trailing-space,space-before-tab
 
 [alias]
     amend = commit --amend
@@ -53,3 +54,8 @@
     worksubmodule = !git submodule foreach git workemail
 [push]
 	default = simple
+[diff]
+	renames = copies
+	mnemonicprefix = true
+[branch]
+	autosetupmerge = true
