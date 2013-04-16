@@ -1,6 +1,7 @@
 #! /bin/bash
 
 BREWS='bash-completion
+bash
 colordiff
 coreutils
 git
