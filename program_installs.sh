@@ -9,7 +9,6 @@ giter8
 haskell-platform
 irssi
 lcov
-macvim
 mysql
 node
 postgresql
@@ -37,6 +36,8 @@ install_brews()
     for i in $BREWS; do
         brew install $i
     done
+    # Install macvim separately with special flags
+    brew install macvim --env-std --override-system-vim
 }
 
 install_cabals()
@@ -53,6 +54,8 @@ install_pips()
     for i in $PIPS; do
         pip install $i
     done
+    # Install powerline separately from github
+    pip install --user git+git://github.com/Lokaltog/powerline
 }
 
 install_jscripts()
