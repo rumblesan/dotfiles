@@ -24,15 +24,6 @@ alias psgrep="ps aux | grep -v grep | grep"
 # cd straight to some useful directories
 alias dotfiles="cd ${DOTFILES}"
 
-# todo.sh: https://github.com/ginatrapani/todo.txt-cli
-function t() { 
-  if [ $# -eq 0 ]; then
-    todo.sh ls
-  else
-    todo.sh $*
-  fi
-}
-
 function n() { 
   if [ $# -eq 0 ]; then
     notes.sh ls
