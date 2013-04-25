@@ -7,7 +7,6 @@ coreutils
 git
 giter8
 haskell-platform
-irssi
 lcov
 mysql
 node
@@ -17,9 +16,7 @@ rbenv
 ruby
 ruby-build
 scala
-sdl
-todo-txt
-wget'
+sdl'
 
 CABALS='cabal-install
 hdevtools'
