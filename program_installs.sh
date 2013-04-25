@@ -35,6 +35,11 @@ install_brews()
     done
     # Install macvim separately with special flags
     brew install macvim --env-std --override-system-vim
+
+    # Horrible fix to make macvim link with homebrew python, not system python
+    cd /usr/local/Cellar/macvim/7.3-66/MacVim.app/Contents/MacOS/
+    install_name_tool -change /System/Library/Frameworks/Python.framework/Versions/2.7/Python /usr/local/Cellar/python/2.7.4/Frameworks/Python.framework/Versions/2.7/Python MacVim
+    install_name_tool -change /System/Library/Frameworks/Python.framework/Versions/2.7/Python /usr/local/Cellar/python/2.7.4/Frameworks/Python.framework/Versions/2.7/Python Vim
 }
 
 install_cabals()
