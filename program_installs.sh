@@ -7,6 +7,7 @@ coreutils
 git
 giter8
 haskell-platform
+plt-racket
 lcov
 mysql
 node
