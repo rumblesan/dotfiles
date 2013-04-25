@@ -9,7 +9,6 @@ giter8
 haskell-platform
 plt-racket
 lcov
-mysql
 node
 postgresql
 python
