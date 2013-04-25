@@ -17,7 +17,6 @@ python
 rbenv
 ruby
 ruby-build
-sbt
 scala
 sdl
 todo-txt
