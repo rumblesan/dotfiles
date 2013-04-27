@@ -25,7 +25,7 @@ PIPS='flake8
 fabric'
 
 JSCRIPTS='jslint
-grunt'
+grunt-cli'
 
 install_brews()
 {
