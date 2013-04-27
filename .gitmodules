@@ -16,9 +16,6 @@
 [submodule "vim.symlink/bundle/vim-git"]
 	path = vim.symlink/bundle/vim-git
 	url = https://github.com/tpope/vim-git.git
-[submodule "vim.symlink/bundle/vim-js-tools"]
-	path = vim.symlink/bundle/vim-js-tools
-	url = git@github.com:rumblesan/vim-js-tools.git
 [submodule "vim.symlink/bundle/vim-processing"]
 	path = vim.symlink/bundle/vim-processing
 	url = git@github.com:rumblesan/vim-processing.git
@@ -46,3 +43,12 @@
 [submodule "vim.symlink/bundle/vim-surround"]
 	path = vim.symlink/bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
+[submodule "vim.symlink/bundle/vim-less"]
+	path = vim.symlink/bundle/vim-less
+	url = https://github.com/groenewege/vim-less.git
+[submodule "vim.symlink/bundle/vim-css-color"]
+	path = vim.symlink/bundle/vim-css-color
+	url = git://github.com/skammer/vim-css-color.git
+[submodule "vim.symlink/bundle/vim-jsbeautify"]
+	path = vim.symlink/bundle/vim-jsbeautify
+	url = https://github.com/maksimr/vim-jsbeautify.git
