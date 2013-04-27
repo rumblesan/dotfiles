@@ -7,6 +7,14 @@ else
     exit 1
 fi
 
+case $CLASSNAME in
+    *.py)
+        CLASSNAME=${CLASSNAME%%.py}
+        ;;
+    *)
+        ;;
+esac
+
 FILEEXT=".py"
 
 MODULENAME=`echo $CLASSNAME | tr '[A-Z]' '[a-z]'`
@@ -22,6 +30,7 @@ main ()
 cat <<EOF > "$FILENAME"
 #!/usr/bin/env python
 
+
 class ${CLASSNAME}(object):
 
     def __init__(self):
@@ -31,8 +40,8 @@ class ${CLASSNAME}(object):
 if __name__ == '__main__':
     import unittest
     from ${TESTSDIR}.${TESTNAME} import ${TESTCLASS}
+    ${TESTCLASS}.header()
     unittest.main()
-
 EOF
 }
 
@@ -44,7 +53,16 @@ cat <<EOF > "${TESTFILE}"
 import unittest
 from ${MODULENAME} import ${CLASSNAME}
 
+
 class ${TESTCLASS}(unittest.TestCase):
+
+    @staticmethod
+    def header():
+        print("\n")
+        print("*************************************")
+        print("    Running tests on ${CLASSNAME}")
+        print("*************************************")
+        print("\n")
 
     def setUp(self):
         self.${MODULENAME} = ${CLASSNAME}()
@@ -54,7 +72,6 @@ class ${TESTCLASS}(unittest.TestCase):
 
     def test_creation(self):
         self.assertIsInstance(self.${MODULENAME}, ${CLASSNAME})
-
 EOF
 
 touch "${TESTSDIR}/__init__.py";

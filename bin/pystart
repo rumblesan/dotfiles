@@ -17,13 +17,13 @@ echo "Creating python script ${FILENAME}"
 cat <<EOF > "$FILENAME"
 #!/usr/bin/env python
 
+
 def main():
     pass
 
 
 if __name__ == '__main__':
     main()
-
 EOF
 
 chmod +x "$FILENAME"
