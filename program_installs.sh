@@ -19,6 +19,7 @@ scala
 sdl'
 
 CABALS='cabal-install
+test-framework-hunit
 quickcheck
 haddock
 hlint
