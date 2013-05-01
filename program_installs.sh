@@ -19,6 +19,9 @@ scala
 sdl'
 
 CABALS='cabal-install
+quickcheck
+haddock
+hlint
 hdevtools'
 
 PIPS='flake8
