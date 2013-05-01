@@ -24,10 +24,16 @@ if [ -z '$PS1' ]; then
 fi
 
 # ----------------------------------------------------------------------
-# PATH
+# EXPORTED VARIABLES
 # ----------------------------------------------------------------------
+# General variables used in other places
 
 export DOTFILES=$HOME/.dotfiles
+export REPODIR=$HOME/repositories
+
+# ----------------------------------------------------------------------
+# PATH
+# ----------------------------------------------------------------------
 
 PATH=/usr/local/bin:$DOTFILES/bin:$DOTFILES/notes.txt:$DOTFILES/commiter8:$PATH
 

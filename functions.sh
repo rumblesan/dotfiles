@@ -5,9 +5,9 @@
 repos()
 {
     if [ -z '$1' ]; then
-        cd "${HOME}/repositories"
+        cd "${REPODIR}"
     else
-        cd "${HOME}/repositories/$1"
+        cd "${REPODIR}/$1"
     fi
 }
 
