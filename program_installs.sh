@@ -89,6 +89,21 @@ install()
         install_jscripts
         install_ruby
         ;;
+    "brew" )
+        install_brews
+        ;;
+    "cabal" )
+        install_cabals
+        ;;
+    "pip" )
+        install_pips
+        ;;
+    "npm" )
+        install_jscripts
+        ;;
+    "ruby" )
+        install_ruby
+        ;;
     * )
         echo "Need to tell me to install all of this"
         ;;
