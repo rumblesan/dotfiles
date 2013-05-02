@@ -56,3 +56,8 @@ autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 " for css or scss
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
+
+" hdev tools settings
+" tell hdev tools to look in src and tests for modules
+let g:hdevtools_options = '-g -isrc -g -itests -g -Wall'
+
