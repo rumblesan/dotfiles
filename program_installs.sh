@@ -31,6 +31,16 @@ fabric'
 JSCRIPTS='jslint
 grunt-cli'
 
+CASKS='spotify
+iterm2
+skype
+steam
+x-quartz
+vlc
+evernote
+google-chrome
+size-up'
+
 install_brews()
 {
     brew update
@@ -44,6 +54,15 @@ install_brews()
     cd /usr/local/Cellar/macvim/7.3-66/MacVim.app/Contents/MacOS/
     install_name_tool -change /System/Library/Frameworks/Python.framework/Versions/2.7/Python /usr/local/Cellar/python/2.7.4/Frameworks/Python.framework/Versions/2.7/Python MacVim
     install_name_tool -change /System/Library/Frameworks/Python.framework/Versions/2.7/Python /usr/local/Cellar/python/2.7.4/Frameworks/Python.framework/Versions/2.7/Python Vim
+}
+
+install_casks()
+{
+    brew tap phinze/homebrew-cask
+    brew install brew-cask
+    for i in $CASKS; do
+        brew cask install $i
+    done
 }
 
 install_cabals()
@@ -88,6 +107,7 @@ install()
         install_pips
         install_jscripts
         install_ruby
+        install_casks
         ;;
     "brew" )
         install_brews
@@ -103,6 +123,9 @@ install()
         ;;
     "ruby" )
         install_ruby
+        ;;
+    "cask" )
+        install_casks
         ;;
     * )
         echo "Need to tell me to install all of this"
