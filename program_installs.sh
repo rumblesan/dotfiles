@@ -41,6 +41,30 @@ evernote
 google-chrome
 size-up'
 
+
+basic_dev_env()
+{
+    $DEVBREWS='coreutils git'
+    brew update
+    for i in $DEVBREWS; do
+        brew install $i
+    done
+    # Install macvim separately with special flags
+    brew install macvim --env-std --override-system-vim
+
+    # Horrible fix to make macvim link with homebrew python, not system python
+    cd /usr/local/Cellar/macvim/7.3-66/MacVim.app/Contents/MacOS/
+    install_name_tool -change /System/Library/Frameworks/Python.framework/Versions/2.7/Python /usr/local/Cellar/python/2.7.4/Frameworks/Python.framework/Versions/2.7/Python MacVim
+    install_name_tool -change /System/Library/Frameworks/Python.framework/Versions/2.7/Python /usr/local/Cellar/python/2.7.4/Frameworks/Python.framework/Versions/2.7/Python Vim
+
+    $DEVCASKS='x-quartz iterm2 size-up google-chrome'
+    brew tap phinze/homebrew-cask
+    brew install brew-cask
+    for i in $CASKS; do
+        brew cask install $i
+    done
+}
+
 install_brews()
 {
     brew update
@@ -126,6 +150,9 @@ install()
         ;;
     "cask" )
         install_casks
+        ;;
+    "devenv" )
+        basic_dev_env
         ;;
     * )
         echo "Need to tell me to install all of this"
