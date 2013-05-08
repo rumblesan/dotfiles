@@ -295,49 +295,28 @@
 	<false/>
 	<key>NSNavLastRootDirectory</key>
 	<string>~/.dotfiles/iterm2_settings</string>
-	<key>NSNavPanelExpandedSizeForOpenMode</key>
-	<string>{585, 400}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
 	<string></string>
 	<key>NSScrollAnimationEnabled</key>
 	<false/>
-	<key>NSTableView Columns KeyBingingTable</key>
-	<array>
-		<data>
-		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
-		hAErATCG
-		</data>
-		<string>198</string>
-		<data>
-		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
-		hAErATGG
-		</data>
-		<string>319</string>
-	</array>
-	<key>NSTableView Hidden Columns KeyBingingTable</key>
-	<array/>
-	<key>NSTableView Sort Ordering KeyBingingTable</key>
-	<array/>
 	<key>NSWindow Frame Preferences</key>
-	<string>399 324 924 485 0 0 1440 878 </string>
+	<string>705 430 924 485 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 524 1440 354 0 0 1440 878 </string>
+	<string>0 4 1920 527 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 326 585 376 0 0 2560 1418 </string>
+	<string>0 531 960 527 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>0 441 720 437 0 0 1440 878 </string>
+	<string>0 531 960 527 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>0 441 720 437 0 0 1440 878 </string>
+	<string>0 458 960 600 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
-	<string>1837 65 585 376 0 0 2560 1418 </string>
+	<string>0 4 960 1054 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
-	<string>17 459 570 376 0 0 1440 878 </string>
+	<string>1083 190 585 376 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 6</key>
-	<string>896 -63 732 376 0 0 1440 878 </string>
-	<key>NSWindow Frame iTerm Window 7</key>
-	<string>351 882 585 376 0 0 2560 1418 </string>
+	<string>132 182 886 544 0 0 1920 1058 </string>
 	<key>NeverWarnAboutShortLivedSessions_A8BFD393-F6BC-4226-8728-664E02546471</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -1793,7 +1772,7 @@
 			<string>/Users/guy</string>
 		</dict>
 	</array>
-	<key>NoSyncNeverRemindPrefsChangesCopy</key>
+	<key>NoSyncNeverRemindPrefsChangesLost</key>
 	<true/>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
@@ -1841,13 +1820,13 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/guy/.dotfiles/iterm2_settings</string>
+	<string>/Users/guy.john/.dotfiles/iterm2_settings</string>
 	<key>PromptOnClose</key>
 	<true/>
 	<key>PromptOnQuit</key>
 	<false/>
 	<key>QuitWhenAllWindowsClosed</key>
-	<true/>
+	<false/>
 	<key>RightCommand</key>
 	<integer>8</integer>
 	<key>RightOption</key>
@@ -1861,7 +1840,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2013-05-08T10:10:11Z</date>
+	<date>2013-05-08T15:51:46Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
