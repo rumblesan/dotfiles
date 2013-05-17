@@ -29,6 +29,7 @@ PIPS='flake8
 fabric'
 
 JSCRIPTS='jslint
+coffeelint
 grunt-cli'
 
 CASKS='spotify
