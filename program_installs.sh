@@ -26,6 +26,7 @@ hlint
 hdevtools'
 
 PIPS='flake8
+pygments
 fabric'
 
 JSCRIPTS='jslint
