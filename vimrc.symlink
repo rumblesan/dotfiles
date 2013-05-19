@@ -56,6 +56,9 @@ autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 " for css or scss
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
+" setting 2 space indentation for coffee script files
+au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+
 
 " hdev tools settings
 " tell hdev tools to look in src and tests for modules
