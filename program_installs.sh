@@ -30,6 +30,8 @@ pygments
 fabric'
 
 JSCRIPTS='jslint
+coffee-script
+coffeedoc
 coffeelint
 grunt-cli'
 
