@@ -56,10 +56,7 @@ basic_dev_env()
     # Install macvim separately with special flags
     brew install macvim --env-std --override-system-vim
 
-    # Horrible fix to make macvim link with homebrew python, not system python
-    cd /usr/local/Cellar/macvim/7.3-66/MacVim.app/Contents/MacOS/
-    install_name_tool -change /System/Library/Frameworks/Python.framework/Versions/2.7/Python /usr/local/Cellar/python/2.7.4/Frameworks/Python.framework/Versions/2.7/Python MacVim
-    install_name_tool -change /System/Library/Frameworks/Python.framework/Versions/2.7/Python /usr/local/Cellar/python/2.7.4/Frameworks/Python.framework/Versions/2.7/Python Vim
+    fix_powerline
 
     $DEVCASKS='x-quartz iterm2 size-up google-chrome'
     brew tap phinze/homebrew-cask
@@ -78,10 +75,25 @@ install_brews()
     # Install macvim separately with special flags
     brew install macvim --env-std --override-system-vim
 
+    fix_powerline
+}
+
+fix_powerline()
+{
+    # get version numbers for Macvim and python
+    MACVIM_VER=`brew ls --versions macvim | sed 's/.* \(.*\)/\1/g'`
+    PY_FULL_VER=`brew ls --versions python | sed 's/.* \(.*\)/\1/g'`
+    PY_MAJ_VER=`echo $PY_FULL_VER | sed 's/\([0-9][0-9]*\.[0-9][0-9]*\).*/\1/'`
+
+    echo "Fixing Macvim to use brew python"
+    echo "Macvim version: $MACVIM_VER"
+    echo "Python major version: $PY_MAJ_VER"
+    echo "       full version: $PY_FULL_VER"
+
     # Horrible fix to make macvim link with homebrew python, not system python
-    cd /usr/local/Cellar/macvim/7.3-66/MacVim.app/Contents/MacOS/
-    install_name_tool -change /System/Library/Frameworks/Python.framework/Versions/2.7/Python /usr/local/Cellar/python/2.7.4/Frameworks/Python.framework/Versions/2.7/Python MacVim
-    install_name_tool -change /System/Library/Frameworks/Python.framework/Versions/2.7/Python /usr/local/Cellar/python/2.7.4/Frameworks/Python.framework/Versions/2.7/Python Vim
+    cd /usr/local/Cellar/macvim/$MACVIM_VER/MacVim.app/Contents/MacOS/
+    install_name_tool -change /System/Library/Frameworks/Python.framework/Versions/$PY_MAJ_VER/Python /usr/local/Cellar/python/$PY_FULL_VER/Frameworks/Python.framework/Versions/$PY_MAJ_VER/Python MacVim
+    install_name_tool -change /System/Library/Frameworks/Python.framework/Versions/$PY_MAJ_VER/Python /usr/local/Cellar/python/$PY_FULL_VER/Frameworks/Python.framework/Versions/$PY_MAJ_VER/Python Vim
 }
 
 install_casks()
@@ -157,6 +169,9 @@ install()
         ;;
     "devenv" )
         basic_dev_env
+        ;;
+    "fixpowerline" )
+        fix_powerline
         ;;
     * )
         echo "Need to tell me to install all of this"
