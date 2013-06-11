@@ -1,13 +1,13 @@
 [user]
-	name = Guy John
-	email = guy@rumblesan.com
+    name = Guy John
+    email = guy@rumblesan.com
 
 [work]
     email = guy.john@mindcandy.com
 
 [github]
-	user = rumblesan
-	password = !security 2>&1 >/dev/null find-generic-password -gs github.password | ruby -e 'print $1 if STDIN.gets =~ /^password: \\\"(.*)\\\"$/'
+    user = rumblesan
+    password = !security 2>&1 >/dev/null find-generic-password -gs github.password | ruby -e 'print $1 if STDIN.gets =~ /^password: \\\"(.*)\\\"$/'
 
 [color]
     ui = true
@@ -32,9 +32,9 @@
     untracked = cyan
 
 [core]
-	autocrlf = input
-	whitespace = trailing-space,space-before-tab
-	excludesfile = ~/.gitignore
+    autocrlf = input
+    whitespace = trailing-space,space-before-tab
+    excludesfile = ~/.gitignore
 
 [alias]
     amend = commit --amend
@@ -45,6 +45,7 @@
     brd = branch -d
     co = checkout
     df = diff
+    dt = difftool
     lg = log -p
     ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
     ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
@@ -54,9 +55,12 @@
     workcl = !git clone --recursive -c user.email=`git config --get work.email`
     worksubmodule = !git submodule foreach git workemail
 [push]
-	default = simple
+    default = simple
 [diff]
-	renames = copies
-	mnemonicprefix = true
+    renames = copies
+    mnemonicprefix = true
+    tool = gvimdiff
 [branch]
-	autosetupmerge = true
+    autosetupmerge = true
+[difftool]
+    prompt = false
