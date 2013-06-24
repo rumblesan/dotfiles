@@ -27,7 +27,8 @@ hdevtools'
 
 PIPS='flake8
 pygments
-fabric'
+fabric
+git+git://github.com/Lokaltog/powerline'
 
 JSCRIPTS='jslint
 coffee-script
@@ -56,8 +57,6 @@ basic_dev_env()
     # Install macvim separately with special flags
     brew install macvim --env-std --override-system-vim
 
-    fix_powerline
-
     $DEVCASKS='x-quartz iterm2 size-up google-chrome'
     brew tap phinze/homebrew-cask
     brew install brew-cask
@@ -74,26 +73,6 @@ install_brews()
     done
     # Install macvim separately with special flags
     brew install macvim --env-std --override-system-vim
-
-    fix_powerline
-}
-
-fix_powerline()
-{
-    # get version numbers for Macvim and python
-    MACVIM_VER=`brew ls --versions macvim | sed 's/.* \(.*\)/\1/g'`
-    PY_FULL_VER=`brew ls --versions python | sed 's/.* \(.*\)/\1/g'`
-    PY_MAJ_VER=`echo $PY_FULL_VER | sed 's/\([0-9][0-9]*\.[0-9][0-9]*\).*/\1/'`
-
-    echo "Fixing Macvim to use brew python"
-    echo "Macvim version: $MACVIM_VER"
-    echo "Python major version: $PY_MAJ_VER"
-    echo "       full version: $PY_FULL_VER"
-
-    # Horrible fix to make macvim link with homebrew python, not system python
-    cd /usr/local/Cellar/macvim/$MACVIM_VER/MacVim.app/Contents/MacOS/
-    install_name_tool -change /System/Library/Frameworks/Python.framework/Versions/$PY_MAJ_VER/Python /usr/local/Cellar/python/$PY_FULL_VER/Frameworks/Python.framework/Versions/$PY_MAJ_VER/Python MacVim
-    install_name_tool -change /System/Library/Frameworks/Python.framework/Versions/$PY_MAJ_VER/Python /usr/local/Cellar/python/$PY_FULL_VER/Frameworks/Python.framework/Versions/$PY_MAJ_VER/Python Vim
 }
 
 install_casks()
@@ -119,8 +98,6 @@ install_pips()
     for i in $PIPS; do
         pip install $i
     done
-    # Install powerline separately from github
-    pip install --user git+git://github.com/Lokaltog/powerline
 }
 
 install_jscripts()
@@ -169,9 +146,6 @@ install()
         ;;
     "devenv" )
         basic_dev_env
-        ;;
-    "fixpowerline" )
-        fix_powerline
         ;;
     * )
         echo "Need to tell me to install all of this"
