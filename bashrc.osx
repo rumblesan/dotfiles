@@ -22,9 +22,6 @@ PATH=$DOTFILES/bin.osx:$PATH
 # Add npm bin dir to path
 PATH=$PATH:/usr/local/share/npm/bin
 
-# Add pip bin dir to path
-PATH=$PATH:/usr/local/share/python
-
 # Add cabal bin dir to path
 PATH=$PATH:~/.cabal/bin
 
