@@ -23,7 +23,8 @@ test-framework-hunit
 quickcheck
 haddock
 hlint
-hdevtools'
+hdevtools
+cabal-dev'
 
 PIPS='flake8
 pygments
