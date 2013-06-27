@@ -35,7 +35,6 @@ PATH=$PATH:/usr/local/Cellar/ruby/1.9.3-p362/bin
 # Source the OSX specific aliases
 source "$DOTFILES/aliases.osx"
 
-
 # ----------------------------------------------------------------------
 # BASH COMPLETION
 # ----------------------------------------------------------------------
@@ -43,15 +42,5 @@ source "$DOTFILES/aliases.osx"
 # Add the files for the installed bash_completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
-fi
-
-# ----------------------------------------------------------------------
-# POWERLINE
-# ----------------------------------------------------------------------
-
-POWERLINESH=$(brew --prefix)/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
-
-if [ -f $POWERLINESH ]; then
-    . $POWERLINESH
 fi
 

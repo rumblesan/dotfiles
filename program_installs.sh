@@ -16,7 +16,8 @@ rbenv
 ruby
 ruby-build
 scala
-sdl'
+sdl
+zsh'
 
 CABALS='cabal-install
 test-framework-hunit
@@ -114,6 +115,11 @@ install_ruby()
     rbenv rehash
 }
 
+set_shell()
+{
+    chsh zsh
+}
+
 install()
 {
     action=$( printf "%s\n" "$1" | tr 'A-Z' 'a-z' )
@@ -126,6 +132,7 @@ install()
         install_jscripts
         install_ruby
         install_casks
+        set_shell
         ;;
     "brew" )
         install_brews

@@ -1,18 +1,9 @@
-#!/bin/bash
-
-# Guy John <http://rumblesan.com>
-# guy@rumblesan.com
-#
-# Thanks to
-# Ryan Tomayko <http://tomayko.com/about>
-# Zach Holman <http://zachholman.com/about>
-# Mathias Bynens <http://mathiasbynens.be/>
-# probably others as well
-
-# the basics
+# Path to your oh-my-zsh configuration.
+# # the basics
 : ${HOME=~}
 : ${LOGNAME=$(id -un)}
 : ${UNAME=$(uname)}
+: ${ZSH=$HOME/.oh-my-zsh}
 
 # ----------------------------------------------------------------------
 # ONLY FOR INTERACTIVE SHELLS
@@ -22,6 +13,23 @@
 if [ -z '$PS1' ]; then
    return
 fi
+
+# ----------------------------------------------------------------------
+# ZSH SETTINGS
+# ----------------------------------------------------------------------
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="agnoster"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
 
 # ----------------------------------------------------------------------
 # EXPORTED VARIABLES
@@ -44,13 +52,6 @@ fi
 export PATH
 
 # ----------------------------------------------------------------------
-# IMPORT CLI COLOURS
-# ----------------------------------------------------------------------
-
-# A bunch of CLI colours defined using tputs
-source $DOTFILES/cli_colours.sh
-
-# ----------------------------------------------------------------------
 # ENVIRONMENT CONFIGURATION
 # ----------------------------------------------------------------------
 
@@ -60,28 +61,6 @@ export FIGNORE=".pyc"
 # history stuff
 export HISTCONTROL=ignoredups:ignorespace
 alias h=history
-
-# ----------------------------------------------------------------------
-# PROMPT
-# ----------------------------------------------------------------------
-
-if [ `hostname -s` = "Solaris" ]; then
-    # Home laptop is blue
-    PS1="[\u@${BLUE}\h${NORMAL}:\W]\$ "
-elif [ `hostname -s` = "horsehead" ]; then
-    # VPS is red
-    PS1="[\u@${RED}\h${NORMAL}:\W]\$ "
-else
-    # Work mac is green
-    PS1="[\u@${GREEN}\h${NORMAL}:\W]\$ "
-fi;
-export PS1
-
-# ----------------------------------------------------------------------
-# WINDOW
-# ----------------------------------------------------------------------
-
-export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}\007"'
 
 # ----------------------------------------------------------------------
 # PAGER / EDITOR
@@ -111,21 +90,6 @@ export PAGER MANPAGER
 
 # set vim bindings
 set -o vi
-
-# ----------------------------------------------------------------------
-# DIRCOLORS
-# ----------------------------------------------------------------------
-
-# if the dircolors utility is available, set that up to
-dircolors="$(type -P gdircolors dircolors | head -1)"
-test -n "$dircolors" && {
-    COLORS=/etc/DIR_COLORS
-    test -e "/etc/DIR_COLORS.$TERM"   && COLORS="/etc/DIR_COLORS.$TERM"
-    test -e "$HOME/.dircolors"        && COLORS="$HOME/.dircolors"
-    test ! -e "$COLORS"               && COLORS=
-    eval `$dircolors --sh $COLORS`
-}
-unset dircolors
 
 # ----------------------------------------------------------------------
 # RUBY
@@ -160,18 +124,6 @@ source "$DOTFILES/functions.sh"
 if [ "$UNAME" = Darwin ]; then
     source "$DOTFILES/bashrc.osx"
 fi
-
-# ----------------------------------------------------------------------
-# COMPLETIONS
-# ----------------------------------------------------------------------
-
-set completions-ignore-case On
-
-# Source all the files in dotfiles/completions
-for c in ${DOTFILES}/completions/*
-do
-    source $c
-done
 
 # ----------------------------------------------------------------------
 # MISC
