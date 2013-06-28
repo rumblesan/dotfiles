@@ -100,6 +100,20 @@ if [ -n "$(command -v rbenv)" ]; then
 fi
 
 # ----------------------------------------------------------------------
+# COMPLETIONS
+# ----------------------------------------------------------------------
+
+# add custom completion scripts
+fpath=(~/.completions $fpath)
+
+# compsys initialization
+autoload -U compinit
+compinit
+
+# show completion menu when number of options is at least 2
+zstyle ':completion:*' menu select=2
+
+# ----------------------------------------------------------------------
 # ALIASES
 # ----------------------------------------------------------------------
 
