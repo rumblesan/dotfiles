@@ -1,6 +1,0 @@
-#!/bin/bash
-
-# Easy reloading after editing bashrc or other dotfiles
-echo "Bash environment reloaded"
-source ~/.bashrc
-
