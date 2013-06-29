@@ -30,7 +30,9 @@ cabal-dev'
 PIPS='flake8
 pygments
 fabric
-git+git://github.com/Lokaltog/powerline'
+git+git://github.com/Lokaltog/powerline
+sniffer
+MacFSEvents'
 
 JSCRIPTS='jslint
 coffee-script
