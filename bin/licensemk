@@ -3,6 +3,8 @@
 FILENAME="LICENSE"
 YEAR=`date +%Y`
 
+echo "Creating LICENSE file"
+
 die()
 {
     echo "$*"
@@ -14,7 +16,7 @@ if [ -f $FILENAME ]; then
 fi
 
 if [ $# -lt 1 ] ; then
-    echo -n "Owner information: "
+    echo -n "(m) Owner information: "
     read INFO
 else
     INFO="$*"

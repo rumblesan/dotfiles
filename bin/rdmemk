@@ -15,22 +15,22 @@ fi
 echo "Creating README.md file"
 
 
-echo -n "Title: "
+echo -n "(m) Title: "
 read TITLE
 if [ -z "$TITLE" ]; then
     die "Need to give a title"
 fi
 
 
-echo -n "Short description: "
+echo -n "(o) Short description: "
 read SHRTDESC
 
 
-echo -n "Long description: "
+echo -n "(o) Long description: "
 read LONGDESC
 
 
-echo -n "Contact Email: "
+echo -n "(o) Contact Email [guy@rumblesan.com]: "
 read EMAIL
 if [ -z "$EMAIL" ]; then
     EMAIL="guy@rumblesan.com"
