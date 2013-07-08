@@ -32,7 +32,8 @@ pygments
 fabric
 git+git://github.com/Lokaltog/powerline
 sniffer
-MacFSEvents'
+MacFSEvents
+virtualenv'
 
 JSCRIPTS='jslint
 coffee-script
