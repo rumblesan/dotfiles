@@ -42,6 +42,8 @@ coffeelint
 grunt-cli'
 
 CASKS='spotify
+virtualbox
+vagrant
 iterm2
 skype
 steam
