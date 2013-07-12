@@ -51,7 +51,8 @@ x-quartz
 vlc
 evernote
 google-chrome
-size-up'
+size-up
+growlnotify'
 
 
 basic_dev_env()
