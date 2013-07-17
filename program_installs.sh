@@ -17,6 +17,7 @@ ruby
 ruby-build
 scala
 sdl
+gnu-typist
 zsh'
 
 CABALS='cabal-install
