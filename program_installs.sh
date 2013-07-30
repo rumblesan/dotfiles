@@ -34,6 +34,7 @@ fabric
 git+git://github.com/Lokaltog/powerline
 sniffer
 MacFSEvents
+pygreen
 virtualenv'
 
 JSCRIPTS='jslint
