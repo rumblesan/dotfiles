@@ -64,3 +64,6 @@
 [submodule "zsh-notify"]
 	path = zsh-notify
 	url = https://github.com/marzocchi/zsh-notify
+[submodule "vim.symlink/bundle/vim-mako"]
+	path = vim.symlink/bundle/vim-mako
+	url = https://github.com/sophacles/vim-bundle-mako.git
