@@ -158,5 +158,8 @@ if [ -f "$HOME/.nvm/nvm.sh" ]; then
     source "$HOME/.nvm/nvm.sh"
 fi
 
+# Turn off oh-my-zsh asking to update
+DISABLE_AUTO_UPDATE=true
+
 
 
