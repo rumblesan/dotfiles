@@ -36,10 +36,18 @@ if [ -z "$EMAIL" ]; then
     EMAIL="guy@rumblesan.com"
 fi
 
-licensemk
+echo -n "Create License? (y/n) "
+read LICENSE
+if [ -z "$LICENSE" ]; then
+    LICENSE="n"
+fi
 
-if [ $? != 0 ]; then
-    die "Couldn't make LICENSE file"
+if [ "$LICENSE" == "y" ]; then
+    licensemk
+
+    if [ $? != 0 ]; then
+        die "Couldn't make LICENSE file"
+    fi
 fi
 
 cat <<EOF > "$FILENAME"
