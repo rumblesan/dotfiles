@@ -16,7 +16,7 @@ if [ -f $FILENAME ]; then
 fi
 
 if [ $# -lt 1 ] ; then
-    echo -n "(0) Owner information [Guy John]: "
+    echo -n "(o) Owner information [Guy John]: "
     read INFO
 else
     INFO="$*"
