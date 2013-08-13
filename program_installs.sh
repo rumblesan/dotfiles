@@ -20,13 +20,8 @@ sdl
 gnu-typist
 zsh'
 
-CABALS='cabal-install
-test-framework-hunit
-quickcheck
-haddock
-hlint
-hdevtools
-cabal-dev'
+CABALS='hdevtools
+hsenv'
 
 PIPS='flake8
 pygments
