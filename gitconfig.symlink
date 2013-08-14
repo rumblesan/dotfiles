@@ -34,7 +34,7 @@
 [core]
     autocrlf = input
     whitespace = trailing-space,space-before-tab
-    excludesfile = ~/.gitignore
+    excludesfile = /opt/boxen/config/git/gitignore
 
 [alias]
     amend = commit --amend
@@ -64,3 +64,6 @@
     autosetupmerge = true
 [difftool]
     prompt = false
+
+[hub]
+protocol = https
