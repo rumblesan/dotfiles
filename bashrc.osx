@@ -19,14 +19,8 @@ FIGNORE="$FIGNORE:DS_Store"
 # Add osx scripts to path
 PATH=$DOTFILES/bin.osx:$PATH
 
-# Add npm bin dir to path
-PATH=$PATH:/usr/local/share/npm/bin
-
 # Add cabal bin dir to path
 PATH=$PATH:~/.cabal/bin
-
-# Add ruby gem bin dir to path
-PATH=$PATH:/usr/local/Cellar/ruby/1.9.3-p362/bin
 
 # ----------------------------------------------------------------------
 # ALIASES
@@ -34,13 +28,4 @@ PATH=$PATH:/usr/local/Cellar/ruby/1.9.3-p362/bin
 
 # Source the OSX specific aliases
 source "$DOTFILES/aliases.osx"
-
-# ----------------------------------------------------------------------
-# BASH COMPLETION
-# ----------------------------------------------------------------------
-
-# Add the files for the installed bash_completion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
-fi
 
