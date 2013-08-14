@@ -67,9 +67,6 @@
 [submodule "vim.symlink/bundle/vim-mako"]
 	path = vim.symlink/bundle/vim-mako
 	url = https://github.com/sophacles/vim-bundle-mako.git
-[submodule "nvm.symlink"]
-	path = nvm.symlink
-	url = https://github.com/creationix/nvm.git
 [submodule "vim.symlink/bundle/vim-jade"]
 	path = vim.symlink/bundle/vim-jade
 	url = https://github.com/digitaltoad/vim-jade.git
