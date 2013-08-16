@@ -12,6 +12,7 @@ let g:solarized_termtrans = 1
 colorscheme solarized
 
 set noerrorbells t_vb=
+set visualbell
 
 "turns off the swap file stuff
 set nobackup
