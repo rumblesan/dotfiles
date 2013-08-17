@@ -24,6 +24,8 @@ Commands:
         Delete all the dotfiles symlinks
     update
         Update all the git submodules
+    firsttime
+        Run the first time setup
 
 Flags:
     -h
@@ -105,6 +107,16 @@ update()
     git submodule foreach git pull --rebase origin master
 }
 
+# Do all the misc setup on a new Mac
+firsttime()
+{
+    # Ask for root password upfront
+    sudo -v
+    sudo cp $DOTFILE_DIR/misc/fonts/*.ttf /Library/Fonts/
+
+    sudo $DOTFILE_DIR/misc/osx.sh
+}
+
 runaction()
 {
     if [ $DOTFILE_DIR == $PWD ]; then
@@ -121,6 +133,9 @@ runaction()
         "update" )
             update
             ;;
+        "firsttime" )
+            firsttime
+            ;;
         * )
             usage
             ;;
@@ -130,7 +145,6 @@ runaction()
         die "This script needs to be run from the dotfiles directory:  $DOTFILE_DIR"
     fi
 }
-
 
 DOTFILE_DIR=~/.dotfiles
 PWD="`pwd`"
