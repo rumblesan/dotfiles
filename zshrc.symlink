@@ -39,7 +39,7 @@ source $ZSH/oh-my-zsh.sh
 # General variables used in other places
 
 export DOTFILES=$HOME/.dotfiles
-export REPODIR=$HOME/repositories
+export REPODIR=$HOME/src
 
 # ----------------------------------------------------------------------
 # PATH
