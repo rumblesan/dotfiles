@@ -45,11 +45,15 @@ imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
 
+" vim airline settings
 set laststatus=2
 set noshowmode
 set guifont=Menlo\ for\ Powerline
 let g:airline_powerline_fonts = 1
 let g:airline_theme='solarized'
+let g:airline_enable_branch = 0
+let g:airline_section_b = '%f%m'
+let g:airline_section_c = ''
 
 map <c-f> :call JsBeautify()<cr>
 " or
