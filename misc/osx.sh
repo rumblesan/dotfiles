@@ -254,7 +254,16 @@ unset file
 defaults write com.apple.dock mouse-over-hilte-stack -bool true
 
 # Set the icon size of Dock items to 36 pixels
-defaults write com.apple.dock tilesize -int 36
+defaults write com.apple.dock tilesize -int 24
+
+# Turn on dock magnification
+defaults write com.apple.dock magnification -bool true
+
+# Set the magnified size of dock elements
+defaults write com.apple.dock largesize -int 64
+
+# Auto hide the dock
+defaults write com.apple.dock autohide -bool true
 
 # Enable spring loading for all Dock items
 defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
