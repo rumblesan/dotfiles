@@ -81,6 +81,11 @@ export PATH
 # history stuff
 export HISTCONTROL=ignoredups:ignorespace
 
+# use good dircolors
+if $(gdircolors &>/dev/null); then
+    eval `dircolors $DOTFILES/dircolors.ansi-dark`
+fi
+
 # ----------------------------------------------------------------------
 # PAGER / EDITOR
 # ----------------------------------------------------------------------
