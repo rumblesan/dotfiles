@@ -78,6 +78,9 @@ export PATH
 # ENVIRONMENT CONFIGURATION
 # ----------------------------------------------------------------------
 
+# ignore OSX folder setting files
+FIGNORE="$FIGNORE:DS_Store"
+
 # history stuff
 export HISTCONTROL=ignoredups:ignorespace
 
