@@ -50,6 +50,16 @@ export REPODIR=$HOME/src
 
 PATH=/usr/local/bin:$DOTFILES/bin:$DOTFILES/notes.txt:$DOTFILES/commiter8:$PATH
 
+if $(brew &>/dev/null); then
+    export BREWPATH=`brew --prefix`
+
+    # if brew and coreutils are installed, then add the gnubin to the path
+    if $(gls &>/dev/null); then
+        PATH="$BREWPATH/opt/coreutils/libexec/gnubin:$PATH"
+    fi
+
+fi
+
 # put ~/bin on PATH if you have it
 if [ -d "$HOME/bin" ]; then
     PATH="$HOME/bin:$PATH"
