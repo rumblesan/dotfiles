@@ -24,20 +24,4 @@ alias psgrep="ps aux | grep -v grep | grep"
 # cd straight to some useful directories
 alias dotfiles="cd ${DOTFILES}"
 
-function n() { 
-  if [ $# -eq 0 ]; then
-    notes.sh ls
-  else
-    notes.sh $*
-  fi
-}
-
-function c8() { 
-  if [ $# -eq 0 ]; then
-    com8.sh ls
-  else
-    com8.sh $*
-  fi
-}
-
 

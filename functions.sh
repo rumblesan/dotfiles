@@ -11,3 +11,19 @@ repos()
     fi
 }
 
+function n() { 
+  if [ $# -eq 0 ]; then
+    notes.sh ls
+  else
+    notes.sh $*
+  fi
+}
+
+function c8() { 
+  if [ $# -eq 0 ]; then
+    com8.sh ls
+  else
+    com8.sh $*
+  fi
+}
+
