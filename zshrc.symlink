@@ -54,6 +54,14 @@ fi
 export PATH
 
 # ----------------------------------------------------------------------
+# BOXEN
+# ----------------------------------------------------------------------
+
+# source the boxen script, for great good
+
+[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+
+# ----------------------------------------------------------------------
 # ENVIRONMENT CONFIGURATION
 # ----------------------------------------------------------------------
 
@@ -153,14 +161,6 @@ source $DOTFILES/zsh-notify/notify.plugin.zsh
 # settins for virtual env wrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$REPODIR
-
-# ----------------------------------------------------------------------
-# BOXEN
-# ----------------------------------------------------------------------
-
-# source the boxen script, for great good
-
-[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 
 # ----------------------------------------------------------------------
 # MISC
