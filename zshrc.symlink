@@ -108,7 +108,7 @@ set -o vi
 # ----------------------------------------------------------------------
 
 # add custom completion scripts
-fpath=(~/.completions $fpath)
+fpath=($DOTFILES/completions $fpath)
 
 # compsys initialization
 autoload -U compinit
