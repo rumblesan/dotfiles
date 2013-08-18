@@ -10,7 +10,7 @@
 # ----------------------------------------------------------------------
 
 # Don't load bashrc if this isn't an interactive shell
-if [ -z '$PS1' ]; then
+if [ -z interactive ]; then
    return
 fi
 
@@ -58,11 +58,12 @@ export REPODIR=$HOME/src
 
 PATH=/usr/local/bin:$DOTFILES/bin:$DOTFILES/notes.txt:$DOTFILES/commiter8:$PATH
 
-if $(brew --prefix &>/dev/null); then
+if [ -n $(command -v brew) ]; then
     export BREWPATH=`brew --prefix`
 
     # if brew and coreutils are installed, then add the gnubin to the path
-    if $(gls &>/dev/null); then
+    if [ -n $(command -v gls) ]; then
+
         PATH="$BREWPATH/opt/coreutils/libexec/gnubin:$PATH"
         MANPATH="$BREWPATH/opt/coreutils/libexec/gnuman:$MANPATH"
 
@@ -71,7 +72,7 @@ if $(brew --prefix &>/dev/null); then
 fi
 
 # put ~/bin on PATH if you have it
-if [ -d "$HOME/bin" ]; then
+if [ -d $HOME/bin ]; then
     PATH="$HOME/bin:$PATH"
 fi
 export PATH
@@ -87,7 +88,7 @@ FIGNORE="$FIGNORE:DS_Store"
 export HISTCONTROL=ignoredups:ignorespace
 
 # use good dircolors
-if $(gdircolors &>/dev/null); then
+if [ -n $(command -v dircolors) ]; then
     eval `dircolors $DOTFILES/dircolors.ansi-dark`
 fi
 
@@ -96,7 +97,7 @@ fi
 # ----------------------------------------------------------------------
 
 # EDITOR
-if [ -n "$(command -v vim)" ]; then
+if [ -n $(command -v vim) ]; then
     EDITOR=vim
 else
     EDITOR=vi
@@ -104,7 +105,7 @@ fi
 export EDITOR
 
 # PAGER
-if [ -n "$(command -v less)" ]; then
+if [ -n $(command -v less) ]; then
     PAGER="less -FirSwX"
     MANPAGER="less -FiRswX"
 else
@@ -138,17 +139,13 @@ zstyle ':completion:*' menu select=2
 # ALIASES
 # ----------------------------------------------------------------------
 
-# This needs to be sourced before the OSX file
-
-# Source the aliases file
-source "$DOTFILES/aliases.sh"
+source $DOTFILES/aliases.sh
 
 # ----------------------------------------------------------------------
 # FUNCTIONS
 # ----------------------------------------------------------------------
 
-# Some useful functions
-source "$DOTFILES/functions.sh"
+source $DOTFILES/functions.sh
 
 # ----------------------------------------------------------------------
 # NOTIFICATIONS
@@ -168,10 +165,7 @@ done
 # ----------------------------------------------------------------------
 # MISC
 # ----------------------------------------------------------------------
-
 # Used for machine specific settings
-if [ -f "$HOME/.localrc" ]; then
-    source "$HOME/.localrc"
-fi
 
+[ -f $HOME/.localrc ] && source $HOME/.localrc
 
