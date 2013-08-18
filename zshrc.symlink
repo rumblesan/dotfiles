@@ -157,6 +157,15 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$REPODIR
 
 # ----------------------------------------------------------------------
+# LANGUAGES
+# ----------------------------------------------------------------------
+# Specific config for any programming languages
+
+for l in $DOTFILES/languages/*; do
+    source $l
+done
+
+# ----------------------------------------------------------------------
 # MISC
 # ----------------------------------------------------------------------
 
@@ -164,6 +173,5 @@ export PROJECT_HOME=$REPODIR
 if [ -f "$HOME/.localrc" ]; then
     source "$HOME/.localrc"
 fi
-
 
 
