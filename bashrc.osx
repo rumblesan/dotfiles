@@ -29,3 +29,8 @@ PATH=$PATH:~/Library/Haskell/bin/
 # Source the OSX specific aliases
 source "$DOTFILES/aliases.osx"
 
+
+if $(gdircolors &>/dev/null); then
+    eval `gdircolors $DOTFILES/dircolors.ansi-dark`
+fi
+

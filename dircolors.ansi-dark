@@ -84,14 +84,11 @@ TERM rxvt-unicode-256color
 TERM screen
 TERM screen-256color
 TERM screen-256color-bce
-TERM screen-256color-s
 TERM screen-bce
-TERM screen-w
 TERM screen.linux
-TERM screen.xterm-new
+TERM screen-w
 TERM vt100
 TERM xterm
-TERM xterm-new
 TERM xterm-16color
 TERM xterm-256color
 TERM xterm-88color
@@ -188,13 +185,13 @@ EXEC 01;31  # Unix
 .org 32
 .md 32
 .mkd 32
+.pdc 32
 
 # Source text
 .h 32
 .c 32
 .C 32
 .cc 32
-.cpp 32
 .cxx 32
 .objc 32
 .sh 32
