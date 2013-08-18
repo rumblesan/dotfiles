@@ -4,6 +4,8 @@
 : ${LOGNAME=$(id -un)}
 : ${UNAME=$(uname)}
 : ${ZSH=$HOME/.oh-my-zsh}
+: ${DOTFILES=$HOME/.dotfiles}
+: ${REPODIR=$HOME/src}
 
 # ----------------------------------------------------------------------
 # ONLY FOR INTERACTIVE SHELLS
@@ -18,13 +20,10 @@ fi
 # ZSH SETTINGS
 # ----------------------------------------------------------------------
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+export ZSH_CUSTOM=$DOTFILES/zsh_custom
 
-DEFAULT_USER=$LOGNAME
+# Set name of the theme to load.
+ZSH_THEME="rumblesan"
 
 # Turn off oh-my-zsh asking to update
 DISABLE_AUTO_UPDATE=true
@@ -35,14 +34,6 @@ DISABLE_AUTO_UPDATE=true
 plugins=(git vi-mode brew cabal fabric history jira npm pip python sbt scala postgres virtualenv vagrant)
 
 source $ZSH/oh-my-zsh.sh
-
-# ----------------------------------------------------------------------
-# EXPORTED VARIABLES
-# ----------------------------------------------------------------------
-# General variables used in other places
-
-export DOTFILES=$HOME/.dotfiles
-export REPODIR=$HOME/src
 
 # ----------------------------------------------------------------------
 # BOXEN
