@@ -10,7 +10,6 @@ PATH=$PATH:~/Library/Haskell/bin
 haskell_env()
 {
     if [ -f ./.hsenv/bin/activate ]; then
-        echo "Activating HSEnv"
         source ./.hsenv/bin/activate
     else
         echo "No HSEnv present"
