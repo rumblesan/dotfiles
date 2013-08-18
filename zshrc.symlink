@@ -149,14 +149,6 @@ fi
 source $DOTFILES/zsh-notify/notify.plugin.zsh
 
 # ----------------------------------------------------------------------
-# VIRTUALENV
-# ----------------------------------------------------------------------
-
-# settins for virtual env wrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$REPODIR
-
-# ----------------------------------------------------------------------
 # LANGUAGES
 # ----------------------------------------------------------------------
 # Specific config for any programming languages
