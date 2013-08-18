@@ -64,6 +64,8 @@ if $(brew --prefix &>/dev/null); then
     # if brew and coreutils are installed, then add the gnubin to the path
     if $(gls &>/dev/null); then
         PATH="$BREWPATH/opt/coreutils/libexec/gnubin:$PATH"
+        MANPATH="$BREWPATH/opt/coreutils/libexec/gnuman:$MANPATH"
+
     fi
 
 fi
