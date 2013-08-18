@@ -78,9 +78,6 @@ export PATH
 # ENVIRONMENT CONFIGURATION
 # ----------------------------------------------------------------------
 
-# ignore python bytecode
-export FIGNORE=".pyc"
-
 # history stuff
 export HISTCONTROL=ignoredups:ignorespace
 
