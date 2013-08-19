@@ -389,51 +389,44 @@
 	<true/>
 	<key>MaxVertically</key>
 	<false/>
+	<key>NSColorPanelMode</key>
+	<string>6</string>
+	<key>NSFontPanelAttributes</key>
+	<string>1, 0</string>
+	<key>NSFontPanelPreviewHeight</key>
+	<real>0.0</real>
 	<key>NSNavLastRootDirectory</key>
 	<string>~/.dotfiles/iterm2_settings</string>
-	<key>NSNavPanelExpandedSizeForOpenMode</key>
-	<string>{585, 400}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
 	<string></string>
 	<key>NSScrollAnimationEnabled</key>
 	<false/>
-	<key>NSTableView Columns KeyBingingTable</key>
-	<array>
-		<data>
-		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
-		hAErATCG
-		</data>
-		<string>198</string>
-		<data>
-		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
-		hAErATGG
-		</data>
-		<string>319</string>
-	</array>
-	<key>NSTableView Hidden Columns KeyBingingTable</key>
-	<array/>
-	<key>NSTableView Sort Ordering KeyBingingTable</key>
-	<array/>
+	<key>NSWindow Frame NSColorPanel</key>
+	<string>427 356 214 309 0 0 1920 1058 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>1263 769 924 485 0 0 2560 1418 </string>
+	<string>807 293 924 485 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>644 648 585 376 0 0 2560 1418 </string>
+	<string>0 4 960 527 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 326 585 376 0 0 2560 1418 </string>
+	<string>0 671 585 376 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>0 441 720 437 0 0 1440 878 </string>
+	<string>0 531 960 527 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>0 441 720 437 0 0 1440 878 </string>
+	<string>960 531 960 527 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
-	<string>1837 65 585 376 0 0 2560 1418 </string>
+	<string>0 531 960 527 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
-	<string>17 459 570 376 0 0 1440 878 </string>
+	<string>0 531 960 527 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 6</key>
-	<string>896 -63 732 376 0 0 1440 878 </string>
+	<string>0 4 960 527 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 7</key>
-	<string>351 882 585 376 0 0 2560 1418 </string>
+	<string>960 4 960 527 0 0 1920 1058 </string>
+	<key>NSWindow Frame iTerm Window 8</key>
+	<string>0 531 960 527 0 0 1920 1058 </string>
+	<key>NSWindow Frame iTerm Window 9</key>
+	<string>590 251 935 488 0 0 1920 1058 </string>
 	<key>NeverWarnAboutShortLivedSessions_A8BFD393-F6BC-4226-8728-664E02546471</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -1889,7 +1882,7 @@
 			<string>/Users/guy</string>
 		</dict>
 	</array>
-	<key>NoSyncNeverRemindPrefsChangesCopy</key>
+	<key>NoSyncNeverRemindPrefsChangesLost</key>
 	<true/>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
@@ -1937,7 +1930,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/guy/.dotfiles/iterm2_settings</string>
+	<string>/Users/guy.john/.dotfiles/misc/iterm2_settings</string>
 	<key>PromptOnClose</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -1953,11 +1946,11 @@
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedURL</key>
-	<string>http://iterm2.googlecode.com/svn/trunk/appcasts/testing.xml</string>
+	<string>http://iterm2.com/appcasts/testing.xml</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2013-05-12T22:07:44Z</date>
+	<date>2013-08-19T09:29:41Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -2014,6 +2007,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>1.0.0.20130319</string>
+	<string>1.0.0.20130624</string>
 </dict>
 </plist>
