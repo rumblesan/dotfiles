@@ -8,8 +8,10 @@
       <name>Escape plus Command</name>
       <appendix>Pressing Command alone will type Escape. Otherwise works normally.</appendix>
       <identifier>private.command_to_escape</identifier>
-      <autogen>--KeyOverlaidModifier-- KeyCode::COMMAND_R, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::COMMAND_R, KeyCode::ESCAPE, ModifierFlag::COMMAND_L</autogen>
-      <autogen>--KeyOverlaidModifier-- KeyCode::COMMAND_L, ModifierFlag::COMMAND_L | ModifierFlag::NONE, KeyCode::COMMAND_L, KeyCode::ESCAPE, ModifierFlag::COMMAND_R</autogen>
+
+      <autogen>__KeyOverlaidModifier__ KeyCode::COMMAND_R, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::COMMAND_R, KeyCode::ESCAPE</autogen>
+      <autogen>__KeyOverlaidModifier__ KeyCode::COMMAND_L, ModifierFlag::COMMAND_L | ModifierFlag::NONE, KeyCode::COMMAND_L, KeyCode::ESCAPE</autogen>
+
     </item>
 
   </item>
