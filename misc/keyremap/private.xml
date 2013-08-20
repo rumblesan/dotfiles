@@ -5,12 +5,12 @@
     <name>Guys Remaps</name>
 
     <item>
-      <name>Escape plus Command</name>
-      <appendix>Pressing Command alone will type Escape. Otherwise works normally.</appendix>
-      <identifier>private.command_to_escape</identifier>
+      <name>Escape plus Control</name>
+      <appendix>Pressing Control alone will type Escape. Otherwise works normally.</appendix>
+      <identifier>private.control_to_escape</identifier>
 
-      <autogen>__KeyOverlaidModifier__ KeyCode::COMMAND_R, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::COMMAND_R, KeyCode::ESCAPE</autogen>
-      <autogen>__KeyOverlaidModifier__ KeyCode::COMMAND_L, ModifierFlag::COMMAND_L | ModifierFlag::NONE, KeyCode::COMMAND_L, KeyCode::ESCAPE</autogen>
+      <autogen>__KeyOverlaidModifier__ KeyCode::CONTROL_R, ModifierFlag::CONTROL_R | ModifierFlag::NONE, KeyCode::CONTROL_R, KeyCode::ESCAPE</autogen>
+      <autogen>__KeyOverlaidModifier__ KeyCode::CONTROL_L, ModifierFlag::CONTROL_L | ModifierFlag::NONE, KeyCode::CONTROL_L, KeyCode::ESCAPE</autogen>
 
     </item>
 
