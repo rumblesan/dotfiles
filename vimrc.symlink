@@ -63,14 +63,6 @@ let g:airline_enable_branch = 0
 let g:airline_section_b = '%f%m'
 let g:airline_section_c = ''
 
-map <c-f> :call JsBeautify()<cr>
-" or
-autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-" for html
-autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-" for css or scss
-autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
-
 " setting 2 space indentation for coffee script files
 au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
