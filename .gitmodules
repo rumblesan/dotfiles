@@ -70,3 +70,12 @@
 [submodule "vim.symlink/bundle/vim-airline"]
 	path = vim.symlink/bundle/vim-airline
 	url = https://github.com/bling/vim-airline.git
+[submodule "vim.symlink/bundle/vim-clojure-static"]
+	path = vim.symlink/bundle/vim-clojure-static
+	url = https://github.com/guns/vim-clojure-static.git
+[submodule "vim.symlink/bundle/vim-fireplace"]
+	path = vim.symlink/bundle/vim-fireplace
+	url = https://github.com/tpope/vim-fireplace.git
+[submodule "vim.symlink/bundle/vim-classpath"]
+	path = vim.symlink/bundle/vim-classpath
+	url = https://github.com/tpope/vim-classpath.git
