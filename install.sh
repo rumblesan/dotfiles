@@ -26,6 +26,8 @@ Commands:
         Update all the git submodules
     firsttime
         Run the first time setup
+    sync
+        Sync this repo with the remote
 
 Flags:
     -h
@@ -117,6 +119,15 @@ firsttime()
     sudo $DOTFILE_DIR/misc/osx.sh
 }
 
+# Sync with remote repo
+sync()
+{
+    git pull --rebase
+    git submodule init
+    git submodule update
+    git push
+}
+
 runaction()
 {
     if [ $DOTFILE_DIR == $PWD ]; then
@@ -135,6 +146,9 @@ runaction()
             ;;
         "firsttime" )
             firsttime
+            ;;
+        "sync" )
+            sync
             ;;
         * )
             usage
