@@ -6,6 +6,8 @@ filetype plugin indent on
 set number
 set ruler
 
+set shortmess=I
+
 " Set augroup
 augroup MyAutoCmd
   autocmd!
