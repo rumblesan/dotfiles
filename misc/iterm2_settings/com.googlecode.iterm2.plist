@@ -341,9 +341,9 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>698 254 924 485 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 531 960 527 0 0 1920 1058 </string>
+	<string>0 704 1920 354 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 542 956 516 0 0 1920 1058 </string>
+	<string>0 4 1920 1054 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>0 4 960 527 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -1072,9 +1072,9 @@
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>
-			<false/>
-			<key>Use Bright Bold</key>
 			<true/>
+			<key>Use Bright Bold</key>
+			<false/>
 			<key>Use Canonical Parser</key>
 			<false/>
 			<key>Use Italic Font</key>
@@ -1806,9 +1806,9 @@
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>
-			<false/>
-			<key>Use Bright Bold</key>
 			<true/>
+			<key>Use Bright Bold</key>
+			<false/>
 			<key>Use Canonical Parser</key>
 			<false/>
 			<key>Use Italic Font</key>
