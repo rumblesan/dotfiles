@@ -339,15 +339,15 @@
 	<key>NSWindow Frame NSColorPanel</key>
 	<string>427 356 214 309 0 0 1920 1058 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>859 157 924 485 0 0 1920 1058 </string>
+	<string>698 254 924 485 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 567 956 491 0 0 1920 1058 </string>
-	<key>NSWindow Frame iTerm Window 1</key>
-	<string>2880 -120 960 600 1920 -120 1920 1200 </string>
-	<key>NSWindow Frame iTerm Window 2</key>
 	<string>0 531 960 527 0 0 1920 1058 </string>
+	<key>NSWindow Frame iTerm Window 1</key>
+	<string>0 542 956 516 0 0 1920 1058 </string>
+	<key>NSWindow Frame iTerm Window 2</key>
+	<string>0 4 960 527 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>0 500 956 558 0 0 1920 1058 </string>
+	<string>960 144 585 376 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
 	<string>0 4 960 527 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
@@ -1091,6 +1091,8 @@
 		<dict>
 			<key>ASCII Anti Aliased</key>
 			<true/>
+			<key>Allow Title Reporting</key>
+			<false/>
 			<key>Ambiguous Double Width</key>
 			<false/>
 			<key>Ansi 0 Color</key>
@@ -1250,6 +1252,8 @@
 				<key>Red Component</key>
 				<real>0.0</real>
 			</dict>
+			<key>Background Image Is Tiled</key>
+			<false/>
 			<key>Background Image Location</key>
 			<string></string>
 			<key>Blend</key>
@@ -1261,7 +1265,7 @@
 			<key>Blur</key>
 			<false/>
 			<key>Blur Radius</key>
-			<real>2</real>
+			<real>0.10000000149011612</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -1638,7 +1642,7 @@
 			<key>Name</key>
 			<string>Visor</string>
 			<key>Non Ascii Font</key>
-			<string>MenloForPowerline-Regular 12</string>
+			<string>MenloForPowerline-Regular 11</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
@@ -1796,14 +1800,18 @@
 			<key>Terminal Type</key>
 			<string>xterm</string>
 			<key>Transparency</key>
-			<real>0.15741263329982758</real>
+			<real>0.0</real>
 			<key>Triggers</key>
 			<array/>
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>
-			<true/>
+			<false/>
 			<key>Use Bright Bold</key>
+			<true/>
+			<key>Use Canonical Parser</key>
+			<false/>
+			<key>Use Italic Font</key>
 			<false/>
 			<key>Vertical Spacing</key>
 			<real>1</real>
