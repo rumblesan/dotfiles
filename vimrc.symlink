@@ -6,6 +6,13 @@ filetype plugin indent on
 set number
 set ruler
 
+" Set augroup
+augroup MyAutoCmd
+  autocmd!
+augroup END
+
+let mapleader = ","
+
 "colorscheme settings
 set background=dark
 let g:solarized_termtrans = 1
@@ -48,6 +55,21 @@ nnoremap <C-H> <C-W><C-H>
 
 set splitbelow
 set splitright
+
+"unite settings
+nnoremap <leader>f :<C-u>Unite file<CR>
+nnoremap <leader>b :<C-u>Unite buffer<CR>
+
+autocmd MyAutoCmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+
+  nmap <buffer> <ESC> <Plug>(unite_exit)
+  inoremap <silent><buffer><expr> <C-s> unite#do_action('split')
+  nnoremap <silent><buffer><expr> <C-s> unite#do_action('split')
+  inoremap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
+  nnoremap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
+
+endfunction
 
 " hdev tools settings
 " tell hdev tools to look in src and tests for modules
