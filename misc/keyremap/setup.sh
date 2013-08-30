@@ -25,3 +25,4 @@ else
     exit 1
 fi
 
+. import.sh
