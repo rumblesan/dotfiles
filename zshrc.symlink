@@ -23,6 +23,21 @@ fi
 export TERM='xterm-256color'
 
 # ----------------------------------------------------------------------
+# BOXEN
+# ----------------------------------------------------------------------
+
+# source the boxen script, for great good
+
+[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+
+# ----------------------------------------------------------------------
+# TMUX
+# ----------------------------------------------------------------------
+
+# Start tmux in every new shell
+[[ -z "$TMUX" ]] && exec tmux
+
+# ----------------------------------------------------------------------
 # ZSH SETTINGS
 # ----------------------------------------------------------------------
 
@@ -40,14 +55,6 @@ DISABLE_AUTO_UPDATE=true
 plugins=(git vi-mode brew cabal fabric history jira npm pip python sbt scala postgres virtualenv vagrant)
 
 source $ZSH/oh-my-zsh.sh
-
-# ----------------------------------------------------------------------
-# BOXEN
-# ----------------------------------------------------------------------
-
-# source the boxen script, for great good
-
-[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 
 # ----------------------------------------------------------------------
 # PATH
