@@ -260,36 +260,7 @@
 	<key>FsTabDelay</key>
 	<real>1</real>
 	<key>GlobalKeyMap</key>
-	<dict>
-		<key>0x68-0x100000</key>
-		<dict>
-			<key>Action</key>
-			<integer>18</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0x6a-0x100000</key>
-		<dict>
-			<key>Action</key>
-			<integer>21</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0x6b-0x100000</key>
-		<dict>
-			<key>Action</key>
-			<integer>20</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0x6c-0x100000</key>
-		<dict>
-			<key>Action</key>
-			<integer>19</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-	</dict>
+	<dict/>
 	<key>HiddenAFRStrokeThickness</key>
 	<real>0.0</real>
 	<key>HiddenAdvancedFontRendering</key>
@@ -326,8 +297,6 @@
 	<true/>
 	<key>MaxVertically</key>
 	<false/>
-	<key>NSColorPanelMode</key>
-	<string>6</string>
 	<key>NSNavLastRootDirectory</key>
 	<string>~/Documents</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -336,22 +305,28 @@
 	<string></string>
 	<key>NSScrollAnimationEnabled</key>
 	<false/>
-	<key>NSWindow Frame NSColorPanel</key>
-	<string>427 356 214 309 0 0 1920 1058 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>698 254 924 485 0 0 1920 1058 </string>
+	<string>723 359 924 485 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 704 1920 354 0 0 1920 1058 </string>
+	<string>0 1414 2560 354 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 4 1920 1054 0 0 1920 1058 </string>
+	<string>1202 803 1054 558 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>0 4 960 527 0 0 1920 1058 </string>
+	<string>1280 326 585 376 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>960 144 585 376 0 0 1920 1058 </string>
+	<string>920 625 1280 707 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
-	<string>0 4 960 527 0 0 1920 1058 </string>
+	<string>896 85 585 376 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
-	<string>960 542 956 516 0 0 1920 1058 </string>
+	<string>608 984 585 376 0 0 2560 1418 </string>
+	<key>NSWindow Frame iTerm Window 6</key>
+	<string>707 501 578 376 0 0 2560 1418 </string>
+	<key>NSWindow Frame iTerm Window 7</key>
+	<string>0 711 1280 707 0 0 2560 1418 </string>
+	<key>NSWindow Frame iTerm Window 8</key>
+	<string>671 915 585 376 0 0 2560 1418 </string>
+	<key>NeverWarnAboutShortLivedSessions_07296A07-0FA6-493E-B413-EA39C090B672</key>
+	<true/>
 	<key>NeverWarnAboutShortLivedSessions_A8BFD393-F6BC-4226-8728-664E02546471</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -1871,7 +1846,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/guy.john/.dotfiles/misc/iterm2_settings</string>
+	<string>/Users/guy/.dotfiles/misc/iterm2_settings</string>
 	<key>PromptOnClose</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -1891,7 +1866,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2013-08-30T10:06:39Z</date>
+	<date>2013-09-01T10:23:30Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
