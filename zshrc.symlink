@@ -35,7 +35,25 @@ export TERM='xterm-256color'
 # ----------------------------------------------------------------------
 
 # Start tmux in every new shell
-[[ -z "$TMUX" ]] && exec tmux
+
+if [[ -z "$TMUX" ]]; then
+
+    case "$ITERM_PROFILE" in
+
+        "Visor")
+            if tmux has-session -t visor; then
+                exec tmux attach -t visor
+            else
+                exec tmux new-session -s visor
+            fi
+            ;;
+        "Guy")
+            exec tmux
+            ;;
+
+    esac
+
+fi
 
 # ----------------------------------------------------------------------
 # ZSH SETTINGS
