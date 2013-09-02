@@ -38,17 +38,24 @@ export TERM='xterm-256color'
 
 if [[ -z "$TMUX" ]]; then
 
+    VISORSESSION="visor"
+    OTHERSESSION="dev"
+
     case "$ITERM_PROFILE" in
 
         "Visor")
-            if tmux has-session -t visor; then
-                exec tmux attach -t visor
+            if tmux has-session -t $VISORSESSION; then
+                exec tmux attach -t $VISORSESSION
             else
-                exec tmux new-session -s visor
+                exec tmux new-session -s $VISORSESSION
             fi
             ;;
-        "Guy")
-            exec tmux
+        *)
+            if tmux has-session -t $OTHERSESSION; then
+                exec tmux attach -t $OTHERSESSION
+            else
+                exec tmux new-session -s $OTHERSESSION
+            fi
             ;;
 
     esac
