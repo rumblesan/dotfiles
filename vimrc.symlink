@@ -66,9 +66,7 @@ autocmd MyAutoCmd FileType unite call s:unite_settings()
 function! s:unite_settings()
 
   nmap <buffer> <ESC> <Plug>(unite_exit)
-  inoremap <silent><buffer><expr> s unite#do_action('split')
   nnoremap <silent><buffer><expr> s unite#do_action('split')
-  inoremap <silent><buffer><expr> v unite#do_action('vsplit')
   nnoremap <silent><buffer><expr> v unite#do_action('vsplit')
 
 endfunction
