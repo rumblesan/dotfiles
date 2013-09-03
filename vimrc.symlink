@@ -6,6 +6,8 @@ filetype plugin indent on
 set number
 set ruler
 
+set mouse=a
+
 set shortmess=I
 
 " Set augroup
