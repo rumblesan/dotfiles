@@ -26,6 +26,10 @@ case $1 in
         # The Ruby API docs
         exec open http://ruby-doc.org/core-1.9.3/
         ;;
+    slick)
+        # The Slick API docs
+        exec open http://slick.typesafe.com/doc/1.0.1/api/
+        ;;
     *)
         echo "Whatcho talking bout Willis!"
         ;;
