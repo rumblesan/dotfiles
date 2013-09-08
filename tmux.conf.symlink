@@ -4,14 +4,24 @@ setw -g mode-keys vi
 set -g status-keys vi
 setw -g xterm-keys on
 
+
+# allow mouse pane selection and resizing
 set -g mode-mouse on
 set -g mouse-select-pane on
 set -g mouse-resize-pane on
 set -g mouse-select-pane on
 set -g mouse-select-window on
 
+# pane and window counting starts from 1
 set -g base-index 1
 set -g pane-base-index 1
+
+unbind [
+bind Escape copy-mode
+unbind p
+bind p paste-buffer
+bind-key -t vi-copy 'v' begin-selection
+bind-key -t vi-copy 'y' copy-selection
 
 # smart pane switching with awareness of vim splits
 bind -n C-h run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-h) || tmux select-pane -L"
