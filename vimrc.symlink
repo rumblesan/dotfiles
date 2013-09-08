@@ -64,6 +64,9 @@ imap <right> <nop>
 " Map leader to easier to use key
 let mapleader = ","
 
+" Toggle and untoggle spell check
+map <leader>ss :setlocal spell!<cr>
+
 " Split settings
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
