@@ -49,7 +49,7 @@ ZSH_THEME="rumblesan"
 # Turn off oh-my-zsh asking to update
 DISABLE_AUTO_UPDATE=true
 
-plugins=(git vi-mode brew cabal fabric history npm pip python sbt scala postgres virtualenv vagrant)
+plugins=(vi-mode brew cabal fabric history npm pip python sbt scala postgres virtualenv vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -125,6 +125,9 @@ set -o vi
 # ----------------------------------------------------------------------
 # COMPLETIONS
 # ----------------------------------------------------------------------
+
+# this should fix the git/hub alias completion issue
+eval "$(hub alias -s)"
 
 # add custom completion scripts
 fpath=($DOTFILES/completions $fpath)
