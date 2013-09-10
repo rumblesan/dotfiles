@@ -44,6 +44,7 @@ export TERM='xterm-256color'
 source $DOTFILES/zsh_custom/rumblesan.zsh-theme
 
 # Load and run compinit
+autoload -U add-zsh-hook
 autoload -U compinit
 compinit -i
 
@@ -149,7 +150,7 @@ source $DOTFILES/functions.sh
 # NOTIFICATIONS
 # ----------------------------------------------------------------------
 
-#source $DOTFILES/zsh-notify/notify.plugin.zsh
+source $DOTFILES/zsh-notify/notify.plugin.zsh
 
 # ----------------------------------------------------------------------
 # LANGUAGES
