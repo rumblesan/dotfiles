@@ -49,9 +49,6 @@
 [submodule "vim.symlink/bundle/vim-coffee-script"]
 	path = vim.symlink/bundle/vim-coffee-script
 	url = git://github.com/kchmck/vim-coffee-script.git
-[submodule "oh-my-zsh.symlink"]
-	path = oh-my-zsh.symlink
-	url = git://github.com/robbyrussell/oh-my-zsh.git
 [submodule "vim.symlink/bundle/puppet-syntax-vim"]
 	path = vim.symlink/bundle/puppet-syntax-vim
 	url = https://github.com/puppetlabs/puppet-syntax-vim

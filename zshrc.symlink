@@ -41,17 +41,11 @@ export TERM='xterm-256color'
 # ZSH SETTINGS
 # ----------------------------------------------------------------------
 
-export ZSH_CUSTOM=$DOTFILES/zsh_custom
+source $DOTFILES/zsh_custom/rumblesan.zsh-theme
 
-# Set name of the theme to load.
-ZSH_THEME="rumblesan"
-
-# Turn off oh-my-zsh asking to update
-DISABLE_AUTO_UPDATE=true
-
-plugins=(vi-mode brew cabal fabric history npm pip python sbt scala postgres virtualenv vagrant)
-
-source $ZSH/oh-my-zsh.sh
+# Load and run compinit
+autoload -U compinit
+compinit -i
 
 # ----------------------------------------------------------------------
 # PATH
@@ -155,7 +149,7 @@ source $DOTFILES/functions.sh
 # NOTIFICATIONS
 # ----------------------------------------------------------------------
 
-source $DOTFILES/zsh-notify/notify.plugin.zsh
+#source $DOTFILES/zsh-notify/notify.plugin.zsh
 
 # ----------------------------------------------------------------------
 # LANGUAGES
