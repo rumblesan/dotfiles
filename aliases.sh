@@ -32,4 +32,6 @@ alias psgrep="ps aux | grep -v grep | grep"
 # cd straight to some useful directories
 alias dotfiles="cd ${DOTFILES}"
 
+# makes looking at history easier
+alias h="history"
 
