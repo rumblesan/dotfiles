@@ -41,7 +41,7 @@ export TERM='xterm-256color'
 # ZSH SETTINGS
 # ----------------------------------------------------------------------
 
-source $DOTFILES/zsh_custom/rumblesan.zsh-theme
+source $DOTFILES/rumblesan-theme.zsh
 
 # Load and run compinit
 autoload -U add-zsh-hook
