@@ -147,12 +147,6 @@ source $DOTFILES/aliases.sh
 source $DOTFILES/functions.sh
 
 # ----------------------------------------------------------------------
-# NOTIFICATIONS
-# ----------------------------------------------------------------------
-
-source $DOTFILES/zsh-notify/notify.plugin.zsh
-
-# ----------------------------------------------------------------------
 # LANGUAGES
 # ----------------------------------------------------------------------
 # Specific config for any programming languages

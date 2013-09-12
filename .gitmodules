@@ -52,9 +52,6 @@
 [submodule "vim.symlink/bundle/puppet-syntax-vim"]
 	path = vim.symlink/bundle/puppet-syntax-vim
 	url = https://github.com/puppetlabs/puppet-syntax-vim
-[submodule "zsh-notify"]
-	path = zsh-notify
-	url = https://github.com/marzocchi/zsh-notify
 [submodule "vim.symlink/bundle/vim-mako"]
 	path = vim.symlink/bundle/vim-mako
 	url = https://github.com/sophacles/vim-bundle-mako.git
