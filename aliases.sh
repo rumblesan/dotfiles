@@ -35,3 +35,7 @@ alias dotfiles="cd ${DOTFILES}"
 # makes looking at history easier
 alias h="history"
 
+# useful postgres aliases
+alias startpost='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+alias stoppost='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
+alias restartpost='stoppost && sleep 1 && startpost'
