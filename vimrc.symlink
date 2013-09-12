@@ -90,8 +90,9 @@ let g:syntastic_javascript_checkers = ['jslint']
 " Remove all default syntastic jslint config
 let g:syntastic_javascript_jslint_conf = ''
 
-" Turn off syntastic checking for scala
+" Turn off syntastic checking for some filetypes
 let g:syntastic_scala_checkers = []
+let g:syntastic_html_checkers = []
 
 " Hdev tools settings
 " Tell hdev tools to look in src and tests for modules
