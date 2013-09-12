@@ -67,6 +67,9 @@ let mapleader = ","
 " Toggle and untoggle spell check
 map <leader>ss :setlocal spell!<cr>
 
+" Map leader w to save file
+map <leader>w :w<cr>
+
 " Split settings
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
