@@ -31,6 +31,7 @@ setopt prompt_subst
 
 CURRENT_BG='NONE'
 SEGMENT_SEPARATOR=''
+SEGMENT_EMPHASIS=''
 
 # Checks if working tree is dirty
 parse_git_dirty() {
@@ -73,14 +74,46 @@ prompt_segment() {
   [[ -n $3 ]] && echo -n $3
 }
 
+# Vi mode indicator
+# Ensures that $terminfo values are valid and updates editor information when
+# the keymap changes.
+function zle-keymap-select zle-line-init zle-line-finish {
+  # The terminal must be in application mode when ZLE is active for $terminfo
+  # values to be valid.
+  if (( ${+terminfo[smkx]} )); then
+    printf '%s' ${terminfo[smkx]}
+  fi
+  if (( ${+terminfo[rmkx]} )); then
+    printf '%s' ${terminfo[rmkx]}
+  fi
+
+  zle reset-prompt
+  zle -R
+}
+
+zle -N zle-line-init
+zle -N zle-line-finish
+zle -N zle-keymap-select
+
 # End the prompt, closing any open segments
 prompt_end() {
-  if [[ -n $CURRENT_BG ]]; then
-    echo -n " %{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
-  else
-    echo -n "%{%k%}"
-  fi
-  echo -n "%{%f%}"
+  local indicator
+
+  case "$KEYMAP" in
+    "vicmd")
+        indicator="%F{red}"
+      ;;
+    *)
+        if [[ -n $CURRENT_BG ]]; then
+          indicator="%F{$CURRENT_BG}"
+        else
+          indicator="%f"
+        fi
+      ;;
+  esac
+
+  echo -n " %{$indicator%}%{%k%}$SEGMENT_SEPARATOR%{%f%}"
+
   CURRENT_BG=''
 }
 
@@ -141,38 +174,11 @@ prompt_status() {
   [[ -n "$symbols" ]] && prompt_segment black default "$symbols"
 }
 
-# Vi mode indicator
-# Ensures that $terminfo values are valid and updates editor information when
-# the keymap changes.
-function zle-keymap-select zle-line-init zle-line-finish {
-  # The terminal must be in application mode when ZLE is active for $terminfo
-  # values to be valid.
-  if (( ${+terminfo[smkx]} )); then
-    printf '%s' ${terminfo[smkx]}
-  fi
-  if (( ${+terminfo[rmkx]} )); then
-    printf '%s' ${terminfo[rmkx]}
-  fi
-
-  zle reset-prompt
-  zle -R
-}
-
-zle -N zle-line-init
-zle -N zle-line-finish
-zle -N zle-keymap-select
-
-function prompt_vi_mode() {
-  prompt_segment blue black "${${KEYMAP/vicmd/C}/(main|viins)/I}"
-}
-
-
 
 ## Main prompt
 build_prompt() {
   RETVAL=$?
   prompt_status
-  prompt_vi_mode
   prompt_virtualenv
   prompt_dir
   prompt_git
