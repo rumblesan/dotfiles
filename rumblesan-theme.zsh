@@ -87,15 +87,6 @@ prompt_end() {
 ### Prompt components
 # Each component will draw itself, and hide itself if no information needs to be shown
 
-# Context: user@hostname (who am I and where am I)
-prompt_context() {
-  local user=`whoami`
-
-  if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    prompt_segment black default "%(!.%{%F{yellow}%}.)$user@%m"
-  fi
-}
-
 # Git: branch/detached head, dirty status
 prompt_git() {
   local ref dirty
@@ -150,15 +141,41 @@ prompt_status() {
   [[ -n "$symbols" ]] && prompt_segment black default "$symbols"
 }
 
+# Vi mode indicator
+# Ensures that $terminfo values are valid and updates editor information when
+# the keymap changes.
+function zle-keymap-select zle-line-init zle-line-finish {
+  # The terminal must be in application mode when ZLE is active for $terminfo
+  # values to be valid.
+  if (( ${+terminfo[smkx]} )); then
+    printf '%s' ${terminfo[smkx]}
+  fi
+  if (( ${+terminfo[rmkx]} )); then
+    printf '%s' ${terminfo[rmkx]}
+  fi
+
+  zle reset-prompt
+  zle -R
+}
+
+zle -N zle-line-init
+zle -N zle-line-finish
+zle -N zle-keymap-select
+
+function prompt_vi_mode() {
+  prompt_segment blue black "${${KEYMAP/vicmd/C}/(main|viins)/I}"
+}
+
+
+
 ## Main prompt
 build_prompt() {
   RETVAL=$?
   prompt_status
+  prompt_vi_mode
   prompt_virtualenv
-  #prompt_context
   prompt_dir
   prompt_git
-  #prompt_hg
   prompt_end
 }
 
