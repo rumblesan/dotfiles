@@ -39,3 +39,6 @@ alias h="history"
 alias startpost='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias stoppost='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias restartpost='stoppost && sleep 1 && startpost'
+
+# spotify control script
+alias spotify="osascript ${DOTFILES}/misc/spotify/SpotifyControl.scpt"
