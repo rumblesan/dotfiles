@@ -117,3 +117,6 @@ function! s:unite_settings()
 
 endfunction
 
+" Specific filetype settings
+au FileType tex setl sw=2 sts=2
+
