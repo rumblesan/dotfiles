@@ -120,3 +120,6 @@ endfunction
 " Specific filetype settings
 au FileType tex setl sw=2 sts=2
 
+au FileType coffee setl sw=2 sts=2
+
+
