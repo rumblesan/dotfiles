@@ -1,0 +1,11 @@
+#!/bin/sh
+#
+# Quick shortcut to osx open command
+
+if [ -z "$1" ]
+then
+  exec open .
+else
+  exec open "$1"
+fi
+
