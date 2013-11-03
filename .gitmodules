@@ -76,3 +76,6 @@
 [submodule "vim.symlink/bundle/vim-tmux-navigator"]
 	path = vim.symlink/bundle/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator.git
+[submodule "vim.symlink/bundle/vim-syntax-extra"]
+	path = vim.symlink/bundle/vim-syntax-extra
+	url = https://github.com/justinmk/vim-syntax-extra.git

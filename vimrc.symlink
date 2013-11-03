@@ -124,4 +124,5 @@ au FileType tex setl sw=2 sts=2
 au FileType coffee setl sw=2 sts=2
 
 au BufNewFile,BufRead *.md set filetype=markdown
+au BufNewFile,BufRead *.jison set filetype=yacc
 
