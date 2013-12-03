@@ -88,6 +88,26 @@ systemsetup -setrestartfreeze on
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
 ###############################################################################
+# SSD-specific tweaks                                                         #
+###############################################################################
+
+# Disable local Time Machine snapshots
+sudo tmutil disablelocal
+
+# Disable hibernation (speeds up entering sleep mode)
+sudo pmset -a hibernatemode 0
+
+# Remove the sleep image file to save disk space
+sudo rm /Private/var/vm/sleepimage
+# Create a zero-byte file instead…
+sudo touch /Private/var/vm/sleepimage
+# …and make sure it can’t be rewritten
+sudo chflags uchg /Private/var/vm/sleepimage
+
+# Disable the sudden motion sensor as it’s not useful for SSDs
+sudo pmset -a sms 0
+
+###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
 
@@ -247,11 +267,6 @@ defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 # Show the ~/Library folder
 chflags nohidden ~/Library
 
-# Remove Dropbox’s green checkmark icons in Finder
-file=/Applications/Dropbox.app/Contents/Resources/check.icns
-[ -e "$file" ] && mv -f "$file" "$file.bak"
-unset file
-
 ###############################################################################
 # Dock & hot corners                                                          #
 ###############################################################################
@@ -325,6 +340,41 @@ find ~/Library/Application\ Support/Dock -name "*.db" -maxdepth 1 -delete
 #defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
 # Add a spacer to the right side of the Dock (where the Trash is)
 #defaults write com.apple.dock persistent-others -array-add '{tile-data={}; tile-type="spacer-tile";}'
+
+###############################################################################
+# Spotlight                                                                   #
+###############################################################################
+
+# Hide Spotlight tray-icon (and subsequent helper)
+#sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
+# Disable Spotlight indexing for any volume that gets mounted and has not yet
+# been indexed before.
+# Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
+sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
+# Change indexing order and disable some file types
+defaults write com.apple.spotlight orderedItems -array \
+	'{"enabled" = 1;"name" = "APPLICATIONS";}' \
+	'{"enabled" = 1;"name" = "SYSTEM_PREFS";}' \
+	'{"enabled" = 1;"name" = "DIRECTORIES";}' \
+	'{"enabled" = 1;"name" = "PDF";}' \
+	'{"enabled" = 1;"name" = "FONTS";}' \
+	'{"enabled" = 0;"name" = "DOCUMENTS";}' \
+	'{"enabled" = 0;"name" = "MESSAGES";}' \
+	'{"enabled" = 0;"name" = "CONTACT";}' \
+	'{"enabled" = 0;"name" = "EVENT_TODO";}' \
+	'{"enabled" = 0;"name" = "IMAGES";}' \
+	'{"enabled" = 0;"name" = "BOOKMARKS";}' \
+	'{"enabled" = 0;"name" = "MUSIC";}' \
+	'{"enabled" = 0;"name" = "MOVIES";}' \
+	'{"enabled" = 0;"name" = "PRESENTATIONS";}' \
+	'{"enabled" = 0;"name" = "SPREADSHEETS";}' \
+	'{"enabled" = 0;"name" = "SOURCE";}'
+# Load new settings before rebuilding the index
+killall mds > /dev/null 2>&1
+# Make sure indexing is enabled for the main volume
+sudo mdutil -i on / > /dev/null
+# Rebuild the index from scratch
+sudo mdutil -E / > /dev/null
 
 ###############################################################################
 # Kill affected applications                                                  #
