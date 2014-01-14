@@ -79,3 +79,6 @@
 [submodule "vim.symlink/bundle/vim-syntax-extra"]
 	path = vim.symlink/bundle/vim-syntax-extra
 	url = https://github.com/justinmk/vim-syntax-extra.git
+[submodule "vim.symlink/bundle/simplenote"]
+	path = vim.symlink/bundle/simplenote
+	url = https://github.com/mrtazz/simplenote.vim.git
