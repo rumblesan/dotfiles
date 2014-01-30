@@ -94,9 +94,9 @@ fi
 
 # EDITOR
 if [ -n $(command -v vim) ]; then
-    EDITOR=vim
+    EDITOR="vim -w $HOME/.vimlog"
 else
-    EDITOR=vi
+    EDITOR="vi -w $HOME/.vimlog"
 fi
 export EDITOR
 
