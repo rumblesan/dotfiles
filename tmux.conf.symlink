@@ -32,6 +32,14 @@ bind -n C-k run "(tmux display-message -p '#{pane_current_command}' | grep -iq v
 bind -n C-l run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-l) || tmux select-pane -R"
 bind -n C-\ run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys 'C-\\') || tmux select-pane -l"
 
+bind C-h resize-pane -L 5
+bind C-l resize-pane -R 5
+bind C-j resize-pane -D 5
+bind C-k resize-pane -U 5
+
+# reload tmux conf
+bind-key r source-file ~/.tmux.conf
+
 set -s escape-time 0
 setw -g aggressive-resize on
 
