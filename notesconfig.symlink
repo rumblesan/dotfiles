@@ -1,7 +1,0 @@
-#! /bin/bash
-
-# Should not have trailing /
-NOTES_DIR="${HOME}/Google Drive/notes"
-
-FILEEXT="md"
-
