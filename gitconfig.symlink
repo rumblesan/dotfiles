@@ -5,10 +5,6 @@
 [work]
     email = guy.john@mindcandy.com
 
-[github]
-    user = rumblesan
-    password = !security 2>&1 >/dev/null find-generic-password -gs github.password | ruby -e 'print $1 if STDIN.gets =~ /^password: \\\"(.*)\\\"$/'
-
 [color]
     ui = true
     branch = auto
@@ -54,19 +50,23 @@
     cl = clone --recursive
     workcl = !git clone --recursive -c user.email=`git config --get work.email`
     worksubmodule = !git submodule foreach git workemail
+
 [push]
     default = simple
+
 [diff]
     renames = copies
     mnemonicprefix = true
     tool = gvimdiff
+
 [branch]
     autosetupmerge = true
+
 [difftool]
     prompt = false
 
 [hub]
-protocol = https
+    protocol = https
 
 [credential]
-helper = /opt/boxen/bin/boxen-git-credential
+	helper = osxkeychain
