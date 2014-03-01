@@ -50,6 +50,7 @@
     cl = clone --recursive
     workcl = !git clone --recursive -c user.email=`git config --get work.email`
     worksubmodule = !git submodule foreach git workemail
+    g = grep --break --heading --line-number
 
 [push]
     default = simple
@@ -70,3 +71,6 @@
 
 [credential]
     helper = /opt/boxen/bin/boxen-git-credential
+
+[grep]
+    lineNumber = true
