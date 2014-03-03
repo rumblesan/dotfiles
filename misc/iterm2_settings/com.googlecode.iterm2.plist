@@ -267,6 +267,8 @@
 	<false/>
 	<key>HideActivityIndicator</key>
 	<false/>
+	<key>HideMenuBarInFullscreen</key>
+	<true/>
 	<key>HideScrollbar</key>
 	<false/>
 	<key>HideTab</key>
@@ -297,8 +299,6 @@
 	<true/>
 	<key>MaxVertically</key>
 	<false/>
-	<key>NSColorPanelMode</key>
-	<string>6</string>
 	<key>NSNavLastRootDirectory</key>
 	<string>~/Documents</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -307,22 +307,22 @@
 	<string></string>
 	<key>NSScrollAnimationEnabled</key>
 	<false/>
-	<key>NSWindow Frame NSColorPanel</key>
-	<string>427 356 214 309 0 0 1920 1058 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>692 249 924 485 0 0 1920 1058 </string>
+	<string>411 650 924 485 0 0 1920 1178 </string>
+	<key>NSWindow Frame SUStatusFrame</key>
+	<string>591 855 384 129 0 0 1680 1028 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 4 960 527 0 0 1920 1058 </string>
+	<string>2 4 956 1174 0 0 1920 1178 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 531 960 527 0 0 1920 1058 </string>
+	<string>0 4 1920 1174 0 0 1920 1178 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>0 4 960 527 0 0 1920 1058 </string>
+	<string>-1649 484 585 376 -1680 150 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>960 144 585 376 0 0 1920 1058 </string>
+	<string>240 657 585 376 0 0 1920 1178 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
-	<string>0 4 960 527 0 0 1920 1058 </string>
+	<string>0 6 1915 1020 0 0 1680 1028 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
-	<string>960 542 956 516 0 0 1920 1058 </string>
+	<string>2130 281 1260 787 1920 150 1680 1050 </string>
 	<key>NeverWarnAboutShortLivedSessions_07296A07-0FA6-493E-B413-EA39C090B672</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_A8BFD393-F6BC-4226-8728-664E02546471</key>
@@ -1130,7 +1130,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2013-09-06T08:55:17Z</date>
+	<date>2014-01-15T11:52:21Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -1187,6 +1187,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>1.0.0.20130624</string>
+	<string>1.0.0.20131228</string>
 </dict>
 </plist>
