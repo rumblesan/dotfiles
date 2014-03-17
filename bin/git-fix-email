@@ -1,0 +1,70 @@
+#!/bin/bash
+ 
+
+die()
+{
+    echo "$*"
+    exit 1
+}
+
+fix_email()
+{
+
+
+read -r -d '' VAR <<-EOF
+
+an="\$GIT_AUTHOR_NAME"
+am="\$GIT_AUTHOR_EMAIL"
+cn="\$GIT_COMMITTER_NAME"
+cm="\$GIT_COMMITTER_EMAIL"
+ 
+if [ "\$GIT_COMMITTER_EMAIL" = "$OLDEMAIL" ]
+then
+    cn="$NEWNAME"
+    cm="$NEWEMAIL"
+fi
+if [ "\$GIT_AUTHOR_EMAIL" = "$OLDEMAIL" ]
+then
+    an="$NEWNAME"
+    am="$NEWEMAIL"
+fi
+ 
+export GIT_AUTHOR_NAME="\$an"
+export GIT_AUTHOR_EMAIL="\$am"
+export GIT_COMMITTER_NAME="\$cn"
+export GIT_COMMITTER_EMAIL="\$cm"
+
+EOF
+
+git filter-branch --env-filter "$VAR"
+
+}
+
+echo "Fixing git committer email addresses"
+echo "This will rewrite the repo history."
+echo -n "Are you sure you want to do this? (y/n) "
+read REWRITEOK
+if [ "$REWRITEOK" != "y" ]; then
+    die "Not rewriting history"
+fi
+
+echo -n "Old Email: "
+read OLDEMAIL
+if [ -z "$OLDEMAIL" ]; then
+    die "Need to give an old email"
+fi
+
+echo -n "New Email: "
+read NEWEMAIL
+if [ -z "$NEWEMAIL" ]; then
+    die "Need to give a new email"
+fi
+
+echo -n "New Name: "
+read NEWNAME
+if [ -z "$NEWNAME" ]; then
+    die "Need to give a new name"
+fi
+
+fix_email
+
