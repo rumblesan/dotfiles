@@ -51,6 +51,8 @@
     workcl = !git clone --recursive -c user.email=`git config --get work.email`
     worksubmodule = !git submodule foreach git workemail
     g = grep --break --heading --line-number
+    ig = update-index --assume-unchanged
+    unig = update-index --no-assume-unchanged
 
 [push]
     default = simple
