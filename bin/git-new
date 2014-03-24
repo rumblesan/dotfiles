@@ -1,0 +1,63 @@
+#!/bin/bash
+
+
+die()
+{
+    echo "$*"
+    exit 1
+}
+
+listTemplates()
+{
+    TEMPLTDIR=`git config --get --global templates.dir`
+    echo "-------------"
+    ls "$TEMPLTDIR"
+    echo "-------------"
+    echo "Pick a template (default) "
+}
+
+create()
+{
+    TEMPLTDIR=`git config --get --global templates.dir`
+    TEMPLTCONF=""
+
+    echo "Initiating Repo\n"
+    echo "Use a template? (y/N) "
+    read USETEMPLT
+    if [ "$USETEMPLT" == "y" ]; then
+        listTemplates
+        read TEMPLTNAME
+        if [ -n "$TEMPLTNAME" ]; then
+            TEMPLTCONF="--template $TEMPLTDIR/$TEMPLTNAME"
+        else
+            echo "Using the default template"
+            TEMPLTCONF="--template $TEMPLTDIR/default"
+        fi
+    fi
+    git init "$@" $TEMPLTCONF
+}
+
+workmail()
+{
+    echo "Setting work email"
+    git workemail
+}
+
+
+if [ "$GITENV" == "work" ]; then
+    echo "Hey, it looks like you're setting up a new git repo,"
+    echo "and it seems you're at work right now!\n"
+    echo "Shall I make this a work repo? (Y/n) "
+    read WORKREPO
+    if [ "$WORKREPO" == "y" ]; then
+        echo "Lets get this setup!\n"
+        create
+        workmail
+    else
+        echo "No worries, have fun!"
+    fi
+else
+    git init "$@"
+fi
+
+

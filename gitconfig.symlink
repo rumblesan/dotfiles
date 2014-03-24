@@ -5,6 +5,9 @@
 [work]
     email = guy.john@mindcandy.com
 
+[templates]
+    dir = /Users/guy.john/.dotfiles/gitconf/templates
+
 [color]
     ui = true
     branch = auto
