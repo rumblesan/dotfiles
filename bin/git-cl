@@ -27,7 +27,7 @@ settemplate()
         read TEMPLTNAME
         TEMPLTPATH="$TEMPLTDIR/$TEMPLTNAME"
         if [ -e "$TEMPLTPATH" ]; then
-            INITTEMPLT="$TEMPLTPATH"
+            CLONETEMPLT="$TEMPLTPATH"
         else
             echo "Template $TEMPLTNAME doesn't exist"
             echo "Using the default template"
@@ -37,32 +37,35 @@ settemplate()
     fi
 }
 
-setemail()
+worksubmodules()
 {
+    echo -n "Set work email for submodules? (y/N) "
+    read WORKSUBS
+    if [ "$WORKSUBS" == "y" ]; then
 
-    CHECKDIR="${@:(-1)}"
-    if [ -d "$CHECKDIR" ]; then
-        cd "$CHECKDIR"
+        CHECKDIR="${@:(-1)}"
+        if [ -d "$CHECKDIR" ]; then
+            cd "$CHECKDIR"
+        fi
+        git submodule foreach git config user.email $WORKEMAIL
     fi
-    git config user.email "$WORKEMAIL"
 }
 
+CLONEARGS="--recursive"
 WORKEMAIL=`git config --get work.email`
 TEMPLTDIR=`git config --get --global templates.dir`
 WORKTEMPLT="$TEMPLTDIR/work"
-INITTEMPLT="$TEMPLTDIR/default"
-REPODIR=`pwd`
+CLONETEMPLT="$TEMPLTDIR/default"
 
-echo "Hey, it looks like you're creating a git repo!\n"
+echo "Hey, it looks like you're cloning a git repo!\n"
 
 echo -n "Is this a work repo? (Y/n) "
 read WORKREPO
 if [ "$WORKREPO" == "y" ]; then
     echo "I'll set your work email and use the work template"
-    git init --template $WORKTEMPLT "$@"
-    setemail
+    git clone $CLONEARGS -c user.email=$WORKEMAIL --template $WORKTEMPLT "$@"
 else
     settemplate
-    git init --template $INITTEMPLT "$@"
+    git clone $CLONEARGS "$@" --template $CLONETEMPLT
 fi
 
