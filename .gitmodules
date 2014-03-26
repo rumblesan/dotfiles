@@ -1,23 +1,23 @@
-[submodule "vim.symlink/bundle/vim-pathogen"]
-	path = vim.symlink/bundle/vim-pathogen
+[submodule "vim.dotfile/bundle/vim-pathogen"]
+	path = vim.dotfile/bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
-[submodule "vim.symlink/bundle/html5.vim"]
-	path = vim.symlink/bundle/html5.vim
+[submodule "vim.dotfile/bundle/html5.vim"]
+	path = vim.dotfile/bundle/html5.vim
 	url = https://github.com/othree/html5.vim.git
-[submodule "vim.symlink/bundle/vim-scala"]
-	path = vim.symlink/bundle/vim-scala
+[submodule "vim.dotfile/bundle/vim-scala"]
+	path = vim.dotfile/bundle/vim-scala
 	url = https://github.com/derekwyatt/vim-scala.git
-[submodule "vim.symlink/bundle/play2vim"]
-	path = vim.symlink/bundle/play2vim
+[submodule "vim.dotfile/bundle/play2vim"]
+	path = vim.dotfile/bundle/play2vim
 	url = https://github.com/gre/play2vim.git
-[submodule "vim.symlink/bundle/vim-sbt"]
-	path = vim.symlink/bundle/vim-sbt
+[submodule "vim.dotfile/bundle/vim-sbt"]
+	path = vim.dotfile/bundle/vim-sbt
 	url = https://github.com/derekwyatt/vim-sbt.git
-[submodule "vim.symlink/bundle/vim-git"]
-	path = vim.symlink/bundle/vim-git
+[submodule "vim.dotfile/bundle/vim-git"]
+	path = vim.dotfile/bundle/vim-git
 	url = https://github.com/tpope/vim-git.git
-[submodule "vim.symlink/bundle/vim-processing"]
-	path = vim.symlink/bundle/vim-processing
+[submodule "vim.dotfile/bundle/vim-processing"]
+	path = vim.dotfile/bundle/vim-processing
 	url = git@github.com:rumblesan/vim-processing.git
 [submodule "vim.symlink/bundle/vim-octopress"]
 	path = vim.symlink/bundle/vim-octopress
@@ -31,44 +31,44 @@
 [submodule "commiter8"]
 	path = commiter8
 	url = git@github.com:rumblesan/commiter8.git
-[submodule "vim.symlink/bundle/syntastic"]
-	path = vim.symlink/bundle/syntastic
+[submodule "vim.dotfile/bundle/syntastic"]
+	path = vim.dotfile/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule "vim.symlink/bundle/vim-colors-solarized"]
-	path = vim.symlink/bundle/vim-colors-solarized
+[submodule "vim.dotfile/bundle/vim-colors-solarized"]
+	path = vim.dotfile/bundle/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule "vim.symlink/bundle/vim-repeat"]
-	path = vim.symlink/bundle/vim-repeat
+[submodule "vim.dotfile/bundle/vim-repeat"]
+	path = vim.dotfile/bundle/vim-repeat
 	url = git://github.com/tpope/vim-repeat.git
-[submodule "vim.symlink/bundle/vim-surround"]
-	path = vim.symlink/bundle/vim-surround
+[submodule "vim.dotfile/bundle/vim-surround"]
+	path = vim.dotfile/bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
-[submodule "vim.symlink/bundle/vim-coffee-script"]
-	path = vim.symlink/bundle/vim-coffee-script
+[submodule "vim.dotfile/bundle/vim-coffee-script"]
+	path = vim.dotfile/bundle/vim-coffee-script
 	url = git://github.com/kchmck/vim-coffee-script.git
 [submodule "vim.symlink/bundle/puppet-syntax-vim"]
 	path = vim.symlink/bundle/puppet-syntax-vim
 	url = https://github.com/puppetlabs/puppet-syntax-vim
-[submodule "vim.symlink/bundle/vim-airline"]
-	path = vim.symlink/bundle/vim-airline
+[submodule "vim.dotfile/bundle/vim-airline"]
+	path = vim.dotfile/bundle/vim-airline
 	url = https://github.com/bling/vim-airline.git
-[submodule "vim.symlink/bundle/vim-clojure-static"]
-	path = vim.symlink/bundle/vim-clojure-static
+[submodule "vim.dotfile/bundle/vim-clojure-static"]
+	path = vim.dotfile/bundle/vim-clojure-static
 	url = https://github.com/guns/vim-clojure-static.git
-[submodule "vim.symlink/bundle/vim-fireplace"]
-	path = vim.symlink/bundle/vim-fireplace
+[submodule "vim.dotfile/bundle/vim-fireplace"]
+	path = vim.dotfile/bundle/vim-fireplace
 	url = https://github.com/tpope/vim-fireplace.git
-[submodule "vim.symlink/bundle/vim-classpath"]
-	path = vim.symlink/bundle/vim-classpath
+[submodule "vim.dotfile/bundle/vim-classpath"]
+	path = vim.dotfile/bundle/vim-classpath
 	url = https://github.com/tpope/vim-classpath.git
-[submodule "vim.symlink/bundle/vim-unite"]
-	path = vim.symlink/bundle/vim-unite
+[submodule "vim.dotfile/bundle/vim-unite"]
+	path = vim.dotfile/bundle/vim-unite
 	url = https://github.com/Shougo/unite.vim.git
-[submodule "vim.symlink/bundle/vim-tmux-navigator"]
-	path = vim.symlink/bundle/vim-tmux-navigator
+[submodule "vim.dotfile/bundle/vim-tmux-navigator"]
+	path = vim.dotfile/bundle/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator.git
-[submodule "vim.symlink/bundle/vim-syntax-extra"]
-	path = vim.symlink/bundle/vim-syntax-extra
+[submodule "vim.dotfile/bundle/vim-syntax-extra"]
+	path = vim.dotfile/bundle/vim-syntax-extra
 	url = https://github.com/justinmk/vim-syntax-extra.git
 [submodule "vim.symlink/bundle/simplenote"]
 	path = vim.symlink/bundle/simplenote
