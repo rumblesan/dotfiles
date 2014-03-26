@@ -47,9 +47,9 @@ die()
 
 setup()
 {
-    for FILE in *.symlink; do
+    for FILE in *.dotfile; do
         FILE_NAME=$DOTFILE_DIR/$FILE
-        LINK_NAME=~/`echo ".$FILE" | sed "s/\.symlink//"`
+        LINK_NAME=~/`echo ".$FILE" | sed "s/\.dotfile//"`
         linkfile "$FILE_NAME" "$LINK_NAME"
     done
 }
@@ -88,8 +88,8 @@ linkfile()
 
 cleanup()
 {
-    for FILE in *.symlink; do
-        LINK_NAME=~/`echo ".$FILE" | sed "s/\.symlink//"`
+    for FILE in *.dotfile; do
+        LINK_NAME=~/`echo ".$FILE" | sed "s/\.dotfile//"`
         deletefile "$LINK_NAME"
     done
 }
