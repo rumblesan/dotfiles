@@ -46,9 +46,6 @@
 [submodule "vim.dotfile/bundle/vim-coffee-script"]
 	path = vim.dotfile/bundle/vim-coffee-script
 	url = git://github.com/kchmck/vim-coffee-script.git
-[submodule "vim.symlink/bundle/puppet-syntax-vim"]
-	path = vim.symlink/bundle/puppet-syntax-vim
-	url = https://github.com/puppetlabs/puppet-syntax-vim
 [submodule "vim.dotfile/bundle/vim-airline"]
 	path = vim.dotfile/bundle/vim-airline
 	url = https://github.com/bling/vim-airline.git
@@ -70,6 +67,3 @@
 [submodule "vim.dotfile/bundle/vim-syntax-extra"]
 	path = vim.dotfile/bundle/vim-syntax-extra
 	url = https://github.com/justinmk/vim-syntax-extra.git
-[submodule "vim.symlink/bundle/simplenote"]
-	path = vim.symlink/bundle/simplenote
-	url = https://github.com/mrtazz/simplenote.vim.git
