@@ -130,9 +130,3 @@ au FileType play2-html setl sw=2 sts=2
 au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead *.jison set filetype=yacc
 
-" Simplenote settings
-let g:SimplenoteUsername = $SIMPLENOTE_USER
-let g:SimplenotePassword = $SIMPLENOTE_PASS
-
-map <leader>sn :Simplenote -l<cr>
-
