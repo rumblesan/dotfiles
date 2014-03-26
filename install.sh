@@ -50,57 +50,71 @@ setup()
     for FILE in *.symlink; do
         FILE_NAME=$DOTFILE_DIR/$FILE
         LINK_NAME=~/`echo ".$FILE" | sed "s/\.symlink//"`
-        echo "Creating $LINK_NAME"
-        if [ -e $LINK_NAME ]; then
-            echo "$LINK_NAME already exists!"
-            if [ $FORCE_DELETE == "y" ]; then
-                echo "Deleting"
-                rm $LINK_NAME
-                ln -s $FILE_NAME $LINK_NAME
-            else
-                RESPONSE="n"
-                echo "Delete? [y|n]"
-                read RESPONSE
-                if [ ! -z $RESPONSE ]; then
-                    RESPONSE='n'
-                fi
-                if [ $RESPONSE == "y" ]; then
-                    echo "Deleting"
-                    rm $LINK_NAME
-                    ln -s $FILE_NAME $LINK_NAME
-                else
-                    echo "Skipping"
-                fi
-            fi
-        else
-            ln -s $FILE_NAME $LINK_NAME
-        fi
+        linkfile "$FILE_NAME" "$LINK_NAME"
     done
 }
 
-cleanup()
+linkfile()
 {
-    for FILE in *.symlink; do
-        LINK_NAME=~/`echo ".$FILE" | sed "s/\.symlink//"`
-        echo $LINK_NAME
+    FILE_NAME="$1"
+    LINK_NAME="$2"
+    echo "Creating $LINK_NAME"
+    if [ -e $LINK_NAME ]; then
+        echo "$LINK_NAME already exists!"
         if [ $FORCE_DELETE == "y" ]; then
-                echo "Deleting"
-                rm $LINK_NAME
+            echo "Deleting"
+            rm $LINK_NAME
+            ln -s $FILE_NAME $LINK_NAME
         else
             RESPONSE="n"
             echo "Delete? [y|n]"
             read RESPONSE
-            if [ -z $RESPONSE ]; then
+            if [ ! -z $RESPONSE ]; then
                 RESPONSE='n'
             fi
             if [ $RESPONSE == "y" ]; then
                 echo "Deleting"
                 rm $LINK_NAME
+                ln -s $FILE_NAME $LINK_NAME
             else
                 echo "Skipping"
             fi
         fi
+    else
+        ln -s $FILE_NAME $LINK_NAME
+    fi
+}
+
+
+cleanup()
+{
+    for FILE in *.symlink; do
+        LINK_NAME=~/`echo ".$FILE" | sed "s/\.symlink//"`
+        deletefile "$LINK_NAME"
     done
+}
+
+deletefile()
+{
+    LINK_NAME="$1"
+    echo $LINK_NAME
+    if [ $FORCE_DELETE == "y" ]; then
+            echo "Deleting"
+            rm $LINK_NAME
+    else
+        RESPONSE="n"
+        echo "Delete? [y|n]"
+        read RESPONSE
+        if [ -z $RESPONSE ]; then
+            RESPONSE='n'
+        fi
+        if [ $RESPONSE == "y" ]; then
+            echo "Deleting"
+            rm $LINK_NAME
+        else
+            echo "Skipping"
+        fi
+    fi
 }
 
 update()
