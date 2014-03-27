@@ -18,6 +18,9 @@ set mouse=a
 set noerrorbells t_vb=
 set visualbell
 
+" CTags settings
+set tags=tags;/
+
 " Turns off swap files and backups
 set nobackup
 set nowritebackup
