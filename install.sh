@@ -52,6 +52,11 @@ setup()
         LINK_NAME=~/`echo ".$FILE" | sed "s/\.dotfile//"`
         linkfile "$FILE_NAME" "$LINK_NAME"
     done
+
+    #ssh config
+    FILE_NAME=$DOTFILE_DIR/sshconfig.symlink
+    LINK_NAME=~/.ssh/config
+    linkfile "$FILE_NAME" "$LINK_NAME"
 }
 
 linkfile()
@@ -92,6 +97,10 @@ cleanup()
         LINK_NAME=~/`echo ".$FILE" | sed "s/\.dotfile//"`
         deletefile "$LINK_NAME"
     done
+
+    #ssh config
+    LINK_NAME=~/.ssh/config
+    deletefile "$LINK_NAME"
 }
 
 deletefile()

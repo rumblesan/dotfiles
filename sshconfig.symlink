@@ -1,0 +1,33 @@
+
+Compression yes
+CompressionLevel 6
+
+Host *
+    ForwardAgent yes
+    ServerAliveInterval 300
+    ServerAliveCountMax 20
+
+Host lagoon
+    HostName lagoon.rumblesan.com
+    User guy
+    ForwardX11 yes
+    Compression yes
+    Port 222
+
+Host halebopp
+    HostName 192.168.0.200
+    User root
+    Port 222
+
+Host metapiano
+    HostName 192.241.245.132
+    User meta
+    Compression yes
+    Port 222
+
+Host metapiano2
+    HostName 162.243.16.72
+    User meta
+    Compression yes
+    Port 222
+
