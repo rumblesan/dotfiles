@@ -128,6 +128,8 @@ au FileType tex setl sw=2 sts=2
 
 au FileType coffee setl sw=2 sts=2
 
+au FileType scala setl sw=2 sts=2
+
 au FileType play2-html setl sw=2 sts=2
 
 au BufNewFile,BufRead *.md set filetype=markdown
