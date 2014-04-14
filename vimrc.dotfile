@@ -105,8 +105,11 @@ let g:syntastic_html_checkers = []
 let g:hdevtools_options = '-g -isrc -g -itests -g -Wall'
 
 " Unite settings
+nnoremap <leader>r :<C-u>Unite -start-insert file_rec/async:!<CR>
 nnoremap <leader>f :<C-u>Unite file<CR>
 nnoremap <leader>b :<C-u>Unite buffer<CR>
+
+let g:unite_source_rec_async_command = 'ag --nocolor --nogroup --ignore ".git" --hidden -g ""'
 
 " Set auto command group
 augroup UniteAutoCommands

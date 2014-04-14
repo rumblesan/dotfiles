@@ -14,3 +14,11 @@ Setup
     cd ~/.dotfiles
     ./install.py
 
+Notes
+-----
+
+The vimproc plugin needs to be compiled when it's installed.
+
+    cd ~/.dotfiles/vim.dotfile/bundle/vimproc
+    make
+

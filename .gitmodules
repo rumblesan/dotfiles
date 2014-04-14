@@ -67,3 +67,6 @@
 [submodule "vim.dotfile/bundle/vim-syntax-extra"]
 	path = vim.dotfile/bundle/vim-syntax-extra
 	url = https://github.com/justinmk/vim-syntax-extra.git
+[submodule "vim.dotfile/bundle/vimproc"]
+	path = vim.dotfile/bundle/vimproc
+	url = https://github.com/Shougo/vimproc.vim.git
