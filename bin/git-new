@@ -37,7 +37,7 @@ settemplate()
     fi
 }
 
-setemail()
+setworkenv()
 {
 
     CHECKDIR="${@:(-1)}"
@@ -45,6 +45,7 @@ setemail()
         cd "$CHECKDIR"
     fi
     git config user.email "$WORKEMAIL"
+    git config repo.environment "work"
 }
 
 WORKEMAIL=`git config --get work.email`
@@ -60,7 +61,7 @@ read WORKREPO
 if [ "$WORKREPO" == "y" ]; then
     echo "I'll set your work email and use the work template"
     git init --template $WORKTEMPLT "$@"
-    setemail
+    setworkenv
 else
     settemplate
     git init --template $INITTEMPLT "$@"

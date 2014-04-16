@@ -48,6 +48,7 @@ worksubmodules()
             cd "$CHECKDIR"
         fi
         git submodule foreach git config user.email $WORKEMAIL
+        git submodule foreach git config repo.environment "work"
     fi
 }
 
@@ -63,7 +64,7 @@ echo -n "Is this a work repo? (Y/n) "
 read WORKREPO
 if [ "$WORKREPO" == "y" ]; then
     echo "I'll set your work email and use the work template"
-    git clone $CLONEARGS -c user.email=$WORKEMAIL --template $WORKTEMPLT "$@"
+    git clone $CLONEARGS -c user.email=$WORKEMAIL -c repo.environment="work" --template $WORKTEMPLT "$@"
 else
     settemplate
     git clone $CLONEARGS "$@" --template $CLONETEMPLT
