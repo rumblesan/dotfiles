@@ -5,8 +5,11 @@
 [work]
     email = guy.john@mindcandy.com
 
-[templates]
-    dir = /Users/guy.john/.dotfiles/gitconf/templates
+[hooks]
+    dir = ~/.dotfiles/gitconf/hookscripts
+
+[init]
+    templatedir = ~/.dotfiles/gitconf/repo-template
 
 [color]
     ui = true
