@@ -7,37 +7,7 @@ die()
     exit 1
 }
 
-listTemplates()
-{
-    TEMPLTDIR=`git config --get --global templates.dir`
-    echo "-------------"
-    ls "$TEMPLTDIR"
-    echo "-------------"
-    echo "Pick a template (default) "
-}
-
-settemplate()
-{
-    TEMPLTCONF=""
-
-    echo -n "Use a template? (y/N) "
-    read USETEMPLT
-    if [ "$USETEMPLT" == "y" ]; then
-        listTemplates
-        read TEMPLTNAME
-        TEMPLTPATH="$TEMPLTDIR/$TEMPLTNAME"
-        if [ -e "$TEMPLTPATH" ]; then
-            INITTEMPLT="$TEMPLTPATH"
-        else
-            echo "Template $TEMPLTNAME doesn't exist"
-            echo "Using the default template"
-        fi
-    else
-        echo "No worries, have fun!"
-    fi
-}
-
-setworkenv()
+setemail()
 {
 
     CHECKDIR="${@:(-1)}"
@@ -48,22 +18,25 @@ setworkenv()
     git config repo.environment "work"
 }
 
+createrepo()
+{
+    git init "$@"
+}
+
 WORKEMAIL=`git config --get work.email`
-TEMPLTDIR=`git config --get --global templates.dir`
-WORKTEMPLT="$TEMPLTDIR/work"
-INITTEMPLT="$TEMPLTDIR/default"
 REPODIR=`pwd`
 
 echo "Hey, it looks like you're creating a git repo!\n"
 
-echo -n "Is this a work repo? (Y/n) "
+WORKREPO="n"
+echo -n "Is this a work repo? (y/N) "
 read WORKREPO
 if [ "$WORKREPO" == "y" ]; then
     echo "I'll set your work email and use the work template"
-    git init --template $WORKTEMPLT "$@"
-    setworkenv
+    createrepo
+    setemail
 else
-    settemplate
-    git init --template $INITTEMPLT "$@"
+    echo "No worries"
+    createrepo
 fi
 
