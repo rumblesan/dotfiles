@@ -8,13 +8,14 @@ SCRIPTSFOLDER="$HOOKDIR/$HOOKNAME/"
 # Check if hooks directory is empty
 if [ "$(ls $SCRIPTSFOLDER)" ]; then
 
-    for hook in "$SCRIPTSFOLDER/*"; do
+    for hook in $SCRIPTSFOLDER*; do
 
         $hook "$@"
+        HOOKEXITVAL=$?
 
-        if [[ $? -ne 0 ]]; then
+        if [[ $HOOKEXITVAL -ne 0 ]]; then
             echo "Hook Failed: $hook"
-            exit $?
+            exit $HOOKEXITVAL
         fi
 
     done
