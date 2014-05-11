@@ -1,0 +1,201 @@
+#! /bin/bash
+
+
+COM8_SH="git c8"
+oneline_usage="$COM8_SH [-h] command [args]"
+
+usage()
+{
+    cat <<-EndUsage
+		Usage: $oneline_usage
+		Use '$COM8_SH -h' for more information
+	EndUsage
+    exit 1
+}
+
+
+helpinfo()
+{
+cat <<-EndHelp
+
+Usage: $oneline_usage
+
+Flags:
+    -h
+        Display help
+
+If a command can take a name, but none is given, then the current branch name will be used
+
+Commands:
+    new|n [template_name]
+        Create a new commit template with the chosen name
+        Open it for edit
+    list|ls
+        List all templates for this repo
+    edit|e [template_name]
+        Open the chosen template for editing
+    delete|del|rm [template_name]
+        Delete the chosen template
+    set [template_name]
+        Set the chosen template as the active  commit template
+    unset
+        Unset the current commit template
+    show [template_name]
+        Show the currently active commit template, if any
+
+EndHelp
+exit 0
+}
+
+die()
+{
+    echo "$*"
+    exit 1
+}
+
+new()
+{
+    local NAME="$*"
+    if [ -z "$NAME" ]; then
+        NAME="$GIT_BRANCH"
+    fi
+    echo "Creating template: $NAME"
+
+    touch "$TEMPLT_DIR/$NAME"
+
+    settemplt "$NAME"
+
+    exec $EDITOR "$TEMPLT_DIR/$NAME"
+}
+
+list()
+{
+    local FILTER="$*"
+    if [[ -z ${FILTER} ]]; then
+        ls "$TEMPLT_DIR"
+    else
+        ls "$TEMPLT_DIR" | grep "${FILTER}"
+    fi
+}
+
+edit()
+{
+    local NAME="$*"
+    if [ -z "$NAME" ]; then
+        local NAME="$GIT_BRANCH"
+    fi
+    local FILENAME="$TEMPLT_DIR/$NAME"
+    if [ -e "$FILENAME" ]; then
+        exec $EDITOR "$FILENAME"
+    else
+        die "No template with matching name"
+    fi
+}
+
+delete()
+{
+    local NAME="$*"
+    if [ -z "$NAME" ]; then
+        local NAME="$GIT_BRANCH"
+    fi
+    local FILENAME="$TEMPLT_DIR/$NAME"
+    if [ -e "$FILENAME" ]; then
+        rm "$FILENAME"
+    else
+        die "No template with matching name"
+    fi
+}
+
+settemplt()
+{
+    local NAME="$*"
+    if [ -z "$NAME" ]; then
+        local NAME="$GIT_BRANCH"
+    fi
+    git config --local commit.template "$TEMPLT_DIR/$NAME"
+}
+
+unsettemplt()
+{
+    git config --local --unset commit.template
+}
+
+showtemplt()
+{
+    git config commit.template
+}
+
+setup()
+{
+    if [ ! -d "$TEMPLT_DIR" ]; then
+        mkdir "$TEMPLT_DIR"
+        echo "Made template directory"
+    else
+        die "Template dir already exists\n    Nothing to setup"
+    fi
+}
+
+runaction()
+{
+    local ACTION=$( printf "%s\n" "$1" | tr 'A-Z' 'a-z' )
+
+    case $ACTION in
+    "new" | "n" )
+        shift
+        input=$*
+        new $input
+        ;;
+    "list" | "ls" )
+        shift
+        filter=$*
+        list $filter
+        ;;
+    "edit" | "e" )
+        shift
+        input=$*
+        edit "$input"
+        ;;
+    "delete" | "del" | "rm" )
+        shift
+        input=$*
+        delete "$input"
+        ;;
+    "set" )
+        shift
+        input=$*
+        settemplt "$input"
+        ;;
+    "unset" )
+        unsettemplt
+        ;;
+    "show" )
+        showtemplt
+        ;;
+    * )
+        usage
+        ;;
+    esac
+}
+
+GIT_DIR="`git rev-parse --show-toplevel`/.git"
+GIT_BRANCH=`git rev-parse --abbrev-ref HEAD`
+TEMPLT_DIR="$GIT_DIR/committemplts"
+
+while getopts "h" opt "$@"; do
+    case $opt in
+        h)
+            helpinfo
+            ;;
+        *)
+            usage
+            ;;
+    esac
+done
+
+if [ ! -d $TEMPLT_DIR ]; then
+    setup
+fi
+
+actionargs="${@:$OPTIND}"
+runaction $actionargs
+

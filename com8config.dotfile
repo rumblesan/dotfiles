@@ -1,4 +1,0 @@
-#! /bin/bash
-
-TEMPLT_DIR="${HOME}/.com8templates"
-

@@ -28,9 +28,6 @@
 [submodule "notes.txt"]
 	path = notes.txt
 	url = git@github.com:rumblesan/notes.txt.git
-[submodule "commiter8"]
-	path = commiter8
-	url = git@github.com:rumblesan/commiter8.git
 [submodule "vim.dotfile/bundle/syntastic"]
 	path = vim.dotfile/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
