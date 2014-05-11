@@ -105,7 +105,16 @@ let g:syntastic_html_checkers = []
 
 " Hdev tools settings
 " Tell hdev tools to look in src and tests for modules
-let g:hdevtools_options = '-g -isrc -g -itests -g -Wall'
+function! FindCabalSandboxRoot()
+    return finddir('.cabal-sandbox', './;')
+endfunction
+
+function! FindCabalSandboxRootPackageConf()
+    return glob(FindCabalSandboxRoot().'/*-packages.conf.d')
+endfunction
+
+let g:hdevtools_options = '-g-ilib -g-isrc -g-i. -g-idist/build/autogen -g-Wall -g-package-conf='.FindCabalSandboxRootPackageConf()
+
 
 " Unite settings
 nnoremap <leader>r :<C-u>Unite -start-insert file_rec/async:!<CR>
