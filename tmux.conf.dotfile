@@ -23,8 +23,10 @@ set -g pane-base-index 1
 # window splitting
 unbind '"'
 unbind %
-bind v split-window -c "#{pane_current_path}"
-bind h split-window -h -c "#{pane_current_path}"
+# tmux's idea of vertical and horizontal splits feels the wrong way round
+# so I bind it the "correct" way round
+bind h split-window -c "#{pane_current_path}"
+bind v split-window -h -c "#{pane_current_path}"
 
 # window creation
 bind c neww -c "#{pane_current_path}"
