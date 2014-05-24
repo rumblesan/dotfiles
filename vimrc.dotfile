@@ -73,6 +73,12 @@ map <leader>ss :setlocal spell!<cr>
 " Map leader w to save file
 map <leader>w :w<cr>
 
+" Strip trailing spaces on lines
+function StripSpaces()
+    %s/\s\+$//e
+endfunction
+command StripSpaces call StripSpaces()
+
 " Split settings
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
