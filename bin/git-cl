@@ -25,13 +25,14 @@ worksubmodules()
 CLONEARGS="--recursive"
 WORKEMAIL=`git config --get work.email`
 
-echo "Hey, it looks like you're cloning a git repo!\n"
+echo "Hey, it looks like you're cloning a git repo!"
 
-echo -n "Is this a work repo? (Y/n) "
+echo -n "Is this a work repo? (y/N) "
 read WORKREPO
 if [ "$WORKREPO" == "y" ]; then
     echo "I'll set your work email"
-    git clone $CLONEARGS -c user.email=$WORKEMAIL "$@"
+    git clone $CLONEARGS -c user.email=$WORKEMAIL -c repo.environment=work "$@"
+    worksubmodules
 else
     git clone $CLONEARGS "$@"
 fi

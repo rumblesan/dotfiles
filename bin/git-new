@@ -26,7 +26,7 @@ createrepo()
 WORKEMAIL=`git config --get work.email`
 REPODIR=`pwd`
 
-echo "Hey, it looks like you're creating a git repo!\n"
+echo "Hey, it looks like you're creating a git repo!"
 
 WORKREPO="n"
 echo -n "Is this a work repo? (y/N) "
