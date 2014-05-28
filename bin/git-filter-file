@@ -1,0 +1,33 @@
+#!/bin/bash
+ 
+
+die()
+{
+    echo "$*"
+    exit 1
+}
+
+filter_file()
+{
+
+    git filter-branch --prune-empty --index-filter "git rm --cached -f --ignore-unmatch $FILENAME" --tag-name-filter cat -- --all
+
+}
+
+echo "Using filter branch to remove a file"
+echo "This will rewrite the repo history."
+echo -n "Are you sure you want to do this? (y/n) "
+read REWRITEOK
+if [ "$REWRITEOK" != "y" ]; then
+    die "Not rewriting history"
+fi
+
+echo -n "File Name: "
+read FILENAME
+if [ -z "$FILENAME" ]; then
+    die "Need to give a file name"
+fi
+
+
+filter_file
+
