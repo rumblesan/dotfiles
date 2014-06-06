@@ -27,3 +27,9 @@ function c8() {
   fi
 }
 
+function groot() {
+
+  cd `git rev-parse --show-toplevel`
+
+}
+
