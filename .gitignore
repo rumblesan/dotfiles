@@ -1,3 +1,4 @@
 .netrwhist
 compiled/
 *.keys
+*.pyc
