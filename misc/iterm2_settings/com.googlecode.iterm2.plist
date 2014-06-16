@@ -308,21 +308,15 @@
 	<key>NSScrollAnimationEnabled</key>
 	<false/>
 	<key>NSWindow Frame Preferences</key>
-	<string>411 650 924 485 0 0 1920 1178 </string>
-	<key>NSWindow Frame SUStatusFrame</key>
-	<string>591 855 384 129 0 0 1680 1028 </string>
+	<string>360 451 924 485 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>2 4 956 1174 0 0 1920 1178 </string>
+	<string>1280 4 1280 1414 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 4 1920 1174 0 0 1920 1178 </string>
+	<string>0 1040 585 376 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>-1649 484 585 376 -1680 150 1680 1050 </string>
+	<string>0 4 1280 707 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>240 657 585 376 0 0 1920 1178 </string>
-	<key>NSWindow Frame iTerm Window 4</key>
-	<string>0 6 1915 1020 0 0 1680 1028 </string>
-	<key>NSWindow Frame iTerm Window 5</key>
-	<string>2130 281 1260 787 1920 150 1680 1050 </string>
+	<string>1280 4 1280 1414 0 0 2560 1418 </string>
 	<key>NeverWarnAboutShortLivedSessions_07296A07-0FA6-493E-B413-EA39C090B672</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_A8BFD393-F6BC-4226-8728-664E02546471</key>
@@ -1037,7 +1031,7 @@
 			<key>Tags</key>
 			<array/>
 			<key>Terminal Type</key>
-			<string>xterm</string>
+			<string>xterm-256color</string>
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Triggers</key>
@@ -1062,7 +1056,7 @@
 			<string>/Users/guy</string>
 		</dict>
 	</array>
-	<key>NoSyncNeverRemindPrefsChangesCopy</key>
+	<key>NoSyncNeverRemindPrefsChangesLost</key>
 	<true/>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
@@ -1110,7 +1104,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/guy.john/.dotfiles/misc/iterm2_settings</string>
+	<string>/Users/guy/.dotfiles/misc/iterm2_settings</string>
 	<key>PromptOnClose</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -1130,7 +1124,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-01-15T11:52:21Z</date>
+	<date>2014-06-15T23:34:49Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -1187,6 +1181,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>1.0.0.20131228</string>
+	<string>1.0.0.20140518</string>
 </dict>
 </plist>
