@@ -28,6 +28,13 @@
     old = red
     new = green
 
+[color "decorate"]
+    branch = green
+    remoteBranch = red
+    tag = yellow
+    stash = magenta
+    HEAD = blue
+
 [color "status"]
     added = yellow
     changed = green
