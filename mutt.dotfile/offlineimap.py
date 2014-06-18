@@ -10,7 +10,7 @@ def get_keychain_pass(account=None, server=None):
         'account': account,
         'server': server
     }
-    command = "sudo -u guy %(security)s -v %(command)s -g -a %(account)s -s %(server)s" % params
+    command = "%(security)s -v %(command)s -g -a %(account)s -s %(server)s" % params
     output = subprocess.check_output(
         command,
         shell=True,
