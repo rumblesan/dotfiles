@@ -20,3 +20,15 @@ def get_keychain_pass(account=None, server=None):
                if l.startswith('password: ')][0]
 
     return re.match(r'password: "(.*)"', outtext).group(1)
+
+if __name__ == '__main__':
+    import argparse
+
+    parser = argparse.ArgumentParser(description='Retrieve a password')
+    parser.add_argument('--account', help='The account')
+    parser.add_argument('--server', help='The server')
+    args = parser.parse_args()
+
+    password = get_keychain_pass(args.account, args.server)
+    print(password)
+
