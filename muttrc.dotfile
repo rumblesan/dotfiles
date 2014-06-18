@@ -137,6 +137,7 @@ set include                          # include message in replies
 set forward_quote                    # include message in forwards
 
 set editor = "vim"                   # Use terminal Vim to compose email.
+set editor = "vim --cmd 'let g:goobookrc=\"~/.goobookrc\"'"
 
 set from     = "guy@rumblesan.com"
 set sendmail = "msmtp -a d.guyjohn"
@@ -155,4 +156,7 @@ source ~/.mutt/colors.muttrc
 
 
 macro index S "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch.py ~/.mail/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"
+
+set query_command="goobook query '%s'"
+bind editor <Tab> complete-query
 
