@@ -7,7 +7,8 @@ passwordeval: ~/.mutt/offlineimap.py --account d.guyjohn@gmail.com --server imap
 # The following are optional, defaults are shown
 ;cache_filename: ~/.goobook_cache
 ;cache_expiry_hours: 24
-;filter_groupless_contacts: yes
+# Have goobook find Other contacts
+filter_groupless_contacts: no
 
 
 
