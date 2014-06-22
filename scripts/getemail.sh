@@ -1,7 +1,12 @@
 #! /bin/bash
 
-BREW_DIR=`brew --prefix`
+BIN_DIR="/opt/boxen/homebrew/bin"
+DATE=`date +%F - %T`
 
-$BREW_DIR/bin/offlineimap -u basic
+echo "\n"
+echo "$DATE: Retrieving Email"
+$BIN_DIR/offlineimap -u basic
 
-$BREW_DIR/bin/notmuch new
+echo "\n"
+echo "$DATE: Indexing Email"
+$BIN_DIR/notmuch new
