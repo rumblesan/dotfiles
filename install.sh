@@ -48,13 +48,13 @@ die()
 setup()
 {
     for FILE in *.dotfile; do
-        FILE_NAME=$DOTFILE_DIR/$FILE
+        FILE_NAME="$DOTFILE_DIR/$FILE"
         LINK_NAME=~/`echo ".$FILE" | sed "s/\.dotfile//"`
         linkfile "$FILE_NAME" "$LINK_NAME"
     done
 
     #ssh config
-    FILE_NAME=$DOTFILE_DIR/sshconfig.symlink
+    FILE_NAME="$DOTFILE_DIR/sshconfig.symlink"
     LINK_NAME=~/.ssh/config
     linkfile "$FILE_NAME" "$LINK_NAME"
 }
@@ -64,29 +64,29 @@ linkfile()
     FILE_NAME="$1"
     LINK_NAME="$2"
     echo "Creating $LINK_NAME"
-    if [ -e $LINK_NAME ]; then
+    if [ -e "$LINK_NAME" ]; then
         echo "$LINK_NAME already exists!"
-        if [ $FORCE_DELETE == "y" ]; then
+        if [ "$FORCE_DELETE" == "y" ]; then
             echo "Deleting"
-            rm $LINK_NAME
-            ln -s $FILE_NAME $LINK_NAME
+            rm "$LINK_NAME"
+            ln -s "$FILE_NAME" "$LINK_NAME"
         else
             RESPONSE="n"
             echo "Delete? [y|n]"
             read RESPONSE
-            if [ ! -z $RESPONSE ]; then
+            if [ ! -z "$RESPONSE" ]; then
                 RESPONSE='n'
             fi
-            if [ $RESPONSE == "y" ]; then
+            if [ "$RESPONSE" == "y" ]; then
                 echo "Deleting"
-                rm $LINK_NAME
-                ln -s $FILE_NAME $LINK_NAME
+                rm "$LINK_NAME"
+                ln -s "$FILE_NAME" "$LINK_NAME"
             else
                 echo "Skipping"
             fi
         fi
     else
-        ln -s $FILE_NAME $LINK_NAME
+        ln -s "$FILE_NAME" "$LINK_NAME"
     fi
 }
 
@@ -106,20 +106,20 @@ cleanup()
 deletefile()
 {
     LINK_NAME="$1"
-    echo $LINK_NAME
-    if [ $FORCE_DELETE == "y" ]; then
+    echo "$LINK_NAME"
+    if [ "$FORCE_DELETE" == "y" ]; then
             echo "Deleting"
-            rm $LINK_NAME
+            rm "$LINK_NAME"
     else
         RESPONSE="n"
         echo "Delete? [y|n]"
         read RESPONSE
-        if [ -z $RESPONSE ]; then
+        if [ -z "$RESPONSE" ]; then
             RESPONSE='n'
         fi
-        if [ $RESPONSE == "y" ]; then
+        if [ "$RESPONSE" == "y" ]; then
             echo "Deleting"
-            rm $LINK_NAME
+            rm "$LINK_NAME"
         else
             echo "Skipping"
         fi
@@ -137,9 +137,9 @@ firsttime()
 {
     # Ask for root password upfront
     sudo -v
-    sudo cp $DOTFILE_DIR/misc/fonts/*.ttf /Library/Fonts/
+    sudo cp "$DOTFILE_DIR/misc/fonts/*.ttf" /Library/Fonts/
 
-    sudo $DOTFILE_DIR/misc/osx.sh
+    sudo "$DOTFILE_DIR/misc/osx.sh"
 }
 
 # Sync with remote repo
@@ -153,11 +153,11 @@ sync()
 
 runaction()
 {
-    if [ $DOTFILE_DIR == $PWD ]; then
+    if [ "$DOTFILE_DIR" == "$PWD" ]; then
 
         action=$( printf "%s\n" "$1" | tr 'A-Z' 'a-z' )
 
-        case $action in
+        case "$action" in
         "setup" )
             setup
             ;;
@@ -189,7 +189,7 @@ PWD="`pwd`"
 FORCE_DELETE="n"
 
 while getopts "hf" opt "$@"; do
-    case $opt in
+    case "$opt" in
         h)
             helpinfo
             ;;
