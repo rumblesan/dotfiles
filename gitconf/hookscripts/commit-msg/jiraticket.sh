@@ -9,7 +9,7 @@ die()
 REPOENV=`git config --get repo.environment`
 
 if [ "$REPOENV" == "work" ]; then
-    egrep -q "^TOOL-[0-9]+ " "$1"
+    egrep -q "^[A-Z]+-[0-9]+ " "$1"
     CHECK=$?
 
     if [ $CHECK != 0 ]; then
