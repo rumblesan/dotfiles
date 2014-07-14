@@ -24,7 +24,7 @@ nametrans = lambda folder: {'drafts':  '[Google Mail]/Drafts',
 [Repository GuyJohn-Remote]
 maxconnections = 1
 type = Gmail
-cert_fingerprint = 89091347184d41768bfc0da9fad94bfe882dd358
+sslcacertfile = /usr/share/curl/ca-bundle.crt
 remoteuser = d.guyjohn@gmail.com
 remotepasseval = get_keychain_pass(account="d.guyjohn@gmail.com", server="imap.gmail.com")
 realdelete = no
