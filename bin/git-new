@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Set the correct executable to use
+# Prefer hub but fall back to normal git
+GIT=`which hub`
+if [ -z "$GIT" ]; then
+    GIT=`which git`
+fi
+
 
 die()
 {
@@ -14,13 +21,13 @@ setemail()
     if [ -d "$CHECKDIR" ]; then
         cd "$CHECKDIR"
     fi
-    git config user.email "$WORKEMAIL"
-    git config repo.environment "work"
+    "$GIT" config user.email "$WORKEMAIL"
+    "$GIT" config repo.environment "work"
 }
 
 createrepo()
 {
-    git init "$@"
+    "$GIT" init "$@"
 }
 
 WORKEMAIL=`git config --get work.email`

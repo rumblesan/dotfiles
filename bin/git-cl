@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Set the correct executable to use
+# Prefer hub but fall back to normal git
+GIT=`which hub`
+if [ -z "$GIT" ]; then
+    GIT=`which git`
+fi
+
 
 die()
 {
@@ -17,8 +24,8 @@ worksubmodules()
         if [ -d "$CHECKDIR" ]; then
             cd "$CHECKDIR"
         fi
-        git submodule foreach git config user.email $WORKEMAIL
-        git submodule foreach git config repo.environment "work"
+        "$GIT" submodule foreach "$GIT" config user.email $WORKEMAIL
+        "$GIT" submodule foreach "$GIT" config repo.environment "work"
     fi
 }
 
@@ -31,9 +38,9 @@ echo -n "Is this a work repo? (y/N) "
 read WORKREPO
 if [ "$WORKREPO" == "y" ]; then
     echo "I'll set your work email"
-    git clone $CLONEARGS -c user.email=$WORKEMAIL -c repo.environment=work "$@"
-    worksubmodules
+    "$GIT" clone $CLONEARGS -c user.email=$WORKEMAIL -c repo.environment=work "$@"
+    worksubmodules "$*"
 else
-    git clone $CLONEARGS "$@"
+    "$GIT" clone $CLONEARGS "$@"
 fi
 
