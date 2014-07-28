@@ -17,12 +17,16 @@ die()
 setemail()
 {
 
-    CHECKDIR="${@:(-1)}"
-    if [ -d "$CHECKDIR" ]; then
-        cd "$CHECKDIR"
+    local repodir="$1"
+    if [ -d "$repodir" ]; then
+        echo "Switching into $repodir"
+        cd "$repodir"
+        "$GIT" config user.email "$WORKEMAIL"
+        "$GIT" config repo.environment "work"
+    else
+        echo "$repodir doesn't seem to exist"
+        echo "Not setting submodule config"
     fi
-    "$GIT" config user.email "$WORKEMAIL"
-    "$GIT" config repo.environment "work"
 }
 
 createrepo()
@@ -30,8 +34,29 @@ createrepo()
     "$GIT" init "$@"
 }
 
+repodir()
+{
+
+    local lastarg="$1"
+    case "$lastarg" in
+        "-q")
+            pwd
+            ;;
+        --*)
+            pwd
+            ;;
+        "")
+            pwd
+            ;;
+        *)
+            echo "$lastarg"
+            ;;
+    esac
+
+}
+
+REPODIR=$(repodir "${@:(-1)}")
 WORKEMAIL=`git config --get work.email`
-REPODIR=`pwd`
 
 echo "Hey, it looks like you're creating a git repo!"
 
@@ -41,7 +66,7 @@ read WORKREPO
 if [ "$WORKREPO" == "y" ]; then
     echo "I'll set your work email and use the work template"
     createrepo
-    setemail
+    setemail "$REPODIR"
 else
     echo "No worries"
     createrepo
