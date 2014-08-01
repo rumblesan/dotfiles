@@ -43,3 +43,6 @@
 [submodule "vim.dotfile/bundle/vimproc"]
 	path = vim.dotfile/bundle/vimproc
 	url = https://github.com/Shougo/vimproc.vim.git
+[submodule "vim.dotfile/bundle/vim-ruby"]
+	path = vim.dotfile/bundle/vim-ruby
+	url = https://github.com/vim-ruby/vim-ruby.git
