@@ -110,18 +110,6 @@ let g:syntastic_java_checkers = []
 let g:syntastic_scala_checkers = []
 let g:syntastic_html_checkers = []
 
-" Hdev tools settings
-" Tell hdev tools to look in src and tests for modules
-function! FindCabalSandboxRoot()
-    return finddir('.cabal-sandbox', './;')
-endfunction
-
-function! FindCabalSandboxRootPackageConf()
-    return glob(FindCabalSandboxRoot().'/*-packages.conf.d')
-endfunction
-
-let g:hdevtools_options = '-g-ilib -g-isrc -g-i. -g-idist/build/autogen -g-Wall -g-package-conf='.FindCabalSandboxRootPackageConf()
-
 
 " Unite settings
 nnoremap <leader>r :<C-u>Unite -start-insert file_rec/async:!<CR>
@@ -130,30 +118,7 @@ nnoremap <leader>b :<C-u>Unite buffer<CR>
 
 let g:unite_source_rec_async_command = 'ag --nocolor --nogroup --ignore ".git" --hidden -g ""'
 
-" Set auto command group
-augroup UniteAutoCommands
-  autocmd!
-augroup END
-
-" Autocommand to set mappings when in a unite buffer
-autocmd UniteAutoCommands FileType unite call s:unite_settings()
-function! s:unite_settings()
-
-  nmap <buffer> <ESC> <Plug>(unite_exit)
-  nnoremap <silent><buffer><expr> s unite#do_action('split')
-  nnoremap <silent><buffer><expr> v unite#do_action('vsplit')
-
-endfunction
-
 " Specific filetype settings
-au FileType tex setl sw=2 sts=2
-
-au FileType coffee setl sw=2 sts=2
-
-au FileType scala setl sw=2 sts=2
-
-au FileType play2-html setl sw=2 sts=2
-
 au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead *.jison set filetype=yacc
 
