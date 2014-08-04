@@ -51,7 +51,7 @@ compinit -i
 # PATH
 # ----------------------------------------------------------------------
 
-PATH=/usr/local/bin:$DOTFILES/bin:$DOTFILES/notes.txt:$DOTFILES/commiter8:$PATH
+PATH=/usr/local/bin:$DOTFILES/bin:$DOTFILES/notes.txt:$DOTFILES/commiter8:$BOXEN_HOME/homebrew/lib:$PATH
 
 if [ -n $(command -v brew) ]; then
     export BREWPATH=`brew --prefix`
