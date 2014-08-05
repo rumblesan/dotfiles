@@ -46,3 +46,6 @@
 [submodule "vim.dotfile/bundle/vim-ruby"]
 	path = vim.dotfile/bundle/vim-ruby
 	url = https://github.com/vim-ruby/vim-ruby.git
+[submodule "vim.dotfile/bundle/vim-puppet-syntax"]
+	path = vim.dotfile/bundle/vim-puppet-syntax
+	url = https://github.com/puppetlabs/puppet-syntax-vim.git
