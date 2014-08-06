@@ -87,6 +87,9 @@ systemsetup -setrestartfreeze on
 # Check for software updates daily, not just once per week
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
+# Disable drop shadows
+defaults write com.apple.screencapture disable-shadow -bool true
+
 ###############################################################################
 # SSD-specific tweaks                                                         #
 ###############################################################################
