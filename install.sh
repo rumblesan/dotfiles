@@ -109,7 +109,7 @@ cleanup()
         deletefile "$LINK_NAME"
     done
 
-    for AGENT in my-launch-agents/*.plist; do
+    for AGENT in launch-agents/*.plist; do
         LINK_NAME="$LAUNCHAGENT_DIR/$(basename $AGENT)"
         deletefile "$LINK_NAME"
     done
