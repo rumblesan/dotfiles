@@ -48,20 +48,17 @@ hdr_order from: to: cc: date: subject:  # and in this order
 # Account Settings -----------------------------------
 
 # Default inbox.
-set spoolfile = "+gmail.com/INBOX"
+set spoolfile = "+Personal/INBOX"
 
 # Alternate email addresses.
 alternates d.guyjohn@gmail.com
 
-# Mailboxes to show in the sidebar.
-mailboxes +gmail.com/INBOX \
-          +gmail.com/archive \
-          +gmail.com/sent \
-          +gmail.com/drafts \
+# Offline Imap
+source ~/.mutt/mailboxes
 
 # Other special folders.
-set mbox      = "+gmail.com/archive"
-set postponed = "+gmail.com/drafts"
+set mbox      = "+Personal/archive"
+set postponed = "+Personal/drafts"
 
 
 # Index View Options ---------------------------------
@@ -139,8 +136,10 @@ set forward_quote                    # include message in forwards
 set editor = "vim"                   # Use terminal Vim to compose email.
 set editor = "vim --cmd 'let g:goobookrc=\"~/.goobookrc\"'"
 
-set from     = "guy@rumblesan.com"
-set sendmail = "msmtp -a d.guyjohn"
+
+folder-hook Personal set from="guy@rumblesan.com"
+folder-hook Work set from="guy@pusher.com"
+set sendmail = "msmtp"
 set sendmail_wait = 0
 unset record
 

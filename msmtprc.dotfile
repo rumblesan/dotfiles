@@ -1,12 +1,24 @@
-account d.guyjohn
+# Defaults
+tls on
+tls_trust_file ~/.mutt/Equifax_Secure_CA.cert
+logfile ~/.msmtp.log
+
+# Personal Gmail
+account Personal
 host smtp.gmail.com
 port 587
 protocol smtp
 auth on
 from guy@rumblesan.com
 user d.guyjohn@gmail.com
-tls on
-tls_trust_file ~/.mutt/Equifax_Secure_CA.cert
-logfile ~/.msmtp.log
 
-account default : d.guyjohn
+# Pusher Gmail
+account Pusher
+host smtp.gmail.com
+port 587
+protocol smtp
+auth on
+from guy@pusher.com
+user guy@pusher.com
+
+account default : Personal

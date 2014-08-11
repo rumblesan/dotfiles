@@ -4,3 +4,4 @@ compiled/
 *.pyc
 mutt.dotfile/temp/
 mutt.dotfile/cache/
+mutt.dotfile/mailboxes

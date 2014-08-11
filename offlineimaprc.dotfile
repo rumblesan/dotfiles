@@ -1,18 +1,26 @@
 [general]
 ui = TTY.TTYUI
-accounts = GuyJohn
+accounts = Personal, Pusher
 pythonfile=~/.mutt/offlineimap.py
 fsync = False
 postsynchook = notmuch new
 
-[Account GuyJohn]
-localrepository = GuyJohn-Local
-remoterepository = GuyJohn-Remote
+[mbnames]
+enabled = yes
+filename = ~/.mutt/mailboxes
+header = "mailboxes "
+peritem = "+%(foldername)s"
+sep = "\nmailboxes "
+footer = "\n"
+
+[Account Personal]
+localrepository = Personal-Local
+remoterepository = Personal-Remote
 status_backend = sqlite
 
-[Repository GuyJohn-Local]
+[Repository Personal-Local]
 type = Maildir
-localfolders = ~/.mail/gmail.com
+localfolders = ~/.mail/Personal
 nametrans = lambda folder: {'drafts':  '[Google Mail]/Drafts',
                             'sent':    '[Google Mail]/Sent Mail',
                             'bin':     '[Google Mail]/Bin',
@@ -21,7 +29,7 @@ nametrans = lambda folder: {'drafts':  '[Google Mail]/Drafts',
                             'archive': '[Google Mail]/All Mail',
                             }.get(folder, folder)
 
-[Repository GuyJohn-Remote]
+[Repository Personal-Remote]
 maxconnections = 1
 type = Gmail
 sslcacertfile = /usr/share/curl/ca-bundle.crt
@@ -39,3 +47,39 @@ folderfilter = lambda folder: folder not in ['[Google Mail]/Trash',
                                              '[Google Mail]/Important',
                                              '[Google Mail]/Spam',
                                              ]
+
+[Account Pusher]
+localrepository = Pusher-Local
+remoterepository = Pusher-Remote
+status_backend = sqlite
+
+[Repository Pusher-Local]
+type = Maildir
+localfolders = ~/.mail/Pusher
+nametrans = lambda folder: {'pusher-drafts':  '[Gmail]/Drafts',
+                            'pusher-sent':    '[Gmail]/Sent Mail',
+                            'pusher-bin':     '[Gmail]/Bin',
+                            'pusher-chats':   '[Gmail]/Chats',
+                            'pusher-spam':    '[Gmail]/Spam',
+                            'pusher-archive': '[Gmail]/All Mail',
+                            }.get(folder, folder)
+
+[Repository Pusher-Remote]
+maxconnections = 1
+type = Gmail
+sslcacertfile = /usr/share/curl/ca-bundle.crt
+remoteuser = guy@pusher.com
+remotepasseval = get_keychain_pass(account="guy@pusher.com", server="imap.gmail.com")
+realdelete = no
+nametrans = lambda folder: {'[Gmail]/Drafts':    'pusher-drafts',
+                            '[Gmail]/Sent Mail': 'pusher-sent',
+                            '[Gmail]/Chats':     'pusher-chats',
+                            '[Gmail]/Bin':       'pusher-bin',
+                            '[Gmail]/Spam':      'pusher-spam',
+                            '[Gmail]/All Mail':  'pusher-archive',
+                            }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
+                                             '[Gmail]/Important',
+                                             '[Gmail]/Spam',
+                                             ]
+
