@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.rumblesan.getemail.plist</string>
+    <string>com.rumblesan.getemail</string>
     <key>ProgramArguments</key>
         <array>
             <string>/Users/guy/.dotfiles/scripts/getemail.sh</string>
