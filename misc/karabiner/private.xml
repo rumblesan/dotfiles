@@ -14,6 +14,23 @@
 
     </item>
 
+
+    <item>
+        <name>Music Controls to Print Screen, Num Lock and Pause</name>
+        <identifier>private.functions_aS_MEDIA.CTRL_music_controls</identifier>
+        <autogen>--KeyToConsumer-- KeyCode::F13,          ConsumerKeyCode::MUSIC_PREV</autogen>
+        <autogen>--KeyToConsumer-- KeyCode::KEYPAD_CLEAR, ConsumerKeyCode::MUSIC_PLAY</autogen>
+        <autogen>--KeyToConsumer-- KeyCode::F15,          ConsumerKeyCode::MUSIC_NEXT</autogen>
+    </item>
+
+    <item>
+        <name>Volume Controls to Page Up, Page Down, End</name>
+        <identifier>private.functions_as_media.ctrl_volume_controls</identifier>
+        <autogen>--KeyToConsumer-- KeyCode::PAGEUP,   ConsumerKeyCode::VOLUME_UP</autogen>
+        <autogen>--KeyToConsumer-- KeyCode::PAGEDOWN, ConsumerKeyCode::VOLUME_DOWN</autogen>
+        <autogen>--KeyToConsumer-- KeyCode::END,      ConsumerKeyCode::VOLUME_MUTE</autogen>
+    </item> 
+
   </item>
 
 </root>
