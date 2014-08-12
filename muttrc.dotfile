@@ -51,7 +51,7 @@ hdr_order from: to: cc: date: subject:  # and in this order
 set spoolfile = "+Personal/INBOX"
 
 # Alternate email addresses.
-alternates d.guyjohn@gmail.com
+alternates "d.guyjohn@gmail.com|d.guyjohn@googlemail.com|guy@rumblesan.com|guy@pusher.com"
 
 # Offline Imap
 source ~/.mutt/mailboxes
