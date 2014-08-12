@@ -139,6 +139,7 @@ set editor = "vim --cmd 'let g:goobookrc=\"~/.goobookrc\"'"
 
 folder-hook Personal set from="guy@rumblesan.com"
 folder-hook Work set from="guy@pusher.com"
+set sendmail = "msmtp"
 set sendmail_wait = 0
 unset record
 
