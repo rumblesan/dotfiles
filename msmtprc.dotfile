@@ -1,4 +1,5 @@
 # Defaults
+defaults
 tls on
 tls_trust_file ~/.mutt/Equifax_Secure_CA.cert
 logfile ~/.msmtp.log
