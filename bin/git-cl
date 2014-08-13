@@ -57,7 +57,7 @@ echo -n "Is this a work repo? (y/N) "
 read WORKREPO
 if [ "$WORKREPO" == "y" ]; then
     echo "I'll set your work email"
-    "$GIT" clone $CLONEARGS -c user.email=$WORKEMAIL -c repo.environment=work "$@"
+    "$GIT" clone "$@" $CLONEARGS -c user.email=$WORKEMAIL -c repo.environment=work
     worksubmodules "$REPODIR"
 else
     "$GIT" clone $CLONEARGS "$@"
