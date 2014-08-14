@@ -159,3 +159,7 @@ macro index S "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch.py
 set query_command="goobook query '%s'"
 bind editor <Tab> complete-query
 
+auto_view text/html
+unalternative_order *;
+alternative_order text/enriched text/html text/plain text
+
