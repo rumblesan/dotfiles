@@ -10,3 +10,7 @@ endfunction
 
 let g:hdevtools_options = '-g-ilib -g-isrc -g-i. -g-idist/build/autogen -g-Wall -g-package-conf='.FindCabalSandboxRootPackageConf()
 
+setlocal shiftwidth=2
+setlocal tabstop=2
+setlocal softtabstop=2
+
