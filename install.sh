@@ -64,6 +64,10 @@ setup()
     LINK_NAME=~/.ssh/config
     linkfile "$FILE_NAME" "$LINK_NAME"
 
+    FILE_NAME="$DOTFILE_DIR/cabalconfig.symlink"
+    LINK_NAME=~/.cabal/config
+    linkfile "$FILE_NAME" "$LINK_NAME"
+
     if [ ! -d "$MY_LOG_DIR" ]; then
         echo "Creating log dir"
         mkdir -p "$MY_LOG_DIR"
