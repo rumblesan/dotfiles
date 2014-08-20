@@ -1,0 +1,31 @@
+#!/bin/bash
+
+declare -r SANDBOX_CONFIG="cabal.sandbox.config"
+declare -r CABAL_CONFIG="cabal.config"
+
+die() {
+    echo "$*"
+    exit 1
+}
+
+main () {
+
+    if [ ! -e "$SANDBOX_CONFIG" ]
+    then
+        die "Not in a cabal sandbox"
+    fi
+
+    if [ ! -e "$CABAL_CONFIG" ]
+    then
+        touch "$CABAL_CONFIG"
+    fi
+
+    local key="$1"; shift
+    local value="$1"; shift
+
+    echo "$key: $value" >> "$CABAL_CONFIG"
+
+}
+
+main "$@"
+
