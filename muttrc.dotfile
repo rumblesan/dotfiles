@@ -163,3 +163,16 @@ auto_view text/html
 unalternative_order *;
 alternative_order text/enriched text/html text/plain text
 
+macro pager ,@aoh= "\
+<enter-command> unalternative_order *; \
+alternative_order text/enriched text/html text/plain text;\
+macro pager A ,@aot= 'toggle alternative order'<enter>\
+<exit><display-message>"
+
+macro pager ,@aot= "\
+<enter-command> unalternative_order *; \
+alternative_order text/enriched text/plain text/html text;\
+macro pager A ,@aoh= 'toggle alternative order'<enter>\
+<exit><display-message>"
+
+macro pager A ,@aot= "toggle alternative order"
