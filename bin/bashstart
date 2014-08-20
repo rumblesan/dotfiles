@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# This creates a basic bash starting script
+
+FILENAME=$1
+
+case $FILENAME in
+    *.py)
+        ;;
+    *)
+        FILENAME="${FILENAME}"
+        ;;
+esac
+
+echo "Creating bash script ${FILENAME}"
+
+cat <<EOF > "$FILENAME"
+#!/bin/bash
+
+
+main () {
+}
+
+main "$@"
+
+EOF
+
+chmod +x "$FILENAME"
+exec $EDITOR "$FILENAME"
+
