@@ -1,0 +1,28 @@
+#!/bin/bash
+
+declare -r CONFIG=~/.gcalclirc
+
+
+die() {
+    echo "$*"
+    exit 1
+}
+
+
+main () {
+
+    local invitefile="$1"; shift
+    local calendar
+    echo 'Importing invite...'
+    echo -n 'Which calendar should this be added to?: '
+    read calendar
+    if [ -z "$calendar" ]; then
+        die "Need to give a calendar name"
+    fi
+
+    gcal --detail_url=short --calendar="$calendar" import -v "$invitefile"
+
+}
+
+main "$@"
+
