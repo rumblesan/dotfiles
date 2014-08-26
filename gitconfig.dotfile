@@ -72,7 +72,7 @@
     renames = copies
     mnemonicprefix = true
     tool = gvimdiff
-	algorithm = patience
+    algorithm = patience
 
 [branch]
     autosetupmerge = true
