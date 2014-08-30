@@ -32,9 +32,6 @@ alias psgrep="ps aux | grep -v grep | grep"
 # cd straight to some useful directories
 alias dotfiles="cd ${DOTFILES}"
 
-# load up vim and display simplenote notes
-alias n="${EDITOR} -c 'Simplenote -l'"
-
 # makes looking at history easier
 alias h="history"
 
@@ -43,5 +40,3 @@ alias startpost='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/se
 alias stoppost='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias restartpost='stoppost && sleep 1 && startpost'
 
-# spotify control script
-alias spotify="osascript ${DOTFILES}/misc/spotify/SpotifyControl.scpt"
