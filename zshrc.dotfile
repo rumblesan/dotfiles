@@ -83,7 +83,7 @@ FIGNORE="DS_Store"
 export HISTCONTROL=ignoredups:ignorespace
 
 # use good dircolors
-if [ -n $(command -v dircolors) ]; then
+if [ -n "$(command -v dircolors)" ]; then
     eval `dircolors $DOTFILES/dircolors.ansi-dark`
 fi
 
@@ -92,7 +92,7 @@ fi
 # ----------------------------------------------------------------------
 
 # EDITOR
-if [ -n $(command -v vim) ]; then
+if [ -n "$(command -v vim)" ]; then
     EDITOR="vim -w $HOME/.vimlog"
 else
     EDITOR="vi -w $HOME/.vimlog"
@@ -100,7 +100,7 @@ fi
 export EDITOR
 
 # PAGER
-if [ -n $(command -v less) ]; then
+if [ -n "$(command -v less)" ]; then
     PAGER="less -FirSwX"
     MANPAGER="less -FiRswX"
 else
