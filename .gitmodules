@@ -15,19 +15,19 @@
     url = https://github.com/tpope/vim-git.git
 [submodule "vim.dotfile/bundle/vim-processing"]
 	path = vim.dotfile/bundle/vim-processing
-	url = git@github.com:rumblesan/vim-processing.git
+	url = https://github.com/rumblesan/vim-processing.git
 [submodule "vim.dotfile/bundle/syntastic"]
 	path = vim.dotfile/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
 [submodule "vim.dotfile/bundle/vim-colors-solarized"]
 	path = vim.dotfile/bundle/vim-colors-solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
+	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "vim.dotfile/bundle/vim-surround"]
 	path = vim.dotfile/bundle/vim-surround
-	url = git://github.com/tpope/vim-surround.git
+	url = https://github.com/tpope/vim-surround.git
 [submodule "vim.dotfile/bundle/vim-coffee-script"]
 	path = vim.dotfile/bundle/vim-coffee-script
-	url = git://github.com/kchmck/vim-coffee-script.git
+	url = https://github.com/kchmck/vim-coffee-script.git
 [submodule "vim.dotfile/bundle/vim-airline"]
 	path = vim.dotfile/bundle/vim-airline
 	url = https://github.com/bling/vim-airline.git
