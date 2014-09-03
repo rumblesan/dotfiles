@@ -25,16 +25,11 @@ fi
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 
 # ----------------------------------------------------------------------
-# TMUX
+# TERM
 # ----------------------------------------------------------------------
 
-# Start tmux in every new shell
-if [ -z "$TMUX" ]; then
-    export TERM='xterm-256color'
-    exec tmux
-else
-    export TERM='screen-256color'
-fi
+# correctly set terminal
+export TERM='screen-256color'
 
 # ----------------------------------------------------------------------
 # ZSH SETTINGS
