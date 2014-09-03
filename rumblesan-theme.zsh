@@ -153,8 +153,8 @@ prompt_dir() {
 }
 
 prompt_tmux() {
-  if [[ -e "${TMUX}" ]]; then
-    prompt_segment red black "T"
+  if [[ -n "${TMUX}" ]]; then
+    prompt_segment green black "T"
   fi
 }
 
