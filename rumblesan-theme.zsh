@@ -152,6 +152,12 @@ prompt_dir() {
   prompt_segment blue black "${PWD/#$HOME/~}"
 }
 
+prompt_tmux() {
+  if [[ -e "${TMUX}" ]]; then
+    prompt_segment red black "T"
+  fi
+}
+
 # Virtualenv: current working virtualenv
 prompt_virtualenv() {
   local virtualenv_path="$VIRTUAL_ENV"
@@ -179,6 +185,7 @@ prompt_status() {
 build_prompt() {
   RETVAL=$?
   prompt_status
+  prompt_tmux
   prompt_virtualenv
   prompt_dir
   prompt_git
