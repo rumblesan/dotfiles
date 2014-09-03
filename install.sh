@@ -53,12 +53,6 @@ setup()
         linkfile "$FILE_NAME" "$LINK_NAME"
     done
 
-    for AGENT in launch-agents/*.plist; do
-        FILE_NAME="$DOTFILE_DIR/$AGENT"
-        LINK_NAME="$LAUNCHAGENT_DIR/$(basename $AGENT)"
-        linkfile "$FILE_NAME" "$LINK_NAME"
-    done
-
     #ssh config
     FILE_NAME="$DOTFILE_DIR/sshconfig.symlink"
     LINK_NAME=~/.ssh/config
@@ -110,11 +104,6 @@ cleanup()
 {
     for FILE in *.dotfile; do
         LINK_NAME=~/`echo ".$FILE" | sed "s/\.dotfile//"`
-        deletefile "$LINK_NAME"
-    done
-
-    for AGENT in launch-agents/*.plist; do
-        LINK_NAME="$LAUNCHAGENT_DIR/$(basename $AGENT)"
         deletefile "$LINK_NAME"
     done
 
@@ -204,7 +193,6 @@ runaction()
 }
 
 DOTFILE_DIR=~/.dotfiles
-LAUNCHAGENT_DIR=~/Library/LaunchAgents
 MY_LOG_DIR=~/.mylogs
 PWD="`pwd`"
 

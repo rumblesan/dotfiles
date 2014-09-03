@@ -17,16 +17,6 @@ function groot() {
 
 }
 
-function home-mutt() {
-  cd "$HOME"
-  mutt -f "$HOME/.mail/Personal/INBOX"
-}
-
-function work-mutt() {
-  cd "$HOME"
-  mutt -f "$HOME/.mail/Pusher/INBOX"
-}
-
 t () {
 
     # Start tmux in every new shell

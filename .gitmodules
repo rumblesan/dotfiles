@@ -49,6 +49,3 @@
 [submodule "vim.dotfile/bundle/vim-puppet-syntax"]
 	path = vim.dotfile/bundle/vim-puppet-syntax
 	url = https://github.com/puppetlabs/puppet-syntax-vim.git
-[submodule "gcalcli"]
-	path = gcalcli
-	url = https://github.com/insanum/gcalcli.git
