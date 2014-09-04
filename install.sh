@@ -54,10 +54,19 @@ setup()
     done
 
     #ssh config
+    if [ ! -d "~/.ssh" ]; then
+        echo "Creating ssh dir"
+        mkdir -p ~/.ssh
+    fi
     FILE_NAME="$DOTFILE_DIR/sshconfig.symlink"
     LINK_NAME=~/.ssh/config
     linkfile "$FILE_NAME" "$LINK_NAME"
 
+    # cabal directory
+    if [ ! -d "~/.cabal" ]; then
+        echo "Creating cabal dir"
+        mkdir -p ~/.cabal
+    fi
     FILE_NAME="$DOTFILE_DIR/cabalconfig.symlink"
     LINK_NAME=~/.cabal/config
     linkfile "$FILE_NAME" "$LINK_NAME"
