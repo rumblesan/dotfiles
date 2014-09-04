@@ -15,13 +15,18 @@ alias lip="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 # WAN IP Address
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 
-if $(gls &>/dev/null); then
-# If coreutils is installed use GNU ls with --color switch
-    alias ls="gls -h --color"
-    alias la="gls -ha --color"
-    alias ll="gls -hl --color"
-    alias lal="gls -hal --color"
+if [[ "$OSTYPE" == "darwin"* && -n "$(command -v gls)" ]]
+then
+# If coreutils is installed on OSX then GNU ls with --color switch
+   local lsbin='gls'
+else
+   local lsbin='ls'
 fi
+
+alias ls="$lsbin -h --color"
+alias la="$lsbin -ha --color"
+alias ll="$lsbin -hl --color"
+alias lal="$lsbin -hal --color"
 
 # Turn on colors for grep
 alias grep="grep --color"
