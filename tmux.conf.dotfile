@@ -32,7 +32,7 @@ bind v split-window -h -c "#{pane_current_path}"
 bind c neww -c "#{pane_current_path}"
 
 # copy/paste settings
-set-option -g default-command "reattach-to-user-namespace -l zsh"
+set-option -g default-command "osx-reattach-namespace -l zsh"
 unbind [
 bind Escape copy-mode
 unbind p
