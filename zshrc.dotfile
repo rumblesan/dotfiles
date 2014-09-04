@@ -46,20 +46,7 @@ compinit -i
 # PATH
 # ----------------------------------------------------------------------
 
-PATH=/usr/local/bin:$DOTFILES/bin:$BOXEN_HOME/homebrew/lib:$PATH
-
-if [ -n $(command -v brew) ]; then
-    export BREWPATH=`brew --prefix`
-
-    # if brew and coreutils are installed, then add the gnubin to the path
-    if [ -n $(command -v gls) ]; then
-
-        PATH="$BREWPATH/opt/coreutils/libexec/gnubin:$PATH"
-        MANPATH="$BREWPATH/opt/coreutils/libexec/gnuman:$MANPATH"
-
-    fi
-
-fi
+PATH=/usr/local/bin:$DOTFILES/bin:$PATH
 
 # put ~/bin on PATH if you have it
 if [ -d $HOME/bin ]; then
@@ -148,6 +135,16 @@ source $DOTFILES/functions.sh
 for l in $DOTFILES/languages/*; do
     source $l
 done
+
+# ----------------------------------------------------------------------
+# OSX
+# ----------------------------------------------------------------------
+# OSX specific stuff
+
+if [[ "$OSTYPE" == "darwin"* ]]
+then
+    source $DOTFILES/zshrc-osx.sh
+fi
 
 # ----------------------------------------------------------------------
 # MISC
