@@ -103,7 +103,9 @@ bindkey -v
 # ----------------------------------------------------------------------
 
 # this should fix the git/hub alias completion issue
-eval "$(hub alias -s)"
+if [ -n "$(command -v hub)" ]; then
+    eval "$(hub alias -s)"
+fi
 
 # add custom completion scripts
 fpath=($DOTFILES/completions $fpath)
