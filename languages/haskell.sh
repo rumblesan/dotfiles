@@ -4,5 +4,10 @@
 # Haskell specific config
 
 # Add cabal bin dir to path
-PATH=~/Library/Haskell/bin:$PATH
+if [[ "$OSTYPE" == "darwin"* ]]
+then
+    PATH=~/Library/Haskell/bin:$PATH
+else
+    PATH=~/.cabal/bin:$PATH
+fi
 
