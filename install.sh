@@ -62,6 +62,8 @@ setup()
     LINK_NAME=~/.ssh/config
     linkfile "$FILE_NAME" "$LINK_NAME"
 
+    setup-cabal
+
     if [ ! -d "$MY_LOG_DIR" ]; then
         echo "Creating log dir"
         mkdir -p "$MY_LOG_DIR"
@@ -76,7 +78,15 @@ setup-cabal()
         echo "Creating cabal dir"
         mkdir -p ~/.cabal
     fi
-    FILE_NAME="$DOTFILE_DIR/cabalconfig.symlink"
+
+    # Add cabal bin dir to path
+    if [[ "$OSTYPE" == "darwin"* ]]
+    then
+        FILE_NAME="$DOTFILE_DIR/cabal-config/osx"
+    else
+        FILE_NAME="$DOTFILE_DIR/cabal-config/linux.config"
+    fi
+
     LINK_NAME=~/.cabal/config
     linkfile "$FILE_NAME" "$LINK_NAME"
 
