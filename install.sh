@@ -62,6 +62,15 @@ setup()
     LINK_NAME=~/.ssh/config
     linkfile "$FILE_NAME" "$LINK_NAME"
 
+    if [ ! -d "$MY_LOG_DIR" ]; then
+        echo "Creating log dir"
+        mkdir -p "$MY_LOG_DIR"
+    fi
+}
+
+setup-cabal()
+{
+
     # cabal directory
     if [ ! -d "~/.cabal" ]; then
         echo "Creating cabal dir"
@@ -71,10 +80,6 @@ setup()
     LINK_NAME=~/.cabal/config
     linkfile "$FILE_NAME" "$LINK_NAME"
 
-    if [ ! -d "$MY_LOG_DIR" ]; then
-        echo "Creating log dir"
-        mkdir -p "$MY_LOG_DIR"
-    fi
 }
 
 linkfile()
@@ -178,6 +183,9 @@ runaction()
         case "$action" in
         "setup" )
             setup
+            ;;
+        "setup-cabal" )
+            setup-cabal
             ;;
         "cleanup" )
             cleanup
