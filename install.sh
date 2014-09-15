@@ -82,7 +82,7 @@ setup-cabal()
     # Add cabal bin dir to path
     if [[ "$OSTYPE" == "darwin"* ]]
     then
-        FILE_NAME="$DOTFILE_DIR/cabal-config/osx"
+        FILE_NAME="$DOTFILE_DIR/cabal-config/osx.config"
     else
         FILE_NAME="$DOTFILE_DIR/cabal-config/linux.config"
     fi
