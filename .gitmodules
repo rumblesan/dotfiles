@@ -4,18 +4,12 @@
 [submodule "vim.dotfile/bundle/vim-scala"]
 	path = vim.dotfile/bundle/vim-scala
 	url = https://github.com/derekwyatt/vim-scala.git
-[submodule "vim.dotfile/bundle/play2vim"]
-	path = vim.dotfile/bundle/play2vim
-	url = https://github.com/gre/play2vim.git
 [submodule "vim.dotfile/bundle/vim-sbt"]
 	path = vim.dotfile/bundle/vim-sbt
 	url = https://github.com/derekwyatt/vim-sbt.git
 [submodule "vim.dotfile/bundle/vim-git"]
     path = vim.dotfile/bundle/vim-git
     url = https://github.com/tpope/vim-git.git
-[submodule "vim.dotfile/bundle/vim-processing"]
-	path = vim.dotfile/bundle/vim-processing
-	url = https://github.com/rumblesan/vim-processing.git
 [submodule "vim.dotfile/bundle/syntastic"]
 	path = vim.dotfile/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
