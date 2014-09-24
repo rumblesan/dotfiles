@@ -1,6 +1,0 @@
-#!/bin/bash
-
-# Will send an OSX system to sleep
-
-pmset sleepnow
-
