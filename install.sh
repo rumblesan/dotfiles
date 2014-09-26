@@ -161,9 +161,6 @@ runaction()
         "setup" )
             setup
             ;;
-        "setup-cabal" )
-            setup-cabal
-            ;;
         "cleanup" )
             cleanup
             ;;
