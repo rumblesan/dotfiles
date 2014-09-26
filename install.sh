@@ -92,18 +92,15 @@ linkfile()
 }
 
 
+# Remove dead symlinks in home directory
 cleanup()
 {
-    exit
-    local dotfiles=`find . -name "*.dotfile" -not -path "./.git/*" | sed "s|^\./||"`
-    for FILE in $dotfiles; do
-        LINK_NAME=~/`echo ".$FILE" | sed "s/\.dotfile//"`
-        deletefile "$LINK_NAME"
+    local symlinks=`find ~/ -maxdepth 1 -type l`
+    for LINK in $symlinks; do
+        if [ ! -e "$LINK" ]; then
+            deletefile "$LINK"
+        fi
     done
-
-    #ssh config
-    LINK_NAME=~/.ssh/config
-    deletefile "$LINK_NAME"
 }
 
 deletefile()
