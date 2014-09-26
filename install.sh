@@ -47,49 +47,17 @@ die()
 
 setup()
 {
-    for FILE in *.dotfile; do
+    local dotfiles=`find . -name "*.dotfile" -not -path "./.git/*" | sed "s|^\./||"`
+    for FILE in $dotfiles; do
         FILE_NAME="$DOTFILE_DIR/$FILE"
         LINK_NAME=~/`echo ".$FILE" | sed "s/\.dotfile//"`
         linkfile "$FILE_NAME" "$LINK_NAME"
     done
 
-    #ssh config
-    if [ ! -d "~/.ssh" ]; then
-        echo "Creating ssh dir"
-        mkdir -p ~/.ssh
-    fi
-    FILE_NAME="$DOTFILE_DIR/sshconfig.symlink"
-    LINK_NAME=~/.ssh/config
-    linkfile "$FILE_NAME" "$LINK_NAME"
-
-    setup-cabal
-
     if [ ! -d "$MY_LOG_DIR" ]; then
         echo "Creating log dir"
         mkdir -p "$MY_LOG_DIR"
     fi
-}
-
-setup-cabal()
-{
-
-    # cabal directory
-    if [ ! -d "~/.cabal" ]; then
-        echo "Creating cabal dir"
-        mkdir -p ~/.cabal
-    fi
-
-    # Add cabal bin dir to path
-    if [[ "$OSTYPE" == "darwin"* ]]
-    then
-        FILE_NAME="$DOTFILE_DIR/cabal-config/osx.config"
-    else
-        FILE_NAME="$DOTFILE_DIR/cabal-config/linux.config"
-    fi
-
-    LINK_NAME=~/.cabal/config
-    linkfile "$FILE_NAME" "$LINK_NAME"
-
 }
 
 linkfile()
@@ -126,7 +94,9 @@ linkfile()
 
 cleanup()
 {
-    for FILE in *.dotfile; do
+    exit
+    local dotfiles=`find . -name "*.dotfile" -not -path "./.git/*" | sed "s|^\./||"`
+    for FILE in $dotfiles; do
         LINK_NAME=~/`echo ".$FILE" | sed "s/\.dotfile//"`
         deletefile "$LINK_NAME"
     done
