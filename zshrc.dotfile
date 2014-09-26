@@ -6,6 +6,7 @@
 : ${ZSH=$HOME/.oh-my-zsh}
 : ${DOTFILES=$HOME/.dotfiles}
 : ${REPODIR=$HOME/src}
+: ${SHELLCFG=$DOTFILES/shellcfg}
 
 # ----------------------------------------------------------------------
 # ONLY FOR INTERACTIVE SHELLS
@@ -35,7 +36,7 @@ export TERM='screen-256color'
 # ZSH SETTINGS
 # ----------------------------------------------------------------------
 
-source $DOTFILES/rumblesan-theme.zsh
+source $SHELLCFG/rumblesan-theme.zsh
 
 # Load and run compinit
 autoload -U add-zsh-hook
@@ -123,20 +124,20 @@ zstyle ':completion:*' menu select=2
 # ALIASES
 # ----------------------------------------------------------------------
 
-source $DOTFILES/aliases.sh
+source $SHELLCFG/aliases.sh
 
 # ----------------------------------------------------------------------
 # FUNCTIONS
 # ----------------------------------------------------------------------
 
-source $DOTFILES/functions.sh
+source $SHELLCFG/functions.sh
 
 # ----------------------------------------------------------------------
 # LANGUAGES
 # ----------------------------------------------------------------------
 # Specific config for any programming languages
 
-for l in $DOTFILES/languages/*; do
+for l in $SHELLCFG/languages/*; do
     source $l
 done
 
@@ -147,7 +148,7 @@ done
 
 if [[ "$OSTYPE" == "darwin"* ]]
 then
-    source $DOTFILES/zshrc-osx.sh
+    source $SHELLCFG/zshrc-osx.sh
 fi
 
 # ----------------------------------------------------------------------
