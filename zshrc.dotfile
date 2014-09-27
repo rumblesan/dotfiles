@@ -67,7 +67,7 @@ export HISTCONTROL=ignoredups:ignorespace
 
 # use good dircolors
 if [ -n "$(command -v dircolors)" ]; then
-    eval `dircolors $DOTFILES/dircolors.ansi-dark`
+    eval `dircolors $SHELLCFG/dircolors.ansi-dark`
 fi
 
 # ----------------------------------------------------------------------
