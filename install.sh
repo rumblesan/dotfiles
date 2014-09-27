@@ -21,13 +21,13 @@ Commands:
     setup
         Create all the symlinks necessary for the dotfiles
     cleanup
-        Delete all the dotfiles symlinks
+        Delete any dead dotfiles symlinks
     update
         Update all the git submodules
-    firsttime
-        Run the first time setup
     sync
         Sync this repo with the remote
+    firsttime
+        Run the first time setup
 
 Flags:
     -h
@@ -47,11 +47,14 @@ die()
 
 setup()
 {
+    local filename=""
+    local linkname=""
+    local file=""
     local dotfiles=`find . -name "*.dotfile" -not -path "./.git/*" | sed "s|^\./||"`
-    for FILE in $dotfiles; do
-        FILE_NAME="$DOTFILE_DIR/$FILE"
-        LINK_NAME=~/`echo ".$FILE" | sed "s/\.dotfile//"`
-        linkfile "$FILE_NAME" "$LINK_NAME"
+    for file in $dotfiles; do
+        filename="$DOTFILE_DIR/$file"
+        linkname=~/`echo ".$file" | sed "s/\.dotfile//"`
+        linkfile "$filename" "$linkname"
     done
 
     if [ ! -d "$MY_LOG_DIR" ]; then
@@ -62,32 +65,33 @@ setup()
 
 linkfile()
 {
-    FILE_NAME="$1"
-    LINK_NAME="$2"
-    echo "Creating $LINK_NAME"
-    if [ -e "$LINK_NAME" ]; then
-        echo "$LINK_NAME already exists!"
+    local response=""
+    local filename="$1"
+    local linkname="$2"
+    echo "Creating $linkname"
+    if [ -e "$linkname" ]; then
+        echo "$linkname already exists!"
         if [ "$FORCE_DELETE" == "y" ]; then
             echo "Deleting"
-            rm "$LINK_NAME"
-            ln -s "$FILE_NAME" "$LINK_NAME"
+            rm "$linkname"
+            ln -s "$filename" "$linkname"
         else
-            RESPONSE="n"
+            response="n"
             echo "Delete? [y|n]"
-            read RESPONSE
-            if [ ! -z "$RESPONSE" ]; then
-                RESPONSE='n'
+            read response
+            if [ ! -z "$response" ]; then
+                response='n'
             fi
-            if [ "$RESPONSE" == "y" ]; then
+            if [ "$response" == "y" ]; then
                 echo "Deleting"
-                rm "$LINK_NAME"
-                ln -s "$FILE_NAME" "$LINK_NAME"
+                rm "$linkname"
+                ln -s "$filename" "$linkname"
             else
                 echo "Skipping"
             fi
         fi
     else
-        ln -s "$FILE_NAME" "$LINK_NAME"
+        ln -s "$filename" "$linkname"
     fi
 }
 
@@ -95,31 +99,33 @@ linkfile()
 # Remove dead symlinks in home directory
 cleanup()
 {
+    local link=""
     local symlinks=`find ~/ -maxdepth 1 -type l`
-    for LINK in $symlinks; do
-        if [ ! -e "$LINK" ]; then
-            deletefile "$LINK"
+    for link in $symlinks; do
+        if [ ! -e "$link" ]; then
+            deletefile "$link"
         fi
     done
 }
 
 deletefile()
 {
-    LINK_NAME="$1"
-    echo "$LINK_NAME"
+    local response=""
+    local linkname="$1"
+    echo "$linkname"
     if [ "$FORCE_DELETE" == "y" ]; then
             echo "Deleting"
-            rm "$LINK_NAME"
+            rm "$linkname"
     else
-        RESPONSE="n"
+        response="n"
         echo "Delete? [y|n]"
-        read RESPONSE
-        if [ -z "$RESPONSE" ]; then
-            RESPONSE='n'
+        read response
+        if [ -z "$response" ]; then
+            response='n'
         fi
-        if [ "$RESPONSE" == "y" ]; then
+        if [ "$response" == "y" ]; then
             echo "Deleting"
-            rm "$LINK_NAME"
+            rm "$linkname"
         else
             echo "Skipping"
         fi
@@ -167,11 +173,11 @@ runaction()
         "update" )
             update
             ;;
-        "firsttime" )
-            firsttime
-            ;;
         "sync" )
             sync
+            ;;
+        "firsttime" )
+            firsttime
             ;;
         * )
             usage
