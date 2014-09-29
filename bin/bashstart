@@ -15,8 +15,10 @@ esac
 echo "Creating bash script ${FILENAME}"
 
 cat <<EOF > "$FILENAME"
-#!/bin/bash
+#!/usr/bin/env bash
 
+# exit when script tries to use an undeclared variable
+set -o nounset
 
 die() {
     echo "\$*"
