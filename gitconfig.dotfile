@@ -6,10 +6,10 @@
     email = guy@pusher.com
 
 [hooks]
-    dir = ~/.dotfiles/gitconf/hookscripts
+    dir = ~/.dotfiles/gitcfg/hookscripts
 
 [init]
-    templatedir = ~/.dotfiles/gitconf/repo-template
+    templatedir = ~/.dotfiles/gitcfg/repo-template
 
 [color]
     ui = true
