@@ -56,11 +56,6 @@ setup()
         linkname=~/`echo ".$file" | sed "s/\.dotfile//"`
         linkfile "$filename" "$linkname"
     done
-
-    if [ ! -d "$MY_LOG_DIR" ]; then
-        echo "Creating log dir"
-        mkdir -p "$MY_LOG_DIR"
-    fi
 }
 
 linkfile()
@@ -114,8 +109,8 @@ deletefile()
     local linkname="$1"
     echo "$linkname"
     if [ "$FORCE_DELETE" == "y" ]; then
-            echo "Deleting"
-            rm "$linkname"
+        echo "Deleting"
+        rm "$linkname"
     else
         response="n"
         echo "Delete? [y|n]"
@@ -190,7 +185,6 @@ runaction()
 }
 
 DOTFILE_DIR=~/.dotfiles
-MY_LOG_DIR=~/.mylogs
 PWD="`pwd`"
 
 FORCE_DELETE="n"
