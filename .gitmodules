@@ -49,3 +49,6 @@
 [submodule "vim.dotfile/bundle/vim-ghcmod"]
 	path = vim.dotfile/bundle/vim-ghcmod
 	url = https://github.com/eagletmt/ghcmod-vim.git
+[submodule "vim.dotfile/bundle/vim-unite-quickfix"]
+	path = vim.dotfile/bundle/vim-unite-quickfix
+	url = https://github.com/osyo-manga/unite-quickfix.git
