@@ -46,3 +46,6 @@
 [submodule "vim.dotfile/bundle/vim-dockerfile"]
 	path = vim.dotfile/bundle/vim-dockerfile
 	url = https://github.com/ekalinin/Dockerfile.vim.git
+[submodule "vim.dotfile/bundle/vim-ghcmod"]
+	path = vim.dotfile/bundle/vim-ghcmod
+	url = https://github.com/eagletmt/ghcmod-vim.git
