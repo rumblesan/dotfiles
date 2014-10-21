@@ -52,3 +52,6 @@
 [submodule "vim.dotfile/bundle/vim-unite-quickfix"]
 	path = vim.dotfile/bundle/vim-unite-quickfix
 	url = https://github.com/osyo-manga/unite-quickfix.git
+[submodule "vim.dotfile/bundle/vim-typescript"]
+	path = vim.dotfile/bundle/vim-typescript
+	url = https://github.com/leafgarland/typescript-vim.git
