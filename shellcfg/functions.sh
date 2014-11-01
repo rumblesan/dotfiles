@@ -21,7 +21,6 @@ t () {
 
     # Start tmux in every new shell
     if [ -z "$TMUX" ]; then
-        export TERM='xterm-256color'
         tmux
     else
         die "Not nesting sessions"
