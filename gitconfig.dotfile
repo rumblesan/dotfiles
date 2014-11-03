@@ -43,7 +43,7 @@
 [core]
     autocrlf = input
     whitespace = trailing-space,space-before-tab
-    excludesfile = /opt/boxen/config/git/gitignore
+    excludesfile = ~/.gitignore
 
 [alias]
     amend = commit --amend
