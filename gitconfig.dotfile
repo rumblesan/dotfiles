@@ -56,7 +56,8 @@
     df = diff
     dt = difftool
     lg = log -p
-    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+    l = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+    ls = log --graph --abbrev-commit --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %s %C(blue)<%an>%Creset' --all
     ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
     lsd = log --graph --abbrev-commit --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr)%C(blue)<%an>%Creset' --all
     workemail = !git config user.email `git config --get work.email`
