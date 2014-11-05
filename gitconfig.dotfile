@@ -44,6 +44,7 @@
     autocrlf = input
     whitespace = trailing-space,space-before-tab
     excludesfile = ~/.gitignore
+    pager = less -FiRSwX
 
 [alias]
     amend = commit --amend
