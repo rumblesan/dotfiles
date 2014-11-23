@@ -50,10 +50,19 @@ setup()
     local filename=""
     local linkname=""
     local file=""
+
     local dotfiles=`find . -name "*.dotfile" -not -path "./.git/*" | sed "s|^\./||"`
+    local symlinks=`find . -name "*.symlink" -not -path "./.git/*" | sed "s|^\./||"`
+
     for file in $dotfiles; do
         filename="$DOTFILE_DIR/$file"
         linkname=~/`echo ".$file" | sed "s/\.dotfile//"`
+        linkfile "$filename" "$linkname"
+    done
+
+    for file in $symlinks; do
+        filename="$DOTFILE_DIR/$file"
+        linkname=~/`echo "$file" | sed "s/\.symlink//"`
         linkfile "$filename" "$linkname"
     done
 }
