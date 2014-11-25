@@ -14,7 +14,7 @@
     "eofline": true,
     "forin": true,
     "indent": [true, 4],
-    "interface-name": true,
+    "interface-name": false,
     "jsdoc-format": true,
     "label-position": true,
     "label-undefined": true,
@@ -55,7 +55,7 @@
         "check-else",
         "check-whitespace"
     ],
-    "quotemark": [true, "double"],
+    "quotemark": [true, "single"],
     "radix": true,
     "semicolon": true,
     "triple-equals": [true, "allow-null-check"],
@@ -72,8 +72,7 @@
         ["indexSignature", "space"]
     ],
     "use-strict": [true,
-        "check-module",
-        "check-function"
+        "check-module"
     ],
     "variable-name": false,
     "whitespace": [true,
