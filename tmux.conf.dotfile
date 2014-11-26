@@ -57,6 +57,7 @@ bind r source-file ~/.tmux.conf
 set -s escape-time 0
 setw -g aggressive-resize on
 
+bind e setw synchronize-panes
 
 #### COLOUR (Solarized 256)
 
