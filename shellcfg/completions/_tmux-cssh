@@ -1,0 +1,36 @@
+#compdef tmux-cssh
+#vim: set ft=shell:
+
+local cfgfile="$HOME/.tmux-cssh"
+
+typeset -A opt_args
+local state
+
+local ret=1
+
+_arguments \
+    - set1 \
+        "-h[Help]" \
+    - set2 \
+        "-u+[User to use]:user:" \
+        "-i+[Path to ssh key]:ssh key path:" \
+        "*-sc+[SSH connection string]:ssh connection string:" \
+        "-sa+[SSH connection arguments]:ssh connection arguments:" \
+        "-ss+[SSH command to use]:ssh command to use:" \
+        "-ts+[Alternative tmux-session-name]:tmux session name:" \
+        "-tl+[Use different tmux layout]:tmux layout:(even-horizontal even-vertical main-horizontal main-vertical tiled)" \
+        "-ns[Initializes a new session]" \
+        "-q[Quiet mode]" \
+        "*-cs+[Name of config-settings which should be taken from config-file]:config settings name:->cfg_settings" \
+        "-ds[Don't synchronize keyboard in panes]" \
+    && ret=0
+
+    case "$state" in
+        (cfg_settings)
+            local cfg_settings; cfg_settings=(`cat "$cfgfile" | sed -n 's/\(.*\):.*/\1/p'`)
+            _describe 'settings' cfg_settings && ret=0
+        ;;
+    esac
+
+return ret
+
