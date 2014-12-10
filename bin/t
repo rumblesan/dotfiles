@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 TMANAGE=$(basename "$0")
-oneline_usage="$INSTALL_SH [-h] command"
+oneline_usage="$INSTALL_SH [-h] [command [args]]"
 
 usage()
 {
@@ -20,12 +20,14 @@ Usage: $oneline_usage
 Commands:
     ls
         List tmux sessions
-    n
+    n [session-name]
         Create new session
-    a
+    a session-name
         Attach to an existing session
     d
         Dettach from existing session
+    <no command>
+        Create new session
 
 Flags:
     -h
@@ -60,7 +62,11 @@ runaction()
         tmux list-sessions
         ;;
     "n" )
-        nonest_tmux new-session -s "$session_name"
+        if [ "$session_name" ]; then
+            nonest_tmux new-session -s "$session_name"
+        else
+            nonest_tmux new-session
+        fi
         ;;
     "a" )
         nonest_tmux attach -t "$session_name"
@@ -69,10 +75,10 @@ runaction()
         tmux detach
         ;;
     * )
-        if [ -z "$session_name" ]; then
-            usage
-        else
+        if [ "$session_name" ]; then
             nonest_tmux 
+        else
+            usage
         fi
         ;;
     esac
