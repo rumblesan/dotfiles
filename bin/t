@@ -1,20 +1,91 @@
 #!/usr/bin/env bash
 
+TMANAGE=$(basename "$0")
+oneline_usage="$INSTALL_SH [-h] command"
+
+usage()
+{
+    cat <<-EndUsage
+		Usage: $oneline_usage
+		Use '$INSTALL_SH -h' for more information
+	EndUsage
+    exit 1
+}
+
+helpinfo()
+{
+cat <<-EndHelp
+Usage: $oneline_usage
+
+Commands:
+    ls
+        List tmux sessions
+    n
+        Create new session
+    a
+        Attach to an existing session
+    d
+        Dettach from existing session
+
+Flags:
+    -h
+        Show usage info
+
+EndHelp
+exit 0
+}
+
 die() {
     echo "$*"
     exit 1
 }
 
-
-main () {
+nonest_tmux() {
 
     if [ -z "$TMUX" ]; then
-        tmux
+        tmux "$@"
     else
         die "Not nesting sessions"
     fi
+}
+
+runaction()
+{
+
+    local action=$( printf "%s\n" "$1" | tr 'A-Z' 'a-z' )
+    local session_name="$2"
+
+    case "$action" in
+    "ls" )
+        tmux list-sessions
+        ;;
+    "n" )
+        nonest_tmux new-session -s "$session_name"
+        ;;
+    "a" )
+        nonest_tmux attach -t "$session_name"
+        ;;
+    "d" )
+        tmux detach
+        ;;
+    * )
+        if [ -z "$session_name" ]; then
+            usage
+        else
+            nonest_tmux 
+        fi
+        ;;
+    esac
 
 }
 
-main "$@"
+while getopts "h" opt "$@"; do
+    case "$opt" in
+        h)
+            helpinfo
+            ;;
+    esac
+done
+
+runaction "${@:$OPTIND}"
 
