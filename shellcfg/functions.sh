@@ -17,15 +17,3 @@ function groot() {
 
 }
 
-t () {
-
-    # Start tmux in every new shell
-    if [ -z "$TMUX" ]; then
-        tmux
-    else
-        die "Not nesting sessions"
-    fi
-
-}
-
-
