@@ -75,7 +75,7 @@ runaction()
         tmux detach
         ;;
     * )
-        if [ "$session_name" ]; then
+        if [ -z "$session_name" ]; then
             nonest_tmux 
         else
             usage
