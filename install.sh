@@ -28,6 +28,8 @@ Commands:
         Sync this repo with the remote
     firsttime
         Run the first time setup
+    vimproc
+        Make sure that the vimproc plugin has been built
 
 Flags:
     -h
@@ -140,6 +142,7 @@ update()
 {
     git submodule foreach git checkout master
     git submodule foreach git pull --rebase origin master
+    vimproc
 }
 
 # Do all the misc setup on a new Mac
@@ -150,6 +153,7 @@ firsttime()
     sudo cp "$DOTFILE_DIR/misc/fonts/*.ttf" /Library/Fonts/
 
     sudo "$DOTFILE_DIR/misc/osx.sh"
+    vimproc
 }
 
 # Sync with remote repo
@@ -159,6 +163,13 @@ sync()
     git submodule init
     git submodule update
     git push
+    vimproc
+}
+
+vimproc()
+{
+    cd "$DOTFILE_DIR/vim.dotfile/bundle/vimproc"
+    make
 }
 
 runaction()
@@ -182,6 +193,9 @@ runaction()
             ;;
         "firsttime" )
             firsttime
+            ;;
+        "vimproc" )
+            vimproc
             ;;
         * )
             usage
