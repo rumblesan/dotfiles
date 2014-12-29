@@ -150,9 +150,9 @@ firsttime()
 {
     # Ask for root password upfront
     sudo -v
-    sudo cp "$DOTFILE_DIR/misc/fonts/*.ttf" /Library/Fonts/
+    sudo cp -r ./misc/fonts/*.ttf /Library/Fonts/
 
-    sudo "$DOTFILE_DIR/misc/osx.sh"
+    sudo ./misc/osx.sh
     vimproc
 }
 
@@ -168,7 +168,7 @@ sync()
 
 vimproc()
 {
-    cd "$DOTFILE_DIR/vim.dotfile/bundle/vimproc"
+    cd ./vim.dotfile/bundle/vimproc
     make
 }
 
