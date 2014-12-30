@@ -28,6 +28,8 @@ Commands:
         Sync this repo with the remote
     firsttime
         Run the first time setup
+    karabiner
+        Run Karabiner setup
     vimproc
         Make sure that the vimproc plugin has been built
 
@@ -49,6 +51,7 @@ die()
 
 setup()
 {
+    echo "Basic setup"
     local filename=""
     local linkname=""
     local file=""
@@ -107,6 +110,7 @@ linkfile()
 # Remove dead symlinks in home directory
 cleanup()
 {
+    echo "Cleanup symlinks"
     local link=""
     local symlinks=`find ~/ -maxdepth 1 -type l`
     for link in $symlinks; do
@@ -143,6 +147,7 @@ deletefile()
 
 update()
 {
+    echo "Updating submodules"
     git submodule foreach git checkout master
     git submodule foreach git pull --rebase origin master
     vimproc
@@ -151,17 +156,25 @@ update()
 # Do all the misc setup on a new Mac
 firsttime()
 {
+    echo "First time setup"
     # Ask for root password upfront
     sudo -v
     sudo cp -r ./misc/fonts/*.ttf /Library/Fonts/
 
-    sudo ./misc/osx.sh
+    karabiner
+
     vimproc
+}
+
+karabiner()
+{
+    . ./misc/karabiner/setup.sh -f firsttime
 }
 
 # Sync with remote repo
 sync()
 {
+    echo "Sync with remotes"
     git pull --rebase
     git submodule init
     git submodule update
@@ -171,49 +184,54 @@ sync()
 
 vimproc()
 {
+    echo "Make sure that vimproc is built"
     cd ./vim.dotfile/bundle/vimproc
     make
 }
 
 runaction()
 {
-    if [ "$DOTFILE_DIR" == "$PWD" ]; then
-
-        action=$( printf "%s\n" "$1" | tr 'A-Z' 'a-z' )
-
-        case "$action" in
-        "setup" )
-            setup
-            ;;
-        "cleanup" )
-            cleanup
-            ;;
-        "update" )
-            update
-            ;;
-        "sync" )
-            sync
-            ;;
-        "firsttime" )
-            firsttime
-            ;;
-        "vimproc" )
-            vimproc
-            ;;
-        * )
-            usage
-            ;;
-        esac
-
-    else
+    if [ "$DOTFILE_DIR" != "$PWD" ]; then
         die "This script needs to be run from the dotfiles directory:  $DOTFILE_DIR"
     fi
+
+    action=$( printf "%s\n" "$1" | tr 'A-Z' 'a-z' )
+
+    case "$action" in
+    "setup" )
+        setup
+        ;;
+    "cleanup" )
+        cleanup
+        ;;
+    "update" )
+        update
+        ;;
+    "sync" )
+        sync
+        ;;
+    "firsttime" )
+        firsttime
+        ;;
+    "karabiner" )
+        karabiner
+        ;;
+    "vimproc" )
+        vimproc
+        ;;
+    * )
+        usage
+        ;;
+    esac
+
 }
 
 DOTFILE_DIR=~/.dotfiles
 PWD="`pwd`"
 
 FORCE_DELETE="n"
+
+echo "Dotfiles setup"
 
 while getopts "hf" opt "$@"; do
     case "$opt" in

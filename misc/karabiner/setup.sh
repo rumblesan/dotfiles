@@ -1,28 +1,135 @@
 #! /bin/bash
 
-PRIVATEDIR="$HOME/Library/Application Support/Karabiner"
+INSTALL_SH=$(basename "$0")
+oneline_usage="$INSTALL_SH [-hf] command"
 
-if [ -d "$PRIVATEDIR" ]; then
+usage()
+{
+    cat <<-EndUsage
+		Usage: $oneline_usage
+		Use '$INSTALL_SH -h' for more information
+	EndUsage
+    exit 1
+}
+
+helpinfo()
+{
+cat <<-EndHelp
+Usage: $oneline_usage
+
+Commands:
+    setup
+        Link dotfiles private.xml to Library
+    import
+        Run import script
+    firsttime
+        Set up karabiner for the first time
+
+Flags:
+    -h
+        Show usage info
+    -f
+        Link files without asking user
+
+EndHelp
+exit 0
+}
+
+die()
+{
+    echo "$*"
+    exit 1
+}
+
+setup()
+{
+    echo "Karabiner private.xml setup"
 
     if [ -f "$PRIVATEDIR/private.xml" ]; then
-        RESPONSE="n"
-        echo -n "private.xml already exists. Should I delete it?: [y/n] "
-        read RESPONSE
 
-        if [ $RESPONSE == "y" ]; then
-            echo "Deleting private.xml"
+        if [ "$FORCE_LINK" == "y" ]; then
+            echo "Deleting current private.xml"
             rm "$PRIVATEDIR/private.xml"
         else
-            echo "Not deleting private.xml"
-            exit 1
+
+            RESPONSE="n"
+            echo -n "private.xml already exists. Should I delete it?: [y/n] "
+            read RESPONSE
+
+            if [ $RESPONSE == "y" ]; then
+                echo "Deleting current private.xml"
+                rm "$PRIVATEDIR/private.xml"
+            else
+                die "Not deleting current private.xml"
+            fi
         fi
 
     fi
 
-    ln -s "$HOME/.dotfiles/misc/karabiner/private.xml" "$PRIVATEDIR/private.xml"
-else
-    echo "$PRIVATEDIR doesn't exist! Is Karabiner installed?"
-    exit 1
+    echo "Linking dotfiles private.xml to $PRIVATEDIR/private.xml"
+    ln -s "$DOTFILE_DIR/misc/karabiner/private.xml" "$PRIVATEDIR/private.xml"
+}
+
+import()
+{
+    echo "Import settings to Karabiner"
+    . "$IMPORT_SCRIPT"
+}
+
+firsttime()
+{
+    echo "Run firsttime setup"
+    setup
+    import
+}
+
+runaction()
+{
+    if [ "$DOTFILE_DIR" != "$PWD" ]; then
+        die "This script needs to be run from the dotfiles directory:  $DOTFILE_DIR"
+    fi
+
+    action=$( printf "%s\n" "$1" | tr 'A-Z' 'a-z' )
+
+    case "$action" in
+    "setup" )
+        setup
+        ;;
+    "import" )
+        import
+        ;;
+    "firsttime" )
+        firsttime
+        ;;
+    * )
+        usage
+        ;;
+    esac
+
+}
+
+DOTFILE_DIR="$HOME/.dotfiles"
+PRIVATEDIR="$HOME/Library/Application Support/Karabiner"
+FORCE_LINK="n"
+IMPORT_SCRIPT="$DOTFILE_DIR/misc/karabiner/import.sh"
+
+if [ ! -d "$PRIVATEDIR" ]; then
+    die "$PRIVATEDIR doesn't exist! Is Karabiner installed?"
 fi
 
-. import.sh
+echo "Karabiner setup"
+
+while getopts "hf" opt "$@"; do
+    case "$opt" in
+        h)
+            helpinfo
+            ;;
+        f)
+            FORCE_LINK="y"
+            echo "Forcing Linking"
+            ;;
+    esac
+done
+
+runaction "${@:$OPTIND}"
+
