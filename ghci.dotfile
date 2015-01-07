@@ -1,0 +1,3 @@
+:set prompt  "\ESC[32mλ\ESC[m: "
+:set prompt2 "| "
+:set -XOverloadedStrings
