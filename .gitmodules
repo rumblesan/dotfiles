@@ -55,3 +55,6 @@
 [submodule "vim.dotfile/bundle/vim-typescript"]
 	path = vim.dotfile/bundle/vim-typescript
 	url = https://github.com/leafgarland/typescript-vim.git
+[submodule "vim.dotfile/bundle/vim-chuck"]
+	path = vim.dotfile/bundle/vim-chuck
+	url = git@github.com:wilsaj/chuck.vim.git
