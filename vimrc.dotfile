@@ -41,6 +41,12 @@ set shiftwidth=4
 " Search settings
 set incsearch
 
+" Enable sgr mouse position reporting protocol if available
+" Fixes issues with mouse position in large terminals
+if has('mouse_sgr')
+    set ttymouse=sgr
+endif
+
 " Colorscheme settings
 set background=dark
 let g:solarized_termtrans = 1
