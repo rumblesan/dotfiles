@@ -58,6 +58,3 @@
 [submodule "vim.dotfile/bundle/vim-chuck"]
 	path = vim.dotfile/bundle/vim-chuck
 	url = git@github.com:wilsaj/chuck.vim.git
-[submodule "vim.dotfile/bundle/vim2hs"]
-	path = vim.dotfile/bundle/vim2hs
-	url = git@github.com:dag/vim2hs.git
