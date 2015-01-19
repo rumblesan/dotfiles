@@ -1,0 +1,35 @@
+
+# Global config
+config defaultToCurrentScreen true
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+
+# Aliases
+
+alias full        move screenOriginX;screenOriginY screenSizeX;screenSizeY
+alias centre      move (screenOriginX+(screenSizeX/5));(screenOriginY+(screenSizeY/5)) (screenSizeX/1.5);(screenSizeY/1.5)
+alias lefthalf    move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
+alias righthalf   move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
+alias topleft     corner top-left resize:screenSizeX/2;screenSizeY/2
+alias topright    corner top-right resize:screenSizeX/2;screenSizeY/2
+alias bottomleft  corner bottom-left resize:screenSizeX/2;screenSizeY/2
+alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
+
+alias cornerkey ctrl;shift;alt
+alias halfkey   ctrl;alt;cmd
+
+# Key Bindings
+
+bind h:${halfkey}   ${lefthalf}
+bind l:${halfkey}   ${righthalf}
+
+bind h:${cornerkey} ${bottomleft}
+bind j:${cornerkey} ${topleft}
+bind k:${cornerkey} ${topright}
+bind l:${cornerkey} ${bottomright}
+
+bind m:${halfkey}   ${full}
+bind c:${halfkey}   ${centre}
+
+# Window Hints
+bind j:ctrl;cmd hint
