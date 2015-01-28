@@ -17,6 +17,7 @@ alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
 
 alias cornerkey ctrl;shift;alt
 alias halfkey   ctrl;alt;cmd
+alias focuskey  ctrl;cmd
 
 # Key Bindings
 
@@ -31,5 +32,11 @@ bind l:${cornerkey} ${bottomright}
 bind m:${halfkey}   ${full}
 bind c:${halfkey}   ${centre}
 
-# Window Hints
-bind j:ctrl;cmd hint
+# Window Focusing
+bind i:${focuskey} hint
+bind j:${focuskey} focus down
+bind k:${focuskey} focus up
+bind h:${focuskey} focus left
+bind l:${focuskey} focus right
+bind n:${focuskey} focus above
+bind b:${focuskey} focus behind
