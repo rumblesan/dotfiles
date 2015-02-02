@@ -1,0 +1,4 @@
+
+export DARCS_DO_COLOR_LINES=1
+export DARCS_ALWAYS_COLOR=1
+
