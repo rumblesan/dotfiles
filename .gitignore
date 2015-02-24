@@ -3,3 +3,4 @@ compiled/
 *.keys
 *.pyc
 ssh.dotfile
+darcs.dotfile/cache/
