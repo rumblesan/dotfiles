@@ -58,3 +58,6 @@
 [submodule "vim.dotfile/bundle/vim-chuck"]
 	path = vim.dotfile/bundle/vim-chuck
 	url = git@github.com:wilsaj/chuck.vim.git
+[submodule "vim.dotfile/bundle/nerdcommenter"]
+	path = vim.dotfile/bundle/nerdcommenter
+	url = git@github.com:scrooloose/nerdcommenter.git
