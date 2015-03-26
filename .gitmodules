@@ -61,3 +61,6 @@
 [submodule "vim.dotfile/bundle/nerdcommenter"]
 	path = vim.dotfile/bundle/nerdcommenter
 	url = git@github.com:scrooloose/nerdcommenter.git
+[submodule "vim.dotfile/bundle/vim-jsx"]
+	path = vim.dotfile/bundle/vim-jsx
+	url = git@github.com:mxw/vim-jsx.git
