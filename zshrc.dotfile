@@ -1,9 +1,6 @@
-# Path to your oh-my-zsh configuration.
-# # the basics
 : ${HOME=~}
 : ${LOGNAME=$(id -un)}
 : ${UNAME=$(uname)}
-: ${ZSH=$HOME/.oh-my-zsh}
 : ${DOTFILES=$HOME/.dotfiles}
 : ${REPODIR=$HOME/src}
 : ${SHELLCFG=$DOTFILES/shellcfg}
@@ -16,6 +13,19 @@
 if [ -z interactive ]; then
    return
 fi
+
+# ----------------------------------------------------------------------
+# PATH
+# ----------------------------------------------------------------------
+
+PATH=$DOTFILES/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin
+
+# put ~/bin on PATH if you have it
+if [ -d $HOME/bin ]; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+export PATH
 
 # ----------------------------------------------------------------------
 # BOXEN
@@ -42,18 +52,6 @@ source $SHELLCFG/rumblesan-theme.zsh
 autoload -U add-zsh-hook
 autoload -U compinit
 compinit -i
-
-# ----------------------------------------------------------------------
-# PATH
-# ----------------------------------------------------------------------
-
-PATH=/usr/local/bin:$DOTFILES/bin:$PATH
-
-# put ~/bin on PATH if you have it
-if [ -d $HOME/bin ]; then
-    PATH="$HOME/bin:$PATH"
-fi
-export PATH
 
 # ----------------------------------------------------------------------
 # ENVIRONMENT CONFIGURATION
