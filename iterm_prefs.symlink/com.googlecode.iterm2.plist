@@ -276,7 +276,7 @@
 	<key>HighlightTabLabels</key>
 	<true/>
 	<key>HotKeyBookmark</key>
-	<string>07296A07-0FA6-493E-B413-EA39C090B672</string>
+	<string>A8BFD393-F6BC-4226-8728-664E02546471</string>
 	<key>HotKeyTogglesWindow</key>
 	<true/>
 	<key>Hotkey</key>
@@ -300,7 +300,7 @@
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/Documents</string>
+	<string>~/.dotfiles/iterm_prefs.symlink</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -308,15 +308,17 @@
 	<key>NSScrollAnimationEnabled</key>
 	<false/>
 	<key>NSWindow Frame Preferences</key>
-	<string>360 451 924 485 0 0 2560 1418 </string>
+	<string>269 110 924 485 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1280 4 1280 1414 0 0 2560 1418 </string>
+	<string>0 4 2560 1413 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 1040 585 376 0 0 2560 1418 </string>
+	<string>1 646 1278 768 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>0 4 1280 707 0 0 2560 1418 </string>
+	<string>0 299 1733 1118 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>1280 4 1280 1414 0 0 2560 1418 </string>
+	<string>0 4 2560 1413 0 0 2560 1417 </string>
+	<key>NSWindow Frame iTerm Window 4</key>
+	<string>0 4 2560 1413 0 0 2560 1417 </string>
 	<key>NeverWarnAboutShortLivedSessions_07296A07-0FA6-493E-B413-EA39C090B672</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_A8BFD393-F6BC-4226-8728-664E02546471</key>
@@ -877,11 +879,11 @@
 			<key>Name</key>
 			<string>Guy</string>
 			<key>Non Ascii Font</key>
-			<string>MenloForPowerline-Regular 11</string>
+			<string>MenloForPowerline-Regular 13</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>MenloForPowerline-Regular 12</string>
+			<string>MenloForPowerline-Regular 14</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -1056,8 +1058,6 @@
 			<string>/Users/guy</string>
 		</dict>
 	</array>
-	<key>NoSyncNeverRemindPrefsChangesLost</key>
-	<true/>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -1104,7 +1104,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/guy/.dotfiles/misc/iterm2_settings</string>
+	<string>/Users/guy/.dotfiles/iterm_prefs.symlink</string>
 	<key>PromptOnClose</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -1124,7 +1124,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-06-15T23:34:49Z</date>
+	<date>2015-05-12T09:05:48Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -1181,6 +1181,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>1.0.0.20140518</string>
+	<string>2.1</string>
 </dict>
 </plist>
