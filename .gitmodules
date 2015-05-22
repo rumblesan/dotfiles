@@ -64,3 +64,6 @@
 [submodule "vim.dotfile/bundle/vim-jsx"]
 	path = vim.dotfile/bundle/vim-jsx
 	url = git@github.com:mxw/vim-jsx.git
+[submodule "vim.dotfile/bundle/vim-ansible-yaml"]
+	path = vim.dotfile/bundle/vim-ansible-yaml
+	url = https://github.com/chase/vim-ansible-yaml.git
