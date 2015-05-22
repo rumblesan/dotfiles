@@ -13,3 +13,8 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 # ignore python bytecode
 export FIGNORE="$FIGNORE:.pyc"
 
+
+if [ -n "$(command -v pyenv)" ]; then
+    eval "$(pyenv virtualenv-init -)"
+fi
+
