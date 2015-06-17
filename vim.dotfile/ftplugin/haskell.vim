@@ -13,5 +13,5 @@ function! GhcModQuickFix()
   :Unite -no-empty quickfix
 endfunction
 
-let g:syntastic_haskell_checkers = ['ghc_mod']
+let g:syntastic_haskell_checkers = ['hdevtools']
 
