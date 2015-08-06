@@ -73,3 +73,6 @@
 [submodule "vim.dotfile/bundle/vim-javascript"]
 	path = vim.dotfile/bundle/vim-javascript
 	url = git@github.com:pangloss/vim-javascript.git
+[submodule "vim.dotfile/bundle/scvim"]
+	path = vim.dotfile/bundle/scvim
+	url = git@github.com:sbl/scvim.git
