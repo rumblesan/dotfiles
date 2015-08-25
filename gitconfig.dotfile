@@ -3,7 +3,7 @@
     email = guy@rumblesan.com
 
 [work]
-    email = guy@pusher.com
+    email = guy@ustwo.com
 
 [hooks]
     dir = ~/.dotfiles/gitcfg/hookscripts
