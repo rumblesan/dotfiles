@@ -18,6 +18,7 @@ alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
 alias cornerkey ctrl;shift;alt
 alias halfkey   ctrl;alt;cmd
 alias focuskey  ctrl;cmd
+alias movekey   ctrl;alt
 
 # Key Bindings
 
@@ -40,3 +41,8 @@ bind h:${focuskey} focus left
 bind l:${focuskey} focus right
 bind n:${focuskey} focus above
 bind b:${focuskey} focus behind
+
+# Screen Movement
+bind h:${movekey} move screenOriginX;screenOriginY screenSizeX;screenSizeY 0
+bind l:${movekey} move screenOriginX;screenOriginY screenSizeX;screenSizeY 1
+
