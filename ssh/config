@@ -21,18 +21,3 @@ Host halebopp
     User root
     Port 222
 
-Host metapiano
-    HostName 192.241.245.132
-    User meta
-    Compression yes
-    Port 222
-
-Host metapiano2
-    HostName 162.243.16.72
-    User meta
-    Compression yes
-    Port 222
-
-Host *.pusher.com
-    User deploy
-
