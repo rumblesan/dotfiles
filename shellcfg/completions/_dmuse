@@ -1,0 +1,8 @@
+#compdef dmuse
+#autoload
+
+local -a _vms
+_vms=(`docker-machine ls -q`)
+
+_describe -t commands "dmuse vmname" _vms
+

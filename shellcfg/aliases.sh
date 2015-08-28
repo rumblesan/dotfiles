@@ -45,3 +45,8 @@ alias startpost='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/se
 alias stoppost='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias restartpost='stoppost && sleep 1 && startpost'
 
+
+# docker aliases
+alias d='docker'
+alias dm='docker-machine'
+

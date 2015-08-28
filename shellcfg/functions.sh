@@ -17,3 +17,12 @@ function groot() {
 
 }
 
+dmuse()
+{
+    if [ -z "$1" ]; then
+        echo "must give docker-machine vm name"
+    else
+        eval $(docker-machine env "$1")
+    fi
+}
+
