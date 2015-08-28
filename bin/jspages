@@ -51,8 +51,18 @@ build()
     else
         git checkout gh-pages
     fi
+
     cp -r ./dist/* .;
-    git add app.js index.html style.css images
+
+    declare -a files=("app.js" "index.html" "style.css" "images")
+    for f in "${files[@]}"
+    do
+        if [ -e "$f" ]; then
+            echo "Adding $f"
+            git add "$f"
+        fi
+    done
+
     git ci -m 'Updating pages'
     git push origin gh-pages
 
