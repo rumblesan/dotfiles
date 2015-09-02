@@ -65,6 +65,8 @@ FIGNORE="DS_Store"
 
 # history stuff
 export HISTCONTROL=ignoredups:ignorespace
+export HISTSIZE=5000
+export HISTFILESIZE=10000
 
 # use good dircolors
 if [ -n "$(command -v dircolors)" ]; then
