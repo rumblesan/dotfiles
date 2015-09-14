@@ -73,3 +73,6 @@
 [submodule "vim.dotfile/bundle/scvim"]
 	path = vim.dotfile/bundle/scvim
 	url = git@github.com:sbl/scvim.git
+[submodule "vim.dotfile/bundle/ghcmod-vim"]
+	path = vim.dotfile/bundle/ghcmod-vim
+	url = git@github.com:rumblesan/ghcmod-vim.git
