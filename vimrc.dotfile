@@ -136,3 +136,6 @@ nnoremap <leader>b :<C-u>Unite buffer<CR>
 
 let g:unite_source_rec_async_command = 'ag --nocolor --nogroup --ignore ".git" --hidden -g ""'
 
+set exrc
+set secure
+
