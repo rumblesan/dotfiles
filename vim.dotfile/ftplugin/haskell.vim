@@ -15,3 +15,4 @@ endfunction
 
 let g:syntastic_haskell_checkers = ['hdevtools']
 
+let g:ghcmod_use_basedir = './'
