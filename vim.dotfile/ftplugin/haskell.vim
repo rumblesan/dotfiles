@@ -14,4 +14,3 @@ function! GhcModQuickFix()
 endfunction
 
 let g:syntastic_haskell_checkers = []
-let g:ghcmod_use_basedir = './'
