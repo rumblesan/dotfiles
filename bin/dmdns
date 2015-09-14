@@ -31,7 +31,9 @@ main () {
 
     for m in $dockervms; do
         ip=$(getip ${m})
-        writefile $tld $confdir $m $ip
+        if [ -n "$ip" ]; then
+            writefile $tld $confdir $m $ip
+        fi
     done
 }
 
