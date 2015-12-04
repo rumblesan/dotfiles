@@ -76,3 +76,6 @@
 [submodule "vim.dotfile/bundle/ghcmod-vim"]
 	path = vim.dotfile/bundle/ghcmod-vim
 	url = git@github.com:rumblesan/ghcmod-vim.git
+[submodule "vim.dotfile/bundle/vim-pegjs"]
+	path = vim.dotfile/bundle/vim-pegjs
+	url = git@github.com:alunny/pegjs-vim.git
