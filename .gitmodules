@@ -79,3 +79,6 @@
 [submodule "vim.dotfile/bundle/vim-pegjs"]
 	path = vim.dotfile/bundle/vim-pegjs
 	url = git@github.com:alunny/pegjs-vim.git
+[submodule "vim.dotfile/bundle/vim-swift"]
+	path = vim.dotfile/bundle/vim-swift
+	url = git@github.com:keith/swift.vim.git
