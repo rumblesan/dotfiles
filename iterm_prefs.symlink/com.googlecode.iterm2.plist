@@ -300,7 +300,9 @@
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/.dotfiles/iterm_prefs.symlink</string>
+	<string>~/Documents</string>
+	<key>NSNavPanelExpandedSizeForOpenMode</key>
+	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -318,22 +320,24 @@
 		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
 		hAErATGG
 		</data>
-		<string>319</string>
+		<string>302</string>
 	</array>
 	<key>NSTableView Hidden Columns KeyBingingTable</key>
 	<array/>
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
 	<key>NSWindow Frame Preferences</key>
-	<string>624 803 924 485 0 0 2560 1417 </string>
+	<string>-1011 110 924 485 -1280 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 4 1280 1413 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>1010 619 969 570 0 0 2560 1417 </string>
+	<string>0 14 2553 1403 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>395 215 650 451 0 0 1440 877 </string>
+	<string>1280 4 1280 1413 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>1016 447 665 451 0 0 2560 1417 </string>
+	<string>0 4 1280 1413 0 0 2560 1417 </string>
+	<key>NSWindow Frame iTerm Window 4</key>
+	<string>698 375 665 451 0 0 2560 1417 </string>
 	<key>NeverWarnAboutShortLivedSessions_07296A07-0FA6-493E-B413-EA39C090B672</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_A8BFD393-F6BC-4226-8728-664E02546471</key>
@@ -1074,9 +1078,9 @@
 		</dict>
 	</array>
 	<key>NoSyncTimeOfLastPromo</key>
-	<real>454092095.157821</real>
+	<real>462108268.36874199</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>461780134.16135103</real>
+	<real>471311361.97704297</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -1139,11 +1143,11 @@
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedURL</key>
-	<string>http://iterm2.com/appcasts/testing.xml</string>
+	<string>https://iterm2.com/appcasts/testing.xml</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-08-20T19:23:34Z</date>
+	<date>2015-12-08T23:49:21Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -1183,7 +1187,7 @@
 	<key>WebKitDefaultFontSize</key>
 	<integer>11</integer>
 	<key>WebKitStandardFont</key>
-	<string>Lucida Grande</string>
+	<string>.Helvetica Neue DeskInterface</string>
 	<key>Window Arrangements</key>
 	<dict>
 		<key>Visor</key>
@@ -1200,6 +1204,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>2.1.1</string>
+	<string>2.1.4</string>
 </dict>
 </plist>
