@@ -10,11 +10,8 @@ setw -g xterm-keys on
 
 
 # allow mouse pane selection and resizing
-set -g mode-mouse on
-set -g mouse-select-pane on
-set -g mouse-resize-pane on
-set -g mouse-select-pane on
-set -g mouse-select-window on
+set -g mouse on
+bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'copy-mode -e'"
 
 # pane and window counting starts from 1
 set -g base-index 1
