@@ -82,3 +82,9 @@
 [submodule "vim.dotfile/bundle/vim-swift"]
 	path = vim.dotfile/bundle/vim-swift
 	url = git@github.com:keith/swift.vim.git
+[submodule "vim.dotfile/bundle/editorconfig"]
+	path = vim.dotfile/bundle/editorconfig
+	url = https://github.com/editorconfig/editorconfig-vim.git
+[submodule "vim.dotfile/bundle/vim-airline-themes"]
+	path = vim.dotfile/bundle/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes.git
