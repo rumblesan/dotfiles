@@ -49,4 +49,5 @@ alias restartpost='stoppost && sleep 1 && startpost'
 # docker aliases
 alias d='docker'
 alias dm='docker-machine'
+alias dc='docker-compose'
 
