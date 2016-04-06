@@ -1,6 +1,7 @@
 [user]
     name = Guy John
     email = guy@rumblesan.com
+	signingkey = DA27030F
 
 [work]
     email = guy@ustwo.com
