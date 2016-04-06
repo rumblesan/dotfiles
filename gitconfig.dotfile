@@ -90,3 +90,5 @@
 
 [grep]
     lineNumber = true
+[commit]
+	gpgsign = true
