@@ -14,7 +14,7 @@ die()
     exit 1
 }
 
-setemail()
+setworkenv()
 {
 
     local repodir="$1"
@@ -22,6 +22,7 @@ setemail()
         echo "Switching into $repodir"
         cd "$repodir"
         "$GIT" config user.email "$WORKEMAIL"
+        "$GIT" config user.signingkey $WORKGPGKEY
         "$GIT" config repo.environment "work"
     else
         echo "$repodir doesn't seem to exist"
@@ -57,6 +58,7 @@ repodir()
 
 REPODIR=$(repodir "${@:(-1)}")
 WORKEMAIL=`git config --get work.email`
+WORKGPGKEY=`git config --get work.signingkey`
 
 echo "Hey, it looks like you're creating a git repo!"
 
@@ -64,9 +66,9 @@ WORKREPO="n"
 echo -n "Is this a work repo? (y/N) "
 read WORKREPO
 if [ "$WORKREPO" == "y" ]; then
-    echo "I'll set your work email and use the work template"
+    echo "I'll set your work email, work gpg-key, and use the work template"
     createrepo
-    setemail "$REPODIR"
+    setworkenv "$REPODIR"
 else
     echo "No worries"
     createrepo
