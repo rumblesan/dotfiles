@@ -20,11 +20,6 @@ fi
 
 PATH=$DOTFILES/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin
 
-# put ~/bin on PATH if you have it
-if [ -d $HOME/bin ]; then
-    PATH="$HOME/bin:$PATH"
-fi
-
 # put ~/.local/bin on PATH if you have it
 if [ -d $HOME/.local/bin ]; then
     PATH="$HOME/.local/bin:$PATH"
