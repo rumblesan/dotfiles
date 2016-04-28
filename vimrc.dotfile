@@ -1,10 +1,25 @@
-" Loading pathogen from bundle folder
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-
 " General settings
 syntax on
 filetype plugin indent on
+
+" Setup plugins
+call plug#begin()
+
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'altercation/vim-colors-solarized'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/syntastic'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'editorconfig/editorconfig-vim'
+
+Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
+
+" Add plugins to &runtimepath
+call plug#end()
 
 " Display settings
 set number

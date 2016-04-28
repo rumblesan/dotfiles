@@ -4,3 +4,4 @@ compiled/
 *.pyc
 ssh.dotfile
 darcs.dotfile/cache/
+vim.dotfile/plugged/
