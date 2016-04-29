@@ -6,6 +6,7 @@ filetype plugin indent on
 call plug#begin()
 
 Plug 'Shougo/unite.vim'
+Plug 'osyo-manga/unite-quickfix'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
