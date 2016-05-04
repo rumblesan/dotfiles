@@ -17,7 +17,9 @@ Plug 'scrooloose/syntastic'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'editorconfig/editorconfig-vim'
 
+" Language specific plugins
 Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
+Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 
 " Add plugins to &runtimepath
 call plug#end()
