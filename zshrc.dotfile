@@ -26,7 +26,7 @@ if [ -d $HOME/.local/bin ]; then
 fi
 
 # Mostly useful for brew cask
-eval `/usr/libexec/path_helper -s`
+[ -f /usr/libexec/path_helper ] && eval `/usr/libexec/path_helper -s`
 
 export PATH
 
