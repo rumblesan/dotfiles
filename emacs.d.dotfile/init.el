@@ -1,5 +1,3 @@
-;;; -*- Mode: emacs-lisp; -*-
-
 ;; Don't display the menu bar, tool bar or scroll bar
 (menu-bar-mode -1)
 (tool-bar-mode -1)
