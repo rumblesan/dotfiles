@@ -16,6 +16,8 @@
 
 (setq initial-scratch-message nil)
 
+(global-linum-mode)
+
 ;;; Prevent Extraneous Tabs
 (setq-default indent-tabs-mode nil)
 
