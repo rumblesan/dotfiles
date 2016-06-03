@@ -12,6 +12,8 @@
 
 (add-to-list 'load-path my-lisp-dir)
 
+(set-frame-font "Menlo for Powerline-14")
+
 (setq make-backup-files nil)
 
 (setq initial-scratch-message nil)
