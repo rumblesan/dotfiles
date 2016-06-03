@@ -29,6 +29,4 @@
 
 (require 'display-setup)
 
-(require 'helm-setup)
-
 (require 'evil-setup)
