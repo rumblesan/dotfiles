@@ -9,7 +9,17 @@
   "b" 'switch-to-buffer
   "k" 'kill-buffer)
 
-(setq evil-shift-width 8)
+(define-key evil-normal-state-map "\C-h" 'evil-window-left)
+(define-key evil-normal-state-map "\C-j" 'evil-window-down)
+(define-key evil-normal-state-map "\C-k" 'evil-window-up)
+(define-key evil-normal-state-map "\C-l" 'evil-window-right)
+
+(define-key evil-motion-state-map ";" 'evil-ex)
+
+(setq evil-shift-width 4)
+
+(setq evil-vsplit-window-right 'left)
+(setq evil-split-window-below 'above)
 
 (global-evil-leader-mode)
 (evil-mode t)
