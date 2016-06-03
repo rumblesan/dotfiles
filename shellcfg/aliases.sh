@@ -48,3 +48,5 @@ alias d='docker'
 alias dm='docker-machine'
 alias dc='docker-compose'
 
+# emacs aliases
+alias em="TERM=xterm; emacs -nw"
