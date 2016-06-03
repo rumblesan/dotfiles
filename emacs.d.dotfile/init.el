@@ -16,6 +16,9 @@
 
 (setq initial-scratch-message nil)
 
+;;; Prevent Extraneous Tabs
+(setq-default indent-tabs-mode nil)
+
 (when (eq system-type 'darwin)
   (require 'osx-tweaks)
   )
