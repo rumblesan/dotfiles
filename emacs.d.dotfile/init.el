@@ -12,21 +12,18 @@
 
 (add-to-list 'load-path my-lisp-dir)
 
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-(prefer-coding-system 'utf-8)
-
-;; key bindings
-(when (eq system-type 'darwin) ;; mac specific settings
-            (setq mac-option-modifier 'alt)
-            (setq mac-command-modifier 'meta)
-            (global-set-key [kp-delete] 'delete-char) ;; sets fn-delete to be right-delete
-        )
-
+(setq make-backup-files nil)
 
 (setq initial-scratch-message nil)
 
+(when (eq system-type 'darwin)
+  (require 'osx-tweaks)
+  )
+
 (require 'packages)
 
-(load-theme 'solarized-dark t)
+(require 'display-setup)
 
+(require 'helm-setup)
+
+(require 'evil-setup)
