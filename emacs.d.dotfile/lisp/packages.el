@@ -31,8 +31,4 @@
 ;; Activate installed packages
 (package-initialize)
 
-(ensure-package-installed
- 'solarized-theme
- )
-
 (provide 'packages)
