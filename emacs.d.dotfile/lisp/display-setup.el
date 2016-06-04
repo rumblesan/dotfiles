@@ -1,5 +1,9 @@
-(ensure-package-installed 'solarized-theme)
+(ensure-package-installed 'color-theme-solarized)
 
-(load-theme 'solarized-dark t)
+(setq frame-background-mode 'dark)
+
+(load-theme 'solarized t)
+
+(enable-theme 'solarized)
 
 (provide 'display-setup)
