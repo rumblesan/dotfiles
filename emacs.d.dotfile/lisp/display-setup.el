@@ -6,6 +6,10 @@
 
 (enable-theme 'solarized)
 
+(ensure-package-installed 'powerline)
+(require 'powerline)
+(powerline-center-evil-theme)
+
 ;; Don't display the menu bar, tool bar or scroll bar
 (menu-bar-mode -1)
 (tool-bar-mode -1)
