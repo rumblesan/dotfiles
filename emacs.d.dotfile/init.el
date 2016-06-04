@@ -5,6 +5,9 @@
 
 (setq make-backup-files nil)
 
+;;; Turn bell off entirely
+(setq ring-bell-function 'ignore)
+
 ;;; Prevent Extraneous Tabs
 (setq-default indent-tabs-mode nil)
 
