@@ -30,3 +30,4 @@
 (require 'display-setup)
 
 (require 'evil-setup)
+(require 'tmux-navigate)
