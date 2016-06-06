@@ -1,7 +1,6 @@
-(setq my-lisp-dir
-    (expand-file-name "lisp" user-emacs-directory))
 
-(add-to-list 'load-path my-lisp-dir)
+(add-to-list 'load-path
+             (expand-file-name "config" user-emacs-directory))
 
 (setq make-backup-files nil)
 
