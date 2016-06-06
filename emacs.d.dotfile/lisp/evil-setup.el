@@ -81,7 +81,7 @@ mapping will always be the ESC prefix map."
   (if (and (let ((keys (this-single-command-keys)))
              (and (> (length keys) 0)
                   (= (aref keys (1- (length keys))) ?\e)))
-           (sit-for 0.1))
+           (sit-for 0.01))
       (prog1 [escape]
         (when defining-kbd-macro
           (end-kbd-macro)
