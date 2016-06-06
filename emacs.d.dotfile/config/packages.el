@@ -13,9 +13,8 @@
    (lambda (package)
      (if (package-installed-p package)
 	 nil
-       (if (y-or-n-p (format "Package %s is missing. Install it? " package))
 	   (package-install package)
-	 package)))
+       ))
    packages))
 
 ;; Make sure to have downloaded archive description.
