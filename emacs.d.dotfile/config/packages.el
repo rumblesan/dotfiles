@@ -1,16 +1,10 @@
 (require 'package)
-
-(add-to-list 'package-archives 
-	     '("org" . "http://orgmode.org/elpa")
-	     )
-(add-to-list 'package-archives 
-	     '("melpa" . "http://melpa.org/packages/")
-	     )
-(add-to-list 'package-archives 
-	     '("melpa-stable" . "http://stable.melpa.org/packages/")
-	     )
-
+(package-initialize)
 (setq package-enable-at-startup nil)
+
+(setq package-archives '(("org" . "http://orgmode.org/elpa")
+                         ("melpa" . "http://melpa.org/packages/")
+                         ("melpa-stable" . "http://stable.melpa.org/packages/")))
 
 (defun ensure-package-installed (&rest packages)
   "Assure every package is installed, ask for installation if it’s not.
@@ -27,8 +21,5 @@
 ;; Make sure to have downloaded archive description.
 (or (file-exists-p package-user-dir)
     (package-refresh-contents))
-
-;; Activate installed packages
-(package-initialize)
 
 (provide 'packages)
