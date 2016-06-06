@@ -34,6 +34,7 @@
 (require 'display-setup)
 
 (require 'evil-setup)
+
 (require 'tmux-navigate)
 
 (ensure-package-installed 'helm)
@@ -109,3 +110,4 @@ _h_ ^✜^ _l_     _t_oggle mark    _H_elp         _o_: quit
 (setq shackle-rules '(("\\`\\*helm.*?\\*\\'" :regexp t :align 'below :size 0.4)))
 (setq helm-split-window-preferred-function 'ignore)
 (shackle-mode)
+
