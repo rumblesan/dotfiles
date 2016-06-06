@@ -1,6 +1,6 @@
 (ensure-package-installed 'evil 'evil-leader)
-(require 'evil)
 (require 'evil-leader)
+(global-evil-leader-mode)
 
 (evil-leader/set-leader ",")
 
@@ -8,6 +8,8 @@
   "f" 'helm-find-files
   "b" 'helm-buffers-list
   )
+
+(require 'evil)
 
 (define-key evil-motion-state-map ";" 'evil-ex)
 
@@ -39,7 +41,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
 (global-set-key [escape] 'evil-exit-emacs-state)
 
-(global-evil-leader-mode)
 (evil-mode t)
 
 (provide 'evil-setup)
