@@ -40,19 +40,40 @@
 (require 'helm)
 (ensure-package-installed 'hydra)
 
-(defhydra helm-like-unite ()
-  "vim movement"
+(defhydra helm-like-unite-files ()
+  "files"
   ("?" helm-help "help")
   ("<escape>" keyboard-escape-quit "exit")
   ("<SPC>" helm-toggle-visible-mark "mark")
   ;; not sure if there's a better way to do this
   ("v" helm-execute-persistent-action)
-  ("h" helm-ff-run-switch-other-window)
+  ("h" helm-find-files-up-one-level "..")
   ("j" helm-next-line "down")
   ("k" helm-previous-line "up")
+  ("l" helm-execute-persistent-action)
+  ("o" helm-ff-run-switch-other-window "split")
   ("i" nil "cancel"))
 
-(define-key helm-map (kbd "<escape>") 'helm-like-unite/body)
+(defhydra helm-like-unite-buffers ()
+  "buffers"
+  ("?" helm-help "help")
+  ("<escape>" keyboard-escape-quit "exit")
+  ("<SPC>" helm-toggle-visible-mark "mark")
+  ;; not sure if there's a better way to do this
+  ("v" helm-execute-persistent-action)
+  ("h" helm-find-files-up-one-level "..")
+  ("j" helm-next-line "down")
+  ("k" helm-previous-line "up")
+  ("l" helm-execute-persistent-action)
+  ("o" helm-buffer-switch-other-window "split")
+  ("i" nil "cancel"))
+
+(setq debug-on-error t)
+
+(require 'helm-files)
+(require 'helm-buffers)
+(define-key helm-find-files-map (kbd "<escape>") 'helm-like-unite-files/body)
+(define-key helm-buffer-map (kbd "<escape>") 'helm-like-unite-buffers/body)
 
 (ensure-package-installed 'shackle)
 (setq shackle-rules '(("\\`\\*helm.*?\\*\\'" :regexp t :align 'below :size 0.4)))
