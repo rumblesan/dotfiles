@@ -60,3 +60,12 @@
   ("i" nil "cancel"))
 
 (define-key helm-map (kbd "<escape>") 'helm-like-unite/body)
+
+(ensure-package-installed 'popwin)
+(require 'popwin)
+(popwin-mode 1)
+
+(setq display-buffer-function 'popwin:display-buffer)
+(push '("^\*helm .+\*$" :regexp t :position top) popwin:special-display-config)
+(push '("^\*helm-.+\*$" :regexp t :position top) popwin:special-display-config)
+(setq helm-split-window-preferred-function 'ignore)
