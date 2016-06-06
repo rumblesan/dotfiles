@@ -2,14 +2,13 @@
 (add-to-list 'load-path
              (expand-file-name "config" user-emacs-directory))
 
+;;; General functionality
+;;; Don't need backup files
 (setq make-backup-files nil)
-
 ;;; Turn bell off entirely
 (setq ring-bell-function 'ignore)
-
 ;;; Prevent Extraneous Tabs
 (setq-default indent-tabs-mode nil)
-
 ;;; Mouse settings
 (unless window-system
   (require 'mouse)
@@ -23,6 +22,7 @@
   (defun track-mouse (e))
   (setq mouse-sel-mode t)
   )
+
 
 (require 'packages)
 
