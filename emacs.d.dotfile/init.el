@@ -54,11 +54,7 @@
 
 (define-key helm-map (kbd "<escape>") 'helm-like-unite/body)
 
-(ensure-package-installed 'popwin)
-(require 'popwin)
-(popwin-mode 1)
-
-(setq display-buffer-function 'popwin:display-buffer)
-(push '("^\*helm .+\*$" :regexp t :position top) popwin:special-display-config)
-(push '("^\*helm-.+\*$" :regexp t :position top) popwin:special-display-config)
+(ensure-package-installed 'shackle)
+(setq shackle-rules '(("\\`\\*helm.*?\\*\\'" :regexp t :align 'below :size 0.4)))
 (setq helm-split-window-preferred-function 'ignore)
+(shackle-mode)
