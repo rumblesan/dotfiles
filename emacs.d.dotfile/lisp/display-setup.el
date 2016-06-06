@@ -23,9 +23,4 @@
 (setq initial-scratch-message nil)
 (setq inhibit-startup-screen t)
 
-
-(setq linum-format "%3d ")
-(global-linum-mode)
-
-
 (provide 'display-setup)
