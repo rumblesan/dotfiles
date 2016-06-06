@@ -38,40 +38,70 @@
 
 (ensure-package-installed 'helm)
 (require 'helm)
+(global-set-key (kbd "M-x") 'helm-M-x)
+
 (ensure-package-installed 'hydra)
-
-(defhydra helm-like-unite-files ()
-  "files"
-  ("?" helm-help "help")
-  ("<escape>" keyboard-escape-quit "exit")
-  ("<SPC>" helm-toggle-visible-mark "mark")
-  ;; not sure if there's a better way to do this
-  ("v" helm-execute-persistent-action)
-  ("h" helm-find-files-up-one-level "..")
-  ("j" helm-next-line "down")
-  ("k" helm-previous-line "up")
-  ("l" helm-execute-persistent-action)
-  ("o" helm-ff-run-switch-other-window "split")
-  ("i" nil "cancel"))
-
-(defhydra helm-like-unite-buffers ()
-  "buffers"
-  ("?" helm-help "help")
-  ("<escape>" keyboard-escape-quit "exit")
-  ("<SPC>" helm-toggle-visible-mark "mark")
-  ;; not sure if there's a better way to do this
-  ("v" helm-execute-persistent-action)
-  ("h" helm-find-files-up-one-level "..")
-  ("j" helm-next-line "down")
-  ("k" helm-previous-line "up")
-  ("l" helm-execute-persistent-action)
-  ("o" helm-buffer-switch-other-window "split")
-  ("i" nil "cancel"))
-
-(setq debug-on-error t)
 
 (require 'helm-files)
 (require 'helm-buffers)
+
+(defhydra helm-like-unite-files (:hint nil
+                                 :color pink)
+  "
+Nav ^^^^^^^^^      Mark ^^          Other ^^       Quit
+^^^^^^------------^^----------------^^----------------------
+^ ^ _k_ ^ ^   _<SPC>_ mark       _o_pen         _i_: cancel
+_h_ ^✜^ _l_     _t_oggle mark    _H_elp         _o_: quit
+^ ^ _j_ ^ ^     _U_nmark all     _v_iew
+^^^^^^
+"
+  ;; navigation
+  ("h" helm-find-files-up-one-level)
+  ("j" helm-next-line)
+  ("k" helm-previous-line)
+  ("l" helm-execute-persistent-action)
+  ;; mark
+  ("<SPC>" helm-toggle-visible-mark)
+  ("t" helm-toggle-all-marks)
+  ("U" helm-unmark-all)
+  ;; exit
+  ("<escape>" keyboard-escape-quit "" :exit t)
+  ("i" nil "cancel")
+  ("o" helm-ff-run-switch-other-window)
+  ;; rest
+  ("H" helm-help)
+  ("v" helm-execute-persistent-action)
+  )
+
+(defhydra helm-like-unite-buffers (:hint nil
+                                 :color pink)
+  "
+Nav ^^^^^^^^^      Mark ^^          Other ^^       Quit
+^^^^^^------------^^----------------^^----------------------
+^ ^ _k_ ^ ^   _<SPC>_ mark       _o_pen         _i_: cancel
+_h_ ^✜^ _l_     _t_oggle mark    _H_elp         _o_: quit
+^ ^ _j_ ^ ^     _U_nmark all     _v_iew
+^^^^^^                         _D_elete
+"
+  ;; navigation
+  ("h" helm-find-files-up-one-level)
+  ("j" helm-next-line)
+  ("k" helm-previous-line)
+  ("l" helm-execute-persistent-action)
+  ;; mark
+  ("<SPC>" helm-toggle-visible-mark)
+  ("t" helm-toggle-all-marks)
+  ("U" helm-unmark-all)
+  ;; exit
+  ("<escape>" keyboard-escape-quit "" :exit t)
+  ("i" nil "cancel")
+  ("o" helm-buffer-switch-other-window)
+  ;; rest
+  ("H" helm-help)
+  ("v" helm-execute-persistent-action)
+  ("D" helm-buffer-run-kill-buffers)
+  )
+
 (define-key helm-find-files-map (kbd "<escape>") 'helm-like-unite-files/body)
 (define-key helm-buffer-map (kbd "<escape>") 'helm-like-unite-buffers/body)
 
