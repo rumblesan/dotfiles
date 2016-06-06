@@ -24,10 +24,6 @@
   (setq mouse-sel-mode t)
   )
 
-(when (eq system-type 'darwin)
-  (require 'osx-tweaks)
-  )
-
 (require 'packages)
 
 (require 'display-setup)
