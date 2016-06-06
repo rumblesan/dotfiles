@@ -5,9 +5,9 @@
 (evil-leader/set-leader ",")
 
 (evil-leader/set-key
-  "f" 'find-file
-  "b" 'switch-to-buffer
-  "k" 'kill-buffer)
+  "f" 'helm-find-files
+  "b" 'helm-buffers-list
+  )
 
 (define-key evil-normal-state-map "\C-h" 'evil-window-left)
 (define-key evil-normal-state-map "\C-j" 'evil-window-down)

@@ -35,3 +35,28 @@
 
 (require 'evil-setup)
 (require 'tmux-navigate)
+
+(ensure-package-installed 'helm)
+(require 'helm)
+(ensure-package-installed 'hydra)
+
+(defhydra helm-like-unite ()
+  "vim movement"
+  ("?" helm-help "help")
+  ("<escape>" keyboard-escape-quit "exit")
+  ("<SPC>" helm-toggle-visible-mark "mark")
+  ("a" helm-toggle-all-marks "(un)mark all")
+  ;; not sure if there's a better way to do this
+  ("/" (lambda ()
+         (interactive)
+         (execute-kbd-macro [?\C-s]))
+   "search")
+  ("v" helm-execute-persistent-action)
+  ("h" helm-buffer-switch-other-window)
+  ("g" helm-beginning-of-buffer "top")
+  ("G" helm-end-of-buffer "bottom")
+  ("j" helm-next-line "down")
+  ("k" helm-previous-line "up")
+  ("i" nil "cancel"))
+
+(define-key helm-map (kbd "<escape>") 'helm-like-unite/body)
