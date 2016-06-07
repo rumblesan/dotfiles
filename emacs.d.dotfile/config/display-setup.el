@@ -15,6 +15,7 @@
 (spaceline-install 'rumblesan
                    `((evil-state :face highlight-face)
                      auto-compile
+                     '(buffer-modified buffer-size buffer-id remote-host)
                      major-mode
                      (process :when active)
                      ((flycheck-error flycheck-warning flycheck-info)
