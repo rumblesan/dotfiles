@@ -14,6 +14,7 @@
 (require 'helm)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (setq helm-display-header-line nil)
+(setq helm-mode-line-string "")
 
 ;; Hydras to make helm more like unite
 (require 'helm-files)
