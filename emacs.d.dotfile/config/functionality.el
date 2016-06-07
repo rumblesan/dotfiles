@@ -1,16 +1,22 @@
 (require 'packages)
 
+(ensure-package-installed 'helm
+                          'hydra
+                          'evil
+                          'evil-leader
+                          'shackle
+                          'evil
+                          'evil-leader)
+
+(require 'esc-to-escape-setup)
 (require 'tmux-navigate)
 
-(ensure-package-installed 'helm)
 (require 'helm)
 (global-set-key (kbd "M-x") 'helm-M-x)
 
-(ensure-package-installed 'hydra)
-
+;; Hydras to make helm more like unite
 (require 'helm-files)
 (require 'helm-buffers)
-
 (defhydra helm-like-unite-files (:hint nil
                                  :color red)
   "
@@ -40,14 +46,14 @@ _h_ ^✜^ _l_     _t_oggle mark    _H_elp         _o_: quit
   )
 
 (defhydra helm-like-unite-buffers (:hint nil
-                                 :color red)
+                                   :color red)
   "
 Nav ^^^^^^^^^      Mark ^^          Other ^^       Quit
 ^^^^^^------------^^----------------^^----------------------
 ^ ^ _k_ ^ ^   _<SPC>_ mark       _o_pen         _i_: cancel
 _h_ ^✜^ _l_     _t_oggle mark    _H_elp         _o_: quit
 ^ ^ _j_ ^ ^     _U_nmark all     _v_iew
-^^^^^^                         _D_elete
+^^^^^^^^                         _D_elete
 "
   ;; navigation
   ("h" helm-find-files-up-one-level)
@@ -72,36 +78,37 @@ _h_ ^✜^ _l_     _t_oggle mark    _H_elp         _o_: quit
 (define-key helm-buffer-map (kbd "<escape>") 'helm-like-unite-buffers/body)
 (setq hydra-is-helpful nil)
 
-(ensure-package-installed 'shackle)
+;; Keep helm window in check
 (setq shackle-rules '(("\\`\\*helm.*?\\*\\'" :regexp t :align 'below :size 0.4)))
 (setq helm-split-window-preferred-function 'ignore)
 (shackle-mode)
 
-(ensure-package-installed 'evil 'evil-leader)
+;; Load evil-leader before evil so it works in all buffers
 (require 'evil-leader)
 (global-evil-leader-mode)
-
 (evil-leader/set-leader ",")
-
 (evil-leader/set-key
   "f" 'helm-find-files
   "b" 'helm-buffers-list
   )
 
+;; Setup evil
 (require 'evil)
 
 (define-key evil-motion-state-map ";" 'evil-ex)
 
+;; General niceties
 (setq evil-shift-width 4)
-
 (setq evil-vsplit-window-right 'left)
 (setq evil-split-window-below 'above)
 
-(setq evil-esc-mode -1)
 ;; Handle esc-to-escape mapping outselves so we get it in all modes
-(require 'esc-to-escape-setup)
+(setq evil-esc-mode -1)
 
-;; esc quits
+;; Use evil everywhere
+(evil-mode t)
+
+;; Esc quits properly
 (defun minibuffer-keyboard-quit ()
   "Abort recursive edit.
 In Delete Selection mode, if the mark is active, just deactivate it;
@@ -111,6 +118,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
       (setq deactivate-mark  t)
     (when (get-buffer "*Completions*") (delete-windows-on "*Completions*"))
     (abort-recursive-edit)))
+
 (define-key evil-normal-state-map [escape] 'keyboard-quit)
 (define-key evil-visual-state-map [escape] 'keyboard-quit)
 (define-key minibuffer-local-map [escape] 'minibuffer-keyboard-quit)
@@ -119,7 +127,5 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
 (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
 (global-set-key [escape] 'evil-exit-emacs-state)
-
-(evil-mode t)
 
 (provide 'functionality)
