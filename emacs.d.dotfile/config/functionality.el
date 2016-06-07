@@ -12,9 +12,19 @@
 (require 'tmux-navigate)
 
 (require 'helm)
-(global-set-key (kbd "M-x") 'helm-M-x)
+(require 'helm-config)
 (setq helm-display-header-line nil)
 (setq helm-mode-line-string "")
+
+(helm-mode 1)
+(define-key global-map [remap find-file] 'helm-find-files)
+(define-key global-map [remap occur] 'helm-occur)
+(define-key global-map [remap list-buffers] 'helm-buffers-list)
+(define-key global-map [remap dabbrev-expand] 'helm-dabbrev)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(unless (boundp 'completion-in-region-function)
+  (define-key lisp-interaction-mode-map [remap completion-at-point] 'helm-lisp-completion-at-point)
+  (define-key emacs-lisp-mode-map       [remap completion-at-point] 'helm-lisp-completion-at-point))
 
 ;; Hydras to make helm more like unite
 (require 'helm-files)
@@ -90,8 +100,8 @@ _h_ ^✜^ _l_     _t_oggle mark    _H_elp         _o_: quit
 (global-evil-leader-mode)
 (evil-leader/set-leader ",")
 (evil-leader/set-key
-  "f" 'helm-find-files
-  "b" 'helm-buffers-list
+  "f" 'find-file
+  "b" 'list-buffers
   )
 
 ;; Setup evil
