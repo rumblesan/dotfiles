@@ -2,9 +2,11 @@
 (add-to-list 'load-path
              (expand-file-name "config" user-emacs-directory))
 
-;;; General functionality
-;;; Don't need backup files
-(setq make-backup-files nil)
+;;; Backup file functionality
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
 ;;; Turn bell off entirely
 (setq ring-bell-function 'ignore)
 ;;; Prevent Extraneous Tabs
