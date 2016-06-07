@@ -70,6 +70,7 @@ _h_ ^✜^ _l_     _t_oggle mark    _H_elp         _o_: quit
 
 (define-key helm-find-files-map (kbd "<escape>") 'helm-like-unite-files/body)
 (define-key helm-buffer-map (kbd "<escape>") 'helm-like-unite-buffers/body)
+(setq hydra-is-helpful nil)
 
 (ensure-package-installed 'shackle)
 (setq shackle-rules '(("\\`\\*helm.*?\\*\\'" :regexp t :align 'below :size 0.4)))
