@@ -31,6 +31,6 @@
 
 (require 'display-setup)
 
-(require 'functionality)
+(require 'navigation)
 
 (require 'development)
