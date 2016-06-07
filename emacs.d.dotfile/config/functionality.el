@@ -12,7 +12,7 @@
 (require 'helm-buffers)
 
 (defhydra helm-like-unite-files (:hint nil
-                                 :color pink)
+                                 :color red)
   "
 Nav ^^^^^^^^^      Mark ^^          Other ^^       Quit
 ^^^^^^------------^^----------------^^----------------------
@@ -40,7 +40,7 @@ _h_ ^✜^ _l_     _t_oggle mark    _H_elp         _o_: quit
   )
 
 (defhydra helm-like-unite-buffers (:hint nil
-                                 :color pink)
+                                 :color red)
   "
 Nav ^^^^^^^^^      Mark ^^          Other ^^       Quit
 ^^^^^^------------^^----------------^^----------------------
