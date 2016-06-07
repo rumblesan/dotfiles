@@ -22,7 +22,8 @@
                               (interactive)
                               (scroll-up 1)))
   (defun track-mouse (e))
-  (setq mouse-sel-mode t)
+  (if (boundp 'mouse-sel-mode)
+    (setq mouse-sel-mode t))
   )
 
 
@@ -31,3 +32,5 @@
 (require 'display-setup)
 
 (require 'functionality)
+
+(require 'development)
