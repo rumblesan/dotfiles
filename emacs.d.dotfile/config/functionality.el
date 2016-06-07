@@ -90,6 +90,7 @@ _h_ ^✜^ _l_     _t_oggle mark    _H_elp         _o_: quit
 (define-key helm-buffer-map (kbd "<escape>") 'helm-like-unite-buffers/body)
 (setq hydra-is-helpful nil)
 
+(require 'shackle)
 ;; Keep helm window in check
 (setq shackle-rules '(("\\`\\*helm.*?\\*\\'" :regexp t :align 'below :size 0.4)))
 (setq helm-split-window-preferred-function 'ignore)
