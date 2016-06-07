@@ -6,9 +6,11 @@
 
 (enable-theme 'solarized)
 
-(ensure-package-installed 'powerline)
-(require 'powerline)
-(powerline-center-evil-theme)
+(ensure-package-installed 'spaceline)
+(require 'spaceline)
+(require 'spaceline-config)
+(spaceline-spacemacs-theme)
+(spaceline-helm-mode)
 
 ;; Don't display the menu bar, tool bar or scroll bar
 (menu-bar-mode -1)
