@@ -48,3 +48,4 @@ alias d='docker'
 alias dm='docker-machine'
 alias dc='docker-compose'
 
+alias e='emacs'
