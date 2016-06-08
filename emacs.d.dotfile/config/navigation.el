@@ -96,6 +96,15 @@ _h_ ^✜^ _l_     _t_oggle mark    _H_elp         _o_: quit
 (setq helm-split-window-preferred-function 'ignore)
 (shackle-mode)
 
+(defun pbcopy ()
+  (interactive)
+  (call-process-region (point) (mark) "pbcopy")
+  (setq deactivate-mark t))
+
+(defun pbpaste ()
+  (interactive)
+  (call-process-region (point) (if mark-active (mark) (point)) "pbpaste" t t))
+
 ;; Load evil-leader before evil so it works in all buffers
 (require 'evil-leader)
 (global-evil-leader-mode)
@@ -103,6 +112,8 @@ _h_ ^✜^ _l_     _t_oggle mark    _H_elp         _o_: quit
 (evil-leader/set-key
   "f" 'find-file
   "b" 'list-buffers
+  "y" 'pbcopy
+  "p" 'pbpaste
   )
 
 ;; Setup evil
