@@ -67,8 +67,8 @@
   "
 Nav ^^^^^^^^^      Mark ^^          Other ^^       Quit
 ^^^^^^------------^^----------------^^----------------------
-^ ^ _k_ ^ ^   _<SPC>_ mark       _o_pen hor    _i_: cancel
-_h_ ^✜^ _l_     _t_oggle mark    _H_elp         _o_: quit
+^ ^ _k_ ^ ^   _<SPC>_ mark       _s_plit         _i_: cancel
+_h_ ^✜^ _l_     _t_oggle mark    _H_elp
 ^ ^ _j_ ^ ^     _U_nmark all     _v_ertical
 ^^^^^^
 "
@@ -84,7 +84,7 @@ _h_ ^✜^ _l_     _t_oggle mark    _H_elp         _o_: quit
   ;; exit
   ("<escape>" keyboard-escape-quit "" :exit t)
   ("i" nil "cancel")
-  ("o" helm-ff-run-switch-other-horizontal-window)
+  ("s" helm-ff-run-switch-other-horizontal-window)
   ("v" helm-ff-run-switch-other-vertical-window)
   ;; rest
   ("H" helm-help)
@@ -95,8 +95,8 @@ _h_ ^✜^ _l_     _t_oggle mark    _H_elp         _o_: quit
   "
 Nav ^^^^^^^^^      Mark ^^          Other ^^       Quit
 ^^^^^^------------^^----------------^^----------------------
-^ ^ _k_ ^ ^   _<SPC>_ mark       _o_pen hor     _i_: cancel
-_h_ ^✜^ _l_     _t_oggle mark    _H_elp         _o_: quit
+^ ^ _k_ ^ ^   _<SPC>_ mark       _s_plit          _i_: cancel
+_h_ ^✜^ _l_     _t_oggle mark    _H_elp
 ^ ^ _j_ ^ ^     _U_nmark all     _v_ertical
 ^^^^^^^^                         _D_elete
 "
@@ -112,7 +112,7 @@ _h_ ^✜^ _l_     _t_oggle mark    _H_elp         _o_: quit
   ;; exit
   ("<escape>" keyboard-escape-quit "" :exit t)
   ("i" nil "cancel")
-  ("o" helm-buffer-run-switch-other-horizontal-window)
+  ("s" helm-buffer-run-switch-other-horizontal-window)
   ("v" helm-buffer-run-switch-other-vertical-window)
   ;; rest
   ("H" helm-help)
