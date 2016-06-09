@@ -1,3 +1,5 @@
+(require 'packages)
+
 (ensure-package-installed 'color-theme-solarized)
 
 (setq frame-background-mode 'dark)
