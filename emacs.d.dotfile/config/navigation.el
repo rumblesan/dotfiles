@@ -61,7 +61,6 @@
 (define-key evil-motion-state-map ";" 'evil-ex)
 
 ;; General niceties
-(setq evil-shift-width 4)
 (setq evil-vsplit-window-right 'left)
 (setq evil-split-window-below 'above)
 
