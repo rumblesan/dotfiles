@@ -10,6 +10,9 @@
 
 (global-flycheck-mode)
 
+(require 'evil)
+(evil-ex-define-cmd "refreshs[yntax]" 'font-lock-fontify-buffer)
+
 (show-paren-mode 1)
 (if (boundp 'show-paren-delay)
     (setq show-paren-delay 0))
