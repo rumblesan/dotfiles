@@ -1,13 +1,5 @@
 (require 'packages)
 
-(ensure-package-installed 'helm
-                          'hydra
-                          'evil
-                          'evil-leader
-                          'shackle
-                          'evil
-                          'evil-leader)
-
 (require 'esc-to-escape-setup)
 (require 'tmux-navigate)
 

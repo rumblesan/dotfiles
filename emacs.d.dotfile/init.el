@@ -29,6 +29,16 @@
 
 (require 'packages)
 
+(ensure-package-installed 'powerline
+                          'moe-theme
+                          'rainbow-delimiters
+                          'helm
+                          'hydra
+                          'evil
+                          'evil-leader
+                          'powerline-evil
+                          'shackle)
+
 (require 'display-setup)
 
 (require 'navigation)

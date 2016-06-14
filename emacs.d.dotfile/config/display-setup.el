@@ -1,8 +1,5 @@
 (require 'packages)
 
-(ensure-package-installed 'moe-theme
-                          'rainbow-delimiters)
-
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 

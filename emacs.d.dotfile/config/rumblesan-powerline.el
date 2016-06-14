@@ -1,7 +1,6 @@
 ;;; rumblesan-powerline-el -- Rumblesan Modeline theme
 
 (require 'packages)
-(ensure-package-installed 'powerline)
 
 (require 'powerline)
 (require 'evil)
