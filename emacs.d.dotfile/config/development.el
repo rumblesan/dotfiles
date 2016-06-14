@@ -1,5 +1,8 @@
 (require 'packages)
 
+(add-to-list 'load-path
+             (expand-file-name "config/development" user-emacs-directory))
+
 (ensure-package-installed 'flycheck)
 (require 'flycheck)
 
@@ -17,4 +20,5 @@
 (if (boundp 'show-paren-delay)
     (setq show-paren-delay 0))
 
+(require 'cmake-mode)
 (provide 'development)
