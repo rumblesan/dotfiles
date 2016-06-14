@@ -1,12 +1,11 @@
 (require 'packages)
 
-(ensure-package-installed 'color-theme-solarized)
+(ensure-package-installed 'moe-theme)
 
 (setq frame-background-mode 'dark)
 
-(load-theme 'solarized t)
-
-(enable-theme 'solarized)
+(require 'moe-theme)
+(moe-dark)
 
 (ensure-package-installed 'spaceline)
 (require 'spaceline)
