@@ -149,7 +149,7 @@ prompt_git() {
 
 # Dir: current working directory
 prompt_dir() {
-  prompt_segment blue black "${PWD/#$HOME/~}"
+  prompt_segment cyan black "${PWD/#$HOME/~}"
 }
 
 prompt_tmux() {
