@@ -1,11 +1,26 @@
-(require 'package)
-(package-initialize)
-(setq package-enable-at-startup nil)
+;;; packages.el --- Useful stuff for setting up packages
 
-(setq package-archives '(("org" . "http://orgmode.org/elpa")
-                         ("gnu" . "https://elpa.gnu.org/packages/")
-                         ("melpa" . "http://melpa.org/packages/")
-                         ("melpa-stable" . "http://stable.melpa.org/packages/")))
+(require 'package)
+
+(package-initialize)
+
+;; Detect online status, from ESK
+(require 'cl)
+(defun esk-online? ()
+  (if (and (functionp 'network-interface-list)
+           (network-interface-list))
+      (some (lambda (iface) (unless (equal "lo" (car iface))
+                         (member 'up (first (last (network-interface-info
+                                                   (car iface)))))))
+            (network-interface-list))
+    t))
+
+(dolist (source '(("org" . "http://orgmode.org/elpa")
+                  ("gnu" . "https://elpa.gnu.org/packages/")
+                  ("melpa" . "http://melpa.org/packages/")
+                  ("marmalade" . "http://marmalade-repo.org/packages/")
+                  ("elpa" . "http://tromey.com/elpa/")))
+  (add-to-list 'package-archives source t))
 
 (defun ensure-package-installed (&rest packages)
   "Assure every package is installed, ask for installation if it’s not.
@@ -17,9 +32,7 @@
 	   (package-install package)
        ))
    packages))
-
-;; Make sure to have downloaded archive description.
-(or (file-exists-p package-user-dir)
-    (package-refresh-contents))
+(when (esk-online?)
+  (unless package-archive-contents (package-refresh-contents)))
 
 (provide 'packages)
