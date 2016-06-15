@@ -2,6 +2,8 @@
 (add-to-list 'load-path
              (expand-file-name "config" user-emacs-directory))
 
+;; Always ask for y/n keypress instead of typing out 'yes' or 'no'
+(defalias 'yes-or-no-p 'y-or-n-p)
 ;;; Backup file functionality
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
