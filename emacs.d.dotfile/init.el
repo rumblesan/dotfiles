@@ -3,6 +3,12 @@
 (add-to-list 'load-path
              (expand-file-name "config" user-emacs-directory))
 
+;; Always ALWAYS use UTF-8
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+(load-library "iso-transl")
+
 ;; Always ask for y/n keypress instead of typing out 'yes' or 'no'
 (defalias 'yes-or-no-p 'y-or-n-p)
 ;; Backup file functionality
