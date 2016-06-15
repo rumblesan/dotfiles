@@ -31,6 +31,10 @@
                           (evil-mode-line-tag (upcase (concat (symbol-name evil-state))))
                           (face1 (if active 'powerline-active1 'powerline-inactive1))
                           (face2 (if active 'powerline-active2 'powerline-inactive2))
+                          (buffer-encoding (let ((buf-coding (format "%s" buffer-file-coding-system)))
+                                             (if (string-match "\\(dos\\|unix\\|mac\\)" buf-coding)
+                                                 (match-string 1 buf-coding)
+                                                     buf-coding)))
                           (separator-left (intern (format "powerline-%s-%s"
 							  (powerline-current-separator)
                                                           (car powerline-default-separator-dir))))
@@ -59,8 +63,7 @@
                                      (powerline-vc face2 'r)))
                           (rhs (list (powerline-raw global-mode-string face2 'r)
                                      (funcall separator-right face2 face1)
-				     (unless window-system
-				       (powerline-raw (char-to-string #xe0a1) face1 'l))
+				     (powerline-raw buffer-encoding face1 'l)
 				     (powerline-raw "%4l" face1 'l)
 				     (powerline-raw ":" face1 'l)
 				     (powerline-raw "%3c" face1 'r)
