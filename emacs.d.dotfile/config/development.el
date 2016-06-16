@@ -21,4 +21,5 @@
     (setq show-paren-delay 0))
 
 (require 'cmake-mode)
+(require 'lisp-interaction)
 (provide 'development)
