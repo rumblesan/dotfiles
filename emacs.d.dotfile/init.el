@@ -9,6 +9,9 @@
 (prefer-coding-system 'utf-8)
 (load-library "iso-transl")
 
+;; Don't warn about advice function redefenitions
+(setq ad-redefinition-action 'accept)
+
 ;; Always ask for y/n keypress instead of typing out 'yes' or 'no'
 (defalias 'yes-or-no-p 'y-or-n-p)
 ;; Backup file functionality
