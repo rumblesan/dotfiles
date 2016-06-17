@@ -25,4 +25,7 @@
 (setq initial-scratch-message nil)
 (setq inhibit-startup-screen t)
 
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'forward)
+
 (provide 'display-setup)
