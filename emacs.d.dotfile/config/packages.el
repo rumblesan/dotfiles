@@ -2,8 +2,6 @@
 
 (require 'package)
 
-(package-initialize)
-
 ;; Detect online status, from ESK
 (require 'cl)
 (defun esk-online? ()
@@ -22,17 +20,13 @@
                   ("elpa" . "http://tromey.com/elpa/")))
   (add-to-list 'package-archives source t))
 
-(defun ensure-package-installed (&rest packages)
-  "Assure every package is installed, ask for installation if it’s not.
-  Return a list of installed packages or nil for every skipped package."
-  (mapcar
-   (lambda (package)
-     (if (package-installed-p package)
-	 nil
-	   (package-install package)
-       ))
-   packages))
+(setq use-package-always-ensure t)
+(package-initialize)
 (when (esk-online?)
-  (unless package-archive-contents (package-refresh-contents)))
+  (unless package-archive-contents
+    (package-refresh-contents)
+    (package-install 'use-package)
+    ))
 
+(require 'use-package)
 (provide 'packages)

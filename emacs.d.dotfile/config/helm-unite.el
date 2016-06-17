@@ -1,5 +1,7 @@
 ;; helm-like-unite
 
+(use-package hydra)
+
 ;; Hydras to make helm more like unite
 (require 'helm-files)
 (require 'helm-buffers)

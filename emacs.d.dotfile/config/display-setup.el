@@ -1,10 +1,16 @@
-(require 'packages)
 
-(require 'rainbow-delimiters)
-(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+(use-package powerline)
+(use-package moe-theme
+  :config
+  (moe-dark)
+  )
 
-(require 'moe-theme)
-(moe-dark)
+(use-package powerline-evil)
+
+(use-package rainbow-delimiters
+  :config
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+  )
 
 (require 'rumblesan-powerline)
 
