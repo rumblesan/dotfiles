@@ -17,6 +17,7 @@
 
 (require 'evil)
 (evil-ex-define-cmd "refreshs[yntax]" 'font-lock-fontify-buffer)
+(evil-ex-define-cmd "cd" 'emacs-sit-cd)
 
 (show-paren-mode 1)
 (if (boundp 'show-paren-delay)
