@@ -25,6 +25,11 @@
 (if (boundp 'show-paren-delay)
     (setq show-paren-delay 0))
 
+;; Language packages
+(ensure-package-installed 'scala-mode
+                          'ensime)
+
 (require 'cmake-mode)
 (require 'lisp-interaction)
+
 (provide 'development)
