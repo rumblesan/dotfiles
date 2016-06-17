@@ -19,6 +19,7 @@
       `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
+(setq create-lockfiles nil)
 ;; Turn bell off entirely
 (setq ring-bell-function 'ignore)
 ;; Prevent Extraneous Tabs
