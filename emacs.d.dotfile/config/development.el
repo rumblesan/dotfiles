@@ -1,5 +1,7 @@
 (require 'packages)
 
+(require 'emacs-sit)
+
 (add-to-list 'load-path
              (expand-file-name "config/development" user-emacs-directory))
 
