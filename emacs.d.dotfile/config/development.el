@@ -2,6 +2,8 @@
 
 (require 'emacs-sit)
 
+(setq vc-handled-backends nil)
+
 (add-to-list 'load-path
              (expand-file-name "config/development" user-emacs-directory))
 
