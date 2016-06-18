@@ -7,7 +7,7 @@
 
 (use-package flycheck
   :config
-  (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
+  (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc scala scala-scalastyle))
   (setq-default flycheck-emacs-lisp-load-path 'inherit)
   (setq flycheck-display-errors-delay 0.1)
   (global-flycheck-mode)
