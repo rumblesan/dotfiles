@@ -6,3 +6,4 @@ ssh.dotfile
 darcs.dotfile/cache/
 vim.dotfile/plugged/
 emacs.d.dotfile/elpa/
+emacs.d.dotfile/ensime/
