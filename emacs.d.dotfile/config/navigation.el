@@ -8,7 +8,10 @@
   (use-package shackle
     :config
     ;; Keep helm window in check
-    (setq shackle-rules '(("\\`\\*helm.*?\\*\\'" :regexp t :align 'below :size 0.4)))
+    (setq shackle-rules '(
+                          ("\\`\\*helm.*?\\*\\'" :regexp t :align 'below :size 0.4)
+                          ("\\`\\*ENSIME.*?\\*\\'" :regexp t :align 'below :size 0.4)
+                          ))
     (setq helm-split-window-preferred-function 'ignore)
     (shackle-mode)
     )
