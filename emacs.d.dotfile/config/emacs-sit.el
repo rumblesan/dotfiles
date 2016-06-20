@@ -67,15 +67,11 @@ and then change the default directory for all buffers."
       (error "Cannot cd to %s:  Permission denied" dir))
     (setq default-directory dir)
     (setq list-buffers-directory dir)
-    (mapc (lambda (b)
-            (with-current-buffer b
-              (if (buffer-file-name b)
-                  (setq default-directory emacs-sit-root-dir)
-                )
-              )
-            )
-          (buffer-list)
-          )
+    (dolist (b (buffer-list))
+        (with-current-buffer b
+            (if (buffer-file-name b)
+                (setq default-directory emacs-sit-root-dir)
+            )))
     ))
 
 (provide 'emacs-sit)
