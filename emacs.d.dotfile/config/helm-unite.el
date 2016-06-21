@@ -1,52 +1,13 @@
 ;; helm-like-unite
 
-(use-package hydra)
-
-;; Hydras to make helm more like unite
+;; Unite like file browsing
 (require 'helm-files)
-(require 'helm-buffers)
-
-(defvar unite-find-files-after-init-hook)
-(defvar unite-buffer-after-init-hook)
-
-(setq unite-find-files-after-init-hook 'helm-like-unite-files/body)
-(setq unite-buffer-after-init-hook 'helm-like-unite-buffers/body)
-
-(defclass helm-source-ffiles (helm-source-sync)
-  (
-   (candidates :initform 'helm-find-files-get-candidates)
-   (filter-one-by-one :initform 'helm-ff-filter-candidate-one-by-one)
-   (persistent-action :initform 'helm-find-files-persistent-action)
-   (mode-line :initform (list "File(s)" helm-mode-line-string))
-   (volatile :initform t)
-   (cleanup :initform 'helm-find-files-cleanup)
-   (nohighlight :initform t)
-   (keymap :initform helm-find-files-map)
-   (candidate-number-limit :initform 'helm-ff-candidate-number-limit)
-   (action :initform 'helm-find-files-actions) ;
-   (after-init-hook :initform 'unite-find-files-after-init-hook)))
-
-(defclass helm-source-buffers (helm-source-sync helm-type-buffer)
-  ((buffer-list
-    :initarg :buffer-list
-    :initform #'helm-buffer-list
-    :custom function
-    :documentation
-    "  A function with no arguments to create buffer list.")
-   (init :initform 'helm-buffers-list--init)
-   (candidates :initform helm-buffers-list-cache)
-   (persistent-action :initform 'helm-buffers-list-persistent-action)
-   (keymap :initform helm-buffer-map)
-   (volatile :initform t)
-   (after-init-hook :initform 'unite-buffer-after-init-hook)
-   ))
 
 (defun helm-ff-directory-files (directory &optional full)
   "List contents of DIRECTORY.
 Argument FULL mean absolute path.
-It is same as `directory-files' but always returns the
-dotted filename '.' and '..' even on root directories in Windows
-systems."
+It is same as `directory-files' but never returns the
+dotted filename '.' and '..'"
   (setq directory (file-name-as-directory
                    (expand-file-name directory)))
   (let* (file-error
@@ -66,6 +27,60 @@ systems."
                                     (mapconcat 'identity (cdr err) " ")))
                     (setq file-error t))))))
     ls))
+
+(defvar unite-find-files-after-init-hook)
+(setq unite-find-files-after-init-hook 'helm-like-unite-files/body)
+
+(defclass helm-source-ffiles (helm-source-sync)
+  (
+   (candidates :initform 'helm-find-files-get-candidates)
+   (filter-one-by-one :initform 'helm-ff-filter-candidate-one-by-one)
+   (persistent-action :initform 'helm-find-files-persistent-action)
+   (mode-line :initform (list "File(s)" helm-mode-line-string))
+   (volatile :initform t)
+   (cleanup :initform 'helm-find-files-cleanup)
+   (nohighlight :initform t)
+   (keymap :initform helm-find-files-map)
+   (candidate-number-limit :initform 'helm-ff-candidate-number-limit)
+   (action :initform 'helm-find-files-actions) ;
+   (after-init-hook :initform 'unite-find-files-after-init-hook)))
+
+;; Unite like buffer browsing
+(require 'helm-buffers)
+
+(defvar unite-buffer-after-init-hook)
+(setq unite-buffer-after-init-hook 'helm-like-unite-buffers/body) ;
+
+(defclass helm-source-buffers (helm-source-sync helm-type-buffer)
+  ((buffer-list
+    :initarg :buffer-list
+    :initform #'helm-buffer-list
+    :custom function
+    :documentation
+    "  A function with no arguments to create buffer list.")
+   (init :initform 'helm-buffers-list--init)
+   (candidates :initform helm-buffers-list-cache)
+   (persistent-action :initform 'helm-buffers-list-persistent-action)
+   (keymap :initform helm-buffer-map)
+   (volatile :initform t)
+   (after-init-hook :initform 'unite-buffer-after-init-hook)
+   ))
+
+(defun unite-buffers-list ()
+  "List buffers but act a bit more like unite."
+  (interactive)
+  (unless helm-source-buffers-list
+    (setq helm-source-buffers-list
+          (helm-make-source "Buffers" 'helm-source-buffers)))
+  (helm :sources '(helm-source-buffers-list
+                   helm-source-ido-virtual-buffers
+                   helm-source-buffer-not-found)
+        :buffer "*helm buffers*"
+        :keymap helm-buffer-map
+        :truncate-lines helm-buffers-truncate-lines))
+
+;; Hydra setup
+(use-package hydra)
 
 (defun unite-open-buffer-other-window (active-window split-dir)
   "Open a buffer in a new window"
@@ -155,19 +170,6 @@ _h_ ^✜^ _l_     _t_oggle mark    _H_elp
   ("H" helm-help)
   ("D" helm-buffer-run-kill-buffers)
   )
-
-(defun unite-buffers-list ()
-  "List buffers but act a bit more like unite."
-  (interactive)
-  (unless helm-source-buffers-list
-    (setq helm-source-buffers-list
-          (helm-make-source "Buffers" 'helm-source-buffers)))
-  (helm :sources '(helm-source-buffers-list
-                   helm-source-ido-virtual-buffers
-                   helm-source-buffer-not-found)
-        :buffer "*helm buffers*"
-        :keymap helm-buffer-map
-        :truncate-lines helm-buffers-truncate-lines))
 
 (define-key helm-find-files-map (kbd "<escape>") 'helm-like-unite-files/body)
 (define-key helm-buffer-map (kbd "<escape>") 'helm-like-unite-buffers/body)
