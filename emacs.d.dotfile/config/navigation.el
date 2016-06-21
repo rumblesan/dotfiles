@@ -49,7 +49,7 @@
     (global-evil-leader-mode)
     (evil-leader/set-leader ",")
     (evil-leader/set-key
-      "f" 'find-file
+      "f" 'unite-find-files
       "b" 'list-buffers
       "y" 'pbcopy
       "p" 'pbpaste

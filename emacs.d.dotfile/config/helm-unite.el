@@ -45,6 +45,48 @@ dotted filename '.' and '..'"
    (action :initform 'helm-find-files-actions) ;
    (after-init-hook :initform 'unite-find-files-after-init-hook)))
 
+(defun unite-find-files ()
+  "Find FNAME with `helm' completion.
+Like `find-file' but with `helm' support.
+Use it for non--interactive calls of `helm-find-files'."
+  (interactive)
+  
+  (when (get-buffer helm-action-buffer)
+    (kill-buffer helm-action-buffer))
+  (let* ((fname (expand-file-name (helm-current-directory)))
+         ;; Be sure we don't erase the precedent minibuffer if some.
+         (helm-ff-auto-update-initial-value
+          (and helm-ff-auto-update-initial-value
+               (not (minibuffer-window-active-p (minibuffer-window)))))
+         (tap (thing-at-point 'filename))
+         (def (and tap (or (file-remote-p tap)
+                           (expand-file-name tap)))))
+    (set-text-properties 0 (length fname) nil fname)
+    (unless helm-source-find-files
+      (setq helm-source-find-files (helm-make-source
+                                    "Find Files" 'helm-source-ffiles)))
+    (mapc (lambda (hook)
+            (add-hook 'helm-after-update-hook hook))
+          '(helm-ff-move-to-first-real-candidate
+            helm-ff-update-when-only-one-matched
+            helm-ff-auto-expand-to-home-or-root))
+    (unwind-protect
+         (helm :sources 'helm-source-find-files
+               :input fname
+               :case-fold-search t
+               :ff-transformer-show-only-basename
+               helm-ff-transformer-show-only-basename
+               :default def
+               :prompt "path: "
+               :buffer "*helm find files*")
+      (helm-attrset 'resume `(lambda ()
+                               (setq helm-ff-default-directory
+                                     ,helm-ff-default-directory
+                                     helm-ff-last-expanded
+                                     ,helm-ff-last-expanded))
+                    helm-source-find-files)
+      (setq helm-ff-default-directory nil))))
+
 ;; Unite like buffer browsing
 (require 'helm-buffers)
 
@@ -66,22 +108,7 @@ dotted filename '.' and '..'"
    (after-init-hook :initform 'unite-buffer-after-init-hook)
    ))
 
-(defun unite-buffers-list ()
-  "List buffers but act a bit more like unite."
-  (interactive)
-  (unless helm-source-buffers-list
-    (setq helm-source-buffers-list
-          (helm-make-source "Buffers" 'helm-source-buffers)))
-  (helm :sources '(helm-source-buffers-list
-                   helm-source-ido-virtual-buffers
-                   helm-source-buffer-not-found)
-        :buffer "*helm buffers*"
-        :keymap helm-buffer-map
-        :truncate-lines helm-buffers-truncate-lines))
-
 ;; Hydra setup
-(use-package hydra)
-
 (defun unite-open-buffer-other-window (active-window split-dir)
   "Open a buffer in a new window"
   (lambda (candidate)
@@ -170,6 +197,19 @@ _h_ ^✜^ _l_     _t_oggle mark    _H_elp
   ("H" helm-help)
   ("D" helm-buffer-run-kill-buffers)
   )
+
+(defun unite-buffers-list ()
+  "List buffers but act a bit more like unite."
+  (interactive)
+  (unless helm-source-buffers-list
+    (setq helm-source-buffers-list
+          (helm-make-source "Buffers" 'helm-source-buffers)))
+  (helm :sources '(helm-source-buffers-list
+                   helm-source-ido-virtual-buffers
+                   helm-source-buffer-not-found)
+        :buffer "*helm buffers*"
+        :keymap helm-buffer-map
+        :truncate-lines helm-buffers-truncate-lines))
 
 (define-key helm-find-files-map (kbd "<escape>") 'helm-like-unite-files/body)
 (define-key helm-buffer-map (kbd "<escape>") 'helm-like-unite-buffers/body)
