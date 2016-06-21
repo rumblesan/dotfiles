@@ -7,3 +7,4 @@ darcs.dotfile/cache/
 vim.dotfile/plugged/
 emacs.d.dotfile/elpa/
 emacs.d.dotfile/ensime/
+emacs.d.dotfile/site-lisp/
