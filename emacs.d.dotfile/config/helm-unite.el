@@ -35,22 +35,11 @@
     "  A function with no arguments to create buffer list.")
    (init :initform 'helm-buffers-list--init)
    (candidates :initform helm-buffers-list-cache)
-   (matchplugin :initform nil)
-   (match :initform 'helm-buffers-match-function)
    (persistent-action :initform 'helm-buffers-list-persistent-action)
-   (resume :initform (lambda ()
-                       (run-with-idle-timer
-                        0.1 nil (lambda ()
-                                  (with-helm-buffer
-                                    (helm-force-update))))))
    (keymap :initform helm-buffer-map)
-   (migemo :initform 'nomultimatch)
    (volatile :initform t)
-   (help-message :initform 'helm-buffer-help-message)
    (after-init-hook :initform 'unite-buffer-after-init-hook)
-   (persistent-help
-    :initform
-    "Show this buffer / C-u \\[helm-execute-persistent-action]: Kill this buffer")))
+   ))
 
 (defun helm-ff-directory-files (directory &optional full)
   "List contents of DIRECTORY.
