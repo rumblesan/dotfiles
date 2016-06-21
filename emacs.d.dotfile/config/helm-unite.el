@@ -6,7 +6,11 @@
 (require 'helm-files)
 (require 'helm-buffers)
 
-(defvar helm-buffer-after-init-hook nil)
+(defvar unite-find-files-after-init-hook)
+(defvar unite-buffer-after-init-hook)
+
+(setq unite-find-files-after-init-hook 'helm-like-unite-files/body)
+(setq unite-buffer-after-init-hook 'helm-like-unite-buffers/body)
 
 (defclass helm-source-ffiles (helm-source-sync)
   (
@@ -20,7 +24,7 @@
    (keymap :initform helm-find-files-map)
    (candidate-number-limit :initform 'helm-ff-candidate-number-limit)
    (action :initform 'helm-find-files-actions) ;
-   (after-init-hook :initform 'helm-find-files-after-init-hook)))
+   (after-init-hook :initform 'unite-find-files-after-init-hook)))
 
 (defclass helm-source-buffers (helm-source-sync helm-type-buffer)
   ((buffer-list
@@ -43,7 +47,7 @@
    (migemo :initform 'nomultimatch)
    (volatile :initform t)
    (help-message :initform 'helm-buffer-help-message)
-   (after-init-hook :initform 'helm-buffer-after-init-hook)
+   (after-init-hook :initform 'unite-buffer-after-init-hook)
    (persistent-help
     :initform
     "Show this buffer / C-u \\[helm-execute-persistent-action]: Kill this buffer")))
@@ -176,8 +180,6 @@ _h_ ^✜^ _l_     _t_oggle mark    _H_elp
         :keymap helm-buffer-map
         :truncate-lines helm-buffers-truncate-lines))
 
-(setq helm-find-files-after-init-hook 'helm-like-unite-files/body)
-(setq helm-buffer-after-init-hook 'helm-like-unite-buffers/body)
 (define-key helm-find-files-map (kbd "<escape>") 'helm-like-unite-files/body)
 (define-key helm-buffer-map (kbd "<escape>") 'helm-like-unite-buffers/body)
 (setq hydra-is-helpful nil)
