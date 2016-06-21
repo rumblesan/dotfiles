@@ -8,61 +8,34 @@
 
 (defun unite-open-buffer-other-window (active-window split-dir)
   "Open a buffer in a new window"
-  (lambda (buffer)
-    (let ((new-window (if (eq split-dir 'vertical)
-                          (split-window active-window nil 'right)
-                        (split-window active-window nil 'below))))
-      (select-window new-window)
-      (switch-to-buffer buffer))))
+  (lambda (candidate)
+    (select-window (split-window active-window nil
+                                 (if (eq split-dir 'vertical) 'right 'below)))
+    (switch-to-buffer (cond ((bufferp candidate) candidate)
+                            ((file-regular-p candidate) (find-file-noselect candidate))))))
 
-(defun helm-buffers-open-other-window (_candidate split-dir)
+(defun unite-candidates-open-other-window (_candidate split-dir)
   "Keep current-buffer and open files in separate vertical windows."
-  (let* ((buffers (helm-marked-candidates))
+  (let* ((candidates (helm-marked-candidates))
          (active-window (selected-window)))
-    (mapc (unite-open-buffer-other-window active-window split-dir)
-            buffers)
+    (mapc (unite-open-buffer-other-window active-window split-dir) candidates)
     (balance-windows (window-parent active-window))
   )
 )
 
-(defun helm-find-files-open-other-window (_candidate split-dir)
-  "Keep current-buffer and open files in separate vertical windows."
-  (let* ((files (helm-marked-candidates))
-         (buffers (mapcar 'find-file-noselect files))
-         (active-window (selected-window)))
-    (mapc (unite-open-buffer-other-window active-window split-dir)
-            buffers)
-    (balance-windows (window-parent active-window))
-  )
-)
-
-(defun helm-ff-run-switch-other-vertical-window ()
+(defun helm-candidates-run-switch-other-vertical-window ()
   "Run switch to other window action from `helm-source-find-files'."
   (interactive)
   (with-helm-alive-p
     (helm-exit-and-execute-action '(lambda (_candidate)
-                                     (helm-find-files-open-other-window _candidate 'vertical)))))
+                                     (unite-candidates-open-other-window _candidate 'vertical)))))
 
-(defun helm-ff-run-switch-other-horizontal-window ()
+(defun helm-candidates-run-switch-other-horizontal-window ()
   "Run switch to other window action from `helm-source-find-files'."
   (interactive)
   (with-helm-alive-p
     (helm-exit-and-execute-action '(lambda (_candidate)
-                                     (helm-find-files-open-other-window _candidate 'horizontal)))))
-
-(defun helm-buffer-run-switch-other-vertical-window ()
-  "Run switch to other window action from `helm-source-find-files'."
-  (interactive)
-  (with-helm-alive-p
-    (helm-exit-and-execute-action '(lambda (_candidate)
-                                     (helm-buffers-open-other-window _candidate 'vertical)))))
-
-(defun helm-buffer-run-switch-other-horizontal-window ()
-  "Run switch to other window action from `helm-source-find-files'."
-  (interactive)
-  (with-helm-alive-p
-    (helm-exit-and-execute-action '(lambda (_candidate)
-                                     (helm-buffers-open-other-window _candidate 'horizontal)))))
+                                     (unite-candidates-open-other-window _candidate 'horizontal)))))
 
 
 (defhydra helm-like-unite-files (:hint nil
@@ -87,8 +60,8 @@ _h_ ^✜^ _l_     _t_oggle mark    _H_elp
   ;; exit
   ("<escape>" keyboard-escape-quit "" :exit t)
   ("i" nil "cancel")
-  ("s" helm-ff-run-switch-other-horizontal-window)
-  ("v" helm-ff-run-switch-other-vertical-window)
+  ("s" helm-candidates-run-switch-other-horizontal-window)
+  ("v" helm-candidates-run-switch-other-vertical-window)
   ;; rest
   ("H" helm-help)
   )
@@ -115,8 +88,8 @@ _h_ ^✜^ _l_     _t_oggle mark    _H_elp
   ;; exit
   ("<escape>" keyboard-escape-quit "" :exit t)
   ("i" nil "cancel")
-  ("s" helm-buffer-run-switch-other-horizontal-window)
-  ("v" helm-buffer-run-switch-other-vertical-window)
+  ("s" helm-candidates-run-switch-other-horizontal-window)
+  ("v" helm-candidates-run-switch-other-vertical-window)
   ;; rest
   ("H" helm-help)
   ("D" helm-buffer-run-kill-buffers)
