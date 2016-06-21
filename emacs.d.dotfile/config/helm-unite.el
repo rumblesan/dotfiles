@@ -9,33 +9,17 @@
 (defvar helm-buffer-after-init-hook nil)
 
 (defclass helm-source-ffiles (helm-source-sync)
-  ((header-name
-    :initform (lambda (name) name))
-   (init
-    :initform (lambda ()
-                (setq helm-ff-auto-update-flag
-                      helm-ff-auto-update-initial-value)
-                (setq helm-ff--auto-update-state
-                      helm-ff-auto-update-flag)
-                (helm-set-local-variable 'bookmark-make-record-function
-                                         #'helm-ff-make-bookmark-record)))
+  (
    (candidates :initform 'helm-find-files-get-candidates)
-   (filtered-candidate-transformer :initform 'helm-ff-sort-candidates)
    (filter-one-by-one :initform 'helm-ff-filter-candidate-one-by-one)
    (persistent-action :initform 'helm-find-files-persistent-action)
-   (persistent-help :initform "Hit1 Expand Candidate, Hit2 or (C-u) Find file")
-   (help-message :initform 'helm-ff-help-message)
    (mode-line :initform (list "File(s)" helm-mode-line-string))
    (volatile :initform t)
    (cleanup :initform 'helm-find-files-cleanup)
-   (migemo :initform t)
    (nohighlight :initform t)
    (keymap :initform helm-find-files-map)
    (candidate-number-limit :initform 'helm-ff-candidate-number-limit)
-   (action-transformer
-    :initform 'helm-find-files-action-transformer)
-   (action :initform 'helm-find-files-actions)
-   (before-init-hook :initform 'helm-find-files-before-init-hook)
+   (action :initform 'helm-find-files-actions) ;
    (after-init-hook :initform 'helm-find-files-after-init-hook)))
 
 (defclass helm-source-buffers (helm-source-sync helm-type-buffer)
