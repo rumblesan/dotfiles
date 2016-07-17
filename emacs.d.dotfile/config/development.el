@@ -5,6 +5,11 @@
 (add-to-list 'load-path
              (expand-file-name "config/development" user-emacs-directory))
 
+(add-to-list 'load-path
+             (expand-file-name "config/my-modes" user-emacs-directory))
+
+(require 'pegjs-mode)
+
 (use-package evil-surround
   :config
   (global-evil-surround-mode 1)
