@@ -5,6 +5,11 @@
 (add-to-list 'load-path
              (expand-file-name "config/development" user-emacs-directory))
 
+(use-package evil-surround
+  :config
+  (global-evil-surround-mode 1)
+  )
+
 (use-package flycheck
   :config
   (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc scala scala-scalastyle))
