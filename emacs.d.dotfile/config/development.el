@@ -71,4 +71,15 @@
 
 (require 'lisp-interaction)
 
+(require 'evil)
+(use-package magit
+  :config
+  (use-package evil-magit)
+  (require 'evil-magit)
+  (evil-leader/set-key
+    "g" 'magit-status
+    )
+  )
+
+
 (provide 'development)
