@@ -156,6 +156,7 @@ _h_ ^✜^ _l_     _t_oggle mark    _H_elp
   ("j" helm-next-line)
   ("k" helm-previous-line)
   ("l" helm-execute-persistent-action)
+  ("RET" helm-find-file-or-expand)
   ;; mark
   ("<SPC>" helm-toggle-visible-mark)
   ("t" helm-toggle-all-marks)
@@ -214,5 +215,15 @@ _h_ ^✜^ _l_     _t_oggle mark    _H_elp
 (define-key helm-find-files-map (kbd "<escape>") 'helm-like-unite-files/body)
 (define-key helm-buffer-map (kbd "<escape>") 'helm-like-unite-buffers/body)
 (setq hydra-is-helpful nil)
+
+
+(defun helm-find-file-or-expand ()
+  (interactive)
+  (with-helm-window
+    (if (and (file-directory-p (helm-get-selection))
+             (< (length (helm-marked-candidates)) 2))
+        (helm-execute-persistent-action)
+        (helm-exit-minibuffer))))
+(define-key helm-find-files-map (kbd "RET") 'helm-find-file-or-expand)
 
 (provide 'helm-unite)
