@@ -438,6 +438,8 @@
 	<string>6</string>
 	<key>NSColorPickerSlidersDefaults</key>
 	<string>0</string>
+	<key>NSFontPanelAttributes</key>
+	<string>1, 0</string>
 	<key>NSFontPanelSizeList</key>
 	<array>
 		<string>9</string>
@@ -455,6 +457,7 @@
 		<string>96</string>
 		<string>144</string>
 		<string>288</string>
+		<string>15</string>
 	</array>
 	<key>NSFontPanelSizeSliderParams</key>
 	<string>2 0 100</string>
@@ -497,19 +500,23 @@
 	<key>NSWindow Frame NSColorPanel</key>
 	<string>872 289 408 438 0 0 1280 777 </string>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>835 365 445 77 0 0 1280 777 </string>
+	<string>1580 294 445 77 0 0 2560 1440 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>1236 583 606 456 0 0 2560 1417 </string>
+	<string>1236 913 606 456 0 0 2560 1417 </string>
+	<key>NSWindow Frame SharedPreferences</key>
+	<string>1285 454 918 498 0 0 2560 1440 </string>
+	<key>NSWindow Frame UKCrashReporter</key>
+	<string>230 856 592 584 0 0 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 13 1274 1404 0 0 2560 1417 </string>
+	<string>0 14 1274 786 0 0 1280 800 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 13 1274 1404 0 0 2560 1417 </string>
+	<string>0 -632 1274 1432 0 0 1280 800 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>0 13 1274 1404 0 0 2560 1417 </string>
+	<string>0 14 1274 786 0 0 1280 800 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>0 11 1274 758 0 0 1280 777 </string>
+	<string>0 1000 650 429 0 0 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
-	<string>630 310 650 452 0 0 1280 777 </string>
+	<string>0 19 1274 758 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
 	<string>0 310 650 451 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 6</key>
@@ -1371,11 +1378,13 @@
 			<key>Visual Bell</key>
 			<false/>
 			<key>Window Type</key>
-			<integer>0</integer>
+			<integer>12</integer>
 			<key>Working Directory</key>
 			<string>/Users/guy</string>
 		</dict>
 	</array>
+	<key>NoSyncConfirmBeta</key>
+	<true/>
 	<key>NoSyncDoNotWarnBeforeMultilinePaste</key>
 	<true/>
 	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
@@ -1468,7 +1477,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-06-16T15:45:51Z</date>
+	<date>2016-08-21T18:03:19Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -1527,7 +1536,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.0</string>
+	<string>3.0.5</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
