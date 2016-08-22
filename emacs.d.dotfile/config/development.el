@@ -10,6 +10,9 @@
 
 (require 'pegjs-mode)
 
+(use-package js2-mode)
+(use-package coffee-mode)
+
 (use-package evil-surround
   :config
   (global-evil-surround-mode 1)
