@@ -66,15 +66,21 @@
 
 (use-package js2-mode
   :config
-  (setq js-indent-level 2)
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+  (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
+  (setq js2-basic-offset 2)
+  (setq js2-bounce-indent-p t)
+  (setq js2-mode-show-parse-errors nil)
+  (setq js2-mode-show-strict-warnings nil)
+  (require 'flycheck)
+  (defun setup-js2-mode ()
+    (flycheck-select-checker 'javascript-eslint)
+    (flycheck-mode))
+
+  (add-hook 'js2-mode-hook #'setup-js2-mode)
   )
 (use-package coffee-mode)
-(use-package jsx-mode
-  :config
-  (add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
-  (autoload 'jsx-mode "jsx-mode" "JSX mode" t)
-  (setq jsx-indent-level 2)
-  )
+
 (require 'lisp-interaction)
 (require 'pegjs-mode)
 
