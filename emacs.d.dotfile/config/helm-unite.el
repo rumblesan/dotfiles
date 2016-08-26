@@ -109,6 +109,8 @@ Use it for non--interactive calls of `helm-find-files'."
    ))
 
 ;; Hydra setup
+(use-package hydra)
+
 (defun unite-open-buffer-other-window (active-window split-dir)
   "Open a buffer in a new window"
   (lambda (candidate)
