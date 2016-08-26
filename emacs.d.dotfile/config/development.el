@@ -1,5 +1,6 @@
 (require 'packages)
 
+;; Turn off emacs version control stuff
 (setq vc-handled-backends nil)
 
 (add-to-list 'load-path
@@ -8,10 +9,6 @@
 (add-to-list 'load-path
              (expand-file-name "config/my-modes" user-emacs-directory))
 
-(require 'pegjs-mode)
-
-(use-package js2-mode)
-(use-package coffee-mode)
 
 (use-package evil-surround
   :config
@@ -24,12 +21,6 @@
   (setq-default flycheck-emacs-lisp-load-path 'inherit)
   (setq flycheck-display-errors-delay 0.1)
   (global-flycheck-mode)
-  )
-
-(use-package jsx-mode
-  :config
-  (add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
-  (autoload 'jsx-mode "jsx-mode" "JSX mode" t)
   )
 
 
@@ -60,6 +51,7 @@
   :commands ensime ensime-mode
   :config (add-hook 'scala-mode-hook 'ensime-mode)
   )
+
 (use-package cmake-mode
   :mode (("CMakeLists\\.txt\\'" . cmake-mode)
          ("\\.cmake\\.in\\'" . cmake-mode))
@@ -72,18 +64,30 @@
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
 
+(use-package js2-mode
+  :config
+  (setq js-indent-level 2)
+  )
+(use-package coffee-mode)
+(use-package jsx-mode
+  :config
+  (add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
+  (autoload 'jsx-mode "jsx-mode" "JSX mode" t)
+  (setq jsx-indent-level 2)
+  )
 (require 'lisp-interaction)
+(require 'pegjs-mode)
 
-(require 'evil)
+
+;; Version control packages
 (use-package magit
   :config
+  (require 'evil)
   (use-package evil-magit)
   (require 'evil-magit)
   (evil-leader/set-key
     "g" 'magit-status
     )
   )
-
-(setq js-indent-level 2)
 
 (provide 'development)
