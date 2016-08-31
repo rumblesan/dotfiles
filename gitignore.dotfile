@@ -1,4 +1,3 @@
-*.pyc
 .envrc
 .DS_Store
 .DS_Store?
@@ -15,3 +14,4 @@ ehthumbs.db
 \#*\#
 /tags
 /.bundle/
+.dir-locals.el
