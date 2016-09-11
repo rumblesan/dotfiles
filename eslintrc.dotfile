@@ -15,7 +15,8 @@
     "ecmaFeatures": {
         "jsx": true,
         "experimentalObjectRestSpread": true,
-        "destructuring": true
+        "destructuring": true,
+        "modules": true
     },
     "plugins": [
         "react",
