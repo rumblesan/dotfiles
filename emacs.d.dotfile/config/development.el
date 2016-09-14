@@ -51,6 +51,7 @@
   :commands ensime ensime-mode
   :config (add-hook 'scala-mode-hook 'ensime-mode)
   )
+(use-package haskell-mode)
 
 (use-package cmake-mode
   :mode (("CMakeLists\\.txt\\'" . cmake-mode)
