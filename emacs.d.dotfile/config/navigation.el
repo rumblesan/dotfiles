@@ -40,22 +40,20 @@
   (interactive)
   (call-process-region (point) (if mark-active (mark) (point)) "pbpaste" t t))
 
-;; Setup evil
-(use-package evil
-  :init
-  ;; Load evil-leader before evil so it works in all buffers
-  (use-package evil-leader
-    :config
-    (global-evil-leader-mode)
-    (evil-leader/set-leader ",")
-    (evil-leader/set-key
+(use-package general
+  :config
+  (general-evil-setup t)
+  (general-nvmap
+    :prefix ","
       "f" 'unite-find-files
       "b" 'list-buffers
       "y" 'pbcopy
       "p" 'pbpaste
-      )
-    )
+  )
 
+  )
+;; Setup evil
+(use-package evil
   :config
   (define-key evil-motion-state-map ";" 'evil-ex)
 

@@ -92,14 +92,10 @@
 
 
 ;; Version control packages
-(use-package magit
+(use-package magit)
+(use-package evil-magit
   :config
-  (require 'evil)
-  (use-package evil-magit)
-  (require 'evil-magit)
-  (evil-leader/set-key
-    "g" 'magit-status
-    )
+  (general-nvmap :prefix "," "g" 'magit-status)
   )
 
 (provide 'development)
