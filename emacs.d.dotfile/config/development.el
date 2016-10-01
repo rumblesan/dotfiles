@@ -9,10 +9,16 @@
 (add-to-list 'load-path
              (expand-file-name "config/my-modes" user-emacs-directory))
 
-(add-to-list 'load-path
-             (expand-file-name "config/sclang" user-emacs-directory))
-(require 'sclang)
-
+(use-package sclang :ensure nil
+  :load-path "config/sclang"
+  :config
+  (general-nvmap
+   :prefix ","
+   "v" 'backward-sexp
+   "x" 'sclang-eval-region
+   "e" 'sclang-eval-defun
+   )
+  )
 
 (use-package evil-surround
   :config
@@ -86,7 +92,6 @@
   )
 (use-package coffee-mode)
 
-(require 'sclang-interaction)
 (require 'lisp-interaction)
 (require 'pegjs-mode)
 
