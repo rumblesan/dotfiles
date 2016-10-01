@@ -49,6 +49,8 @@
 
 (require 'packages)
 
+(require 'util)
+
 (require 'display-setup)
 
 (require 'navigation)
