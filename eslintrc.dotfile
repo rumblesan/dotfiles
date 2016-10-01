@@ -20,6 +20,8 @@
     },
     "plugins": [
         "react",
-        "babel"
+        "babel",
+        "flowtype",
+        "jsx-a11y"
     ]
 }
