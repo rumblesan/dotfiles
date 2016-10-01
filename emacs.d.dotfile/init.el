@@ -54,3 +54,9 @@
 (require 'navigation)
 
 (require 'development)
+
+(custom-set-variables
+ '(package-selected-packages
+   (quote
+    (evil-magit magit coffee-mode js2-mode markdown-mode cmake-mode haskell-mode ensime sbt-mode scala-mode flycheck evil-surround general hydra shackle helm rainbow-delimiters powerline-evil moe-theme powerline use-package))))
+(custom-set-faces)
