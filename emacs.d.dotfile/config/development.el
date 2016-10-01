@@ -9,6 +9,10 @@
 (add-to-list 'load-path
              (expand-file-name "config/my-modes" user-emacs-directory))
 
+(add-to-list 'load-path
+             (expand-file-name "config/sclang" user-emacs-directory))
+(require 'sclang)
+
 
 (use-package evil-surround
   :config
@@ -82,6 +86,7 @@
   )
 (use-package coffee-mode)
 
+(require 'sclang-interaction)
 (require 'lisp-interaction)
 (require 'pegjs-mode)
 
