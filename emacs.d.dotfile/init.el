@@ -56,13 +56,3 @@
 (require 'navigation)
 
 (require 'development)
-
-(defvar rumblesan/scdir (expand-file-name "site-lisp/sc/" user-emacs-directory))
-
-;; Add SuperCollider config
-(if (file-exists-p rumblesan/scdir)
-    (progn
-      (message "loading sc")
-      (add-to-list 'load-path rumblesan/scdir)
-      (require 'sclang)
-      ))
