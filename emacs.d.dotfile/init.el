@@ -42,8 +42,6 @@
                               (interactive)
                               (scroll-up 1)))
   (defun track-mouse (e))
-  (if (boundp 'mouse-sel-mode)
-    (setq mouse-sel-mode t))
   )
 
 
