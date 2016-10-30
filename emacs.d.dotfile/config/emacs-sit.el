@@ -6,6 +6,10 @@
           (lambda ()
             (setq default-directory emacs-sit-root-dir)))
 
+(add-hook 'after-save-hook
+          (lambda ()
+            (if (not (eq default-directory emacs-sit-root-dir))
+                (setq default-directory emacs-sit-root-dir))))
 
 (defun emacs-sit-cd (dir)
   "Make DIR become the all file buffer's default directory.
