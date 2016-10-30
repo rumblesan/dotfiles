@@ -486,7 +486,7 @@
 		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
 		hAErATGG
 		</data>
-		<string>307</string>
+		<string>322</string>
 	</array>
 	<key>NSTableView Hidden Columns KeyBingingTable</key>
 	<array/>
@@ -504,19 +504,19 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>1236 913 606 456 0 0 2560 1417 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>1285 454 918 498 0 0 2560 1440 </string>
+	<string>353 173 937 464 0 0 1280 777 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
-	<string>230 856 592 584 0 0 2560 1440 </string>
+	<string>229 833 592 584 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 14 1274 786 0 0 1280 800 </string>
+	<string>0 8 1274 769 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 -632 1274 1432 0 0 1280 800 </string>
+	<string>0 8 1274 769 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>0 14 1274 786 0 0 1280 800 </string>
+	<string>0 8 1274 769 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>0 1000 650 429 0 0 2560 1440 </string>
+	<string>1280 9 1274 701 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
-	<string>0 19 1274 758 0 0 1280 777 </string>
+	<string>0 8 1274 1432 0 0 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
 	<string>0 310 650 451 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 6</key>
@@ -1477,7 +1477,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-08-21T18:03:19Z</date>
+	<date>2016-10-21T18:26:44Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -1508,6 +1508,8 @@
 	</array>
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<false/>
+	<key>UKCrashReporterLastCrashReportDate</key>
+	<real>1473088512</real>
 	<key>URLHandlersByGuid</key>
 	<dict/>
 	<key>UseBorder</key>
@@ -1521,10 +1523,7 @@
 	<key>WebKitStandardFont</key>
 	<string>.Helvetica Neue DeskInterface</string>
 	<key>Window Arrangements</key>
-	<dict>
-		<key>Visor</key>
-		<array/>
-	</dict>
+	<dict/>
 	<key>WindowNumber</key>
 	<false/>
 	<key>WindowStyle</key>
@@ -1536,7 +1535,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.5</string>
+	<string>3.0.10</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
