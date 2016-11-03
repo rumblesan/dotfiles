@@ -198,7 +198,7 @@ _h_ ^✜^ _l_     _t_oggle mark    _H_elp
   ("v" helm-candidates-run-switch-other-vertical-window)
   ;; rest
   ("H" helm-help)
-  ("D" helm-buffer-run-kill-buffers)
+  ("D" helm-buffer-run-kill-persistent)
   )
 
 (defun unite-buffers-list ()
