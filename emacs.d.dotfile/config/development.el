@@ -90,7 +90,11 @@
 
   (add-hook 'js2-mode-hook #'setup-js2-mode)
   )
-(use-package coffee-mode)
+(use-package coffee-mode
+  :config
+  (custom-set-variables '(coffee-tab-width 2))
+  )
+(use-package json-mode)
 
 (require 'lisp-interaction)
 (require 'pegjs-mode)
