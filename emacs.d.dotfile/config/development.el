@@ -86,13 +86,19 @@
   (require 'flycheck)
   (defun setup-js2-mode ()
     (flycheck-select-checker 'javascript-eslint)
-    (flycheck-mode))
+    (flycheck-mode)
+    (setq evil-shift-width js2-basic-offset)
+    )
 
   (add-hook 'js2-mode-hook #'setup-js2-mode)
   )
 (use-package coffee-mode
   :config
-  (custom-set-variables '(coffee-tab-width 2))
+  (setq coffee-tab-width 2)
+  (defun setup-coffee-mode ()
+    (setq evil-shift-width coffee-tab-width)
+  )
+  (add-hook 'coffee-mode-hook #'setup-coffee-mode)
   )
 (use-package json-mode)
 
