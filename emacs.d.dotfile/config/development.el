@@ -105,6 +105,8 @@
 (require 'lisp-interaction)
 (require 'pegjs-mode)
 
+(use-package yaml-mode)
+
 ;; Version control packages
 (use-package magit)
 (use-package evil-magit
