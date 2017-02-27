@@ -9,6 +9,9 @@
 (add-to-list 'load-path
              (expand-file-name "config/my-modes" user-emacs-directory))
 
+(use-package improviz :ensure nil
+  :load-path "config/improviz")
+
 (use-package sclang :ensure nil
   :load-path "config/sclang"
   :config

@@ -47,6 +47,13 @@
 
 (require 'packages)
 
+(use-package exec-path-from-shell
+  :config
+  (when (memq window-system '(mac ns))
+    (exec-path-from-shell-initialize)))
+
+(use-package request)
+
 (require 'util)
 
 (require 'display-setup)
