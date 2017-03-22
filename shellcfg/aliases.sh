@@ -49,3 +49,4 @@ alias dm='docker-machine'
 alias dc='docker-compose'
 
 alias e="$EDITOR"
+alias emacs="emacs -nw"
