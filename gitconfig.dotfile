@@ -81,6 +81,9 @@
 [branch]
     autosetupmerge = true
 
+[branch "master"]
+    mergeoptions = --no-ff
+
 [difftool]
     prompt = false
 
