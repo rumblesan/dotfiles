@@ -15,6 +15,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
+Plug 'neomake/neomake'
+
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -94,3 +96,7 @@ let g:airline_mode_map = {
             \ 's'  : 'S',
             \ 'S'  : 'S',
             \ }
+
+
+autocmd! BufWritePost * Neomake
+let g:neomake_open_list = 2
