@@ -75,6 +75,10 @@ call denite#custom#option('default', 'mode', 'normal')
 call denite#custom#option('default', 'winheight', 15)
 nnoremap <leader>r :<C-u>Denite file_rec<CR>
 nnoremap <leader>b :<C-u>Denite buffer<CR>
+call denite#custom#map('insert', '<C-s>', '<denite:do_action:split>', 'noremap')
+call denite#custom#map('normal', 's', '<denite:do_action:split>', 'noremap')
+call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>', 'noremap')
+call denite#custom#map('normal', 'v', '<denite:do_action:vsplit>', 'noremap')
 
 " Vim airline settings
 set guifont=Menlo\ for\ Powerline:h12
