@@ -89,10 +89,10 @@ export GPG_TTY=$(tty)
 # ----------------------------------------------------------------------
 
 # EDITOR
-if [ -n "$(command -v vim)" ]; then
-    EDITOR="vim -w $HOME/.vimlog"
+if [ -n "$(command -v nvim)" ]; then
+    EDITOR="nvim"
 else
-    EDITOR="vi -w $HOME/.vimlog"
+    EDITOR="vi"
 fi
 export EDITOR
 

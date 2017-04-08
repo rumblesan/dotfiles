@@ -28,10 +28,6 @@ Commands:
         Sync this repo with the remote
     firsttime
         Run the first time setup
-    karabiner
-        Run Karabiner setup
-    vimproc
-        Make sure that the vimproc plugin has been built
 
 Flags:
     -h
@@ -145,14 +141,6 @@ deletefile()
     fi
 }
 
-update()
-{
-    echo "Updating submodules"
-    git submodule foreach git checkout master
-    git submodule foreach git pull --rebase origin master
-    vimproc
-}
-
 # Do all the misc setup on a new Mac
 firsttime()
 {
@@ -161,14 +149,13 @@ firsttime()
     sudo -v
     sudo cp -r ./misc/fonts/*.ttf /Library/Fonts/
 
-    karabiner
-
-    vimproc
-}
-
-karabiner()
-{
-    . ./misc/karabiner/setup.sh -f firsttime
+    # Fix terminfo
+    if [ "$(uname)" == "Darwin" ]; then
+        cd
+        infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
+        tic $TERM.ti
+        cd -
+    fi
 }
 
 # Sync with remote repo
@@ -179,14 +166,6 @@ sync()
     git submodule init
     git submodule update
     git push
-    vimproc
-}
-
-vimproc()
-{
-    echo "Make sure that vimproc is built"
-    cd ./vim.dotfile/bundle/vimproc
-    make
 }
 
 runaction()
@@ -212,12 +191,6 @@ runaction()
         ;;
     "firsttime" )
         firsttime
-        ;;
-    "karabiner" )
-        karabiner
-        ;;
-    "vimproc" )
-        vimproc
         ;;
     * )
         usage
