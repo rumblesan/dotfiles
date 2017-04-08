@@ -11,7 +11,6 @@ Plug 'Shougo/denite.nvim'
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -78,4 +77,14 @@ nnoremap <leader>b :<C-u>Denite buffer<CR>
 " Vim airline settings
 set guifont=Menlo\ for\ Powerline:h12
 let g:airline_powerline_fonts = 1
-
+let g:airline_mode_map = {
+            \ '__' : '-',
+            \ 'n'  : 'N',
+            \ 'i'  : 'I',
+            \ 'R'  : 'R',
+            \ 'c'  : 'C',
+            \ 'v'  : 'V',
+            \ 'V'  : 'V',
+            \ 's'  : 'S',
+            \ 'S'  : 'S',
+            \ }
