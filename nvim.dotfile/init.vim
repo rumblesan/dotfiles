@@ -15,7 +15,6 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'editorconfig/editorconfig-vim'
 
 " Add plugins to &runtimepath
 call plug#end()
