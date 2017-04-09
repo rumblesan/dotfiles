@@ -11,6 +11,8 @@ Plug 'Shougo/denite.nvim'
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'altercation/vim-colors-solarized'
 
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -50,6 +52,7 @@ set incsearch
 
 " Colorscheme settings
 set background=dark
+colorscheme solarized
 
 " Key mappings
 " Disable arrow keys
@@ -84,6 +87,8 @@ call denite#custom#map('normal', 'v', '<denite:do_action:vsplit>', 'noremap')
 
 " Vim airline settings
 set guifont=Menlo\ for\ Powerline:h12
+let g:airline_theme = 'solarized'
+let g:airline_solarized_normal_green = 1
 let g:airline_powerline_fonts = 1
 let g:airline_mode_map = {
             \ '__' : '-',
