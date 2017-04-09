@@ -78,6 +78,8 @@ set splitright
 call denite#custom#option('default', 'direction', 'topleft')
 call denite#custom#option('default', 'mode', 'normal')
 call denite#custom#option('default', 'winheight', 15)
+call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+
 nnoremap <leader>r :<C-u>Denite file_rec<CR>
 nnoremap <leader>b :<C-u>Denite buffer<CR>
 call denite#custom#map('insert', '<C-s>', '<denite:do_action:split>', 'noremap')
@@ -105,3 +107,4 @@ let g:airline_mode_map = {
 
 autocmd! BufWritePost * Neomake
 let g:neomake_open_list = 2
+
