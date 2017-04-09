@@ -94,8 +94,8 @@ set-window-option -g clock-mode-colour green #green
 # bell
 set-window-option -g window-status-bell-style fg=black,bg=red #base02, red
 
-set -g status-left '#[fg=white,bg=green,bold] #S #[fg=green,bg=brightgreen,nobold]#[fg=black,bold] #(whoami) #[fg=brightgreen,bg=black,nobold]'
+set -g status-left '#[fg=black,bg=green,bold] #S #[fg=green,bg=brightgreen,nobold]#[fg=black,bold] #(whoami) #[fg=brightgreen,bg=black,nobold]'
 set -g window-status-format "#[fg=black,bg=cyan]#[fg=black,bg=cyan] #I  #W #[fg=cyan,bg=black]"
 set -g window-status-current-format '#[fg=black,bg=blue,nobold]#[fg=black,bg=blue,bold] #I  #W #[fg=blue,bg=black,nobold]'
-set -g status-right "#[fg=white]#H"
+set -g status-right "#[fg=blue,bg=black,bold]#[fg=black,bg=blue] #H "
 
