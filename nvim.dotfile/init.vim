@@ -74,6 +74,10 @@ let mapleader = ","
 set splitbelow
 set splitright
 
+" netrw settings
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+
 " Denite settings
 call denite#custom#option('default', 'direction', 'topleft')
 call denite#custom#option('default', 'mode', 'normal')
