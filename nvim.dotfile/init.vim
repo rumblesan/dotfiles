@@ -19,6 +19,8 @@ Plug 'tpope/vim-surround'
 
 Plug 'neomake/neomake'
 
+Plug '~/src/improviz-client.vim'
+
 " Add plugins to &runtimepath
 call plug#end()
 
