@@ -85,6 +85,9 @@
 [branch "master"]
     mergeoptions = --no-ff
 
+[pull]
+    ff = only
+
 [difftool]
     prompt = false
 
