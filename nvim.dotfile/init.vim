@@ -10,8 +10,6 @@ call plug#begin()
 Plug 'Shougo/denite.nvim'
 Plug 'christoomey/vim-tmux-navigator'
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'altercation/vim-colors-solarized'
 
 Plug 'tpope/vim-repeat'
@@ -108,24 +106,6 @@ call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>', 'noremap'
 call denite#custom#map('normal', 'v', '<denite:do_action:vsplit>', 'noremap')
 
 nnoremap <leader>e :call ImprovizSend()<CR>
-
-" Vim airline settings
-set guifont=Menlo\ for\ Powerline:h12
-let g:airline_theme = 'solarized'
-let g:airline_solarized_normal_green = 1
-let g:airline_powerline_fonts = 1
-let g:airline_mode_map = {
-            \ '__' : '-',
-            \ 'n'  : 'N',
-            \ 'i'  : 'I',
-            \ 'R'  : 'R',
-            \ 'c'  : 'C',
-            \ 'v'  : 'V',
-            \ 'V'  : 'V',
-            \ 's'  : 'S',
-            \ 'S'  : 'S',
-            \ }
-
 
 autocmd! BufWritePost * Neomake
 let g:neomake_open_list = 2
