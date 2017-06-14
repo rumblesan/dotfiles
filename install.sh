@@ -24,8 +24,6 @@ Commands:
         Delete any dead dotfiles symlinks
     update
         Update all the git submodules
-    sync
-        Sync this repo with the remote
     firsttime
         Run the first time setup
 
@@ -158,16 +156,6 @@ firsttime()
     fi
 }
 
-# Sync with remote repo
-sync()
-{
-    echo "Sync with remotes"
-    git pull --rebase
-    git submodule init
-    git submodule update
-    git push
-}
-
 runaction()
 {
     if [ "$DOTFILE_DIR" != "$PWD" ]; then
@@ -185,9 +173,6 @@ runaction()
         ;;
     "update" )
         update
-        ;;
-    "sync" )
-        sync
         ;;
     "firsttime" )
         firsttime
