@@ -1,0 +1,27 @@
+zsh
+hub
+haskell-stack
+editorconfig
+git
+tmux
+reattach-to-user-namespace
+the_silver_searcher
+coreutils
+
+--default-names
+gnu-sed
+gnu-tar
+find-utils
+
+brew tap homebrew/versions
+neovim
+
+brew tap caskroom/cask
+iterm2
+slate
+alfred
+google-drive
+google-chrome
+vlc
+slack
+
