@@ -16,6 +16,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
 Plug 'neomake/neomake'
+Plug 'sbdchd/neoformat'
 
 Plug 'kchmck/vim-coffee-script'
 Plug 'munshkr/vim-tidal'
@@ -110,6 +111,11 @@ call denite#custom#map('normal', 's', '<denite:do_action:split>', 'noremap')
 call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>', 'noremap')
 call denite#custom#map('normal', 'v', '<denite:do_action:vsplit>', 'noremap')
 
+" Neoformat settings
+autocmd BufWritePre * Neoformat
 autocmd! BufWritePost * Neomake
+let g:neoformat_only_msg_on_error = 1
+
+" Neomake settings
 let g:neomake_open_list = 2
 
