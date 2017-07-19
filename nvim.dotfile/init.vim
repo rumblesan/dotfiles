@@ -111,10 +111,16 @@ call denite#custom#map('normal', 's', '<denite:do_action:split>', 'noremap')
 call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>', 'noremap')
 call denite#custom#map('normal', 'v', '<denite:do_action:vsplit>', 'noremap')
 
+" Prettier / Neoformat
+autocmd FileType javascript setlocal formatprg=npm\ run\ prettier\ --silent\ --\ --stdin
+
 " Neoformat settings
 autocmd BufWritePre * Neoformat
 autocmd! BufWritePost * Neomake
 let g:neoformat_only_msg_on_error = 1
+
+" Use formatprg when available
+let g:neoformat_try_formatprg = 1
 
 " Neomake settings
 let g:neomake_open_list = 2
