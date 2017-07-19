@@ -17,6 +17,9 @@ Plug 'tpope/vim-surround'
 
 Plug 'neomake/neomake'
 
+Plug 'kchmck/vim-coffee-script'
+Plug 'munshkr/vim-tidal'
+
 Plug '~/src/improviz-client.vim'
 
 " Add plugins to &runtimepath
