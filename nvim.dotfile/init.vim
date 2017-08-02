@@ -102,7 +102,7 @@ let g:netrw_banner = 0
 call denite#custom#option('default', 'direction', 'topleft')
 call denite#custom#option('default', 'mode', 'normal')
 call denite#custom#option('default', 'winheight', 15)
-call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--ignore', '.git', '--nogroup', '--hidden', '-g', ''])
 
 nnoremap <leader>r :<C-u>Denite file_rec<CR>
 nnoremap <leader>f :<C-u>Sexplore<CR>
