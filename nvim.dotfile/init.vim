@@ -16,6 +16,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
 Plug 'neomake/neomake'
+Plug 'benjie/neomake-local-eslint.vim'
 Plug 'sbdchd/neoformat'
 
 Plug 'kchmck/vim-coffee-script'
