@@ -85,6 +85,12 @@
 [branch "master"]
     mergeoptions = --no-ff
 
+[branch "staging"]
+    mergeoptions = --no-ff
+
+[branch "production"]
+    mergeoptions = --no-ff
+
 [pull]
     ff = only
 
