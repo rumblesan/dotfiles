@@ -6,6 +6,7 @@ ForwardAgent yes
 ServerAliveInterval 60
 
 Host *
+    UseKeychain yes
     ServerAliveInterval 300
     ServerAliveCountMax 20
 
