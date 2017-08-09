@@ -11,18 +11,16 @@ ulimit -n 2560
 # PATH
 # ----------------------------------------------------------------------
 
-PATH=$BOXEN_HOME/homebrew/lib:$PATH
-
 if [ -n $(command -v brew) ]; then
-    export BREWPATH=`brew --prefix`
+  export BREWPATH=$(brew --prefix)
 
-    # if brew and coreutils are installed, then add the gnubin to the path
-    if [ -n $(command -v gls) ]; then
+  # if brew and coreutils are installed, then add the gnubin to the path
+  if [ -n $(command -v gls) ]; then
 
-        PATH="$BREWPATH/opt/coreutils/libexec/gnubin:$PATH"
-        MANPATH="$BREWPATH/opt/coreutils/libexec/gnuman:$MANPATH"
+    PATH="$BREWPATH/opt/coreutils/libexec/gnubin:$PATH"
+    MANPATH="$BREWPATH/opt/coreutils/libexec/gnuman:$MANPATH"
 
-    fi
+  fi
 
 fi
 
@@ -32,5 +30,3 @@ fi
 
 # ignore OSX folder setting files
 FIGNORE="DS_Store"
-
-
