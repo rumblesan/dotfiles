@@ -42,6 +42,7 @@ casks() {
   local caskbrews=(
     alfred
     iterm2
+    karabiner-elements
     slate
     slack
     vlc
