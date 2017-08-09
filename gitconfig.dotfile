@@ -46,7 +46,6 @@
     autocrlf = input
     whitespace = trailing-space,space-before-tab
     excludesfile = ~/.gitignore
-    editor = vim
 
 [alias]
     amend = commit --amend
