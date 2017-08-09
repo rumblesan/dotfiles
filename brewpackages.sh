@@ -21,6 +21,7 @@ basic() {
     "--with-default-names gnu-sed"
     "--with-default-names gnu-tar"
     git
+    gnupg2
     haskell-stack
     hub
     neovim
