@@ -55,9 +55,9 @@ casks() {
 }
 
 main() {
-  #brewsetup
+  brewsetup
   basic
-  #casks
+  casks
 }
 
 main "$@"
