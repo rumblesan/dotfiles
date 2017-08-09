@@ -41,6 +41,7 @@ basic() {
 casks() {
   local caskbrews=(
     alfred
+    docker
     iterm2
     karabiner-elements
     slate
