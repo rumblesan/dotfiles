@@ -15,12 +15,11 @@ alias lip="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 # WAN IP Address
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 
-if [[ "$OSTYPE" == "darwin"* && -n "$(command -v gls)" ]]
-then
-# If coreutils is installed on OSX then GNU ls with --color switch
-   local lsbin='gls'
+if [[ "$OSTYPE" == "darwin"* && -n "$(command -v gls)" ]]; then
+  # If coreutils is installed on OSX then GNU ls with --color switch
+  local lsbin='gls'
 else
-   local lsbin='ls'
+  local lsbin='ls'
 fi
 
 alias ls="$lsbin -h --color"
@@ -40,13 +39,8 @@ alias dotfiles="cd ${DOTFILES}"
 # makes looking at history easier
 alias h="history"
 
-# useful postgres aliases
-alias startpost='postgres -D `brew --prefix`/var/postgres'
-
 # docker aliases
 alias d='docker'
-alias dm='docker-machine'
 alias dc='docker-compose'
 
 alias e="$EDITOR"
-alias emacs="emacs -nw"
