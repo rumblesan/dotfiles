@@ -10,14 +10,6 @@ Host *
     ServerAliveInterval 300
     ServerAliveCountMax 20
 
-Host lagoon
-    HostName lagoon.rumblesan.com
-    User guy
-    ForwardX11 yes
-    Compression yes
-    Port 222
-    ForwardAgent yes
-
 Host swarm
     HostName swarm.rumblesan.com
     User guy
