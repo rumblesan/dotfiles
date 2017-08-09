@@ -18,7 +18,6 @@ brewsetup() {
 basic() {
   local basicbrews=(
     coreutils
-    "--with-default-names find-utils"
     "--with-default-names gnu-sed"
     "--with-default-names gnu-tar"
     git
@@ -42,7 +41,6 @@ basic() {
 casks() {
   local caskbrews=(
     alfred
-    google-drive
     iterm2
     slate
     slack
@@ -50,7 +48,7 @@ casks() {
   )
   brew tap caskroom/cask
   for b in "${caskbrews[@]}"; do
-    echo $b
+    brew cask install $b
   done
 }
 
