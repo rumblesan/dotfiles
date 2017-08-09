@@ -25,6 +25,7 @@ basic() {
     haskell-stack
     hub
     neovim
+    nodenv
     pyenv
     rbenv
     reattach-to-user-namespace
