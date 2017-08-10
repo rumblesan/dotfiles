@@ -48,6 +48,7 @@ casks() {
     karabiner-elements
     slate
     slack
+    spotify
     vlc
   )
   brew tap caskroom/cask
