@@ -1,8 +1,7 @@
 " General settings
 set nocompatible
 
-" TODO use pyenv root to generate this
-let g:python3_host_prog= "/Users/guy/.pyenv/versions/3.5.0/bin/python"
+let g:python3_host_prog = pyenv#path('3.5.0')
 
 " Setup plugins
 call plug#begin()
