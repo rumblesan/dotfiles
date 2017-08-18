@@ -8,6 +8,7 @@ call plug#begin()
 
 Plug 'Shougo/denite.nvim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-vinegar'
 
 Plug 'altercation/vim-colors-solarized'
 
@@ -93,10 +94,6 @@ vnoremap <leader>P "+P
 set splitbelow
 set splitright
 
-" netrw settings
-let g:netrw_liststyle = 3
-let g:netrw_banner = 0
-
 " Denite settings
 call denite#custom#option('default', 'direction', 'topleft')
 call denite#custom#option('default', 'mode', 'normal')
@@ -104,7 +101,7 @@ call denite#custom#option('default', 'winheight', 15)
 call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--ignore', '.git', '--nogroup', '--hidden', '-g', ''])
 
 nnoremap <leader>r :<C-u>Denite file_rec<CR>
-nnoremap <leader>f :<C-u>Sexplore<CR>
+nnoremap <leader>f :<C-u>call filebrowse#browse()<CR>
 nnoremap <leader>b :<C-u>Denite buffer<CR>
 call denite#custom#map('insert', '<C-s>', '<denite:do_action:split>', 'noremap')
 call denite#custom#map('normal', 's', '<denite:do_action:split>', 'noremap')
