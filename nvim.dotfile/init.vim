@@ -6,24 +6,31 @@ let g:python3_host_prog = pyenv#path('3.5.0')
 " Setup plugins
 call plug#begin()
 
+" Defaults
 Plug 'tpope/vim-sensible'
 
+" Navigation
 Plug 'Shougo/denite.nvim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-vinegar'
 
+" Styling
 Plug 'altercation/vim-colors-solarized'
 
+" General Usability
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
+" Development
 Plug 'neomake/neomake'
 Plug 'benjie/neomake-local-eslint.vim', { 'for': 'javascript' }
 Plug 'sbdchd/neoformat'
 
+" Language Specific
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffeescript' }
 Plug 'munshkr/vim-tidal', { 'for': 'tidal' }
 
+" My Plugins
 Plug '~/src/improviz-client.vim', { 'for': 'improviz' }
 
 " Add plugins to &runtimepath
