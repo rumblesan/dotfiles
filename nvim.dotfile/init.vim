@@ -16,13 +16,13 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
 Plug 'neomake/neomake'
-Plug 'benjie/neomake-local-eslint.vim'
+Plug 'benjie/neomake-local-eslint.vim', { 'for': 'javascript' }
 Plug 'sbdchd/neoformat'
 
-Plug 'kchmck/vim-coffee-script'
-Plug 'munshkr/vim-tidal'
+Plug 'kchmck/vim-coffee-script', { 'for': 'coffeescript' }
+Plug 'munshkr/vim-tidal', { 'for': 'tidal' }
 
-Plug '~/src/improviz-client.vim'
+Plug '~/src/improviz-client.vim', { 'for': 'improviz' }
 
 " Add plugins to &runtimepath
 call plug#end()
