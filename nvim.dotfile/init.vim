@@ -6,6 +6,8 @@ let g:python3_host_prog = pyenv#path('3.5.0')
 " Setup plugins
 call plug#begin()
 
+Plug 'tpope/vim-sensible'
+
 Plug 'Shougo/denite.nvim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-vinegar'
@@ -43,9 +45,6 @@ set visualbell
 set nobackup
 set nowritebackup
 set noswapfile
-
-" Indentation settings
-set autoindent
 
 " Actual formatting options
 set expandtab
