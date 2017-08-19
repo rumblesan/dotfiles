@@ -25,6 +25,7 @@ Plug 'tpope/vim-surround'
 Plug 'neomake/neomake'
 Plug 'benjie/neomake-local-eslint.vim', { 'for': 'javascript' }
 Plug 'sbdchd/neoformat'
+Plug '~/src/vim-test'
 
 " Language Specific
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffeescript' }
@@ -113,6 +114,14 @@ call denite#custom#map('insert', '<C-s>', '<denite:do_action:split>', 'noremap')
 call denite#custom#map('normal', 's', '<denite:do_action:split>', 'noremap')
 call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>', 'noremap')
 call denite#custom#map('normal', 'v', '<denite:do_action:vsplit>', 'noremap')
+
+
+" Test
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
 
 " Prettier / Neoformat
 autocmd FileType javascript setlocal formatprg=npm\ run\ prettier\ --silent\ --\ --stdin
