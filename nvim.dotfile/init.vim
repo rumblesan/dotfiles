@@ -25,7 +25,7 @@ Plug 'tpope/vim-surround'
 Plug 'neomake/neomake'
 Plug 'benjie/neomake-local-eslint.vim', { 'for': 'javascript' }
 Plug 'sbdchd/neoformat'
-Plug '~/src/vim-test'
+Plug 'janko-m/vim-test'
 Plug 'scrooloose/nerdcommenter'
 
 " Language Specific
