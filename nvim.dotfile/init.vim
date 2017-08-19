@@ -119,11 +119,11 @@ call denite#custom#map('normal', 'v', '<denite:do_action:vsplit>', 'noremap')
 
 
 " Test
-nmap <silent> <leader>t :TestNearest<CR>
-nmap <silent> <leader>T :TestFile<CR>
-nmap <silent> <leader>a :TestSuite<CR>
-nmap <silent> <leader>l :TestLast<CR>
-nmap <silent> <leader>g :TestVisit<CR>
+nmap <silent> <leader>tt :TestNearest<CR>
+nmap <silent> <leader>tf :TestFile<CR>
+nmap <silent> <leader>ta :TestSuite<CR>
+nmap <silent> <leader>tl :TestLast<CR>
+nmap <silent> <leader>tg :TestVisit<CR>
 
 " Prettier / Neoformat
 autocmd FileType javascript setlocal formatprg=npm\ run\ prettier\ --silent\ --\ --stdin
