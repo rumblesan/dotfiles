@@ -30,6 +30,7 @@ Plug '~/src/vim-test'
 " Language Specific
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffeescript' }
 Plug 'munshkr/vim-tidal', { 'for': 'tidal' }
+Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 
 " My Plugins
 Plug '~/src/improviz-client.vim', { 'for': 'improviz' }
