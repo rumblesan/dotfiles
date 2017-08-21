@@ -16,6 +16,7 @@ Plug 'tpope/vim-vinegar'
 
 " Styling
 Plug 'altercation/vim-colors-solarized'
+Plug 'junegunn/rainbow_parentheses.vim'
 
 " General Usability
 Plug 'tpope/vim-repeat'
@@ -117,6 +118,11 @@ call denite#custom#map('normal', 's', '<denite:do_action:split>', 'noremap')
 call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>', 'noremap')
 call denite#custom#map('normal', 'v', '<denite:do_action:vsplit>', 'noremap')
 
+" Rainbow Parens
+augroup rainbow_lisp
+  autocmd!
+  autocmd FileType lisp,clojure,scheme RainbowParentheses
+augroup END
 
 " Test
 nmap <silent> <leader>tt :TestNearest<CR>
