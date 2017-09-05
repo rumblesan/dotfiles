@@ -33,6 +33,8 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffeescript' }
 Plug 'munshkr/vim-tidal', { 'for': 'tidal' }
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
+Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
+Plug 'derekwyatt/vim-sbt', { 'for': 'sbt.scala' }
 
 " My Plugins
 Plug '~/src/improviz-client.vim', { 'for': 'improviz' }
