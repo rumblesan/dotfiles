@@ -27,6 +27,7 @@ basic() {
     neovim
     nodenv
     pyenv
+    pyenv-virtualenv
     rbenv
     reattach-to-user-namespace
     shfmt

@@ -15,4 +15,5 @@ export FIGNORE="$FIGNORE:.pyc"
 
 if [ -n "$(command -v pyenv)" ]; then
   eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
 fi
