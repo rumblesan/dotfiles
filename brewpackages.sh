@@ -23,6 +23,7 @@ basic() {
     git
     gnupg2
     haskell-stack
+    heroku
     hub
     neovim
     nodenv
