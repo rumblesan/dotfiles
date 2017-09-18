@@ -23,7 +23,6 @@ basic() {
     git
     gnupg2
     haskell-stack
-    heroku
     hub
     neovim
     nodenv
@@ -59,9 +58,21 @@ casks() {
   done
 }
 
+work() {
+  local workbrews=(
+    openshift-cli
+    heroku
+  )
+  for b in "${workbrews[@]}"; do
+    echo "installing ${b}"
+    brew install $b
+  done
+}
+
 main() {
   brewsetup
   basic
+  work
   casks
 }
 
