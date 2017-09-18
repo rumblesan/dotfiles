@@ -4,8 +4,8 @@
 	signingkey = 60AE213D31667B2C
 
 [work]
-    email = guy@ustwo.com
-    signingkey = 481572AA88194CF9
+    email = guy.john@red-badger.com
+    signingkey = 86AAF3C2F9E44896
 
 [hooks]
     dir = ~/.dotfiles/gitcfg/hookscripts
