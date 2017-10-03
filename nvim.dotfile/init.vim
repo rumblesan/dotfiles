@@ -145,6 +145,19 @@ let g:neoformat_only_msg_on_error = 1
 " Use formatprg when available
 let g:neoformat_try_formatprg = 1
 
+let g:neoformat_html_html5 = {
+        \ 'exe': 'tidy',
+        \ 'args': ['-quiet',
+        \          '--indent auto',
+        \          '--indent-spaces ' . shiftwidth(),
+        \          '--vertical-space yes',
+        \          '--tidy-mark no',
+        \          '-wrap ' . &textwidth
+        \         ]
+        \ }
+
+let g:neoformat_enabled_html = ['html5']
+
 " Neomake settings
 let g:neomake_open_list = 2
 
