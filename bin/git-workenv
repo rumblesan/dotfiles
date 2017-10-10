@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Set the correct executable to use
+# Prefer hub but fall back to normal git
+GIT=$(which hub)
+if [ -z "$GIT" ]; then
+  GIT=$(which git)
+fi
+
+WORKEMAIL=$(git config --get work.email)
+WORKGPGKEY=$(git config --get work.signingkey)
+
+"$GIT" config user.email $WORKEMAIL
+"$GIT" config user.signingkey $WORKGPGKEY
+"$GIT" config repo.environment "work"
