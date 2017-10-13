@@ -31,6 +31,7 @@ basic() {
     rbenv
     reattach-to-user-namespace
     shfmt
+    tidy_html5
     the_silver_searcher
     tmux
     zsh
