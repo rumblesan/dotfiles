@@ -136,16 +136,10 @@ nmap <silent> <leader>ta :TestSuite<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>tg :TestVisit<CR>
 
-" Prettier / Neoformat
-autocmd FileType javascript setlocal formatprg=npm\ run\ prettier\ --silent\ --\ --stdin
-
 " Neoformat settings
 autocmd BufWritePre * Neoformat
 autocmd! BufWritePost * Neomake
 let g:neoformat_only_msg_on_error = 1
-
-" Use formatprg when available
-let g:neoformat_try_formatprg = 1
 
 " Neomake settings
 let g:neomake_open_list = 2
