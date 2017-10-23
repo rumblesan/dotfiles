@@ -35,8 +35,8 @@ Plug 'munshkr/vim-tidal', { 'for': 'haskell.tidal' }
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'derekwyatt/vim-sbt', { 'for': 'sbt.scala' }
-Plug 'alunny/pegjs-vim'
-Plug 'martinda/Jenkinsfile-vim-syntax'
+Plug 'alunny/pegjs-vim', { 'for': 'pegjs' }
+Plug 'martinda/Jenkinsfile-vim-syntax', { 'for': 'Jenkinsfile' }
 
 " My Plugins
 Plug '~/src/improviz-client.vim', { 'for': 'improviz' }
