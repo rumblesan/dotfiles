@@ -68,6 +68,9 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 
+" Spell check
+set spelllang=en_gb
+
 " Search settings
 set incsearch
 "This unsets the "last search pattern" register by hitting return
