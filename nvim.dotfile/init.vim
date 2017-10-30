@@ -12,7 +12,6 @@ Plug 'tpope/vim-sensible'
 " Navigation
 Plug 'Shougo/denite.nvim'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'tpope/vim-vinegar'
 
 " Styling
 Plug 'altercation/vim-colors-solarized'
@@ -119,7 +118,7 @@ call denite#custom#option('default', 'winheight', 15)
 call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--ignore', '.git', '--nogroup', '--hidden', '-g', ''])
 
 nnoremap <leader>r :<C-u>Denite file_rec<CR>
-nnoremap <leader>f :<C-u>call filebrowse#browse()<CR>
+nnoremap <leader>f :<C-u>Denite file<CR>
 nnoremap <leader>b :<C-u>Denite buffer<CR>
 call denite#custom#map('insert', '<C-s>', '<denite:do_action:split>', 'noremap')
 call denite#custom#map('normal', 's', '<denite:do_action:split>', 'noremap')
