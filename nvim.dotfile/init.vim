@@ -20,6 +20,7 @@ Plug 'junegunn/rainbow_parentheses.vim'
 " General Usability
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'roxma/vim-tmux-clipboard'
 
 " Development
 Plug 'neomake/neomake'

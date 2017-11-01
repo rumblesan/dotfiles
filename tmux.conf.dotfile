@@ -8,6 +8,7 @@ setw -g mode-keys vi
 set -g status-keys vi
 setw -g xterm-keys on
 
+set -g focus-events on
 
 # allow mouse pane selection and resizing
 set -g mouse on
