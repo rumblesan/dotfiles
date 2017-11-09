@@ -37,6 +37,7 @@ Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'derekwyatt/vim-sbt', { 'for': 'sbt.scala' }
 Plug 'alunny/pegjs-vim', { 'for': 'pegjs' }
 Plug 'modille/groovy.vim', { 'for': 'groovy' }
+Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 
 " My Plugins
 Plug '~/src/improviz-client.vim', { 'for': 'improviz' }
