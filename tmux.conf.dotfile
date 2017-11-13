@@ -62,6 +62,8 @@ bind e setw synchronize-panes
 
 #### COLOUR
 
+set -g default-terminal "screen-256color"
+
 # default statusbar colors
 set-option -g status-bg black #base02
 set-option -g status-fg yellow #yellow
