@@ -48,6 +48,7 @@ casks() {
     docker
     iterm2
     karabiner-elements
+    postman
     slate
     slack
     spotify
