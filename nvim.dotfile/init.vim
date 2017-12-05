@@ -1,5 +1,6 @@
 " General settings
 set nocompatible
+set hidden
 
 let g:python3_host_prog = pyenv#path('3.5.0')
 
@@ -38,6 +39,7 @@ Plug 'derekwyatt/vim-sbt', { 'for': 'sbt.scala' }
 Plug 'alunny/pegjs-vim', { 'for': 'pegjs' }
 Plug 'modille/groovy.vim', { 'for': 'groovy' }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
+Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 
 " My Plugins
 Plug 'rumblesan/improviz-client.vim', { 'do': ':UpdateRemotePlugins', 'for': 'improviz' }
@@ -126,6 +128,19 @@ call denite#custom#map('insert', '<C-s>', '<denite:do_action:split>', 'noremap')
 call denite#custom#map('normal', 's', '<denite:do_action:split>', 'noremap')
 call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>', 'noremap')
 call denite#custom#map('normal', 'v', '<denite:do_action:vsplit>', 'noremap')
+
+let g:LanguageClient_serverCommands = {
+    \ 'haskell': ['hie', '--lsp'],
+    \ }
+
+" Automatically start language servers.
+let g:LanguageClient_autoStart = 1
+nnoremap <silent> <leader>d :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <leader>s :<C-u>Denite documentSymbol<CR>
+" nnoremap <leader>a :<C-u>Denite workspaceSymbol<CR>
+nnoremap <leader>e :<C-u>Denite references<CR>
+
 
 " Rainbow Parens
 augroup rainbow_lisp
