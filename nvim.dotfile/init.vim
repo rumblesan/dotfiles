@@ -40,7 +40,7 @@ Plug 'modille/groovy.vim', { 'for': 'groovy' }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 
 " My Plugins
-Plug '~/src/improviz-client.vim', { 'for': 'improviz' }
+Plug 'rumblesan/improviz-client.vim', { 'do': ':UpdateRemotePlugins', 'for': 'improviz' }
 
 " Add plugins to &runtimepath
 call plug#end()
