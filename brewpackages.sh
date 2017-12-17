@@ -62,7 +62,6 @@ casks() {
 
 work() {
   local workbrews=(
-    openshift-cli
     heroku
   )
   for b in "${workbrews[@]}"; do
