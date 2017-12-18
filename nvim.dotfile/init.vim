@@ -40,6 +40,7 @@ Plug 'alunny/pegjs-vim', { 'for': 'pegjs' }
 Plug 'modille/groovy.vim', { 'for': 'groovy' }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+Plug 'sophacles/vim-processing', { 'for': 'processing' }
 
 " My Plugins
 Plug 'rumblesan/improviz-client.vim', { 'do': ':UpdateRemotePlugins', 'for': 'improviz' }
