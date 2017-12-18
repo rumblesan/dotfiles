@@ -43,7 +43,7 @@ Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 Plug 'sophacles/vim-processing', { 'for': 'processing' }
 
 " My Plugins
-Plug 'rumblesan/improviz-client.vim', { 'do': ':UpdateRemotePlugins', 'for': 'improviz' }
+Plug '~/src/improviz-client.vim', { 'for': 'improviz' }
 
 " Add plugins to &runtimepath
 call plug#end()
