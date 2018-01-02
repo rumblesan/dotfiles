@@ -2,55 +2,49 @@
 
 # Set the correct executable to use
 # Prefer hub but fall back to normal git
-GIT=`which hub`
+GIT=$(which hub)
 if [ -z "$GIT" ]; then
-    GIT=`which git`
+  GIT=$(which git)
 fi
 
+repodir() {
 
-repodir()
-{
-
-    local lastarg="$1"
-    if [[ "$lastarg" =~ .+\.git ]]; then
-        echo "$lastarg" | sed -e 's/.*\///' -e 's/\.git$//'
-    elif [[ "$lastarg" =~ [a-zA-Z0-9]+\/[a-zA-Z0-9]+ ]]; then
-        echo "$lastarg" | sed -e 's/.*\///'
-    else
-        echo "$lastarg"
-    fi
+  local lastarg="$1"
+  if [[ "$lastarg" =~ .+\.git ]]; then
+    echo "$lastarg" | sed -e 's/.*\///' -e 's/\.git$//'
+  elif [[ "$lastarg" =~ [a-zA-Z0-9]+\/[a-zA-Z0-9]+ ]]; then
+    echo "$lastarg" | sed -e 's/.*\///'
+  else
+    echo "$lastarg"
+  fi
 
 }
 
 REPODIR=$(repodir "${@:(-1)}")
 CLONEARGS="--recursive"
-WORKEMAIL=`git config --get work.email`
-WORKGPGKEY=`git config --get work.signingkey`
+WORKEMAIL=$(git config --get work.email)
 
-die()
-{
-    echo "$*"
-    exit 1
+die() {
+  echo "$*"
+  exit 1
 }
 
-worksubmodules()
-{
-    local repodir="$1"
-    echo -n "Set work email and gpg-key for submodules? (y/N) "
-    read WORKSUBS
-    if [ "$WORKSUBS" == "y" ]; then
+worksubmodules() {
+  local repodir="$1"
+  echo -n "Set work email for submodules? (y/N) "
+  read WORKSUBS
+  if [ "$WORKSUBS" == "y" ]; then
 
-        if [ -d "$repodir" ]; then
-            echo "Switching into $repodir"
-            cd "$repodir"
-            "$GIT" submodule foreach "$GIT" config user.email $WORKEMAIL
-            "$GIT" submodule foreach "$GIT" config user.signingkey $WORKGPGKEY
-            "$GIT" submodule foreach "$GIT" config repo.environment "work"
-        else
-            echo "$repodir doesn't seem to exist"
-            echo "Not setting submodule config"
-        fi
+    if [ -d "$repodir" ]; then
+      echo "Switching into $repodir"
+      cd "$repodir"
+      "$GIT" submodule foreach "$GIT" config user.email $WORKEMAIL
+      "$GIT" submodule foreach "$GIT" config repo.environment "work"
+    else
+      echo "$repodir doesn't seem to exist"
+      echo "Not setting submodule config"
     fi
+  fi
 }
 
 echo "Hey, it looks like you're cloning a git repo!"
@@ -58,10 +52,9 @@ echo "Hey, it looks like you're cloning a git repo!"
 echo -n "Is this a work repo? (y/N) "
 read WORKREPO
 if [ "$WORKREPO" == "y" ]; then
-    echo "I'll set your work email and gpg-key"
-    "$GIT" clone "$@" $CLONEARGS -c user.email=$WORKEMAIL -c user.signingkey=$WORKGPGKEY -c repo.environment=work
-    worksubmodules "$REPODIR"
+  echo "I'll set your work email"
+  "$GIT" clone "$@" $CLONEARGS -c user.email=$WORKEMAIL -c repo.environment=work
+  worksubmodules "$REPODIR"
 else
-    "$GIT" clone $CLONEARGS "$@"
+  "$GIT" clone $CLONEARGS "$@"
 fi
-

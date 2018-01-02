@@ -4,8 +4,7 @@
 	signingkey = 60AE213D31667B2C
 
 [work]
-    email = guy.john@red-badger.com
-    signingkey = 86AAF3C2F9E44896
+    email = guy.john@echo.co.uk
 
 [hooks]
     dir = ~/.dotfiles/gitcfg/hookscripts
@@ -104,9 +103,3 @@
 
 [grep]
     lineNumber = true
-[commit]
-	gpgsign = true
-[gpg]
-	program = gpg
-[tag]
-	gpgsign = true
