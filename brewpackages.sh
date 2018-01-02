@@ -20,6 +20,7 @@ basic() {
     coreutils
     "--with-default-names gnu-sed"
     "--with-default-names gnu-tar"
+    direnv
     git
     gnupg2
     haskell-stack
