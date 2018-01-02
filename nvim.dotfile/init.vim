@@ -140,7 +140,7 @@ nnoremap <silent> <leader>d :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 nnoremap <leader>s :<C-u>Denite documentSymbol<CR>
 " nnoremap <leader>a :<C-u>Denite workspaceSymbol<CR>
-nnoremap <leader>e :<C-u>Denite references<CR>
+" nnoremap <leader>e :<C-u>Denite references<CR>
 
 
 " Rainbow Parens
