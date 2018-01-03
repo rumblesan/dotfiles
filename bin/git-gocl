@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+
+# exit when script tries to use an undeclared variable
+set -o nounset
+# exit if any command returns a non-zero code
+#set -e
+# Set the correct executable to use
+# Prefer hub but fall back to normal git
+
+GIT=$(which hub)
+if [ -z "$GIT" ]; then
+  GIT=$(which git)
+fi
+
+repodir() {
+  local lastarg="$1"
+  if [[ "$lastarg" =~ .+\.git ]]; then
+    echo "$lastarg" | sed -e 's/.*\///' -e 's/\.git$//'
+  elif [[ "$lastarg" =~ [a-zA-Z0-9]+\/[a-zA-Z0-9]+ ]]; then
+    echo "$lastarg" | sed -e 's/.*\///'
+  else
+    echo "$lastarg"
+  fi
+}
+
+REPODIR=$(repodir "${@:(-1)}")
+CLONEARGS="--recurse-submodules"
+WORKEMAIL=$(git config --get work.email)
+
+die() {
+  echo "$*"
+  exit 1
+}
+
+main() {
+  if [ -z "$GOPATH" ]; then
+    die "No GOPATH set so bailing"
+  fi
+
+  local repourl="$1"
+  local reponame=$(basename $repourl)
+  local repopath=$(dirname $repourl)
+  local repouser=$(basename $repopath)
+  local repoorg=$(basename $(dirname $repopath))
+  if [ "${repoorg}" = "." ]; then
+    repoorg="github.com"
+  fi
+  local clonepath="${GOPATH}/src/${repoorg}/${repouser}/${reponame}"
+
+  if [ -z ${2:-} ]; then
+    local clonepath="${GOPATH}/src/${repoorg}/${repouser}/${reponame}"
+  else
+    local clonepath="${GOPATH}/src/${2}"
+  fi
+
+  echo "Hey, it looks like this is a go project git repo from ${repourl}!"
+
+  echo -n "Is this a work repo? (y/N) "
+  read WORKREPO
+  if [ "$WORKREPO" == "y" ]; then
+    echo "I'll set your work email"
+    local cloneargs="-c user.email=${WORKEMAIL} -c repo.environment=work"
+  else
+    local cloneargs=""
+  fi
+
+  "$GIT" clone "$cloneargs" "$1" "$clonepath"
+}
+
+main "$@"
