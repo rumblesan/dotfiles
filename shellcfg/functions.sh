@@ -3,11 +3,11 @@
 # Some useful functions
 
 repos() {
-  if [ -z '$1' ]; then
-    cd "${REPODIR}"
-  else
-    cd "${REPODIR}/$1"
-  fi
+  cd "${REPODIR}/$1"
+}
+
+gorepos() {
+  cd "${GOPATH}/src/$1"
 }
 
 function groot() {

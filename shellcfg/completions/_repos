@@ -1,8 +1,4 @@
 #compdef repos
 #autoload
 
-local -a _repositories
-_repositories=(`ls $REPODIR`)
-
-_describe -t commands "repo directory" _repositories
-
+_files -W "${REPODIR}"

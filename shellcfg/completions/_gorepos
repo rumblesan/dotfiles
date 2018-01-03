@@ -1,0 +1,5 @@
+#compdef gorepos
+#autoload
+
+_files -W "${GOPATH}/src"
+
