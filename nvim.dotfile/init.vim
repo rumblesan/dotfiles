@@ -24,8 +24,7 @@ Plug 'tpope/vim-surround'
 Plug 'roxma/vim-tmux-clipboard'
 
 " Development
-Plug 'neomake/neomake'
-Plug 'benjie/neomake-local-eslint.vim', { 'for': 'javascript' }
+Plug 'w0rp/ale'
 Plug 'sbdchd/neoformat'
 Plug 'janko-m/vim-test'
 Plug 'scrooloose/nerdcommenter'
@@ -151,7 +150,6 @@ nnoremap <leader>s :<C-u>Denite documentSymbol<CR>
 " nnoremap <leader>a :<C-u>Denite workspaceSymbol<CR>
 " nnoremap <leader>e :<C-u>Denite references<CR>
 
-
 " Rainbow Parens
 augroup rainbow_lisp
   autocmd!
@@ -167,9 +165,4 @@ nmap <silent> <leader>tg :TestVisit<CR>
 
 " Neoformat settings
 autocmd BufWritePre * Neoformat
-autocmd! BufWritePost * Neomake
 let g:neoformat_only_msg_on_error = 1
-
-" Neomake settings
-let g:neomake_open_list = 2
-
