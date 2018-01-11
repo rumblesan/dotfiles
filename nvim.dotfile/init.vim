@@ -125,10 +125,19 @@ call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '-
 nnoremap <leader>r :<C-u>Denite file_rec<CR>
 nnoremap <leader>f :<C-u>Denite file<CR>
 nnoremap <leader>b :<C-u>Denite buffer<CR>
+nnoremap <leader>g :<C-u>Denite grep<CR>
 call denite#custom#map('insert', '<C-s>', '<denite:do_action:split>', 'noremap')
 call denite#custom#map('normal', 's', '<denite:do_action:split>', 'noremap')
 call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>', 'noremap')
 call denite#custom#map('normal', 'v', '<denite:do_action:vsplit>', 'noremap')
+" Ag command on grep source
+call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('grep', 'default_opts',
+    \ ['-i', '--vimgrep', '--ignore-dir', 'vendor'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
 
 let g:LanguageClient_serverCommands = {
     \ 'haskell': ['hie', '--lsp'],
