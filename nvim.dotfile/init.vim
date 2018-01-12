@@ -36,6 +36,7 @@ Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'derekwyatt/vim-sbt', { 'for': 'sbt.scala' }
 Plug 'alunny/pegjs-vim', { 'for': 'pegjs' }
+Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'modille/groovy.vim', { 'for': 'groovy' }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': './install.sh' }
