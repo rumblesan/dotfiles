@@ -38,7 +38,7 @@ Plug 'derekwyatt/vim-sbt', { 'for': 'sbt.scala' }
 Plug 'alunny/pegjs-vim', { 'for': 'pegjs' }
 Plug 'modille/groovy.vim', { 'for': 'groovy' }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
-Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': './install.sh' }
 Plug 'sophacles/vim-processing', { 'for': 'processing' }
 
 " My Plugins
@@ -166,3 +166,8 @@ nmap <silent> <leader>tg :TestVisit<CR>
 " Neoformat settings
 autocmd BufWritePre * Neoformat
 let g:neoformat_only_msg_on_error = 1
+
+" Ale settings
+let g:ale_linters = {
+\   'haskell': [],
+\}
