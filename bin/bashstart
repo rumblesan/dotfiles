@@ -5,20 +5,28 @@
 FILENAME=$1
 
 case $FILENAME in
-    *.py)
-        ;;
-    *)
-        FILENAME="${FILENAME}"
-        ;;
+*.py) ;;
+
+*)
+  FILENAME="${FILENAME}"
+  ;;
 esac
 
 echo "Creating bash script ${FILENAME}"
 
-cat <<EOF > "$FILENAME"
+cat <<EOF >"$FILENAME"
 #!/usr/bin/env bash
 
 # exit when script tries to use an undeclared variable
 set -o nounset
+# exit on error
+set -o errexit
+# exit if anything in a pipe fails
+set -o pipefail
+
+[[ "\${DEBUG:-}" == 'true' ]] && set -o xtrace
+
+readonly EXE_NAME=\$(basename "\$0")
 
 die() {
     echo "\$*"
@@ -35,4 +43,3 @@ EOF
 
 chmod +x "$FILENAME"
 exec $EDITOR "$FILENAME"
-
