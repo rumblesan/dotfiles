@@ -25,10 +25,17 @@ helpinfo() {
 Usage: $oneline_usage
 
 Commands:
-    projects|list
+    config
+        Show current gcloud config
+    projects
         List available gcloud projects
     use
         Select project to use
+    clusters
+        List available kubernetes clusters
+    connect
+        Connect to a specific kubernetes cluster
+
 
 Flags:
     -h
@@ -52,8 +59,8 @@ runaction() {
   readonly action=$(printf "%s\n" "$1" | tr 'A-Z' 'a-z')
 
   case "$action" in
-  "list")
-    gcloud config configurations list
+  "config")
+    gcloud config list
     ;;
   "projects")
     gcloud config configurations list
@@ -61,6 +68,13 @@ runaction() {
   "use")
     readonly project_name="$2"
     gcloud config configurations activate "$project_name"
+    ;;
+  "clusters")
+    gcloud container clusters list
+    ;;
+  "connect")
+    readonly cluster_name="$2"
+    gcloud container clusters get-credentials "$cluster_name"
     ;;
   *)
     usage
