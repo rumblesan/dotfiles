@@ -1,6 +1,5 @@
 
 Compression yes
-CompressionLevel 6
 
 ForwardAgent yes
 ServerAliveInterval 60
