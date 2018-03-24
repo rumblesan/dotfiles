@@ -2,6 +2,9 @@
 set nocompatible
 set hidden
 
+" allow external vimrc
+set exrc
+
 let g:python3_host_prog = pyenv#path('3.5.0')
 
 " Setup plugins
@@ -173,3 +176,5 @@ let g:neoformat_only_msg_on_error = 1
 let g:ale_linters = {
 \   'haskell': [],
 \}
+
+set secure
