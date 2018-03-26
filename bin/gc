@@ -56,7 +56,7 @@ runaction() {
     die "gcloud tool not installed"
   fi
 
-  readonly action=$(printf "%s\n" "$1" | tr 'A-Z' 'a-z')
+  readonly action=$(printf "%s\n" "${1:-config}" | tr 'A-Z' 'a-z')
 
   case "$action" in
   "config")
