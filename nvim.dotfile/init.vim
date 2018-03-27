@@ -45,6 +45,7 @@ Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': './install.sh' }
 Plug 'sophacles/vim-processing', { 'for': 'processing' }
 Plug 'supercollider/scvim', { 'for': 'supercollider' }
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 
 " My Plugins
 Plug '~/src/improviz-client.vim', { 'for': 'improviz' }
