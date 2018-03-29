@@ -25,17 +25,18 @@ basic() {
     gnupg2
     haskell-stack
     hub
+    kubectl
     neovim
     nodenv
     pyenv
     pyenv-virtualenv
-    rbenv
     reattach-to-user-namespace
     shfmt
     tidy_html5
     the_silver_searcher
     tmux
     zsh
+    zsh-completions
   )
   for b in "${basicbrews[@]}"; do
     echo "installing ${b}"
@@ -48,7 +49,6 @@ casks() {
     alfred
     docker
     iterm2
-    karabiner-elements
     postman
     slate
     slack
