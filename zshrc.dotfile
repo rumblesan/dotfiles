@@ -38,8 +38,8 @@ source $SHELLCFG/rumblesan-theme.zsh
 
 # Load and run compinit
 autoload -U add-zsh-hook
-autoload -U compinit
-compinit -i
+autoload compinit && compinit -i
+autoload bashcompinit && bashcompinit
 
 # ----------------------------------------------------------------------
 # ENVIRONMENT CONFIGURATION
@@ -109,11 +109,11 @@ fi
 
 # add custom completion scripts
 fpath=($SHELLCFG/completions $fpath)
+fpath=(/usr/local/share/zsh-completions $fpath)
 
-# compsys initialization
-autoload -U compinit
-compinit
-
+if [ -n "$(command -v kubectl)" ]; then
+  source <(kubectl completion zsh)
+fi
 # show completion menu when number of options is at least 2
 zstyle ':completion:*' menu select=2
 
