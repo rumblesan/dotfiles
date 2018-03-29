@@ -173,10 +173,4 @@ nmap <silent> <leader>tg :TestVisit<CR>
 autocmd BufWritePre * Neoformat
 let g:neoformat_only_msg_on_error = 1
 
-" Ale settings
-let g:ale_linters = {
-\   'haskell': [],
-\   'typescript': ['tslint'],
-\}
-
 set secure
