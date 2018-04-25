@@ -67,6 +67,7 @@
     g = grep --break --heading --line-number
     ig = update-index --assume-unchanged
     unig = update-index --no-assume-unchanged
+    get = fetch --all -p -t
 
 [push]
     default = simple
