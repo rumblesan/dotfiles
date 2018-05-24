@@ -13,7 +13,6 @@ let g:neoformat_javascript_prettier = {
 " check for node_modules version of Standard and fallback to global
 let s:standardprg = findfile('node_modules/.bin/standard', '.;')
 if !executable(s:standardprg)
-    echom "not executable"
     let s:standardprg = exepath('standard')
 endif
 
