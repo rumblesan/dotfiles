@@ -55,7 +55,6 @@ call plug#end()
 
 " Display settings
 set number
-set relativenumber
 set ruler
 set shortmess=I
 
