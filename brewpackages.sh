@@ -66,7 +66,6 @@ work() {
     heroku
     go
     dep
-    protobuf
   )
   for b in "${workbrews[@]}"; do
     echo "installing ${b}"
