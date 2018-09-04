@@ -143,10 +143,6 @@ call denite#custom#var('grep', 'pattern_opt', [])
 call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
 
-let g:LanguageClient_serverCommands = {
-    \ 'haskell': ['hie', '--lsp'],
-    \ }
-
 " Automatically start language servers.
 let g:LanguageClient_autoStart = 1
 nnoremap <silent> <leader>d :call LanguageClient_textDocument_hover()<CR>
