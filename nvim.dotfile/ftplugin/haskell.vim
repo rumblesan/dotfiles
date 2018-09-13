@@ -1,8 +1,8 @@
 let g:LanguageClient_serverCommands = {
-    \ 'haskell': ['hie-wrapper'],
+    \ 'haskell': [],
     \ }
 
-let g:ale_linters = {'haskell': []}
+let g:ale_linters = {}
 
 hi link ALEError Error
 hi Warning term=underline cterm=underline ctermfg=Yellow gui=undercurl guisp=Gold
