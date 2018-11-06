@@ -2,7 +2,7 @@ let g:LanguageClient_serverCommands = {
     \ 'haskell': [],
     \ }
 
-let g:ale_linters = {}
+let g:ale_linters = {'haskell': ['hie']}
 
 hi link ALEError Error
 hi Warning term=underline cterm=underline ctermfg=Yellow gui=undercurl guisp=Gold
