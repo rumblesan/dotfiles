@@ -167,6 +167,6 @@ nmap <silent> <leader>tg :TestVisit<CR>
 " Neoformat settings
 autocmd BufWritePre * Neoformat
 let g:neoformat_only_msg_on_error = 1
-" let g:neoformat_verbose = 1 " only affects the verbosity of Neoformat<Paste>
+" let g:neoformat_verbose = 1 " only affects the verbosity of Neoformat
 
 set secure
