@@ -29,24 +29,6 @@ die() {
   exit 1
 }
 
-worksubmodules() {
-  local repodir="$1"
-  echo -n "Set work email for submodules? (y/N) "
-  read WORKSUBS
-  if [ "$WORKSUBS" == "y" ]; then
-
-    if [ -d "$repodir" ]; then
-      echo "Switching into $repodir"
-      cd "$repodir"
-      "$GIT" submodule foreach "$GIT" config user.email $WORKEMAIL
-      "$GIT" submodule foreach "$GIT" config repo.environment "work"
-    else
-      echo "$repodir doesn't seem to exist"
-      echo "Not setting submodule config"
-    fi
-  fi
-}
-
 echo "Hey, it looks like you're cloning a git repo!"
 
 echo -n "Is this a work repo? (y/N) "
@@ -54,7 +36,6 @@ read WORKREPO
 if [ "$WORKREPO" == "y" ]; then
   echo "I'll set your work email"
   "$GIT" clone "$@" $CLONEARGS -c user.email=$WORKEMAIL -c repo.environment=work
-  worksubmodules "$REPODIR"
 else
   "$GIT" clone $CLONEARGS "$@"
 fi
