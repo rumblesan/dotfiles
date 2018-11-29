@@ -1,6 +1,8 @@
 let g:ale_go_gometalinter_executable = 'gometalinter'
-let g:ale_go_gometalinter_options = '--fast'
+let g:ale_go_gometalinter_options = '--fast --exclude=should\ have\ comment'
 let g:ale_linters = {'go': ['gometalinter']}
+let g:neoformat_enabled_go = []
+let g:go_fmt_command = "goimports"
 
 let g:go_fmt_fail_silently = 1
 
