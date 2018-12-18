@@ -49,6 +49,7 @@ Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 
 " My Plugins
 Plug '~/src/improviz-client.vim', { 'for': 'improviz' }
+Plug '~/src/cheapsound/clients/cheapsound.vim', { 'for': 'cheapsound' }
 
 " Add plugins to &runtimepath
 call plug#end()
