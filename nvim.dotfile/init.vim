@@ -46,6 +46,8 @@ Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': './install.sh' 
 Plug 'sophacles/vim-processing', { 'for': 'processing' }
 Plug 'supercollider/scvim', { 'for': 'supercollider' }
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
+Plug 'jpalardy/vim-slime'
 
 " My Plugins
 Plug '~/src/improviz-client.vim', { 'for': 'improviz' }
