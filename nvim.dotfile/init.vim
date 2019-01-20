@@ -50,7 +50,7 @@ Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
 Plug 'jpalardy/vim-slime'
 
 " My Plugins
-Plug '~/src/improviz-client.vim', { 'for': 'improviz' }
+Plug '~/src/improviz-vim', { 'for': 'improviz' }
 Plug '~/src/cheapsound/clients/cheapsound.vim', { 'for': 'cheapsound' }
 
 " Add plugins to &runtimepath
