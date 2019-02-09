@@ -1,13 +1,7 @@
 let g:LanguageClient_serverCommands = {
-    \ 'haskell': [],
+    \ 'haskell': ['hie-wrapper -r ./src'],
     \ }
 
-let g:ale_linters = {'haskell': ['hie']}
-
-hi link ALEError Error
-hi Warning term=underline cterm=underline ctermfg=Yellow gui=undercurl guisp=Gold
-hi link ALEWarning Warning
-hi link ALEInfo SpellCap
-
 let g:LanguageClient_rootMarkers = ['*.cabal', 'stack.yaml']
+
 
