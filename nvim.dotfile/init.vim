@@ -51,6 +51,7 @@ Plug 'jpalardy/vim-slime'
 
 " My Plugins
 Plug '~/src/improviz-vim', { 'for': 'improviz' }
+Plug '~/src/vim-timelines', { 'for': 'timelines' }
 Plug '~/src/cheapsound/clients/cheapsound.vim', { 'for': 'cheapsound' }
 
 " Add plugins to &runtimepath
