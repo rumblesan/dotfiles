@@ -5,7 +5,7 @@ set hidden
 " allow external vimrc
 set exrc
 
-let g:python3_host_prog = pyenv#path('3.5.0')
+let g:python3_host_prog = pyenv#path('3.7.2')
 
 " Setup plugins
 call plug#begin()
