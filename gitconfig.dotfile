@@ -1,10 +1,10 @@
 [user]
-    name = Guy John
-    email = guy@rumblesan.com
+	name = Guy John
+	email = guy@rumblesan.com
 	signingkey = 60AE213D31667B2C
 
 [work]
-    email = guy.john@echo.co.uk
+    email = guy.john@red-badger.com
 
 [hooks]
     dir = ~/.dotfiles/gitcfg/hookscripts
