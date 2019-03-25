@@ -6,12 +6,6 @@
 [work]
     email = guy.john@red-badger.com
 
-[hooks]
-    dir = ~/.dotfiles/gitcfg/hookscripts
-
-[init]
-    templatedir = ~/.dotfiles/gitcfg/repo-template
-
 [color]
     ui = true
     branch = auto
