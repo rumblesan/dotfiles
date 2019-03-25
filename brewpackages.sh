@@ -20,10 +20,10 @@ basic() {
     coreutils
     "--with-default-names gnu-sed"
     "--with-default-names gnu-tar"
-    direnv
     git
-    gnupg2
+    go
     haskell-stack
+    heroku
     hub
     kubectl
     neovim
@@ -32,7 +32,6 @@ basic() {
     pyenv-virtualenv
     reattach-to-user-namespace
     shfmt
-    tidy_html5
     the_silver_searcher
     tmux
     zsh
@@ -61,22 +60,9 @@ casks() {
   done
 }
 
-work() {
-  local workbrews=(
-    heroku
-    go
-    dep
-  )
-  for b in "${workbrews[@]}"; do
-    echo "installing ${b}"
-    brew install $b
-  done
-}
-
 main() {
   brewsetup
   basic
-  work
   casks
 }
 
