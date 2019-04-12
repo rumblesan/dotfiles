@@ -13,5 +13,5 @@ let g:neoformat_typescript_prettier = {
 
 let g:neoformat_enabled_typescript = get(g:, 'neoformat_enabled_typescript', ['prettier'])
 
-let g:ale_linters = {'typescript': ['tslint']}
+let g:ale_linters = {'typescript': ['tslint', 'tsserver']}
 
