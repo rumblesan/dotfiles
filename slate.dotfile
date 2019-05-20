@@ -42,7 +42,3 @@ bind l:${focuskey} focus right
 bind n:${focuskey} focus above
 bind b:${focuskey} focus behind
 
-# Screen Movement
-bind h:${movekey} move screenOriginX;screenOriginY screenSizeX;screenSizeY 0
-bind l:${movekey} move screenOriginX;screenOriginY screenSizeX;screenSizeY 1
-
