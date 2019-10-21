@@ -70,8 +70,6 @@ set -g status-fg colour2
 set -g status-bg colour8 # default solarized background
 
 # Left side of status bar
-set -g status-left-bg colour8
-set -g status-left-fg colour2
 set -g status-left-length 40
 set -g status-left "#[fg=colour232,bg=green,bold] #S #[fg=green,bg=default,nobold]"
 
@@ -80,27 +78,11 @@ set -g status-right-length 0
 set -g status-right ""
 
 # Window status
-set -g window-status-bg colour39
-set -g window-status-fg colour8
-set -g window-status-current-bg colour39
-set -g window-status-current-fg colour8
 set -g window-status-format "#[fg=colour8,bg=blue]#[fg=black,bg=blue] #I  #W #[fg=blue,bg=colour8]"
 set -g window-status-current-format '#[fg=colour8,bg=cyan,bold]#[fg=black,bg=cyan,bold] #I  #W #[fg=cyan,bg=colour8,nobold]'
 
-# Window with activity status
-set -g window-status-activity-bg colour75 # fg and bg are flipped here due to
-set -g window-status-activity-fg colour8 # a bug in tmux
-
 # Window separator
 set -g window-status-separator ""
-
-# Pane border
-set -g pane-border-bg default
-set -g pane-border-fg colour238
-
-# Active pane border
-set -g pane-active-border-bg default
-set -g pane-active-border-fg colour39
 
 # Pane number indicator
 set -g display-panes-colour colour233
@@ -109,15 +91,3 @@ set -g display-panes-active-colour colour245
 # Clock mode
 set -g clock-mode-colour colour39
 set -g clock-mode-style 24
-
-# Message
-set -g message-bg colour39
-set -g message-fg black
-
-# Command message
-set -g message-command-bg colour233
-set -g message-command-fg black
-
-# Mode
-set -g mode-bg colour39
-set -g mode-fg colour232
