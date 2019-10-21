@@ -128,16 +128,12 @@ set splitright
 call denite#custom#option('default', 'direction', 'topleft')
 call denite#custom#option('default', 'mode', 'normal')
 call denite#custom#option('default', 'winheight', 15)
-call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--ignore', '.git', '--nogroup', '--hidden', '-g', ''])
+call denite#custom#var('file/rec', 'command', ['ag', '--follow', '--nocolor', '--ignore', '.git', '--nogroup', '--hidden', '-g', ''])
 
-nnoremap <leader>r :<C-u>Denite file_rec<CR>
+nnoremap <leader>r :<C-u>Denite file/rec<CR>
 nnoremap <leader>f :<C-u>Denite file<CR>
 nnoremap <leader>b :<C-u>Denite buffer<CR>
 nnoremap <leader>g :<C-u>Denite grep<CR>
-call denite#custom#map('insert', '<C-s>', '<denite:do_action:split>', 'noremap')
-call denite#custom#map('normal', 's', '<denite:do_action:split>', 'noremap')
-call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>', 'noremap')
-call denite#custom#map('normal', 'v', '<denite:do_action:vsplit>', 'noremap')
 " Ag command on grep source
 call denite#custom#var('grep', 'command', ['ag'])
 call denite#custom#var('grep', 'default_opts',
