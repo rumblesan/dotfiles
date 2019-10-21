@@ -34,7 +34,7 @@ Plug 'scrooloose/nerdcommenter'
 
 " Language Specific
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
-Plug 'munshkr/vim-tidal', { 'for': 'haskell.tidal' }
+Plug 'munshkr/vim-tidal', { 'for': 'tidal' }
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'derekwyatt/vim-sbt', { 'for': 'sbt.scala' }

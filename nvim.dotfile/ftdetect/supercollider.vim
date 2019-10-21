@@ -1,3 +1,3 @@
 
-"au BufNewFile,BufRead *.scd,*sc set filetype=supercollider
+au BufNewFile,BufRead *.scd,*sc set filetype=supercollider
 
