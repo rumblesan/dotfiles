@@ -29,7 +29,6 @@ Plug 'roxma/vim-tmux-clipboard'
 " Development
 Plug 'w0rp/ale'
 Plug 'sbdchd/neoformat'
-Plug 'janko-m/vim-test'
 Plug 'scrooloose/nerdcommenter'
 
 " Language Specific
@@ -40,9 +39,7 @@ Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'derekwyatt/vim-sbt', { 'for': 'sbt.scala' }
 Plug 'alunny/pegjs-vim', { 'for': 'pegjs' }
 Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoUpdateBinaries' }
-Plug 'modille/groovy.vim', { 'for': 'groovy' }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': './install.sh' }
 Plug 'sophacles/vim-processing', { 'for': 'processing' }
 Plug 'supercollider/scvim', { 'for': 'supercollider' }
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
@@ -145,26 +142,11 @@ call denite#custom#var('grep', 'pattern_opt', [])
 call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
 
-" Automatically start language servers.
-let g:LanguageClient_autoStart = 1
-nnoremap <silent> <leader>d :call LanguageClient_textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-nnoremap <leader>s :<C-u>Denite documentSymbol<CR>
-" nnoremap <leader>a :<C-u>Denite workspaceSymbol<CR>
-" nnoremap <leader>e :<C-u>Denite references<CR>
-
 " Rainbow Parens
 augroup rainbow_lisp
   autocmd!
   autocmd FileType lisp,clojure,scheme RainbowParentheses
 augroup END
-
-" Test
-nmap <silent> <leader>tt :TestNearest<CR>
-nmap <silent> <leader>tf :TestFile<CR>
-nmap <silent> <leader>ta :TestSuite<CR>
-nmap <silent> <leader>tl :TestLast<CR>
-nmap <silent> <leader>tg :TestVisit<CR>
 
 " Neoformat settings
 autocmd BufWritePre * Neoformat
