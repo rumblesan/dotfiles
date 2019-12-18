@@ -1,0 +1,29 @@
+*cheats.txt*                  My Vim cheat sheet
+
+==============================================================================
+This cheat sheet is where I plan to keep all the useful Vim commands that I
+consistently forget.
+
+Help commands
+
+<CTRL> ]		Jump to the subject of a tag
+<CTRL> O		Jump back
+
+Spell check commands:
+
+z=			List correction suggestions                   |z=|
+zg			Add word to dictionary                        |zg|
+zug			Undo adding word to dictionary                |zug|
+zw			Mark an incorrectly spelt word                |zw|
+zuw			Undo marking an incorrectly spelt word        |zuw|
+
+
+NerdCommenter commands:
+
+<leader> cm		Comment lines
+<leader> cu		Uncomment lines
+<leader> cA		Add comment at end of line
+
+
+
+vim:ft=help:modifiable:noreadonly:spell

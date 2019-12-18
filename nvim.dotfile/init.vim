@@ -105,6 +105,8 @@ imap <right> <nop>
 
 map ; :
 
+command Cheats :help cheats.txt
+
 " Map leader to easier to use key
 let mapleader = ","
 
