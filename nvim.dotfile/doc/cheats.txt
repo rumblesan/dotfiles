@@ -4,10 +4,14 @@
 This cheat sheet is where I plan to keep all the useful Vim commands that I
 consistently forget.
 
-Help commands
+Help commands:
 
 <CTRL> ]		Jump to the subject of a tag
 <CTRL> O		Jump back
+
+Error handling commands:
+
+:ALENext		List correction suggestions                   |ALENext|
 
 Spell check commands:
 
