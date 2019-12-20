@@ -1,4 +1,8 @@
 let g:LanguageClient_rootMarkers = ['*.cabal', 'stack.yaml']
+let g:LanguageClient_serverCommands = {
+    \ 'haskell': ['hie-wrapper'],
+    \ }
 
-let g:ale_linters = {'haskell': ['hie']}
+let b:ale_fixers = ['brittany']
 
+let b:ale_linters = { 'haskell': [] }

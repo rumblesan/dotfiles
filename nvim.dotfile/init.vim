@@ -28,8 +28,8 @@ Plug 'roxma/vim-tmux-clipboard'
 
 " Development
 Plug 'w0rp/ale'
-Plug 'sbdchd/neoformat'
 Plug 'scrooloose/nerdcommenter'
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next','do': 'bash install.sh' }
 
 " Language Specific
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
@@ -143,15 +143,35 @@ call denite#custom#var('grep', 'pattern_opt', [])
 call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
 
+" ALE settings
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+    \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+    \ }
+
+" Language Server settings
+let g:LanguageClient_hoverPreview = "Always"
+
+function! FindWorkspaceSymbol()
+  call inputsave()
+  let symb = input('Symbol Search: ')
+  call inputrestore()
+  if symb == ""
+    execute "Denite workspaceSymbol"
+  else
+    execute "Denite -input=" . symb . " workspaceSymbol"
+  endif
+endfunction
+
+nnoremap <silent> gd  :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> gh  :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gr  :call LanguageClient_textDocument_references()<CR>
+nnoremap <silent> gs  :call FindWorkspaceSymbol()<CR>
+
 " Rainbow Parens
 augroup rainbow_lisp
   autocmd!
   autocmd FileType lisp,clojure,scheme RainbowParentheses
 augroup END
-
-" Neoformat settings
-autocmd BufWritePre * Neoformat
-let g:neoformat_only_msg_on_error = 1
-" let g:neoformat_verbose = 1 " only affects the verbosity of Neoformat
 
 set secure
