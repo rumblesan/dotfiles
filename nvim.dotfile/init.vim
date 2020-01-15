@@ -45,6 +45,7 @@ Plug 'supercollider/scvim', { 'for': 'supercollider' }
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
 Plug 'jpalardy/vim-slime'
+Plug 'cespare/vim-toml', { 'for': 'toml' }
 
 " My Plugins
 Plug '~/src/improviz-vim', { 'for': 'improviz' }
