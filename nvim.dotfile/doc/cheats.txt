@@ -11,6 +11,9 @@ Help commands:
 
 Error handling commands:
 
+:copen                  Open QuickFix list
+:cclose                 Close QuickFix list
+:lopen                  Open Location list
 :ALENext		List correction suggestions                   |ALENext|
 
 Spell check commands:
