@@ -54,17 +54,6 @@ if [ -n "$(command -v dircolors)" ]; then
 fi
 
 # ----------------------------------------------------------------------
-# GPG CONFIGURATION
-# ----------------------------------------------------------------------
-
-# Start gpg-agent, but only if the socket file doesn't exist
-if [ ! -S ~/.gnupg/S.gpg-agent ]; then
-    eval $( gpg-agent --daemon )
-fi
-# Set gpg tty
-export GPG_TTY=$(tty)
-
-# ----------------------------------------------------------------------
 # PAGER / EDITOR
 # ----------------------------------------------------------------------
 
@@ -97,11 +86,6 @@ bindkey -v
 # COMPLETIONS
 # ----------------------------------------------------------------------
 
-# this should fix the git/hub alias completion issue
-if [ -n "$(command -v hub)" ]; then
-    eval "$(hub alias -s)"
-fi
-
 # add custom completion scripts
 fpath=($SHELLCFG/completions $fpath)
 fpath=(/usr/local/share/zsh-completions $fpath)
@@ -110,13 +94,10 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 zstyle ':completion:*' menu select=2
 
 # Load and run compinit
+skip_global_compinit=1
 autoload -U add-zsh-hook
 autoload compinit && compinit -i
-autoload bashcompinit && bashcompinit
-
-if [ -n "$(command -v kubectl)" ]; then
-  source <(kubectl completion zsh)
-fi
+#autoload bashcompinit && bashcompinit
 
 # ----------------------------------------------------------------------
 # ALIASES
@@ -135,9 +116,9 @@ source $SHELLCFG/functions.sh
 # ----------------------------------------------------------------------
 # Specific config for any programming languages
 
-for l in $SHELLCFG/languages/*; do
-    source $l
-done
+#for l in $SHELLCFG/languages/*; do
+#    source $l
+#done
 
 # ----------------------------------------------------------------------
 # OSX
@@ -150,18 +131,16 @@ then
 fi
 
 # ----------------------------------------------------------------------
-# DIRENV
-# ----------------------------------------------------------------------
-# Activate direnv hook if direnv installed
-
-if [ -n "$(command -v direnv)" ]; then
-    eval "$(direnv hook zsh)"
-fi
-
-# ----------------------------------------------------------------------
 # MISC
 # ----------------------------------------------------------------------
 # Used for machine specific settings
 
 [ -f $HOME/.localrc ] && source $HOME/.localrc
 
+
+# ----------------------------------------------------------------------
+# WELCOME
+# ----------------------------------------------------------------------
+# Startup message
+
+manifesto

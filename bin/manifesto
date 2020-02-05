@@ -1,0 +1,38 @@
+#!/usr/bin/env zsh
+
+# exit when script tries to use an undeclared variable
+set -o nounset
+# exit on error
+set -o errexit
+# exit if anything in a pipe fails
+set -o pipefail
+
+[[ "${DEBUG:-}" == 'true' ]] && set -o xtrace
+
+readonly EXE_NAME=$(basename "$0")
+
+die() {
+    echo "$*"
+    exit 1
+}
+
+
+main () {
+  local green nc
+  green='\033[0;32m'
+  nc='\033[0m' # No Color
+  clear
+  echo ""
+  echo ""
+  echo "${green}"
+  echo "        What are you optimising for?"
+  echo "        What is the simplest thing you can make?"
+  echo "        What do you want to show?"
+  echo "        What do you want to hide?"
+  echo "        What do you need?"
+  echo "${nc}"
+  echo ""
+  echo ""
+}
+
+main "$@"

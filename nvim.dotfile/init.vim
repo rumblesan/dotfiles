@@ -30,22 +30,16 @@ Plug 'roxma/vim-tmux-clipboard'
 Plug 'w0rp/ale'
 Plug 'scrooloose/nerdcommenter'
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next','do': 'bash install.sh' }
+Plug 'sheerun/vim-polyglot'
 
 " Language Specific
-Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'munshkr/vim-tidal', { 'for': 'tidal' }
-Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
-Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
-Plug 'derekwyatt/vim-sbt', { 'for': 'sbt.scala' }
 Plug 'alunny/pegjs-vim', { 'for': 'pegjs' }
 Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoUpdateBinaries' }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'sophacles/vim-processing', { 'for': 'processing' }
 Plug 'supercollider/scvim', { 'for': 'supercollider' }
-Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
 Plug 'jpalardy/vim-slime'
-Plug 'cespare/vim-toml', { 'for': 'toml' }
 
 " My Plugins
 Plug '~/src/improviz-vim', { 'for': 'improviz' }
