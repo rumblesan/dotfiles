@@ -25,7 +25,6 @@ basic() {
     haskell-stack
     heroku
     hub
-    kubectl
     neovim
     nodenv
     pyenv
