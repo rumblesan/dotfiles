@@ -9,14 +9,6 @@ Host *
     ServerAliveInterval 300
     ServerAliveCountMax 20
 
-Host swarm
-    HostName swarm.rumblesan.com
-    User guy
-    ForwardX11 yes
-    Compression yes
-    Port 222
-    ForwardAgent yes
-
 Host halebopp
     HostName 192.168.1.100
     User root
