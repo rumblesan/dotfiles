@@ -169,4 +169,17 @@ augroup rainbow_lisp
   autocmd FileType lisp,clojure,scheme RainbowParentheses
 augroup END
 
+" Fix markdown rendering in hover popup for language server clients
+augroup markdown_language_client_commands
+    autocmd!
+    autocmd WinLeave __LanguageClient__ ++nested call <SID>fixLanguageClientHover()
+augroup END
+
+function! s:fixLanguageClientHover()
+    setlocal modifiable
+    setlocal conceallevel=2
+    normal i
+    setlocal nomodifiable
+endfunction
+
 set secure
