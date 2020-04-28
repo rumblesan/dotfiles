@@ -38,7 +38,7 @@ main() {
   fi
 
   local repourl="$1"
-  local reponame=$(basename $repourl)
+  local reponame="$REPODIR"
   local repopath=$(dirname $repourl)
   local repouser=$(basename $repopath)
   local repoorg=$(basename $(dirname $repopath))
