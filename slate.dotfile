@@ -7,7 +7,7 @@ config resizePercentOf screenSize
 # Aliases
 
 alias full        move screenOriginX;screenOriginY screenSizeX;screenSizeY
-alias centre      move (screenOriginX+(screenSizeX/5));(screenOriginY+(screenSizeY/5)) (screenSizeX/1.5);(screenSizeY/1.5)
+alias centre      move (screenOriginX+(screenSizeX/5));screenOriginY (screenSizeX/1.5);screenSizeY
 alias lefthalf    move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
 alias righthalf   move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
 alias topleft     corner top-left resize:screenSizeX/2;screenSizeY/2
@@ -31,7 +31,7 @@ bind k:${cornerkey} ${topright}
 bind l:${cornerkey} ${bottomright}
 
 bind m:${halfkey}   ${full}
-bind c:${halfkey}   ${centre}
+bind space:${halfkey}   ${centre}
 
 # Window Focusing
 bind i:${focuskey} hint
@@ -41,4 +41,3 @@ bind h:${focuskey} focus left
 bind l:${focuskey} focus right
 bind n:${focuskey} focus above
 bind b:${focuskey} focus behind
-
