@@ -118,6 +118,7 @@ vnoremap <leader>P "+P
 " Split settings
 set splitbelow
 set splitright
+set switchbuf=vsplit
 
 " Denite settings
 call denite#custom#option('default', 'direction', 'topleft')
