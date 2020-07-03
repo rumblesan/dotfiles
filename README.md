@@ -10,4 +10,5 @@ Setup
 
     git clone --recursive git://github.com/rumblesan/dotfiles.git ~/.dotfiles
     cd ~/.dotfiles
-    ./install.sh
+    ./install.sh setup
+    ./brewpackages.sh
