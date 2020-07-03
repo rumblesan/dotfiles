@@ -21,20 +21,14 @@ basic() {
     "--with-default-names gnu-sed"
     "--with-default-names gnu-tar"
     git
-    go
     haskell-stack
-    heroku
     hub
     neovim
     nodenv
-    pyenv
-    pyenv-virtualenv
     reattach-to-user-namespace
-    shfmt
     the_silver_searcher
     tmux
     zsh
-    zsh-completions
   )
   for b in "${basicbrews[@]}"; do
     echo "installing ${b}"
@@ -47,10 +41,8 @@ casks() {
     alfred
     docker
     iterm2
-    postman
     slate
     slack
-    spotify
     vlc
   )
   brew tap caskroom/cask
