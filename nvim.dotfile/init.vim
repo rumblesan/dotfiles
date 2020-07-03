@@ -29,23 +29,18 @@ Plug 'roxma/vim-tmux-clipboard'
 " Development
 Plug 'w0rp/ale'
 Plug 'scrooloose/nerdcommenter'
+Plug 'jpalardy/vim-slime'
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next','do': 'bash install.sh' }
 Plug 'sheerun/vim-polyglot'
 
 " Language Specific
 Plug 'munshkr/vim-tidal', { 'for': 'tidal' }
-Plug 'alunny/pegjs-vim', { 'for': 'pegjs' }
-Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoUpdateBinaries' }
-Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
-Plug 'sophacles/vim-processing', { 'for': 'processing' }
 Plug 'supercollider/scvim', { 'for': 'supercollider' }
-Plug 'jpalardy/vim-slime'
 
 " My Plugins
 Plug '~/src/improviz-vim', { 'for': 'improviz' }
-Plug '~/src/vim-timelines', { 'for': 'timelines' }
-Plug '~/src/cheapsound/clients/cheapsound.vim', { 'for': 'cheapsound' }
 Plug '~/src/glacier/vim', { 'for': 'grains' }
+Plug '~/src/cheapsound/clients/cheapsound.vim', { 'for': 'cheapsound' }
 
 " Add plugins to &runtimepath
 call plug#end()
