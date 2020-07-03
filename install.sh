@@ -22,10 +22,6 @@ Commands:
         Create all the symlinks necessary for the dotfiles
     cleanup
         Delete any dead dotfiles symlinks
-    update
-        Update all the git submodules
-    firsttime
-        Run the first time setup
 
 Flags:
     -h
@@ -65,7 +61,15 @@ setup()
         linkfile "$filename" "$linkname"
     done
 
+    if [ ! -d ~/.ssh ]; then
+      mkdir -p ~/.ssh
+    fi
     linkfile "$DOTFILE_DIR/ssh/config" ~/.ssh/config
+
+    if [ ! -d ~/.config ]; then
+      mkdir -p ~/.config
+    fi
+    linkfile "$DOTFILE_DIR/nvim.dotfile" ~/.config/nvim
 }
 
 linkfile()
@@ -112,7 +116,12 @@ cleanup()
             deletefile "$link"
         fi
     done
-    deletefile ~/.ssh/config
+    if [ ! -d ~/.ssh ]; then
+      deletefile ~/.ssh/config
+    fi
+    if [ ! -d ~/.config ]; then
+      deletefile ~/.config/nvim
+    fi
 }
 
 deletefile()
@@ -139,23 +148,6 @@ deletefile()
     fi
 }
 
-# Do all the misc setup on a new Mac
-firsttime()
-{
-    echo "First time setup"
-    # Ask for root password upfront
-    sudo -v
-    sudo cp -r ./misc/fonts/*.ttf /Library/Fonts/
-
-    # Fix terminfo
-    #if [ "$(uname)" == "Darwin" ]; then
-    #    cd
-    #    infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
-    #    tic $TERM.ti
-    #    cd -
-    #fi
-}
-
 runaction()
 {
     if [ "$DOTFILE_DIR" != "$PWD" ]; then
@@ -170,12 +162,6 @@ runaction()
         ;;
     "cleanup" )
         cleanup
-        ;;
-    "update" )
-        update
-        ;;
-    "firsttime" )
-        firsttime
         ;;
     * )
         usage
@@ -204,4 +190,3 @@ while getopts "hf" opt "$@"; do
 done
 
 runaction "${@:$OPTIND}"
-
