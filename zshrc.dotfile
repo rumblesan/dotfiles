@@ -136,11 +136,3 @@ done
 # Used for machine specific settings
 
 [ -f $HOME/.localrc ] && source $HOME/.localrc
-
-
-# ----------------------------------------------------------------------
-# WELCOME
-# ----------------------------------------------------------------------
-# Startup message
-
-manifesto
