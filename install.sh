@@ -70,6 +70,10 @@ setup()
       mkdir -p ~/.config
     fi
     linkfile "$DOTFILE_DIR/nvim.dotfile" ~/.config/nvim
+
+    if [ ! -d ~/src ]; then
+      mkdir -p ~/src
+    fi
 }
 
 linkfile()
