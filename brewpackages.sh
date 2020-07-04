@@ -35,6 +35,21 @@ basic() {
   done
 }
 
+python() {
+  local pybrews=(
+    pyenv
+    openssl
+    readline
+    sqlite3
+    xz
+    zlib
+  )
+  for b in "${pybrews[@]}"; do
+    echo "installing ${b}"
+    brew install $b
+  done
+}
+
 casks() {
   local caskbrews=(
     alfred
@@ -54,6 +69,7 @@ main() {
   brewsetup
   basic
   casks
+  python
 }
 
 main "$@"

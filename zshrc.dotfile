@@ -126,9 +126,9 @@ source $SHELLCFG/functions.sh
 # ----------------------------------------------------------------------
 # Specific config for any programming languages
 
-#for l in $SHELLCFG/languages/*; do
-#    source $l
-#done
+for l in $SHELLCFG/languages/*; do
+    source $l
+done
 
 # ----------------------------------------------------------------------
 # MISC
