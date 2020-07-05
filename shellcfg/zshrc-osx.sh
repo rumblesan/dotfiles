@@ -23,10 +23,3 @@ if [ -n $(command -v brew) ]; then
   fi
 
 fi
-
-# ----------------------------------------------------------------------
-# ENVIRONMENT CONFIGURATION
-# ----------------------------------------------------------------------
-
-# ignore OSX folder setting files
-FIGNORE="DS_Store"

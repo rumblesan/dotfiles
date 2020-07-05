@@ -50,9 +50,6 @@ source $SHELLCFG/rumblesan-theme.zsh
 # ENVIRONMENT CONFIGURATION
 # ----------------------------------------------------------------------
 
-# ignore OSX folder setting files
-FIGNORE="DS_Store"
-
 # history stuff
 export HISTCONTROL=ignoredups:ignorespace
 export HISTSIZE=5000
