@@ -136,7 +136,7 @@ call denite#custom#var('grep', 'final_opts', [])
 
 " Slime settings
 let g:slime_target = "tmux"
-let g:slime_default_config = {"socket_name": split($TMUX, ",")[0], "target_pane": "{down-of}"}
+let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": "{down-of}"}
 
 " ALE settings
 let g:ale_fix_on_save = 1
