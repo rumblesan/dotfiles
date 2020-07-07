@@ -37,6 +37,10 @@ Plug 'sheerun/vim-polyglot'
 Plug 'munshkr/vim-tidal', { 'for': 'tidal' }
 Plug 'supercollider/scvim', { 'for': 'supercollider' }
 
+if executable('scalac')
+  Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
+endif
+
 " My Plugins
 Plug '~/src/improviz-vim', { 'for': 'improviz' }
 Plug '~/src/glacier/vim', { 'for': 'grains' }
