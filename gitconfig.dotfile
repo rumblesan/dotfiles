@@ -1,7 +1,6 @@
 [user]
 	name = Guy John
 	email = guy@rumblesan.com
-	signingkey = 60AE213D31667B2C
 
 [work]
     email = guy.john@kaluza.com
@@ -99,3 +98,6 @@
 
 [grep]
     lineNumber = true
+
+[include]
+    path = ~/.localgit
