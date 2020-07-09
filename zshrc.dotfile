@@ -18,7 +18,7 @@ fi
 # PATH
 # ----------------------------------------------------------------------
 
-PATH=$DOTFILES/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin
+PATH=$DOTFILES/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 # put ~/.local/bin on PATH if you have it
 if [ -d $HOME/.local/bin ]; then
@@ -35,8 +35,7 @@ export PATH
 # ----------------------------------------------------------------------
 # OSX specific stuff
 
-if [[ "$OSTYPE" == "darwin"* ]]
-then
+if [[ "$OSTYPE" == "darwin"* ]]; then
     source $SHELLCFG/zshrc-osx.sh
 fi
 
