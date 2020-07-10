@@ -1,0 +1,86 @@
+#!/usr/bin/env bash
+
+# exit when script tries to use an undeclared variable
+set -o nounset
+# exit on error
+set -o errexit
+# exit if anything in a pipe fails
+set -o pipefail
+
+[[ "${DEBUG:-}" == 'true' ]] && set -o xtrace
+
+readonly EXE_NAME=$(basename "$0")
+
+oneline_usage="$EXE_NAME [-h] command [args]"
+
+usage()
+{
+    cat <<-EndUsage
+		Usage: $oneline_usage
+		Use '$EXE_NAME -h' for more information
+	EndUsage
+    exit 1
+}
+
+helpinfo()
+{
+cat <<-EndHelp
+Usage: $oneline_usage
+
+Commands:
+    list
+        List all the available gcloud configs
+    use
+        Select which gcloud config to use
+
+Flags:
+    -h
+        Show usage info
+
+EndHelp
+exit 0
+}
+
+die() {
+    echo "$*"
+    exit 1
+}
+
+list() {
+  gcloud config configurations list
+}
+
+use() {
+  gcloud config configurations activate "$1"
+}
+
+runaction() {
+
+    action=$( printf "%s\n" "${1:-usage}" | tr 'A-Z' 'a-z' )
+
+    case "$action" in
+    "list" )
+        list
+        ;;
+    "use" )
+        if [ -z "${2:+unset}" ]; then
+          die "Need to give a configuration name"
+        fi
+        use "$2"
+        ;;
+    * )
+        usage
+        ;;
+    esac
+
+}
+
+while getopts "h" opt "$@"; do
+    case "$opt" in
+        h)
+            helpinfo
+            ;;
+    esac
+done
+
+runaction "${@:$OPTIND}"
