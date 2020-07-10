@@ -1,5 +1,10 @@
 #!/bin/bash
 
+die() {
+  echo "$*"
+  exit 1
+}
+
 # Set the correct executable to use
 # Prefer hub but fall back to normal git
 GIT=$(which hub)
@@ -8,7 +13,6 @@ if [ -z "$GIT" ]; then
 fi
 
 repodir() {
-
   local lastarg="$1"
   if [[ "$lastarg" =~ .+\.git ]]; then
     echo "$lastarg" | sed -e 's/.*\///' -e 's/\.git$//'
@@ -17,25 +21,33 @@ repodir() {
   else
     echo "$lastarg"
   fi
+}
 
+workrepocheck() {
+  echo -n "Is this a work repo? (y/N) "
+  read WORKREPO
+  if [ "$WORKREPO" == "y" ]; then
+    CLONEARGS="${CLONEARGS} -c user.email=${WORKEMAIL} -c repo.environment=work"
+  fi
+  gpgsigncheck
+}
+
+gpgsigncheck() {
+  echo -n "Do you want to gpg sign all commits? (y/N) "
+  read GPGSIGN
+  if [ "$GPGSIGN" == "y" ]; then
+    CLONEARGS="${CLONEARGS} -c commit.gpgsign=true"
+  fi
 }
 
 REPODIR=$(repodir "${@:(-1)}")
-CLONEARGS="--recursive"
 WORKEMAIL=$(git config --get work.email)
-
-die() {
-  echo "$*"
-  exit 1
-}
+CLONEARGS="--recursive"
 
 echo "Hey, it looks like you're cloning a git repo!"
 
-echo -n "Is this a work repo? (y/N) "
-read WORKREPO
-if [ "$WORKREPO" == "y" ]; then
-  echo "I'll set your work email"
-  "$GIT" clone "$@" $CLONEARGS -c user.email=$WORKEMAIL -c repo.environment=work
-else
-  "$GIT" clone $CLONEARGS "$@"
-fi
+workrepocheck
+
+echo "Cloning with ${CLONEARGS}"
+
+"$GIT" clone $CLONEARGS "$@"
