@@ -28,8 +28,8 @@ workrepocheck() {
   read WORKREPO
   if [ "$WORKREPO" == "y" ]; then
     CLONEARGS="${CLONEARGS} -c user.email=${WORKEMAIL} -c repo.environment=work"
+    gpgsigncheck
   fi
-  gpgsigncheck
 }
 
 gpgsigncheck() {
