@@ -30,8 +30,8 @@ Plug 'roxma/vim-tmux-clipboard'
 Plug 'w0rp/ale'
 Plug 'scrooloose/nerdcommenter'
 Plug 'jpalardy/vim-slime'
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next','do': 'bash install.sh' }
 Plug 'sheerun/vim-polyglot'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Language Specific
 Plug 'munshkr/vim-tidal', { 'for': 'tidal' }
@@ -53,6 +53,8 @@ call plug#end()
 set number
 set ruler
 set shortmess=I
+
+set updatetime=300
 
 " Turn mouse mode on
 set mouse=a
@@ -148,9 +150,6 @@ let g:ale_fixers = {
     \ '*': ['remove_trailing_lines', 'trim_whitespace'],
     \ }
 
-" Language Server settings
-let g:LanguageClient_hoverPreview = "Always"
-
 function! FindWorkspaceSymbol()
   call inputsave()
   let symb = input('Symbol Search: ')
@@ -162,28 +161,32 @@ function! FindWorkspaceSymbol()
   endif
 endfunction
 
-nnoremap <silent> gd  :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> gh  :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gr  :call LanguageClient_textDocument_references()<CR>
+" Coc Settings
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+nnoremap <silent> gd  <Plug>(coc-definition)<CR>
+nnoremap <silent> gh  :call <SID>show_documentation()<CR>
+nnoremap <silent> gr  <Plug>(coc-references)<CR>
+nnoremap <silent> gi  <Plug>(coc-implementation)<CR>
+nnoremap <silent> gy  <Plug>(coc-type-deinition)<CR>
 nnoremap <silent> gs  :call FindWorkspaceSymbol()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Rainbow Parens
 augroup rainbow_lisp
   autocmd!
   autocmd FileType lisp,clojure,scheme RainbowParentheses
 augroup END
-
-" Fix markdown rendering in hover popup for language server clients
-augroup markdown_language_client_commands
-    autocmd!
-    autocmd WinLeave __LanguageClient__ ++nested call <SID>fixLanguageClientHover()
-augroup END
-
-function! s:fixLanguageClientHover()
-    setlocal modifiable
-    setlocal conceallevel=2
-    normal i
-    setlocal nomodifiable
-endfunction
 
 set secure
