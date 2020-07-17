@@ -656,6 +656,8 @@
 	<string>~/Documents</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{799, 448}</string>
+	<key>NSOverlayScrollersFallBackForAccessoryViews</key>
+	<false/>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -676,7 +678,7 @@
 	dWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAKgA3TFA0OFRkdV05TLmtleXOj
 	FhcYgAOABIAFoxobHIAGgAeACIAJWklkZW50aWZpZXJVV2lkdGhWSGlkZGVuUTAjQGjA
 	AAAAAAAI0iUmJyhaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0RpY3Rpb25hcnmiJylYTlNP
-	YmplY3TTFA0OKy8doxYXGIADgASABaMwMRyAC4AMgAiACVExI0BzsZ2yLQ5W0iUmNzhe
+	YmplY3TTFA0OKy8doxYXGIADgASABaMwMRyAC4AMgAiACVExI0B0oZ2yLQ5W0iUmNzhe
 	TlNNdXRhYmxlQXJyYXmjNzkpV05TQXJyYXkACAARABoAJAApADIANwBJAEwAUgBUAGMA
 	aQBuAHkAgACDAIUAhwCJAJAAmACcAJ4AoACiAKYAqACqAKwArgC5AL8AxgDIANEA0gDX
 	AOIA6wD4APsBBAELAQ8BEQETARUBGQEbAR0BHwEhASMBLAExAUABRAAAAAAAAAIBAAAA
@@ -698,9 +700,15 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSNavPanelAutosaveName</key>
-	<string>880 726 799 448 0 0 2560 1417 </string>
+	<string>320 321 799 448 0 0 1440 877 </string>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>970 768 620 392 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1280 7 1280 1410 0 0 2560 1417 </string>
+	<string>1280 0 1280 1417 0 0 2560 1417 </string>
+	<key>NSWindow Frame iTerm Window 1</key>
+	<string>1280 0 1280 1417 0 0 2560 1417 </string>
+	<key>NSWindow Frame iTerm Window 2</key>
+	<string>512 0 1707 1417 0 0 2560 1417 </string>
 	<key>NeverWarnAboutMeta</key>
 	<true/>
 	<key>NeverWarnAboutMeta_selection</key>
@@ -1465,26 +1473,27 @@
 	<key>NoSyncAllAppVersions</key>
 	<array>
 		<string>3.3.12</string>
+		<string>3.4.0beta1</string>
 	</array>
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {2560, 1440}}</string>
+		<string>{{0, 0}, {1440, 900}}</string>
 		<key>topLeft</key>
-		<string>{715, 1088}</string>
+		<string>{398, 710}</string>
 	</dict>
 	<key>NoSyncInstallationId</key>
-	<string>D4C2F628-1D29-4F60-A8FA-BD3366D00337</string>
+	<string>ED99927A-DAF6-48E5-BF51-9C542F1B4FEF</string>
+	<key>NoSyncLastOSVersion</key>
+	<string>Version 10.15.5 (Build 19F101)</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>2</integer>
-	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
-	<true/>
-	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
-	<integer>0</integer>
+	<integer>9</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
-	<real>615723701.02041197</real>
+	<real>615798707.53411698</real>
 	<key>NoSyncOnboardingWindowHasBeenShown</key>
 	<true/>
+	<key>NoSyncPermissionToShowTip</key>
+	<false/>
 	<key>NoSyncRecordedVariables</key>
 	<dict>
 		<key>0</key>
@@ -1592,6 +1601,14 @@
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
+				<string>selectionLength</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
 				<string>path</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
@@ -1603,6 +1620,14 @@
 				<string>triggerName</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<false/>
+				<key>name</key>
+				<string>parentSession</string>
+				<key>nonterminalContext</key>
+				<integer>1</integer>
 			</dict>
 			<dict>
 				<key>isTerminal</key>
@@ -1721,6 +1746,14 @@
 				<true/>
 				<key>name</key>
 				<string>tmuxStatusLeft</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
+				<string>selection</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -2183,8 +2216,10 @@
 			</dict>
 		</array>
 	</dict>
+	<key>NoSyncRestoreWindowsCount</key>
+	<integer>0</integer>
 	<key>NoSyncTipOfTheDayEligibilityBeganTime</key>
-	<real>615550901.02019894</real>
+	<real>615483827.50025702</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -2202,7 +2237,7 @@
 	<key>PointerActions</key>
 	<dict/>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/guy/.dotfiles/iterm_prefs</string>
+	<string>/Users/guy.john/.dotfiles/iterm_prefs</string>
 	<key>PromptOnClose</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -2213,17 +2248,23 @@
 	<integer>8</integer>
 	<key>RightOption</key>
 	<integer>3</integer>
+	<key>SUAutomaticallyUpdate</key>
+	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/testing_new.xml?shard=43</string>
+	<string>https://iterm2.com/appcasts/testing_modern.xml?shard=17</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-07-04T10:22:49Z</date>
+	<date>2020-07-17T08:12:58Z</date>
 	<key>SUSendProfileInfo</key>
+	<false/>
+	<key>SUUpdateGroupIdentifier</key>
+	<integer>1996290637</integer>
+	<key>SUUpdateRelaunchingMarker</key>
 	<false/>
 	<key>SavePasteHistory</key>
 	<false/>
@@ -2281,10 +2322,12 @@
 	<string>/-+\~_.</string>
 	<key>findIgnoreCase_iTerm</key>
 	<true/>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.3.12</string>
+	<string>3.4.0beta1</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
