@@ -62,6 +62,9 @@ bind e setw synchronize-panes
 
 #### COLOUR
 
+set-option -g default-terminal "screen-256color"
+set-option -sa terminal-overrides ',xterm-256color:RGB'
+
 # Status update interval
 set -g status-interval 1
 
