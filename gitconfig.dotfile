@@ -101,3 +101,5 @@
 
 [include]
     path = ~/.localgit
+[init]
+	defaultBranch = main
