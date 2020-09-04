@@ -54,11 +54,25 @@ use() {
   gcloud config configurations activate "$1"
 }
 
+k8s() {
+  local region=$(gcloud config get-value compute/region 2>/dev/null)
+  local project=$(gcloud config get-value core/project 2>/dev/null)
+  gcloud container clusters get-credentials $project --region $region --project $project
+}
+
+where() {
+  local project=$(gcloud config get-value core/project 2>/dev/null)
+  echo "You're pointed to $project"
+}
+
 runaction() {
 
     action=$( printf "%s\n" "${1:-usage}" | tr 'A-Z' 'a-z' )
 
     case "$action" in
+    "where" )
+        where
+        ;;
     "list" )
         list
         ;;
@@ -67,6 +81,7 @@ runaction() {
           die "Need to give a configuration name"
         fi
         use "$2"
+        k8s
         ;;
     * )
         usage
