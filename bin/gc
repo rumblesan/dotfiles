@@ -32,6 +32,8 @@ Commands:
         List all the available gcloud configs
     use
         Select which gcloud config to use
+    where
+        Print which project you're pointed to
 
 Flags:
     -h
