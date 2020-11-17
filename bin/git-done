@@ -1,0 +1,20 @@
+#!/bin/bash
+
+CURRENT_BRANCH=`git branch --show-current`
+
+
+MAIN_BRANCH="main"
+if git rev-parse --verify --quiet master; then
+  MAIN_BRANCH="master"
+fi
+
+if [[ "$CURRENT_BRANCH" != "$MAIN_BRANCH" ]] ; then
+  echo "Cleaning up after ${CURRENT_BRANCH}"
+  git co "$MAIN_BRANCH"
+  git get
+  git pull
+  git brd "$CURRENT_BRANCH"
+else
+  git get
+  git pull
+fi
