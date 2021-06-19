@@ -131,6 +131,8 @@ nnoremap <leader>r :<C-u>Denite file/rec<CR>
 nnoremap <leader>f :<C-u>Denite file<CR>
 nnoremap <leader>b :<C-u>Denite buffer<CR>
 nnoremap <leader>g :<C-u>Denite grep<CR>
+call denite#custom#source('file', 'sorters', ['sorter/word'])
+
 " Ag command on grep source
 call denite#custom#var('grep', 'command', ['ag'])
 call denite#custom#var('grep', 'default_opts',
