@@ -186,7 +186,7 @@ build_prompt() {
   RETVAL=$?
   prompt_status
   prompt_tmux
-  prompt_virtualenv
+  #prompt_virtualenv
   prompt_dir
   prompt_git
   prompt_end

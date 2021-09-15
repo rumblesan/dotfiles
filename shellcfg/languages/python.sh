@@ -5,7 +5,7 @@ if [ -n "$(command -v pyenv)" ]; then
       unset -f pyenv
 
       export PYENV_SHELL=zsh
-      source '/usr/local/Cellar/pyenv/1.2.19/libexec/../completions/pyenv.zsh'
+      source '/usr/local/Cellar/pyenv/2.0.4/libexec/../completions/pyenv.zsh'
       command pyenv rehash 2>/dev/null
       pyenv() {
         local command
@@ -15,14 +15,17 @@ if [ -n "$(command -v pyenv)" ]; then
         fi
 
         case "$command" in
-        rehash|shell)
-          eval "$(pyenv "sh-$command" "$@")";;
+        activate|deactivate|rehash|shell)
+          eval "$(pyenv "sh-$command" "$@")"
+          ;;
         *)
-          command pyenv "$command" "$@";;
+          command pyenv "$command" "$@"
+          ;;
         esac
       }
-
       pyenv $@
+
+      eval "$(pyenv virtualenv-init -)"
   }
 
 
