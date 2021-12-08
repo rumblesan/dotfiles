@@ -5,7 +5,7 @@ if [ -n "$(command -v pyenv)" ]; then
       unset -f pyenv
 
       export PYENV_SHELL=zsh
-      source '/usr/local/Cellar/pyenv/2.0.4/libexec/../completions/pyenv.zsh'
+      source '/usr/local/Cellar/pyenv/2.1.0/libexec/../completions/pyenv.zsh'
       command pyenv rehash 2>/dev/null
       pyenv() {
         local command
