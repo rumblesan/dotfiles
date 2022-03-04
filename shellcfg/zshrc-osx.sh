@@ -19,6 +19,8 @@ if [ -n $(command -v brew) ]; then
 
     PATH="$BREWPATH/opt/coreutils/libexec/gnubin:$PATH"
     MANPATH="$BREWPATH/opt/coreutils/libexec/gnuman:$MANPATH"
+    CPATH="/usr/local"
+    C_INCLUDE_PATH="/usr/local/include"
 
   fi
 
