@@ -20,14 +20,11 @@ basic() {
     "--with-default-names gnu-sed"
     "--with-default-names gnu-tar"
     git
-    haskell-stack
-    hub
+    gh
     neovim
-    nodenv
     reattach-to-user-namespace
     the_silver_searcher
     tmux
-    zsh
   )
   for b in "${basicbrews[@]}"; do
     echo "installing ${b}"
@@ -35,16 +32,15 @@ basic() {
   done
 }
 
-python() {
-  local pybrews=(
+development() {
+  local developmentbrews=(
+    haskell-stack
+    go
+    nodenv
+    node-build
     pyenv
-    openssl
-    readline
-    sqlite3
-    xz
-    zlib
   )
-  for b in "${pybrews[@]}"; do
+  for b in "${developmentbrews[@]}"; do
     echo "installing ${b}"
     brew install $b
   done
@@ -69,7 +65,6 @@ main() {
   brewsetup
   basic
   casks
-  python
 }
 
 main "$@"
