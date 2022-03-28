@@ -41,7 +41,7 @@ alias h="history"
 
 # docker aliases
 alias d='docker'
-alias dc='docker-compose'
+alias dc='docker compose'
 alias kc='kubectl'
 
 alias e="$EDITOR"
