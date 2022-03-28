@@ -57,14 +57,14 @@ casks() {
   )
   brew tap caskroom/cask
   for b in "${caskbrews[@]}"; do
-    brew cask install $b
+    brew install --cask --appdir ~/Applications $b
   done
 }
 
 main() {
-  brewsetup
   basic
   casks
+  development
 }
 
 main "$@"
