@@ -19,7 +19,6 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " Styling
 Plug 'altercation/vim-colors-solarized'
-Plug 'junegunn/rainbow_parentheses.vim'
 
 " General Usability
 Plug 'tpope/vim-repeat'
@@ -36,10 +35,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Language Specific
 Plug 'munshkr/vim-tidal', { 'for': 'tidal' }
 Plug 'supercollider/scvim', { 'for': 'supercollider' }
-
-if executable('scalac')
-  Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
-endif
+Plug 'fatih/vim-go', { 'for': 'go' }
 
 " My Plugins
 Plug '~/src/improviz-vim', { 'for': 'improviz' }
@@ -176,14 +172,8 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-nnoremap <silent> gd  <Plug>(coc-definition)<CR>
 nnoremap <silent> gh  :call <SID>show_documentation()<CR>
-nnoremap <silent> gr  <Plug>(coc-references)<CR>
-nnoremap <silent> gi  <Plug>(coc-implementation)<CR>
-nnoremap <silent> gy  <Plug>(coc-type-deinition)<CR>
 nnoremap <silent> gs  :call FindWorkspaceSymbol()<CR>
 
 function! s:show_documentation()
@@ -193,14 +183,5 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Rainbow Parens
-augroup rainbow_lisp
-  autocmd!
-  autocmd FileType lisp,clojure,scheme RainbowParentheses
-augroup END
 
 set secure
