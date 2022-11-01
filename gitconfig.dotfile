@@ -93,6 +93,9 @@
 [hub]
     protocol = https
 
+[http]
+    postBuffer = 524288000
+
 [credential]
 	helper = osxkeychain
 
