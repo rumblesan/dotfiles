@@ -34,11 +34,10 @@ basic() {
 
 development() {
   local developmentbrews=(
-    haskell-stack
-    go
     nodenv
     node-build
     pyenv
+    pyenv-virtualenv
   )
   for b in "${developmentbrews[@]}"; do
     echo "installing ${b}"
@@ -52,12 +51,11 @@ casks() {
     docker
     iterm2
     slate
-    slack
     vlc
   )
   brew tap caskroom/cask
   for b in "${caskbrews[@]}"; do
-    brew install --cask --appdir ~/Applications $b
+    brew install --cask $b
   done
 }
 
