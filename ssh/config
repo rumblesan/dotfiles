@@ -9,19 +9,4 @@ Host *
     ServerAliveInterval 300
     ServerAliveCountMax 20
 
-Host halebopp
-    HostName 192.168.1.100
-    User root
-    ForwardAgent yes
-
-Host pihole
-    HostName 192.168.0.101
-    User pihole
-    IdentityFile ~/.ssh/raspbpi
-    ForwardAgent yes
-
-Host memento
-    HostName 157.245.34.150
-    User root
-    IdentityFile ~/.ssh/digio
-    ForwardAgent yes
+Include ~/.ssh/local_config
