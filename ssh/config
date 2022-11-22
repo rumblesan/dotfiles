@@ -19,3 +19,9 @@ Host pihole
     User pihole
     IdentityFile ~/.ssh/raspbpi
     ForwardAgent yes
+
+Host memento
+    HostName 157.245.34.150
+    User root
+    IdentityFile ~/.ssh/digio
+    ForwardAgent yes
