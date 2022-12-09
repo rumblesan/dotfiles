@@ -25,9 +25,6 @@ if [ -d $HOME/.local/bin ]; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# Mostly useful for brew cask
-[ -f /usr/libexec/path_helper ] && eval `/usr/libexec/path_helper -s`
-
 export PATH
 
 # ----------------------------------------------------------------------
@@ -38,6 +35,15 @@ export PATH
 if [[ "$OSTYPE" == "darwin"* ]]; then
     source $SHELLCFG/zshrc-osx.sh
 fi
+
+# ----------------------------------------------------------------------
+# BREW
+# ----------------------------------------------------------------------
+# Homebrew specific stuff
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+export HOMEBREW_NO_ENV_HINTS=1
 
 # ----------------------------------------------------------------------
 # ZSH SETTINGS
