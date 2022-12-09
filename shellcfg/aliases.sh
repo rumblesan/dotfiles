@@ -43,5 +43,6 @@ alias h="history"
 alias d='docker'
 alias dc='docker compose'
 alias kc='kubectl'
+alias tf='terraform'
 
 alias e="$EDITOR"
