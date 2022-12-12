@@ -5,7 +5,9 @@ if [ -n "$(command -v pyenv)" ]; then
       unset -f pyenv
 
       export PYENV_SHELL=zsh
-      source '/usr/local/Cellar/pyenv/2.1.0/libexec/../completions/pyenv.zsh'
+      local brew_path=`brew --prefix`
+      local version='2.3.8'
+      source "${brew_path}/Cellar/pyenv/${version}/completions/pyenv.zsh"
       command pyenv rehash 2>/dev/null
       pyenv() {
         local command
@@ -27,6 +29,5 @@ if [ -n "$(command -v pyenv)" ]; then
 
       eval "$(pyenv virtualenv-init -)"
   }
-
 
 fi

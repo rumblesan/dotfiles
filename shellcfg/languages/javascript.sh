@@ -10,7 +10,9 @@ if [ -n "$(command -v nodenv)" ]; then
       unset -f nodenv
 
       export NODENV_SHELL=zsh
-      source '/usr/local/Cellar/nodenv/1.4.0/libexec/../completions/nodenv.zsh'
+      local brew_path=`brew --prefix`
+      local version='1.4.0'
+      source "${brew_path}/Cellar/nodenv/${version}/completions/nodenv.zsh"
       command nodenv rehash 2>/dev/null
       nodenv() {
         local command
