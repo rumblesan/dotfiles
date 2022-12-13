@@ -16,6 +16,16 @@ Error handling commands:
 :lopen                  Open Location list
 :ALENext		List correction suggestions                   |ALENext|
 
+==============================================================================
+Using Buffers
+
+:buffers                 list buffers
+:buffer <bufnum>         open buffer <bufnum>
+:sbuffer <bufnum>        open buffer <bufnum> in a horizontal split
+:vert sbuffer <bufnum>   open buffer <bufnum> in a vertical split
+:vsp #<bufnum>           open buffer <bufnum> in a vertical split
+
+==============================================================================
 Spell check commands:
 
 z=			List correction suggestions                   |z=|

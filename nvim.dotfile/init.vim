@@ -5,16 +5,17 @@ set hidden
 " allow external vimrc
 set exrc
 
-let g:python3_host_prog = pyenv#path('3.8.3')
-
 " Setup plugins
 call plug#begin()
 
 " Defaults
 Plug 'tpope/vim-sensible'
 
+" Basic usage
+Plug 'tpope/vim-vinegar'
+Plug 'mileszs/ack.vim'
+
 " Navigation
-Plug 'Shougo/denite.nvim'
 Plug 'christoomey/vim-tmux-navigator'
 
 " Styling
@@ -30,17 +31,15 @@ Plug 'w0rp/ale'
 Plug 'scrooloose/nerdcommenter'
 Plug 'jpalardy/vim-slime'
 Plug 'sheerun/vim-polyglot'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Language Specific
-Plug 'munshkr/vim-tidal', { 'for': 'tidal' }
-Plug 'supercollider/scvim', { 'for': 'supercollider' }
-Plug 'fatih/vim-go', { 'for': 'go' }
+" Plug 'supercollider/scvim', { 'for': 'supercollider' }
 
 " My Plugins
-Plug '~/src/improviz-vim', { 'for': 'improviz' }
-Plug '~/src/glacier/vim', { 'for': 'grains' }
-Plug '~/src/cheapsound/clients/cheapsound.vim', { 'for': 'cheapsound' }
+" Plug '~/src/improviz-vim', { 'for': 'improviz' }
+" Plug '~/src/glacier/vim', { 'for': 'grains' }
+" Plug '~/src/cheapsound/clients/cheapsound.vim', { 'for': 'cheapsound' }
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -106,7 +105,7 @@ nnoremap  <leader>Y  "+yg_
 nnoremap  <leader>y  "+y
 nnoremap  <leader>yy  "+yy
 
-" " Paste from clipboard
+" Paste from clipboard
 nnoremap <leader>p "+p
 nnoremap <leader>P "+P
 vnoremap <leader>p "+p
@@ -117,26 +116,16 @@ set splitbelow
 set splitright
 set switchbuf=vsplit
 
-" Denite settings
-call denite#custom#option('default', 'direction', 'topleft')
-call denite#custom#option('default', 'mode', 'normal')
-call denite#custom#option('default', 'winheight', 15)
-call denite#custom#var('file/rec', 'command', ['ag', '--follow', '--nocolor', '--ignore', '.git', '--nogroup', '--hidden', '-g', ''])
+" File nav settings
 
-nnoremap <leader>r :<C-u>Denite file/rec<CR>
-nnoremap <leader>f :<C-u>Denite file<CR>
-nnoremap <leader>b :<C-u>Denite buffer<CR>
-nnoremap <leader>g :<C-u>Denite grep<CR>
-call denite#custom#source('file', 'sorters', ['sorter/word'])
+nnoremap <leader>f :Lexplore<CR>
+nnoremap <leader>F :Explore<CR>
+nnoremap <leader>b :buffers<CR>
+nnoremap <leader>g :Ack!<Space>
 
-" Ag command on grep source
-call denite#custom#var('grep', 'command', ['ag'])
-call denite#custom#var('grep', 'default_opts',
-    \ ['-i', '--vimgrep', '--ignore-dir', 'vendor'])
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', [])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif
 
 " Slime settings
 let g:slime_target = "tmux"
@@ -147,41 +136,5 @@ let g:ale_fix_on_save = 1
 let g:ale_fixers = {
     \ '*': ['remove_trailing_lines', 'trim_whitespace'],
     \ }
-
-function! FindWorkspaceSymbol()
-  call inputsave()
-  let symb = input('Symbol Search: ')
-  call inputrestore()
-  if symb == ""
-    execute "Denite workspaceSymbol"
-  else
-    execute "Denite -input=" . symb . " workspaceSymbol"
-  endif
-endfunction
-
-" Coc Settings
-
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-
-nnoremap <silent> gh  :call <SID>show_documentation()<CR>
-nnoremap <silent> gs  :call FindWorkspaceSymbol()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
 
 set secure
