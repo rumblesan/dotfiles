@@ -1,12 +1,9 @@
 
-Compression yes
-
-ForwardAgent yes
-ServerAliveInterval 60
-
 Host *
+    Compression yes
     UseKeychain yes
     ServerAliveInterval 300
     ServerAliveCountMax 20
+    ForwardAgent yes
 
 Include ~/.ssh/local_config
