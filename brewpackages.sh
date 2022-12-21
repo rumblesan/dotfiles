@@ -47,7 +47,8 @@ development() {
 
 casks() {
   local caskbrews=(
-    alfred
+    1password
+    1password-cli
     docker
     iterm2
     slate
