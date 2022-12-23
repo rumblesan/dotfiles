@@ -1,0 +1,6 @@
+#!/usr/bin/env osascript
+
+tell application "/Applications/Google Chrome.app"
+  make new window
+  set URL of active tab of window 1 to "about:blank"
+end tell
