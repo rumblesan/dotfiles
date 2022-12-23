@@ -26,6 +26,13 @@ Using Buffers
 :vsp #<bufnum>           open buffer <bufnum> in a vertical split
 
 ==============================================================================
+Opening Files
+
+:find path/to/file.txt   open file in buffer, with tab completion
+:vs path/to/file.txt     open file in vertical split new buffer, with tab completion
+:sp path/to/file.txt     open file in horizontal split new buffer, with tab completion
+
+==============================================================================
 Spell check commands:
 
 z=			List correction suggestions                   |z=|
