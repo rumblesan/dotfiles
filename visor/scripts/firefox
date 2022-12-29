@@ -1,0 +1,20 @@
+#!/usr/bin/env osascript
+
+on firefoxRunning()
+	tell application "System Events" to (name of processes) contains "Firefox"
+end firefoxRunning
+
+on run argv
+
+	if (firefoxRunning() = false) then
+		do shell script "open -a Firefox"
+	else
+		tell application "System Events"
+			tell process "Firefox"
+				click menu item "New Window" of menu "File" of menu bar 1
+			end tell
+		end tell
+	end if
+	delay 0.1
+	tell application "Firefox" to activate
+end run
