@@ -11,7 +11,7 @@ if [ -n "$(command -v nodenv)" ]; then
 
       export NODENV_SHELL=zsh
       local brew_path=`brew --prefix`
-      local version='1.4.0'
+      local version=`command nodenv -v | awk '{print $2}'`
       source "${brew_path}/Cellar/nodenv/${version}/completions/nodenv.zsh"
       command nodenv rehash 2>/dev/null
       nodenv() {

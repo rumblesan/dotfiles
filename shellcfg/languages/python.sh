@@ -1,3 +1,8 @@
+# ----------------------------------------------------------------------
+# PYTHON
+# ----------------------------------------------------------------------
+# Python specific config
+
 if [ -n "$(command -v pyenv)" ]; then
   export PATH="${HOME}/.pyenv/shims:${PATH}"
 
@@ -6,7 +11,7 @@ if [ -n "$(command -v pyenv)" ]; then
 
       export PYENV_SHELL=zsh
       local brew_path=`brew --prefix`
-      local version='2.3.8'
+      local version=`command pyenv -v | awk '{print $2}'`
       source "${brew_path}/Cellar/pyenv/${version}/completions/pyenv.zsh"
       command pyenv rehash 2>/dev/null
       pyenv() {
