@@ -34,7 +34,7 @@ Plug 'sheerun/vim-polyglot'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Language Specific
-" Plug 'supercollider/scvim', { 'for': 'supercollider' }
+Plug 'supercollider/scvim', { 'for': 'supercollider' }
 
 " My Plugins
 " Plug '~/src/improviz-vim', { 'for': 'improviz' }
