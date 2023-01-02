@@ -25,6 +25,7 @@ basic() {
     reattach-to-user-namespace
     the_silver_searcher
     tmux
+    fzf
   )
   for b in "${basicbrews[@]}"; do
     echo "installing ${b}"

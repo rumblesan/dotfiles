@@ -9,6 +9,12 @@ set -o pipefail
 
 [[ "${DEBUG:-}" == 'true' ]] && set -o xtrace
 
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+if [ -d /opt/homebrew/bin/ ];then
+    export PATH="/opt/homebrew/bin:$PATH"
+fi
+eval "$(brew shellenv)"
+
 readonly SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 die() {
@@ -26,6 +32,19 @@ script()
     fi
 }
 
+app()
+{
+    local appfolders=(
+        /Applications
+        /Applications/Utilities
+        /System/Applications
+        /System/Applications/Utilities
+        /System/Library/PreferencePanes
+    )
+    local appname="$(find ${appfolders[*]} -name '*.app' -o -name '*.prefPane' -maxdepth 1 | fzf)"
+    open "$appname"
+}
+
 unknown()
 {
     echo "Don't recognise '$1'"
@@ -38,6 +57,9 @@ runaction()
     case "$action" in
     "sleep" )
         pmset sleepnow
+        ;;
+    "app" )
+        app
         ;;
     "lock" )
         pmset displaysleepnow
