@@ -67,6 +67,9 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+" Turn off folding
+set nofoldenable
+
 " Actual formatting options
 set expandtab
 set tabstop=2
