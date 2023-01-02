@@ -34,5 +34,13 @@ snippet Pmetro "Pmetro pattern class"
 		inf,
 		${4:0.5}
 	),
+snippet Pcontrol "Pcontrol class"
+	(
+		~${1} = Pcontrol(
+			\\${2},
+			${0:${VISUAL}}
+			\dur, 2,
+		)
+	)
 snippet bpm "set the bpm"
 	p.clock.tempo = ${1:150}/60;
