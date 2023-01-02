@@ -1,0 +1,38 @@
+snippet setup "add setup loading"
+	"Setup.scd".load;
+snippet debug "add debug statements"
+	(
+		s.plotTree
+		s.dumpOSC(1)
+	)
+snippet Pbind
+	(
+		~${1} = Pbind(
+			\instrument, \\${2:default},
+			${0:${VISUAL}}
+			\amp, 0.5,
+			\dur, 0.5,
+		)
+	)
+	~${1}.play;
+	~${1}.stop;
+snippet Pwrand "Pwrand pattern class"
+	Pwrand([${1}], [${2}].normalizeSum, inf)
+snippet Prand "Prand pattern class"
+	Prand([${1}], inf)
+snippet Pseq "Pseq pattern class"
+	Pseq([${1}], inf)
+snippet Pn "Pseq pattern class"
+	Pn(${1}, ${2:1})
+snippet Pclass "general pattern class"
+	P${1}(${2}, inf)
+snippet Pmetro "Pmetro pattern class"
+	[\degree, \dur], Pmetro(
+		Pseq([${1:0,0,0,0}], inf),
+		Pseq([${2:1,1,1,1}], inf),
+		"${3:....}",
+		inf,
+		${4:0.5}
+	),
+snippet bpm "set the bpm"
+	p.clock.tempo = ${1:150}/60;

@@ -33,6 +33,10 @@ Plug 'jpalardy/vim-slime'
 Plug 'sheerun/vim-polyglot'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" Snippets
+Plug 'honza/vim-snippets'
+Plug 'dcampos/nvim-snippy'
+
 " Language Specific
 Plug 'supercollider/scvim', { 'for': 'supercollider' }
 
@@ -130,6 +134,13 @@ endif
 " Slime settings
 let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": "{down-of}"}
+
+
+imap <expr> <Tab> snippy#can_expand_or_advance() ? '<Plug>(snippy-expand-or-advance)' : '<Tab>'
+imap <expr> <S-Tab> snippy#can_jump(-1) ? '<Plug>(snippy-previous)' : '<S-Tab>'
+smap <expr> <Tab> snippy#can_jump(1) ? '<Plug>(snippy-next)' : '<Tab>'
+smap <expr> <S-Tab> snippy#can_jump(-1) ? '<Plug>(snippy-previous)' : '<S-Tab>'
+xmap <Tab> <Plug>(snippy-cut-text)
 
 " ALE settings
 let g:ale_fix_on_save = 1
