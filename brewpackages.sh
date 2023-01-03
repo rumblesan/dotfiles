@@ -17,8 +17,6 @@ brewsetup() {
 basic() {
   local basicbrews=(
     coreutils
-    "--with-default-names gnu-sed"
-    "--with-default-names gnu-tar"
     git
     gh
     neovim
