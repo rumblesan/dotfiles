@@ -104,7 +104,7 @@ bindkey -v
 
 # add custom completion scripts
 fpath=($SHELLCFG/completions $fpath)
-fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=(`brew --prefix`/share/zsh/site-functions $fpath)
 
 # show completion menu when number of options is at least 2
 zstyle ':completion:*' menu select=2
