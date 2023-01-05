@@ -42,7 +42,9 @@ app()
         /System/Library/PreferencePanes
     )
     local appname="$(find ${appfolders[*]} -name '*.app' -o -name '*.prefPane' -maxdepth 1 | fzf)"
-    open "$appname"
+    if [[ ! -z "$appname" ]]; then
+        open "$appname"
+    fi
 }
 
 unknown()
@@ -76,9 +78,20 @@ runaction()
 
 
 main () {
+
+    local scripts="ls ${SCRIPT_DIR}/scripts/"
+    local commands=(
+        "sleep"
+        "app"
+        "lock"
+        "exit"
+    )
+
     while true; do
-        read -p ">>> " line
-        runaction "$line"
+        local line=`(${scripts[@]}; printf "%s\n" ${commands[@]}) | fzf`
+        if [[ ! -z "$line" ]]; then
+            runaction "$line"
+        fi
     done
 }
 
