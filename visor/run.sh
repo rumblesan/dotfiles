@@ -54,7 +54,7 @@ unknown()
 
 runaction()
 {
-    action=$( printf "%s\n" "$1" | tr 'A-Z' 'a-z' )
+    action="$1"
 
     case "$action" in
     "sleep" )
