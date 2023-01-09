@@ -56,43 +56,51 @@ runaction()
 {
     action="$1"
 
-    case "$action" in
-    "sleep" )
-        pmset sleepnow
-        ;;
-    "app" )
-        app
-        ;;
-    "lock" )
-        pmset displaysleepnow
-        ;;
-    "exit" )
-        exit 0
-        ;;
-    * )
-        script "$action"
-        ;;
-    esac
-
+    if [[ "$action" =~ .+\.(app|prefPane)$ ]]; then
+        open "$action"
+    else
+        case "$action" in
+        "sleep" )
+            pmset sleepnow
+            ;;
+        "lock" )
+            pmset displaysleepnow
+            ;;
+        "exit" )
+            exit 0
+            ;;
+        * )
+            script "$action"
+            ;;
+        esac
+    fi
 }
 
 
-main () {
-
+main ()
+{
+    local appfolders=(
+        /Applications
+        /Applications/Utilities
+        /System/Applications
+        /System/Applications/Utilities
+        /System/Library/PreferencePanes
+    )
     local scripts="ls ${SCRIPT_DIR}/scripts/"
     local commands=(
         "sleep"
-        "app"
         "lock"
         "exit"
     )
 
-    while true; do
-        local line=`(${scripts[@]}; printf "%s\n" ${commands[@]}) | fzf`
-        if [[ ! -z "$line" ]]; then
-            runaction "$line"
-        fi
-    done
+    local line=`(
+        ls ${SCRIPT_DIR}/scripts/
+        printf "%s\n" ${commands[@]};
+        find ${appfolders[@]} -name '*.app' -o -name '*.prefPane' -maxdepth 1
+    ) | fzf`
+    if [[ ! -z "$line" ]]; then
+        runaction "$line"
+    fi
 }
 
 main "$@"

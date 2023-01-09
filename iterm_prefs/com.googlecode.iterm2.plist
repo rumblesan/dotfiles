@@ -646,6 +646,10 @@
 	<integer>0</integer>
 	<key>NeverWarnAboutShortLivedSessions_07296A07-0FA6-493E-B413-EA39C090B672</key>
 	<true/>
+	<key>NeverWarnAboutShortLivedSessions_24EDB7FB-000C-4A8B-9328-1E98B08E97D6</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_24EDB7FB-000C-4A8B-9328-1E98B08E97D6_selection</key>
+	<integer>0</integer>
 	<key>NeverWarnAboutShortLivedSessions_A8BFD393-F6BC-4226-8728-664E02546471</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -1556,7 +1560,7 @@
 			<key>Automatically Log</key>
 			<false/>
 			<key>BM Growl</key>
-			<true/>
+			<false/>
 			<key>Background Color</key>
 			<dict>
 				<key>Blue Component</key>
