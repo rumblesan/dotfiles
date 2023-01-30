@@ -51,7 +51,7 @@ call plug#end()
 " Display settings
 set number
 set ruler
-set shortmess=I
+set shortmess+=I
 
 set updatetime=300
 
