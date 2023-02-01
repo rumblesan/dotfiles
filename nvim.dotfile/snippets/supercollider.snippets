@@ -42,5 +42,11 @@ snippet Pcontrol "Pcontrol class"
 			\dur, 2,
 		)
 	)
+snippet SynthDef
+	(
+		SynthDef(\\${1}, {arg out=0, freq=440, gate=1, amp=1.0;
+			${0:${VISUAL}}
+		}).add;
+	)
 snippet bpm "set the bpm"
 	p.clock.tempo = ${1:150}/60;
