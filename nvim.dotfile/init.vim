@@ -17,6 +17,8 @@ Plug 'mileszs/ack.vim'
 
 " Navigation
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 
 " Styling
 Plug 'altercation/vim-colors-solarized'
@@ -120,15 +122,19 @@ vnoremap <leader>P "+P
 
 " Split settings
 set splitbelow
-set splitright
 set switchbuf=vsplit
 
 " File nav settings
 
 nnoremap <leader>f :Lexplore<CR>
-nnoremap <leader>F :Explore<CR>
-nnoremap <leader>b :buffers<CR>
+nnoremap <leader>r :Files<CR>
+nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>g :Ack!<Space>
+
+let g:fzf_action = {
+      \ 'ctrl-s': 'split',
+      \ 'ctrl-v': 'vsplit'
+      \ }
 
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
