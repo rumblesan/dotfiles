@@ -123,6 +123,7 @@ vnoremap <leader>P "+P
 " Split settings
 set splitbelow
 set switchbuf=vsplit
+set splitright
 
 " File nav settings
 
