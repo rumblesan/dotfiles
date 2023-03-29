@@ -1,0 +1,59 @@
+#!/usr/bin/env python
+
+import argparse
+import os
+import json
+import textwrap
+
+def get_credentials(role, profile, hours=1):
+    seconds = hours * 3600
+    stream = os.popen('''aws iam list-roles --query "Roles[?RoleName == '{role}'].Arn"'''.format(role=role))
+    json_data = stream.read()
+    arn = json.loads(json_data)[0]
+
+    stream = os.popen((
+        "aws sts assume-role "
+        "--role-arn {role} "
+        "--role-session-name Temp "
+        "--profile {profile} "
+        "--duration-seconds {seconds} "
+    ).format(role=arn, profile=profile, seconds=seconds))
+    json_data = stream.read()
+    creds = json.loads(json_data)
+    return creds
+
+def set_credentials(creds):
+    print('setting credentials for default profile')
+    c = creds['Credentials']
+    os.system('aws configure set aws_access_key_id {0}'.format(c['AccessKeyId']))
+    os.system('aws configure set aws_secret_access_key {0}'.format(c['SecretAccessKey']))
+    os.system('aws configure set aws_session_token {0}'.format(c['SessionToken']))
+
+def display_eval_creds(creds):
+    c = creds['Credentials']
+    print('export AWS_ACCESS_KEY_ID={0}'.format(c['AccessKeyId']))
+    print('export AWS_SECRET_ACCESS_KEY={0}'.format(c['SecretAccessKey']))
+    print('export AWS_SESSION_TOKEN={0}'.format(c['SessionToken']))
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        description=textwrap.dedent('''\
+            Get temporary credentials while assuming AWS roles.
+
+            Designed to have its output eval-ed in your shell.
+            eval "$(aws-assume-role KubeAdmin -p tracking-infra)"j
+        ''')
+    )
+
+    parser.add_argument('-p', '--profile', dest='profile', nargs='?', default='default', help='the aws cli profile to use when requesting the credentials')
+    parser.add_argument('-s', '--set', action='store_true', help='set the credentials for the default aws cli profile')
+    parser.add_argument('-t', '--time', nargs='?', type=int, default=1, help='set the time the credentials last for')
+    parser.add_argument('role', type=str, help='the role to assume')
+    args = parser.parse_args()
+    creds = get_credentials(args.role, args.profile, args.time)
+    if args.set:
+        set_credentials(creds)
+    else:
+        display_eval_creds(creds)

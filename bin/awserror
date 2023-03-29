@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# exit when script tries to use an undeclared variable
+set -o nounset
+# exit on error
+set -o errexit
+# exit if anything in a pipe fails
+set -o pipefail
+
+[[ "${DEBUG:-}" == 'true' ]] && set -o xtrace
+
+readonly EXE_NAME=$(basename "$0")
+
+die() {
+    echo "$*"
+    exit 1
+}
+
+
+main () {
+    aws sts decode-authorization-message --encoded-message `pbpaste` --query DecodedMessage --output text | jq '.'
+}
+
+main "$@"
