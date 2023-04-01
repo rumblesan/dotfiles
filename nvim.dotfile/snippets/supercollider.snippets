@@ -6,16 +6,16 @@ snippet debug "add debug statements"
 		s.dumpOSC(1)
 	)
 snippet Pbind
-	(
-		~${1} = Pbind(
-			\instrument, \\${2:default},
-			${0:${VISUAL}}
-			\amp, 0.5,
-			\dur, 0.5,
-		)
-	)
-	~${1}.play;
-	~${1}.stop;
+	Ndef(\\${1}, Pbind(
+		\instrument, \\${2:default},
+		\degree, 0,
+		\attack, 0.1,
+		\decay, 0.5,
+		${0:${VISUAL}}
+		\amp, 1,
+		\dur, 0.5,
+	))
+	Ndef(\\${1}).clear;
 snippet Pwrand "Pwrand pattern class"
 	Pwrand([${1}], [${2}].normalizeSum, inf)
 snippet Prand "Prand pattern class"
@@ -35,13 +35,15 @@ snippet Pmetro "Pmetro pattern class"
 		${4:0.5}
 	),
 snippet Pcontrol "Pcontrol class"
-	(
-		~${1} = Pcontrol(
-			\\${2},
-			${0:${VISUAL}}
-			\dur, 2,
-		)
-	)
+	Ndef(\\${1}, Pcontrol(
+		\\${2},
+		${0:${VISUAL}}
+		\dur, 2,
+	))
+snippet Ndeffilter
+	(Ndef(\\${1}).filter(${2}, {|in|
+		${0:${VISUAL}}
+	}))
 snippet SynthDef
 	(
 		SynthDef(\\${1}, {arg out=0, freq=440, gate=1, amp=1.0;
@@ -50,3 +52,57 @@ snippet SynthDef
 	)
 snippet bpm "set the bpm"
 	p.clock.tempo = ${1:150}/60;
+snippet mod "create a value modulator"
+	Ndef(\\${1}, Pcontrol(
+		\mod,
+		\value, Pseq([1], inf),
+		\slew, 0,
+		\dur, 4
+	))
+	Ndef(\\${1}).quant = 4;
+snippet envfollower "create an envelope follower"
+	Ndef(\\${1}, Pcontrol(
+		\envfollower,
+		\gain, 1,
+		\value, 1,
+		\offset, 0,
+		\attack, 0.01,
+		\decay, 0.7,
+	))
+	Ndef(\\${1}) <<> ${2};
+snippet envducker "create an envelope ducker"
+	Ndef(\\${1}, Pcontrol(
+		\envducker,
+		\gain, 3,
+		\value, 1,
+		\offset, 0,
+		\attack, 0.1,
+		\decay, 0.7,
+	))
+	Ndef(\\${1}) <<> ${2};
+snippet percenv "create a envelope modulator"
+	Ndef(\\${1}, Pcontrol(
+		\percenv,
+		\attack, 0.01,
+		\decay, 0.1,
+		\curve, -4,
+		\value, 4,
+		\offset, 0,
+		\dur, 4
+	))
+	Ndef(\\${1}).quant = 4;
+snippet mixer
+	Ndef(\\${1}, {
+		Mix.new([
+			Pan2.ar(Silent.ar, 0),
+		])
+	})
+snippet fader
+	~faders.scale(${1}, ${2:0}, ${3:1}).fader
+snippet Pmetro
+	[\degree, \dur], Pmetro(
+		Pseq([${1:0, 0, 0, 0, 0, 0, 0, 0}], inf),
+		Pseq([${2:4, 4, 4, 4, 4, 4, 4, 4}], inf),
+		"${3:--------}",
+		inf,
+		${4:0.25})
