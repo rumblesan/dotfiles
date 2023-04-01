@@ -41,7 +41,7 @@ app()
         /System/Applications/Utilities
         /System/Library/PreferencePanes
     )
-    local appname="$(find ${appfolders[*]} -name '*.app' -o -name '*.prefPane' -maxdepth 1 | fzf)"
+    local appname="$(find ${appfolders[*]} -name '*.app' -o -name '*.prefPane' -maxdepth 2 | fzf)"
     if [[ ! -z "$appname" ]]; then
         open "$appname"
     fi
@@ -96,7 +96,7 @@ main ()
     local line=`(
         ls ${SCRIPT_DIR}/scripts/
         printf "%s\n" ${commands[@]};
-        find ${appfolders[@]} -name '*.app' -o -name '*.prefPane' -maxdepth 1
+        find ${appfolders[@]} -name '*.app' -o -name '*.prefPane' -maxdepth 2
     ) | fzf`
     if [[ ! -z "$line" ]]; then
         runaction "$line"
