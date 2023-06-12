@@ -18,6 +18,7 @@ basic() {
   local basicbrews=(
     coreutils
     git
+    git-lfs
     gh
     neovim
     reattach-to-user-namespace
