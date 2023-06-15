@@ -1,9 +1,9 @@
 
 Host *
     Compression yes
-    UseKeychain yes
     ServerAliveInterval 300
     ServerAliveCountMax 20
     ForwardAgent yes
+    AddKeysToAgent yes
 
 Include ~/.ssh/local_config
