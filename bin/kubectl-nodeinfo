@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# optional argument handling
+if [[ "$1" == "version" ]]
+then
+    echo "1.0.0"
+    exit 0
+fi
+
+readonly columns=(
+    "NAME:.metadata.name"
+    "STATUS:.status.conditions[-1].type"
+    "IP:.status.addresses[?(@.type=='InternalIP')].address"
+    "NODEGROUP:.metadata.labels.eks\.amazonaws\.com/nodegroup"
+    "TYPE:.metadata.labels.node\.kubernetes\.io/instance-type"
+    "ZONE:.metadata.labels.topology\.kubernetes\.io/zone"
+)
+cmd=$(printf ",%s" "${columns[@]}")
+cmd=${cmd:1}
+
+#echo "kubectl get nodes -o custom-columns=${cmd}"
+
+kubectl get nodes -o custom-columns=${cmd}
