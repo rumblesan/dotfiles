@@ -5,6 +5,8 @@ set hidden
 " allow external vimrc
 set exrc
 
+let g:python3_host_prog = pyenv#path('neovim')
+
 " Setup plugins
 call plug#begin()
 
