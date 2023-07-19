@@ -13,7 +13,7 @@ if [[ "$CURRENT_BRANCH" != "$MAIN_BRANCH" ]] ; then
   git co "$MAIN_BRANCH"
   git get
   git pull
-  git brd "$CURRENT_BRANCH"
+  git branch -D "$CURRENT_BRANCH"
 else
   git get
   git pull
