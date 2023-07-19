@@ -1,0 +1,21 @@
+#!/bin/bash
+
+CURRENT_BRANCH=`git branch --show-current`
+
+
+MAIN_BRANCH="main"
+if git rev-parse --verify --quiet master; then
+  MAIN_BRANCH="master"
+fi
+
+if [[ "$CURRENT_BRANCH" != "$MAIN_BRANCH" ]] ; then
+  echo "Updating ${MAIN_BRANCH} and rebasing ${CURRENT_BRANCH} onto it"
+  git co "$MAIN_BRANCH"
+  git get
+  git pull
+  git co "$CURRENT_BRANCH"
+  git rebase "$MAIN_BRANCH"
+else
+  git get
+  git pull
+fi
