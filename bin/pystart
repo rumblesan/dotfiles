@@ -28,4 +28,3 @@ EOF
 
 chmod +x "$FILENAME"
 exec $EDITOR "$FILENAME"
-

@@ -14,36 +14,40 @@ def get_credentials(profile):
     creds = json.loads(json_data)
     return creds
 
+
 def get_region(profile):
     cmd = "aws configure get region --profile {profile}".format(profile=profile)
     stream = os.popen(cmd)
     region = stream.read()
     return region
 
+
 def set_config(key, value):
     if value:
         print("setting {} to {}".format(key, value))
-        os.system('aws configure set {0} {1}'.format(key, value))
+        os.system("aws configure set {0} {1}".format(key, value))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         formatter_class=argparse.RawDescriptionHelpFormatter,
-        description=textwrap.dedent('''\
+        description=textwrap.dedent(
+            """\
             Transfer settings from one cli profile to the default
-        ''')
+        """
+        ),
     )
 
-    parser.add_argument('profile', type=str, help='the profile to pull config from')
+    parser.add_argument("profile", type=str, help="the profile to pull config from")
     args = parser.parse_args()
 
     creds = get_credentials(args.profile)
     print(creds)
-    set_config('aws_access_key_id', creds['AccessKeyId'])
-    set_config('aws_secret_access_key', creds['SecretAccessKey'])
-    if 'SessionToken' in creds:
-        set_config('aws_session_token', creds['SessionToken'])
+    set_config("aws_access_key_id", creds["AccessKeyId"])
+    set_config("aws_secret_access_key", creds["SecretAccessKey"])
+    if "SessionToken" in creds:
+        set_config("aws_session_token", creds["SessionToken"])
     else:
-        set_config('aws_session_token', "")
+        set_config("aws_session_token", "")
     region = get_region(args.profile)
-    set_config('region', region)
+    set_config("region", region)
