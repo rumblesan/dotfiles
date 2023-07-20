@@ -103,8 +103,6 @@ imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
 
-map ; :
-
 command Cheats :help cheats.txt
 
 " Map leader to easier to use key
