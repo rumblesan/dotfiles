@@ -16,8 +16,3 @@ ehthumbs.db
 /.bundle/
 .dir-locals.el
 .nvimrc
-
-# Scala specific
-.bloop/
-.metals/
-metals.sbt
