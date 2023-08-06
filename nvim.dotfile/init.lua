@@ -51,7 +51,7 @@ vim.call('plug#end')
 
 opt.number = true
 opt.ruler = true
-opt.shortmess = "filnxtToOFI"
+opt.shortmess:append({ I = true })
 
 opt.updatetime = 300
 
