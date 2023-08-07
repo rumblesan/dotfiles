@@ -149,15 +149,16 @@ scnvim.setup({
       map('editor.send_block', {'i', 'n'}),
       map('editor.send_selection', 'x'),
     },
-    ['<CR>'] = map('postwin.toggle'),
-    ['<M-CR>'] = map('postwin.toggle', 'i'),
-    ['<M-L>'] = map('postwin.clear', {'n', 'i'}),
+    ['<C-CR>'] = {
+      map('editor.send_block', {'i', 'n'}),
+      map('editor.send_selection', 'x'),
+    },
     --['<C-k>'] = map('signature.show', {'n', 'i'}),
     ['<leader>hh'] = map('sclang.hard_stop', {'n', 'x', 'i'}),
     ['<leader>st'] = map('sclang.start'),
     ['<leader>sk'] = map('sclang.recompile'),
-    ['<F1>'] = map_expr('s.boot'),
-    ['<leader>m'] = map_expr('s.meter'),
+    --['<F1>'] = map_expr('s.boot'),
+    --['<leader>m'] = map_expr('s.meter'),
   },
   editor = {
     highlight = {
@@ -173,6 +174,14 @@ scnvim.setup({
     cmd = '/Applications/SuperCollider.app/Contents/MacOS/sclang'
   },
 })
+
+vim.api.nvim_create_user_command('SCWin',
+  function()
+    postwin = require('scnvim.postwin')
+    postwin.toggle()
+  end,
+  {}
+)
 
 scnvim.load_extension 'tmux'
 
