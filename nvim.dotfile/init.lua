@@ -123,10 +123,21 @@ if vim.fn.executable('ag') == 1 then
 end
 
 -- ALE settings
+vim.g.ale_linters = {
+  ['terraform'] = { 'tflint' },
+  ['python'] = { 'flake8' },
+  ['c'] = { 'clang' },
+}
+vim.g.ale_python_flake8_options = '--max-line-length 99'
+
 vim.g.ale_fix_on_save = 1
 vim.g.ale_fixers = {
-  ['*'] = { 'remove_trailing_lines', 'trim_whitespace' }
+  ['*'] = { 'remove_trailing_lines', 'trim_whitespace' },
+  ['terraform'] = { 'terraform' },
+  ['python'] = { 'black' },
+  ['c'] = { 'clang-format' },
 }
+vim.g.ale_python_black_options = '--line-length 99'
 
 
 local snippy = require('snippy')
