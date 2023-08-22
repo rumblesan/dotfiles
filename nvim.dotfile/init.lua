@@ -33,6 +33,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'roxma/vim-tmux-clipboard'
+Plug 'jenterkin/vim-autosource'
 
 -- Development
 Plug 'w0rp/ale'
