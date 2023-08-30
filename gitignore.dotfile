@@ -16,3 +16,4 @@ ehthumbs.db
 /.bundle/
 .dir-locals.el
 .nvimrc
+.vimrc
