@@ -1,21 +1,3 @@
-#!/usr/bin/env osascript
+#!/usr/bin/env bash
 
-on is_running()
-	application "iTerm" is running
-end is_running
-
-on new_window()
-	tell application "iTerm" to create window with default profile
-end new_window
-
-on run_iterm()
-	tell application "iTerm"
-		activate
-	end tell
-end run_iterm
-
-if is_running() then
-	new_window()
-else
-	run_iterm()
-end if
+alacritty --working-directory ~
