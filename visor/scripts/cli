@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-alacritty --working-directory ~
+alacritty msg create-window --working-directory ~
