@@ -28,6 +28,7 @@ Plug 'junegunn/fzf.vim'
 
 -- Styling
 Plug 'altercation/vim-colors-solarized'
+Plug 'nvim-lualine/lualine.nvim'
 
 -- General Usability
 Plug 'tpope/vim-repeat'
@@ -45,7 +46,7 @@ Plug 'honza/vim-snippets'
 Plug 'dcampos/nvim-snippy'
 
 -- Language Specific
-Plug('davidgranstrom/scnvim', { ['for']  ='supercollider' })
+Plug('davidgranstrom/scnvim', { ['do'] = vim.fn['scnvim#install'], ['for']  ='supercollider' })
 Plug('davidgranstrom/scnvim-tmux', { ['for']  ='supercollider' })
 
 vim.call('plug#end')
@@ -56,9 +57,6 @@ opt.shortmess:append({ I = true })
 
 opt.updatetime = 300
 
--- Turn mouse mode on
-opt.mouse = "a"
-
 -- Turns off swap files and backups
 opt.backup = false
 opt.writebackup = false
@@ -66,6 +64,9 @@ opt.swapfile = false
 
 -- Turn off folding
 opt.foldenable = false
+
+-- Turn off mode display
+opt.showmode = false
 
 -- Formatting options
 opt.expandtab = true
@@ -140,6 +141,27 @@ vim.g.ale_fixers = {
 }
 vim.g.ale_python_black_options = '--line-length 99'
 
+require('lualine').setup {
+  options = {
+    icons_enabled = false,
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+}
 
 local snippy = require('snippy')
 
@@ -187,7 +209,7 @@ scnvim.setup({
   },
 })
 
-vim.api.nvim_create_user_command('SCWin',
+vim.api.nvim_create_user_command('SCNvimToggle',
   function()
     postwin = require('scnvim.postwin')
     postwin.toggle()
@@ -197,4 +219,4 @@ vim.api.nvim_create_user_command('SCWin',
 
 scnvim.load_extension 'tmux'
 
-opt.secure = true
+--opt.secure = true

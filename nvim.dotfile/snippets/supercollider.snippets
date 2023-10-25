@@ -6,15 +6,17 @@ snippet debug "add debug statements"
 		s.dumpOSC(1)
 	)
 snippet Pbind
-	Ndef(\\${1}, Pbind(
-		\instrument, \\${2:default},
-		\degree, 0,
-		\attack, 0.1,
-		\decay, 0.5,
-		${0:${VISUAL}}
-		\amp, 1,
-		\dur, 0.5,
-	))
+	Ndef(\\${1},
+		Pbind(
+			\instrument, \\${2:default},
+			\degree, 0,
+			\attack, 0.1,
+			\decay, 0.5,
+			${0:${VISUAL}}
+			\amp, 1,
+			\dur, 0.5,
+		)
+	)
 	Ndef(\\${1}).clear;
 snippet Pwrand "Pwrand pattern class"
 	Pwrand([${1}], [${2}].normalizeSum, inf)
@@ -26,70 +28,74 @@ snippet Pn "Pseq pattern class"
 	Pn(${1}, ${2:1})
 snippet Pclass "general pattern class"
 	P${1}(${2}, inf)
-snippet Pmetro "Pmetro pattern class"
-	[\degree, \dur], Pmetro(
-		Pseq([${1:0,0,0,0}], inf),
-		Pseq([${2:1,1,1,1}], inf),
-		"${3:....}",
-		inf,
-		${4:0.5}
-	),
 snippet Pcontrol "Pcontrol class"
-	Ndef(\\${1}, Pcontrol(
-		\\${2},
-		${0:${VISUAL}}
-		\dur, 2,
-	))
+	Ndef(\\${1},
+		Pcontrol(
+			\\${2},
+			${0:${VISUAL}}
+			\dur, 2,
+		)
+	)
 snippet Ndeffilter
 	(Ndef(\\${1}).filter(${2}, {|in|
 		${0:${VISUAL}}
 	}))
 snippet SynthDef
 	(
-		SynthDef(\\${1}, {arg out=0, freq=440, gate=1, amp=1.0;
+		SynthDef(\\${1}, {
+			var snd;
 			${0:${VISUAL}}
+			Out.ar(\out.kr(0), snd * \amp.kr(1.0));
 		}).add;
 	)
 snippet bpm "set the bpm"
 	p.clock.tempo = ${1:150}/60;
 snippet mod "create a value modulator"
-	Ndef(\\${1}, Pcontrol(
-		\mod,
-		\value, Pseq([1], inf),
-		\slew, 0,
-		\dur, 4
-	))
+	Ndef(\\${1},
+		Pcontrol(
+			\mod,
+			\value, Pseq([1], inf),
+			\slew, 0,
+			\dur, 4
+		)
+	)
 	Ndef(\\${1}).quant = 4;
 snippet envfollower "create an envelope follower"
-	Ndef(\\${1}, Pcontrol(
-		\envfollower,
-		\gain, 1,
-		\value, 1,
-		\offset, 0,
-		\attack, 0.01,
-		\decay, 0.7,
-	))
+	Ndef(\\${1},
+		Pcontrol(
+			\envfollower,
+			\gain, 1,
+			\value, 1,
+			\offset, 0,
+			\attack, 0.01,
+			\decay, 0.7,
+		)
+	)
 	Ndef(\\${1}) <<> ${2};
 snippet envducker "create an envelope ducker"
-	Ndef(\\${1}, Pcontrol(
-		\envducker,
-		\gain, 3,
-		\value, 1,
-		\offset, 0,
-		\attack, 0.1,
-		\decay, 0.7,
-	))
+	Ndef(\\${1},
+		Pcontrol(
+			\envducker,
+			\gain, 3,
+			\value, 1,
+			\offset, 0,
+			\attack, 0.1,
+			\decay, 0.7,
+		)
+	)
 	Ndef(\\${1}) <<> ${2};
 snippet percenv "create a envelope modulator"
-	Ndef(\\${1}, Pcontrol(
-		\percenv,
-		\attack, 0.01,
-		\decay, 0.1,
-		\curve, -4,
-		\value, 4,
-		\offset, 0,
-		\dur, 4
-	))
+	Ndef(\\${1},
+		Pcontrol(
+			\percenv,
+			\attack, 0.01,
+			\decay, 0.1,
+			\curve, -4,
+			\value, 4,
+			\offset, 0,
+			\dur, 4
+		)
+	)
 	Ndef(\\${1}).quant = 4;
 snippet mixer
 	Ndef(\\${1}, {
@@ -106,3 +112,5 @@ snippet Pmetro
 		"${3:--------}",
 		inf,
 		${4:0.25})
+snippet channelstrip
+	ChannelStrip.ar(${1:Silent.ar}, ~faders[${2}].kr(1), 0)
