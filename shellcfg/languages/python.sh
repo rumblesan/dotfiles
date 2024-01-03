@@ -3,6 +3,8 @@
 # ----------------------------------------------------------------------
 # Python specific config
 
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+
 if [ -n "$(command -v pyenv)" ]; then
   export PATH="${HOME}/.pyenv/shims:${PATH}"
 

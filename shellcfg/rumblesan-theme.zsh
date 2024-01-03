@@ -162,7 +162,7 @@ prompt_tmux() {
 prompt_virtualenv() {
   local virtualenv_path="$VIRTUAL_ENV"
   if [[ -n $virtualenv_path ]]; then
-    prompt_segment green black "(`basename $virtualenv_path`)"
+    prompt_segment white black "(`basename $virtualenv_path`)"
   fi
 }
 
@@ -186,7 +186,7 @@ build_prompt() {
   RETVAL=$?
   prompt_status
   prompt_tmux
-  #prompt_virtualenv
+  prompt_virtualenv
   prompt_dir
   prompt_git
   prompt_end
