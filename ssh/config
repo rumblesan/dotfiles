@@ -7,4 +7,4 @@ Host *
     ForwardAgent yes
     AddKeysToAgent yes
 
-Include ~/.ssh/local_config
+Include config.d/*
