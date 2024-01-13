@@ -40,6 +40,7 @@ Plug 'jenterkin/vim-autosource'
 Plug 'w0rp/ale'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
+Plug 'lepture/vim-jinja'
 
 -- Snippets
 Plug 'honza/vim-snippets'
@@ -138,6 +139,7 @@ vim.g.ale_fixers = {
   ['terraform'] = { 'terraform' },
   ['python'] = { 'black' },
   ['c'] = { 'clang-format' },
+  ['javascript'] = { 'eslint' },
 }
 vim.g.ale_python_black_options = '--line-length 99'
 
