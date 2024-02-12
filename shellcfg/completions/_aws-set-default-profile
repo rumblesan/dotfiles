@@ -1,0 +1,4 @@
+#compdef aws-set-default-profile
+#autoload
+
+_arguments -C "1: :(`aws configure list-profiles`)"
