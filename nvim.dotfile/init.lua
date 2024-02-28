@@ -128,6 +128,7 @@ end
 -- ALE settings
 vim.g.ale_linters = {
   ['terraform'] = { 'tflint' },
+  ['yaml'] = { 'yamllint' },
   ['python'] = { 'flake8' },
   ['c'] = { 'clang' },
 }
