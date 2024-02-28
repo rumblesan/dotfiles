@@ -14,6 +14,7 @@ readonly columns=(
     "NODEGROUP:.metadata.labels.eks\.amazonaws\.com/nodegroup"
     "TYPE:.metadata.labels.node\.kubernetes\.io/instance-type"
     "ZONE:.metadata.labels.topology\.kubernetes\.io/zone"
+    "K8S_VERSION:.status.nodeInfo.kubeletVersion"
     "CREATED:.metadata.creationTimestamp"
 )
 cmd=$(printf ",%s" "${columns[@]}")
