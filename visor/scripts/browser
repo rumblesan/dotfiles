@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+readonly SCRIPT_DIR=$( dirname "${BASH_SOURCE[0]}")
+
+case "$BROWSER" in
+    "firefox")
+        $SCRIPT_DIR/firefox
+        ;;
+    "chrome")
+        $SCRIPT_DIR/chrome
+        ;;
+    *)
+        $SCRIPT_DIR/firefox
+        ;;
+esac

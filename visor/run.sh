@@ -15,6 +15,8 @@ if [ -d /opt/homebrew/bin/ ];then
 fi
 eval "$(brew shellenv)"
 
+source ~/.visorrc
+
 readonly SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 die() {
