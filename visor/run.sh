@@ -10,12 +10,14 @@ set -o pipefail
 [[ "${DEBUG:-}" == 'true' ]] && set -o xtrace
 
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
-if [ -d /opt/homebrew/bin/ ];then
+if [ -d /opt/homebrew/bin/ ]; then
     export PATH="/opt/homebrew/bin:$PATH"
 fi
 eval "$(brew shellenv)"
 
-source ~/.visorrc
+if [ -f ~/.visorrc ]; then
+    source ~/.visorrc
+fi
 
 readonly SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
