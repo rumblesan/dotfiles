@@ -141,6 +141,8 @@ vim.g.ale_fixers = {
   ['python'] = { 'black' },
   ['c'] = { 'clang-format' },
   ['javascript'] = { 'eslint' },
+  ['typescript'] = { 'prettier', 'eslint' },
+  ['typescriptreact'] = { 'prettier', 'eslint' },
 }
 vim.g.ale_python_black_options = '--line-length 99'
 
