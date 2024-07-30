@@ -27,7 +27,7 @@ Plug('junegunn/fzf', {['do'] = vim.fn['fzf#install']})
 Plug 'junegunn/fzf.vim'
 
 -- Styling
-Plug 'altercation/vim-colors-solarized'
+Plug('lifepillar/vim-solarized8', { ['branch'] = 'neovim' })
 Plug 'nvim-lualine/lualine.nvim'
 
 -- General Usability
@@ -83,7 +83,7 @@ keymap.set("n", "<CR>", ":noh<CR><CR>", {desc = 'Clear last search pattern'})
 
 -- Colorscheme settings
 opt.background = "dark"
-vim.cmd.colorscheme('solarized')
+vim.cmd.colorscheme('solarized8')
 
 -- Disable arrow keys
 keymap.set('', '<up>', '<nop>')
