@@ -41,6 +41,7 @@ Plug 'w0rp/ale'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
 Plug 'lepture/vim-jinja'
+Plug 'Joorem/vim-haproxy'
 
 -- Snippets
 Plug 'honza/vim-snippets'
