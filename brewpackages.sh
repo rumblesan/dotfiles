@@ -19,7 +19,6 @@ basic() {
     coreutils
     git
     git-lfs
-    gh
     neovim
     reattach-to-user-namespace
     the_silver_searcher
