@@ -49,7 +49,7 @@ casks() {
     alacritty
     docker
     iterm2
-    slate
+    fertigt-slate
     vlc
   )
   brew tap caskroom/cask
