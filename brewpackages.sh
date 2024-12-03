@@ -46,8 +46,6 @@ development() {
 
 casks() {
   local caskbrews=(
-    1password
-    1password-cli
     alacritty
     docker
     iterm2
