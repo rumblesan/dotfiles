@@ -1,0 +1,7 @@
+#!/usr/bin/env osascript
+
+set myTarget to ((path to home folder) as text)
+
+tell application "Finder"
+  make new Finder window to folder myTarget
+end tell
