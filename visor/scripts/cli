@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 
-alacritty msg create-window --working-directory ~
+OUTPUT=$(alacritty msg create-window --working-directory ~ 2>&1)
+
+if [ $? -ne 0 ] && [[ "$OUTPUT" == *"no socket found"* ]]; then
+    open -a Alacritty;
+fi
