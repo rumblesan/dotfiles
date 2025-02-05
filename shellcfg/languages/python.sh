@@ -10,6 +10,8 @@ if [ -n "$(command -v pyenv)" ]; then
   pyenv() {
       eval "$(command pyenv init - zsh)"
 
+      eval "$(pyenv virtualenv-init -)"
+
       pyenv "$@"
   }
 
