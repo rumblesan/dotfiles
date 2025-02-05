@@ -6,8 +6,6 @@ opt.hidden = true
 -- allow external vimrc
 opt.exrc = true
 
-vim.g.python3_host_prog = vim.fn['pyenv#path']('neovim')
-
 local Plug = vim.fn['plug#']
 
 -- Setup plugins
@@ -19,7 +17,6 @@ Plug 'tpope/vim-sensible'
 
 -- Basic usage
 Plug 'tpope/vim-vinegar'
-Plug 'mileszs/ack.vim'
 
 -- Navigation
 Plug 'christoomey/vim-tmux-navigator'
@@ -120,7 +117,7 @@ opt.splitright = true
 keymap.set('n', '<leader>f', ':Lexplore<CR>')
 keymap.set('n', '<leader>r', ':Files<CR>')
 keymap.set('n', '<leader>b', ':Buffers<CR>')
-keymap.set('n', '<leader>g', ':Ack!<Space>')
+keymap.set('n', '<leader>g', ':Ag<Space>')
 
 if vim.fn.executable('ag') == 1 then
   vim.g.ackprg = 'ag --vimgrep'
