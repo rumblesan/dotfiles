@@ -18,16 +18,20 @@ fi
 # PATH
 # ----------------------------------------------------------------------
 
-PATH=$DOTFILES/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+if [ -x /usr/libexec/path_helper ]; then
+	PATH=""
+	eval `/usr/libexec/path_helper -s`
+fi
 
 if [ -d /opt/homebrew/bin/ ];then
     PATH="/opt/homebrew/bin:$PATH"
 fi
 
-# put ~/.local/bin on PATH if you have it
 if [ -d $HOME/.local/bin ]; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+
+PATH="$DOTFILES/bin:$PATH"
 
 export PATH
 
